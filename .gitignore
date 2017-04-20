@@ -1,1 +1,2 @@
 django/env/
+*__pycache__*
