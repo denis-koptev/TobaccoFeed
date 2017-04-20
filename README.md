@@ -57,4 +57,4 @@ Install with PATH and name limit deactivation
 ## Связь html и питона (шаблоны)
 
 * Соответсвующие html коды помещены в папку
-<appname>/template/<appname> для каждого приложения (tobacco, main и т.д.)
+'appname'/template/'appname' для каждого приложения (tobacco, main и т.д.)
