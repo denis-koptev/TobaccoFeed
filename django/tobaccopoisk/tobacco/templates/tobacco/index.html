@@ -37,7 +37,7 @@ body {
 
 .inf {
     width: auto;
-    background-color: #CCCCCC;
+    background-color: #DDDDDD;
     position: relative;
     overflow: hidden;
 }
@@ -59,6 +59,27 @@ li {
     overflow: hidden;
 }
 
+a:link, a:visited {
+    display: block;
+    height: 68px;
+    min-width: 243px;
+    font-size: 12px;
+    color: #FFFFFF;
+    border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+    background-color: #444444;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', Arial;
+    letter-spacing: 2pt;
+    line-height: 200%;
+    overflow: hidden;
+}
+
+a:hover, a:active {
+    background-color: #444444;
+}
+
 </style>
 
 </head>
@@ -72,14 +93,28 @@ li {
     <div class="nav">
     	<p align=center> <font size=7 color=white> {{name}} </font> </p>
     </div>
+
     <hr color = gray>
+
     <div class="nav">
     	<p align=center> <font size=6 color=white> Description </font> </p>
     </div>
 
     <div class="inf"> 
-		<p align=center> <font size=4 color=white> <!--{{description}} --></font> </p>
+		<p align=center> <font size=4 color=black> {{description}} </font> </p>
 	</div>
+
+	<hr color = gray>
+
+	    <div class="nav">
+        <ul>
+            <li><a href=""> <br>КРЕПОСТЬ: {{strength}}</a></li>
+            <li><a href=""><br>ЖАРОСТОЙКОСТЬ: {{heat}}</a></li>
+            <li><a href=""><br>ДЫМНОСТЬ: {{smoke}}</a></li>
+            <li><a href=""><br>ВКУСОПЕРЕДАЧА: {{taste}}</a></li>
+        </ul>
+    </div>
+
 </div>
 
 </body>
