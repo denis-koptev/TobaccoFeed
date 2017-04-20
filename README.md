@@ -39,3 +39,7 @@ Install with PATH and name limit deactivation
 * [pip install Pillow]
 
 В будующем этого может стать недостаточно, т.е могут появить еще модули!!!
+
+## Проверка
+Чтобы проверить что все работает, нужно выполнить команду
+* [manage.py runserver]
