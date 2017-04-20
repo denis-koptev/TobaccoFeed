@@ -7,6 +7,9 @@ Download python3 https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe
 
 Install with PATH and name limit deactivation
 
+Клоним проект
+* [git clone https://github.com/denis-koptev/tobacco_project]
+
 После установки питона нужно поставить виртуальное окружение
 
 Можно это сделать из любой папки, но лучше в папке django рядом с папкой tobacco
