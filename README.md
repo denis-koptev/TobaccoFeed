@@ -19,10 +19,10 @@ Install with PATH and name limit deactivation
 Это создаст папку env в текущей директории
 
 Для активации 	
-* [env\Script\activate.bat]
+* [env\Scripts\activate.bat]
 
 Для деактивации 
-* [env\Script\deactivate.bat]
+* [env\Scripts\deactivate.bat]
 
 ### Далее все действия внутри окружения:
 
