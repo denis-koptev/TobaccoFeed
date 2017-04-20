@@ -1,8 +1,10 @@
 ## tobacco_project
+
 From potential creators of porn-social network
 
 
 ## How to start
+
 Download python3 https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe
 
 Install with PATH and name limit deactivation
@@ -40,6 +42,9 @@ Install with PATH and name limit deactivation
 
 В будующем этого может стать недостаточно, т.е могут появить еще модули!!!
 
-## Проверка
-Чтобы проверить что все работает, нужно выполнить команду
-* [manage.py runserver]
+## Запуск сервера
+
+* Перейти в папку проекта tobacco_project/django/tobaccopoisk
+* Выполнить: [managy.py runserver]
+* Опционально: после вызова можно указать ip:port
+* По дефолту: 127.0.0.1:8000
