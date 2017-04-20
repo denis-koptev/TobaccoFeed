@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'tobacco',
+    'main_page',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,4 +121,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+""" Workable for japroc
+STATIC_ROOT = '/Users/japro_000/Desktop/TobaccoPoisk/django/tobaccopoisk'
+STATICFILES_DIRS = (
+    '/Users/japro_000/Desktop/TobaccoPoisk/django/tobaccopoisk/main_page/static',
+)
+"""
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static"), # untrusted definition
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "main_page/static"), # untrusted definition
+)

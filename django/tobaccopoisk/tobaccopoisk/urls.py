@@ -18,6 +18,7 @@ from django.contrib import admin
 import main_page.views as main_view
 
 urlpatterns = [
+    url(r'^hookah/$', main_view.hookah, name="hookah"),
 	url(r'^$', main_view.index, name="main_page"),
     url(r'^admin/', admin.site.urls),
 
