@@ -7,5 +7,5 @@ from django.http import Http404
 
 def tobacco_view(request, brand, name):
 	tobacco = get_object_or_404(Tobacco, brand=brand, name=name)
-	context = {'brand': brand.title(), 'name':name.title()}
+	context = {'brand': brand.title(), 'name':name.title(),}
 	return render(request, 'tobacco/index.html', context)

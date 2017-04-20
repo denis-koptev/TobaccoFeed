@@ -1,15 +1,87 @@
-<hr color=gray>
+<html>
+<head>
+<title>Tobacco</title>
 
-<p align=center>
-	<font size=6> 
-	{{brand}} 
-</p>
+<style>
+body {
+    margin: 0px;
+    background-color: #aaaaaa;
+    height: 2000px;
+}
 
-<hr color=grey> 
 
-<p align=center>
-	<font size=7> 
-	{{name}}
-</p>
-	
-<hr color=grey>
+/* 1. HEADER */
+
+.headercss {
+    width: auto;
+    height: 40px;
+    background-color: #666666;
+    position: relative;
+}
+
+.headerlogo {
+    width: auto;
+    margin: 10px;
+    height: 40px;
+    background-color: #666666;
+    position: relative;
+}
+
+.nav {
+    width: auto;
+    height: 70px;
+    background-color: #666666;
+    position: relative;
+    overflow: hidden;
+}
+
+.inf {
+    width: auto;
+    background-color: #CCCCCC;
+    position: relative;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float:left;
+    width:100%;
+    overflow: hidden;
+}
+
+
+li {
+    float: left;
+    width:25%;
+    min-width: 243px;
+    overflow: hidden;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="headercss">
+    <div class="headerlogo">
+    	<p align=center> <font size=6 color=white> {{brand}} </font> </p>
+    </div>
+    <div class="nav">
+    	<p align=center> <font size=7 color=white> {{name}} </font> </p>
+    </div>
+    <hr color = gray>
+    <div class="nav">
+    	<p align=center> <font size=6 color=white> Description </font> </p>
+    </div>
+
+    <div class="inf"> 
+		<p align=center> <font size=4 color=white> <!--{{description}} --></font> </p>
+	</div>
+</div>
+
+</body>
+
+</html>
