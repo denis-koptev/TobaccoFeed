@@ -52,9 +52,9 @@ Install with PATH and name limit deactivation
 ## Создание юзера в админке
 
 * manage.py createsuperuser
+* Чтобы войти, к адресу сайта приписываем /admin
 
 ## Связь html и питона (шаблоны)
 
 * Соответсвующие html коды помещены в папку
 <appname>/template/<appname> для каждого приложения (tobacco, main и т.д.)
-* Чтобы войти, к адресу сайта приписываем /admin
