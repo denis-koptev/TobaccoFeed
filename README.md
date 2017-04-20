@@ -48,3 +48,13 @@ Install with PATH and name limit deactivation
 * Выполнить: [managy.py runserver]
 * Опционально: после вызова можно указать ip:port
 * По дефолту: 127.0.0.1:8000
+
+## Создание юзера в админке
+
+* manage.py createsuperuser
+
+## Связь html и питона (шаблоны)
+
+* Соответсвующие html коды помещены в папку
+<appname>/template/<appname> для каждого приложения (tobacco, main и т.д.)
+* Чтобы войти, к адресу сайта приписываем /admin
