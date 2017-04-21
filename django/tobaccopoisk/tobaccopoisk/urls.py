@@ -18,11 +18,13 @@ from django.contrib import admin
 import main_page.views as main_view
 
 urlpatterns = [
-    url(r'^hookah/$', main_view.hookah, name="hookah"),
 	url(r'^$', main_view.index, name="main_page"),
+    url(r'^admin', admin.site.urls),
     url(r'^admin/', admin.site.urls),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
 	url(r'^', include('tobacco.urls')),
+
+    url(r'^', main_view.error_404, name='error_404'),
 ]
