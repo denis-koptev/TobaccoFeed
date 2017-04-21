@@ -5,7 +5,7 @@ from django.template import loader
 # Create your views here.
 
 def index(request):
-    return HttpResponse("<p><center>TobaccoPoisk.ru</center></p>")
+    return render(request, 'main_page/main_page.html', {})
 
 def hookah(request):
     return render(request, 'main_page/hookah.html', {})
