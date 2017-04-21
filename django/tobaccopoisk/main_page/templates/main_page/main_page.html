@@ -10,239 +10,12 @@
 			Главная - Табакопоиск
 		</title>
 
-		<!--><link type="text/css" rel="stylesheet" href="main_page_style.css"></link>-->
-
-		<!-- 
-		 This <style> tag looks like a big stinky piece of crap
-		 Can't load css, maybe make it static...
-		-->
-
-		<style>
-
-			body {
-			    margin: 0;
-			    background-color: #AAAAAA;
-			    min-width: 720px;
-			}
-
-			.fixed_nav_bar {
-				padding: 0px;
-			    position: fixed;
-			    top: 0;
-			    left: 0;
-			    right: 0;
-			    z-index: 9999;
-			    width: 100%;
-			    height: 50px;
-			    min-width: 720px;
-			}
-
-			/* Add a black background color to the top navigation */
-			.topnav {
-			    background-color: #555555;
-			    overflow: hidden;
-			    height: 50px;
-			}
-
-			/* Style the links inside the navigation bar */
-			.topnav a {
-			    float: left;
-			    display: block;
-			    color: #f2f2f2;
-			    text-align: center;
-			    padding: 14px 16px;
-			    text-decoration: none;
-			    font-size: 17px;
-			}
-
-			/* Change the color of links on hover */
-			.topnav a:hover {
-			    background-color: #ddd;
-			    color: black;
-			}
-
-			/* Add a color to the active/current link */
-			.topnav a.active {
-			    background-color: #4CAF50;
-			    color: white;
-			}
-
-			/* LOGO */
-
-			.logo_div {
-				position: fixed;
-			    /*float: left;*/
-			    height: 50px;
-			    margin-left: 10%;
-			   /* margin-top: 10px;*/
-			    padding: 0px;
-			}
-
-			.logo_icon {
-			    float:left;
-			    height: 50px;
-			}
-
-			.logo_text {
-			    float: left;
-			    font-size: 26px;
-			    font-family: c;
-			    color: #faf3c0;
-			    line-height: 50px;
-			    font-family: Calibri;
-			}
- 
-			/* SEARCH WIDGET */
-
-			.search_div {
-				position: fixed;
-			    /*float: left;*/
-			    width: 30%;
-			    height: 30px;
-			    margin-left: 35%;
-			    margin-top: 10px;
-			    padding: 0px;
-			}
-
-			.search_icon {
-				/*float: left;*/
-			    margin-left: 10px;
-			    /*line-height: 50px;*/
-			    /*margin-top: 14px;*/
-			    height: 100%;
-			}
-
-			.search_bar {
-				float: left;
-				margin-top: 0px;
-			    width:50%;
-			    height:100%;
-			    background-color: #444444;
-			    padding: 0 30px 0 6px;
-			    font: 16px Helvetica, Arial, sans-serif; 
-			    color: #999999;
-			    box-shadow: inset 0 1px 1px #575555, 0 1px 0 #FFF;
-			    border: 1px solid #747474;
-			    border-radius: 3px;
-			}
-
-			.search_bar:focus {
-			    width:80%;
-			    background-color: #DDDDDD;
-			    box-shadow: inset 0 1px 1px #46575b, 0 1px 0 #FFF;
-			    font: 16px Helvetica, Arial, sans-serif; 
-			    color: #333333;
-			    outline: none;
-			    -moz-transition: all .2s ease-out;
-			    -webkit-transition: all .2s ease-out;
-			    -o-transition: all .2s ease-out;
-			    transition: all .2s ease-out;
-			}
-
-			/* USER WIDGET */
-
-			.user_div {
-				position: fixed;
-			    /*float: left;*/
-			    height: 50px;
-			    margin-left: 80%;
-			   /* margin-top: 10px;*/
-			    padding: 0px;
-			}
-
-			.user_text {
-				float: left;
-				margin-left: 10px;
-			    font-size: 20px;
-			    color: #CCCCCC;
-			    line-height: 50px;
-			    font-family: Calibri;
-			}
-
-			.user_icon {
-				float: left;
-			    /*float:right;*/
-			    height: 50px;
-			}
-
-			.bar_texture {
-			    float:right;
-			    margin-right: 20%;
-			    height: 50px;
-			}
-
-			.side_bar {
-			    background-color: #999999;
-			    width: 20%;
-			}
-
-			.main_content {
-			    background-color: #CCCCCC;
-			}
-
-			.content {
-			    font: normal 18px/22px "Varela Round", sans-serif;
-			    color: #2e2e2e;
-			    position: relative;
-			    background: #464646 url("{% static "main_page/bg_bar.jpg" %}") no-repeat center center fixed;
-			    background-size: cover;
-			}
-
-			.content_add {
-			    margin-top: 2px;
-			    font: normal 18px/22px "Varela Round", sans-serif;
-			    color: #2e2e2e;
-			    position: relative;
-			    background: #464646 url("{% static "main_page/bg_content.jpg" %}") no-repeat center center fixed;
-			    background-size: cover;
-			}
-
-			.description {
-			    padding-top: 100px;
-			    min-height: 500px;
-			    text-align: center;
-			}
-
-			.summary {
-			    color: #d9dee2;
-			    margin-top: 40px;
-			    margin-bottom: 60px;
-			}
-
-			.button, .button:visited, .button-dark {
-			    font-size: 50px;
-			    display: inline-block;
-			   /* max-width: 200px;*/
-			    margin: 180px 10px 30px 10px;
-			    padding: 20px;
-			    font-family: "Signika", sans-serif;
-			    color: #ffffff;
-			    background-color: transparent;
-			    border: 2px solid #ffffff;
-			    border-radius: 3px;
-			    text-transform: capitalize;
-			    text-align: center;
-			    transition: all 0.1s ease;
-			}
-
-			a:link, a:visited, a:hover, a:active {
-			    text-decoration: none;
-			}
-
-			.head_title {
-			    font-size: 70px;
-			    margin-top: 150px;
-			    color: #DDDDDD;
-			}
-
-		</style>
-
+		<link type="text/css" rel="stylesheet" href="{% static "main_page/main_page_style.css" %}"></link>
 
 	</head>
 
-	<body>
 
-		<!-- TOP NAVIGATION BAR WITH ICON, LOGO, SEARCH-BAR AND USER-ICON -->
+	<body>
 		
 		<nav class="fixed_nav_bar">
 		<div class="topnav">
@@ -256,18 +29,16 @@
 
 			<div class="search_div">
 				<input class="search_bar" placeholder="Искать табак">
-
 				<img src = "{% static "main_page/search_icon.png" %}" class="search_icon">
 			</div>
 
-							<img src = "{% static "main_page/bar_texture.png" %}" class="bar_texture">
-			
 			<div class="user_div">
 				<img src = "{% static "main_page/user_icon.png" %}" class="user_icon">
 				<div class="user_text">
 					Username
 				</div>
 			</div>
+							
 
 		</div>
 		</nav>
@@ -277,13 +48,16 @@
 		<section class="content">
 		  <div class="description">
 		    <a class="button" href="">Newest Tobacco Right Here</a>
+		    <p></p>
 		    <a class="button" href="">The most complete information</a>
 		  </div>
 		</section>
 
 		<section class="content_add">
 		  <div class="description">
-		  	<a class="button" href="">TobaccoPoisk coming soon</a>
+		  	<a class="button" href="">TobaccoPoisk</a>
+		  	<p></p>
+		  	<a class="button" href="">coming soon</a>
 		  </div>
 		</section>
 
