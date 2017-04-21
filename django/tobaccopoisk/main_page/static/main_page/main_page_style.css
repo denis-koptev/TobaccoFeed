@@ -2,12 +2,12 @@
 body {
     margin: 0;
     background-color: #AAAAAA;
-    min-width: 1280px;
+    min-width: 1000px;
 }
 
 .fixed_nav_bar {
-	position: fixed;
-	padding: 0px;
+    position: fixed;
+    padding: 0;
     top: 0;
     left: 0;
     right: 0;
@@ -19,7 +19,7 @@ body {
     background-color: #555555;
     overflow: hidden;
     height: 50px;
-    min-width: 1280px;
+    min-width: 1000px;
 }
 
 /* LOGO */
@@ -28,28 +28,27 @@ body {
     float: left;
     height: 50px;
     margin-left: 10%;
-    width: 15%;
-    padding: 0px;
+    width: 20%;
+    padding: 0;
 }
 
 .logo_icon {
-    float:left;
+    float: left;
     height: 50px;
 }
 
 .logo_text {
     float: left;
     font-size: 26px;
-    font-family: c;
     color: #faf3c0;
     line-height: 50px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
 }
 
 /* SEARCH WIDGET */
 
 .search_div {
-	margin-left: 10%;
+    margin-left: 5%;
     float: left;
     width: 30%;
     height: 30px;
@@ -58,7 +57,7 @@ body {
 }
 
 .search_icon {
-	position: absolute;
+    position: absolute;
     height: 25px;
     margin-top: 3px;
     margin-left: 10px;
@@ -68,8 +67,8 @@ body {
     border: 0;
     box-sizing: border-box;
     padding: 6px 6px 6px 19px;
-    height:100%;
-    width:50%;
+    height: 100%;
+    width: 50%;
     border-radius: 14px;
     font: 16px Helvetica, Arial, sans-serif;
     -moz-transition: all .2s ease-out;
@@ -81,7 +80,7 @@ body {
 }
 
 .search_bar:focus {
-	width: 80%;
+    width: 80%;
     background-color: #DDDDDD;
     color: #333333;
     outline: none;
@@ -90,24 +89,24 @@ body {
 /* USER WIDGET */
 
 .user_div {
-	float: right;
-	margin-right: 10%;
+    float: right;
+    margin-right: 10%;
     height: 50px;
-    padding: 0px;
+    padding: 0;
     max-width: 25%;
 }
 
 .user_text {
-	float: left;
-	margin-left: 10px;
+    float: left;
+    margin-left: 10px;
     font-size: 20px;
     color: #CCCCCC;
     line-height: 50px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
 }
 
 .user_icon {
-	float: left;
+    float: left;
     height: 50px;
 }
 
