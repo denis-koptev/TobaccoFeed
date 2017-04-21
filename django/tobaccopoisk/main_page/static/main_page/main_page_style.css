@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #AAAAAA;
     min-width: 1000px;
+    width: 100%;
 }
 
 .fixed_nav_bar {
@@ -28,7 +29,7 @@ body {
     float: left;
     height: 50px;
     margin-left: 10%;
-    width: 20%;
+    width: 25%;
     padding: 0;
 }
 
@@ -48,7 +49,6 @@ body {
 /* SEARCH WIDGET */
 
 .search_div {
-    margin-left: 5%;
     float: left;
     width: 30%;
     height: 30px;
@@ -136,6 +136,36 @@ body {
     position: relative;
     background: #464646 url("bg_content.jpg") no-repeat center center fixed;
     background-size: cover;
+    margin-bottom: 2px;
+}
+
+.content_add1 {
+    margin-top: 2px;
+    font: normal 18px/22px "Varela Round", sans-serif;
+    color: #2e2e2e;
+    position: relative;
+    background: #464646 url("bg_content1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin-bottom: 2px;
+}
+
+.content_add2 {
+    font: normal 18px/22px "Varela Round", sans-serif;
+    color: #2e2e2e;
+    position: relative;
+    background: #464646 url("bg_content2.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.footer {
+    margin-top: 2px;
+    font: normal 18px/22px "Varela Round", serif;
+    color: #CCCCCC;
+    position: relative;
+    background: #222222;
+    background-size: cover;
+    padding: 10px;
+    text-align: center;
 }
 
 .description {
