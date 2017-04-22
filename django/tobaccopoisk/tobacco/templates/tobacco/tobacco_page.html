@@ -129,34 +129,12 @@
 
 </table>
 
+
+<!-- SCRIPTS -->
+
+<script src="{% static "main_page/dropdown.js" %}"></script>
+
+
 </body>
-
-
-<!-- SCRIPT FOR USER DROPDOWN -->
-<!-- This shit is very ugly. Must find out how to store js in sep file -->
-
-<script>
-
-function userClicked() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn*')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-
-<!-- END SRCIPT FOR USER DROPDOWN -->
-
 
 </html>
