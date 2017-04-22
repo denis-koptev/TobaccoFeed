@@ -18,12 +18,14 @@
 <nav class="fixed_nav_bar">
     <div class="topnav">
 
-        <div class="logo_div">
-            <img src="{% static "tobacco/logo2.png" %}" class="logo_icon">
-            <div class="logo_text">
-                TobaccoFeed
+        <a href="/">
+            <div class="logo_div">
+                <img src="{% static "tobacco/logo2.png" %}" class="logo_icon">
+                <div class="logo_text">
+                    TobaccoFeed
+                </div>
             </div>
-        </div>
+        </a>
 
         <div class="search_div">
             <input class="search_bar" placeholder="Search tobacco">
@@ -40,13 +42,23 @@
                     </div>
                 </div>
 
-              <div id="myDropdown" class="dropdown-content">
-                Profile
-                <hr>
-                Settings
-                <hr>
-                Log Out
-              </div>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#profile">
+                        <div class="user_link">
+                            Profile
+                        </div>
+                    </a>
+                    <a href="#settings">
+                        <div class="user_link">
+                            Settings
+                        </div>
+                    </a>
+                    <a href="#logout">
+                        <div class="user_link">
+                            Log Out
+                        </div>
+                    </a>
+                </div>
 
             </div>
         </div>
@@ -80,41 +92,34 @@
                             </div>
                         </div>
 
-                        <div class="nav">
-                            <p align=center> <font size=7 color=white> {{name}} </font> </p>
+                        <div class="inf">
+                            <p align=center> <font size=7> {{name}} </font> </p>
                         </div>
 
-                        <hr color = gray>
 
-                        <div class="nav">
+                        <div class="headerlogo">
                             <p align=center> <font size=6 color=white> Description </font> </p>
                         </div>
 
                         <div class="inf"> 
-                            <p align=center> <font size=4 color=black> {{tobacco.description}} </font> </p>
+                            <p align=center> <font size=4> {{tobacco.description}} </font> </p>
                         </div>
 
-                        <hr color = gray>
 
-                        <div class="nav">
-                            <ul>
-                                <li><a href=""><br>КРЕПОСТЬ: <b><font size="4">{{tobacco.strength}}</font></b></a></li>
-                            </ul>
+                        <div class="headerlogo">
+                            <p align=center> <font size=6 color=white> System requirements </font> </p>
                         </div>
-                        <div class="nav">
-                            <ul>
-                                <li><a href=""><br>ЖАРОСТОЙКОСТЬ: <b><font size="4">{{tobacco.heat}}</font></b></a></li>
-                            </ul>
+                        <div class="inf">
+                            <p class="reqs">КРЕПОСТЬ: <b><font size="4">{{tobacco.strength}}</font></b></p>
                         </div>
-                        <div class="nav">
-                            <ul>
-                                <li><a href=""><br>ДЫМНОСТЬ: <b><font size="4">{{tobacco.smoke}}</font></b></a></li>
-                            </ul>
+                        <div class="inf">
+                            <p class="reqs">ЖАРОСТОЙКОСТЬ: <b><font size="4">{{tobacco.heat}}</font></b></p>
                         </div>
-                        <div class="nav">
-                            <ul>
-                                <li><a href=""><br>ВКУСОПЕРЕДАЧА: <b><font size="4">{{tobacco.taste}}</font></b></a></li>
-                            </ul>
+                        <div class="inf">
+                            <p class="reqs">ДЫМНОСТЬ: <b><font size="4">{{tobacco.smoke}}</font></b></p>
+                        </div>
+                        <div class="inf">
+                            <p class="reqs">ВКУСОПЕРЕДАЧА: <b><font size="4">{{tobacco.taste}}</font></b></p>
                         </div>
 
                     </td>
@@ -129,6 +134,16 @@
 
 </table>
 
+
+<!-- This damn footer must be unique for all pages, too -->
+
+<section class="footer">
+    <div class="copyright_init">© 235Room, 2017</div>
+    <img src="{% static "main_page/kda_logo.png" %}" class="copyright"> 
+    <img src="{% static "main_page/j_logo.png" %}" class="copyright"> 
+
+    <p>Contact us:</b> <u>koptevda@ya.ru</u> | <u>procenkoeg@mail.ru</u></p>
+</section>
 
 <!-- SCRIPTS -->
 
