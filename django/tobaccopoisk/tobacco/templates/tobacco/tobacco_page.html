@@ -4,15 +4,20 @@
 <head>
 <title>{{brand}} {{name}} - TobaccoFeed</title>
 
+    <link type="text/css" rel="stylesheet" href="{% static "/nav_bar_style.css" %}"></link>
+
     <link type="text/css" rel="stylesheet" href="{% static "tobacco/tobacco_page_style.css" %}"></link>
 
-    <link rel="icon" href="{% static "tobacco/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "/footer_style.css" %}"></link>
+
+    <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
 
 <body>
 
 <!-- NAV BAR --> 
+
 <!-- Should make it in separate file, cuz it's motherfucking copypaste -->
 
 <nav class="fixed_nav_bar">
@@ -20,7 +25,7 @@
 
         <a href="/">
             <div class="logo_div">
-                <img src="{% static "tobacco/logo2.png" %}" class="logo_icon">
+                <img src="{% static "/logo2.png" %}" class="logo_icon">
                 <div class="logo_text">
                     TobaccoFeed
                 </div>
@@ -29,14 +34,14 @@
 
         <div class="search_div">
             <input class="search_bar" placeholder="Search tobacco">
-            <img src="{% static "tobacco/search_icon.png" %}" class="search_icon">
+            <img src="{% static "/search_icon.png" %}" class="search_icon">
         </div>
 
         <div class="user_div">
             <div class="dropdown">
 
                 <div onclick="userClicked()" class="dropbtn">       
-                    <img src="{% static "tobacco/user_icon.png" %}" class="user_icon">    
+                    <img src="{% static "/user_icon.png" %}" class="user_icon">    
                     <div class="user_text">
                         Username
                     </div>
@@ -139,15 +144,15 @@
 
 <section class="footer">
     <div class="copyright_init">© 235Room, 2017</div>
-    <img src="{% static "main_page/kda_logo.png" %}" class="copyright"> 
-    <img src="{% static "main_page/j_logo.png" %}" class="copyright"> 
+    <img src="{% static "/kda_logo.png" %}" class="copyright"> 
+    <img src="{% static "/j_logo.png" %}" class="copyright"> 
 
     <p>Contact us:</b> <u>koptevda@ya.ru</u> | <u>procenkoeg@mail.ru</u></p>
 </section>
 
 <!-- SCRIPTS -->
 
-<script src="{% static "main_page/dropdown.js" %}"></script>
+<script src="{% static "/dropdown.js" %}"></script>
 
 
 </body>

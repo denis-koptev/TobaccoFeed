@@ -1,0 +1,23 @@
+.footer {
+    margin-top: 2px;
+    color: #CCCCCC;
+    background: #222222;
+    padding: 10px 5px 5px;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 9999;
+}
+
+.copyright_init {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: serif;
+    font-size: 20px;
+}
+
+.copyright {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+}
