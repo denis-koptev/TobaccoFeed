@@ -34,15 +34,27 @@
             <img src="{% static "main_page/search_icon.png" %}" class="search_icon">
         </div>
 
-        <div class="user_div">
-            <img src="{% static "main_page/user_icon.png" %}" class="user_icon">
-            <div class="user_text">
-                Username
-            </div>
-        </div>
+		<div class="user_div">
+			<div class="dropdown">
 
+				<div onclick="userClicked()" class="dropbtn">		
+					<img src="{% static "main_page/user_icon.png" %}" class="user_icon">	
+					<div class="user_text">
+		                Username
+		            </div>
+				</div>
 
-    </div>
+			  <div id="myDropdown" class="dropdown-content">
+			    Profile
+			    <hr>
+			    Settings
+			    <hr>
+			    Log Out
+			  </div>
+
+			</div>
+		</div>
+
 </nav>
 
 <!-- CONTENT -->
@@ -77,7 +89,6 @@
         <p></p>
         <a class="button" href="">to hookah</a>
     </div>
-   <!-- <div class="description"/> -->
 </section>
 
 <section class="footer">
@@ -88,18 +99,35 @@
 	<p>Contact us:</b> <u>koptevda@ya.ru</u> | <u>procenkoeg@mail.ru</u></p>
 </section>
 
-<!--
-<table width="100%" height="1000" border="0">
-
-    <tr>
-        <td class="side_bar"></td>
-        <td class="main_content"></td>
-        <td class="side_bar"></td>
-    </tr>
-
-</table>
--->
-
 </body>
+
+
+
+<!-- SCRIPT FOR USER DROPDOWN -->
+
+<script>
+
+function userClicked() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn*')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!-- END SRCIPT FOR USER DROPDOWN -->
+
+
 
 </html>
