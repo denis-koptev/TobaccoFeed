@@ -133,7 +133,7 @@
     opacity: 0;
 
     background-color: rgba(255,255,255,0);
-    padding: 5px;
+    padding: 1px;
     margin-top: 5px;
     background-color: #f9f9f9;
     text-align: center;
@@ -164,7 +164,7 @@
 .user_link {
     margin: 8px;
     padding: 5px;
-    background-color: #DDDDDD;
+    background-color: #CCCCCC;
     border-radius: 5px;
     font-size: 15px;
 

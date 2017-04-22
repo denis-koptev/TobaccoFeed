@@ -86,33 +86,34 @@
             <table width="100%">
                 <tr>
                     <hr>
-                    <td width="27%" valign="top">
-                        <img src={{image}} width="98%">
+                    <td width="27%" valign="top" class="column_content">
+                        <div class="headerlogo">
+                            <p align=center> Photo  </p>
+                        </div>
+                        <img src={{image}} width="100%" class="main_image">
 
                     </td>
-                    <td valign="top">
-                        <div class="headercss">
+                    <td valign="top" class="column_content">
                             <div class="headerlogo">
-                                <p align=center> <font size=6 color=white> {{brand}} </font> </p>
+                                <p align=center>  {{brand}}  </p>
                             </div>
-                        </div>
 
                         <div class="inf">
-                            <p align=center> <font size=7> {{name}} </font> </p>
+                            <p align=center> <font size="5"> {{name}} </font></p>
                         </div>
 
 
                         <div class="headerlogo">
-                            <p align=center> <font size=6 color=white> Description </font> </p>
+                            <p align=center>  Description  </p>
                         </div>
 
                         <div class="inf"> 
-                            <p align=center> <font size=4> {{tobacco.description}} </font> </p>
+                            <p align=center> {{tobacco.description}} </p>
                         </div>
 
 
                         <div class="headerlogo">
-                            <p align=center> <font size=6 color=white> System requirements </font> </p>
+                            <p align=center> System requirements </p>
                         </div>
                         <div class="inf">
                             <p class="reqs">КРЕПОСТЬ: <b><font size="4">{{tobacco.strength}}</font></b></p>
