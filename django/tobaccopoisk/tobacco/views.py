@@ -11,6 +11,6 @@ def tobacco_view(request, brand, name):
 		return render(request, 'error_404.html', {})
 
 	context = {'brand': brand.title(), 'name':name.title(),'description':tobacco.description,
-			   'strength':tobacco.strength, 'taste':tobacco.taste, 'heat':tobacco.heat, 'smoke':tobacco.smoke,}
+			   'strength':tobacco.strength, 'taste':tobacco.taste, 'heat':tobacco.heat, 'smoke':tobacco.smoke, 'image':tobacco.image}
 
 	return render(request, 'tobacco/index.html', context)
