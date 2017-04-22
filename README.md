@@ -78,3 +78,12 @@ Install with PATH and name limit deactivation
 * `<img src="{% static "main_page/hookah.jpg" %}" alt="My Hookah"/>`
 
 *Больше примеров на сайте Джанго*
+
+
+#### TO DO LIST
+
+* Реализовать алгоритм поиска в БД по нескольким полям
+* Сделать кнопку поиска активной, чтобы перекидывала на адрес /search?q=afzal%20watermellon например *(%20 – пробел в HTML-коде)*
+* RESTfull API для поиска
+* Начать заполнять БД табаками
+* Перегрузка ImageField для подгрузки в одну папку *(tobacco/static/tobacco/<image_name>)*, а сохранением в БД с другим адресом *(static/tobacco/<image_name>)*
