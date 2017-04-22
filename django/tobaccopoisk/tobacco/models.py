@@ -35,4 +35,8 @@ class Tobacco(models.Model):
 	taste = models.FloatField(null=True)
 	heat = models.FloatField(null=True)
 	rating = models.FloatField(null=True)
+	# create image name according to object brand and model
 	image = models.ImageField(null=True, upload_to=path_and_rename)
+
+	def __str__(self):
+		return self.brand.title() + ' ' +self.name.title()
