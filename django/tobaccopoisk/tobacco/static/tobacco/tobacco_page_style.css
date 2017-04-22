@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    background-color: #AAAAAA;
+    min-width: 1000px;
+    width: 100%;
+}
+
+
+.fixed_nav_bar {
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 50px;
+}
+
+.topnav {
+    background-color: #555555;
+    height: 50px;
+    min-width: 1000px;
+}
+
+/* LOGO */
+
+.logo_div {
+    float: left;
+    height: 50px;
+    margin-left: 10%;
+    width: 25%;
+    padding: 0;
+}
+
+.logo_icon {
+    float: left;
+    height: 50px;
+}
+
+.logo_text {
+    float: left;
+    font-size: 26px;
+    color: #faf3c0;
+    line-height: 50px;
+    font-family: Calibri, serif;
+}
+
+/* SEARCH WIDGET */
+
+.search_div {
+    float: left;
+    width: 30%;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.search_icon {
+    position: absolute;
+    height: 25px;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.search_bar {
+    border: 0;
+    box-sizing: border-box;
+    padding: 6px 6px 6px 19px;
+    height: 100%;
+    width: 50%;
+    border-radius: 14px;
+    font: 16px Helvetica, Arial, sans-serif;
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    background: #333333;
+    color: #888888;
+}
+
+.search_bar:focus {
+    width: 80%;
+    background-color: #DDDDDD;
+    color: #333333;
+    outline: none;
+}
+
+/* USER WIDGET */
+
+.user_div {
+    float: right;
+    margin-right: 10%;
+    height: 50px;
+    padding: 0;
+    max-width: 25%;
+}
+
+.user_text {
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+    color: #CCCCCC;
+    line-height: 50px;
+    font-family: Calibri, serif;
+}
+
+.user_icon {
+    float: left;
+    height: 50px;
+}
+
+.dropbtn {
+    background-color: #494949;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #333333;
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+
+}
+
+.dropdown-content {
+    visibility: hidden;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    visibility: visible;
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+/* MAIN CONTENT */
+
+.table_content {    
+    margin-top: 50px;
+}
+
+.side_bar {
+    background-color: #999999;
+    width: 20%;
+}
+
+.main_content {
+    margin:0;
+    background-color: #CCCCCC;
+}
+
+
+.headercss {
+    width: auto;
+    height: 40px;
+    background-color: #333333;
+    position: relative;
+}
+
+.headerlogo {
+    width: auto;
+    height: 40px;
+    background-color: #333333;
+    position: relative;
+}
+
+.nav {
+    width: auto;
+    height: auto;
+    background-color: #444444;
+    position: relative;
+    overflow: hidden;
+}
+
+.inf {
+    width: auto;
+    background-color: #DDDDDD;
+    position: relative;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float:left;
+    width:100%;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    width:100%;
+    /*min-width: 243px;*/
+    overflow: hidden;
+}
+
+a:link, a:visited {
+    display: block;
+    height: 68px;
+    min-width: 243px;
+    font-size: 12px;
+    color: #FFFFFF;
+    border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+    background-color: #444444;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', Arial;
+    letter-spacing: 2pt;
+    line-height: 200%;
+    overflow: hidden;
+}
+
+a:hover, a:active {
+    background-color: #444444;
+}
