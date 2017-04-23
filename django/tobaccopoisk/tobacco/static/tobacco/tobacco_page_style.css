@@ -3,7 +3,7 @@ body {
     background: url(bg9.jpg);
     background-attachment: fixed;
     background-size: auto;
-    background-color: #AAAAAA;
+    background-color: #21262B;
     min-width: 800px;
     width: 100%;
 }
@@ -115,6 +115,7 @@ body {
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
+    margin-bottom: 10px;
 }
 
 blockquote {

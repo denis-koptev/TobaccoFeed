@@ -12,6 +12,8 @@
 
     <link type="text/css" rel="stylesheet" href="{% static "/footer_style.css" %}"></link>
 
+    <link type="text/css" rel="stylesheet" href="{% static "/ratebar_style.css" %}"></link>
+
     <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
@@ -94,6 +96,19 @@
                         </div>
                         <img src={{image}} width="100%" class="main_image">
 
+                        <p></p>
+
+                        <div class="headerlogo">
+                            <p align=center> Related  </p>
+                        </div>
+
+                        <div class="inf"><p>Here will be related tobaccos</p>
+
+                            <img src="{% static "/tobacco/empty_tobacco.png" %}" class="main_image" width="99%"> 
+
+                        </div>
+
+
                     </td>
                     <td valign="top" class="column_content">
                             <div class="headerlogo">
@@ -128,6 +143,23 @@
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
                                 {{tobacco.strength_votes}}
                             </div>
+
+                            <form id="ratingsForm">
+                                <div class="stars">
+                                    <input type="radio" name="star" class="star-1" id="strength1" />
+                                    <label class="star-1" for="strength1">1</label>
+                                    <input type="radio" name="star" class="star-2" id="strength2" />
+                                    <label class="star-2" for="strength2">2</label>
+                                    <input type="radio" name="star" class="star-3" id="strength3" />
+                                    <label class="star-3" for="strength3">3</label>
+                                    <input type="radio" name="star" class="star-4" id="strength4" />
+                                    <label class="star-4" for="strength4">4</label>
+                                    <input type="radio" name="star" class="star-5" id="strength5" />
+                                    <label class="star-5" for="strength5">5</label>
+                                    <span></span>
+                                </div>
+                            </form>
+
                         </div>
 
                         <div class="inf">
@@ -138,6 +170,23 @@
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
                                 {{tobacco.heat_votes}}
                             </div>
+
+                            <form id="ratingsForm">
+                                <div class="stars">
+                                    <input type="radio" name="star" class="star-1" id="heat1" />
+                                    <label class="star-1" for="heat1">1</label>
+                                    <input type="radio" name="star" class="star-2" id="heat2" />
+                                    <label class="star-2" for="heat2">2</label>
+                                    <input type="radio" name="star" class="star-3" id="heat3" />
+                                    <label class="star-3" for="heat3">3</label>
+                                    <input type="radio" name="star" class="star-4" id="heat4" />
+                                    <label class="star-4" for="heat4">4</label>
+                                    <input type="radio" name="star" class="star-5" id="heat5" />
+                                    <label class="star-5" for="heat5">5</label>
+                                    <span></span>
+                                </div>
+                            </form>
+
                         </div>
 
                         <div class="inf">
@@ -148,6 +197,23 @@
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
                                 {{tobacco.smoke_votes}}
                             </div>
+
+                            <form id="ratingsForm">
+                                <div class="stars">
+                                    <input type="radio" name="star" class="star-1" id="smoke1" />
+                                    <label class="star-1" for="smoke1">1</label>
+                                    <input type="radio" name="star" class="star-2" id="smoke2" />
+                                    <label class="star-2" for="smoke2">2</label>
+                                    <input type="radio" name="star" class="star-3" id="smoke3" />
+                                    <label class="star-3" for="smoke3">3</label>
+                                    <input type="radio" name="star" class="star-4" id="smoke4" />
+                                    <label class="star-4" for="smoke4">4</label>
+                                    <input type="radio" name="star" class="star-5" id="smoke5" />
+                                    <label class="star-5" for="smoke5">5</label>
+                                    <span></span>
+                                </div>
+                            </form>
+
                         </div>
 
                         <div class="inf">
@@ -158,6 +224,23 @@
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
                                 {{tobacco.taste_votes}}
                             </div>
+
+                            <form id="ratingsForm">
+                                <div class="stars">
+                                    <input type="radio" name="star" class="star-1" id="taste1" />
+                                    <label class="star-1" for="taste1">1</label>
+                                    <input type="radio" name="star" class="star-2" id="taste2" />
+                                    <label class="star-2" for="taste2">2</label>
+                                    <input type="radio" name="star" class="star-3" id="taste3" />
+                                    <label class="star-3" for="taste3">3</label>
+                                    <input type="radio" name="star" class="star-4" id="taste4" />
+                                    <label class="star-4" for="taste4">4</label>
+                                    <input type="radio" name="star" class="star-5" id="taste5" />
+                                    <label class="star-5" for="taste5">5</label>
+                                    <span></span>
+                                </div>
+                            </form>
+
                         </div>
 
                     </td>
