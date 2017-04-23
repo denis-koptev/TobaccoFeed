@@ -4,6 +4,8 @@
 <head>
 <title>{{brand}} {{name}} - TobaccoFeed</title>
 
+    <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
+    
     <link type="text/css" rel="stylesheet" href="{% static "/nav_bar_style.css" %}"></link>
 
     <link type="text/css" rel="stylesheet" href="{% static "tobacco/tobacco_page_style.css" %}"></link>
@@ -120,7 +122,7 @@
 
                         <div class="inf">
                             <div class="votes">
-                                КРЕПОСТЬ: {{tobacco.strength}}
+                                STRENGTH: {{tobacco.strength}}
                             </div>
                             <div class="votes">
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
@@ -130,7 +132,7 @@
 
                         <div class="inf">
                             <div class="votes">
-                                ЖАРОСТОЙКОСТЬ: {{tobacco.heat}}
+                                HEATPROOF: {{tobacco.heat}}
                             </div>
                             <div class="votes">
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
@@ -140,7 +142,7 @@
 
                         <div class="inf">
                             <div class="votes">
-                                ДЫМНОСТЬ: {{tobacco.smoke}}
+                                SMOKE: {{tobacco.smoke}}
                             </div>
                             <div class="votes">
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
@@ -150,7 +152,7 @@
 
                         <div class="inf">
                             <div class="votes">
-                                ВКУСОПЕРЕДАЧА: {{tobacco.taste}}
+                                TASTINESS: {{tobacco.taste}}
                             </div>
                             <div class="votes">
                                 <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 

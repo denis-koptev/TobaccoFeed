@@ -43,7 +43,7 @@ body {
     color: #FFFFFF;
     text-align: center;
     text-decoration: none;
-    font-family: 'Raleway', Arial;
+    font-family: Arial, DrugsThin, serif;
     letter-spacing: 2pt;
     text-transform: uppercase;
     line-height: 0.0;
@@ -75,6 +75,9 @@ body {
     border-radius: 5px;
     border-spacing: 0;
 
+    font-family: DrugsThin, Arial, serif;
+    font-weight: bold;
+
     padding: 0;
 
 }
@@ -84,9 +87,8 @@ body {
     height: 100%;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    font-family: 'Raleway', Arial;
-    font-weight: bold;
+    font-size: 14px;
+    font-family: ClinicaRegular, Arial, serif;
     letter-spacing: 2pt;
     line-height: 3;
 }
@@ -117,6 +119,7 @@ body {
 
 blockquote {
     font-style: italic;
+    font-family: ClinicaRegular, serif;
 }
  
 blockquote:before {

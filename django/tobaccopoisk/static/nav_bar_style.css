@@ -1,3 +1,4 @@
+
 .fixed_nav_bar {
     position: fixed;
     padding: 0;
@@ -11,7 +12,7 @@
 .topnav {
     background-color: #555555;
     height: 40px;
-    min-width: 1000px;
+    min-width: 800px;
 }
 
 /* LOGO */
@@ -31,10 +32,10 @@
 
 .logo_text {
     float: left;
-    font-size: 26px;
+    font-size: 24px;
     color: #faf3c0;
     line-height: 40px;
-    font-family: Calibri, serif;
+    font-family: DrugsThin, Calibri, serif;
 }
 
 /* SEARCH WIDGET */
@@ -61,7 +62,8 @@
     height: 100%;
     width: 50%;
     border-radius: 14px;
-    font: 16px Helvetica, Arial, sans-serif;
+    font: 16px DrugsThin, Helvetica, Arial, sans-serif;
+    font-weight: bold;
     -moz-transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
@@ -81,7 +83,7 @@
 
 .user_div {
     float: right;
-    margin-right: 10%;
+    margin-right: 12%;
     height: 40px;
     padding: 0;
     max-width: 25%;
@@ -93,7 +95,7 @@
     font-size: 20px;
     color: #CCCCCC;
     line-height: 40px;
-    font-family: Calibri, serif;
+    font-family: DrugsThin, Calibri, serif;
 }
 
 .user_icon {
@@ -167,6 +169,9 @@
     background-color: #CCCCCC;
     border-radius: 5px;
     font-size: 15px;
+
+    font-family: DrugsThin, Calibri, serif;
+    font-weight: bold;
 
     -moz-transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
