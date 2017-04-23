@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: url(bg9.jpg);
+    background: url(bg14.jpg);
     background-attachment: fixed;
     background-size: auto;
     background-color: #21262B;
@@ -38,17 +38,20 @@ body {
     width: auto;
     height: 30px;
     background-color: #333333;
+    /*background: rgba(1,1,1,0.5);*/
     position: relative;
     font-size: 16px;
     color: #FFFFFF;
     text-align: center;
     text-decoration: none;
-    font-family: Arial, DrugsThin, serif;
+    font-family: /*Arial,*/ DrugsThin, serif;
+    font-weight: bold;
     letter-spacing: 2pt;
     text-transform: uppercase;
     line-height: 0.0;
-
+    /*line-height: 2;*/
     border: 1px solid gray;
+   /* border: none;*/
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
@@ -57,7 +60,8 @@ body {
 .nav {
     width: auto;
     height: auto;
-    background-color: #444444;
+    /*background-color: #444444;*/
+    background: rgba(1,1,1,0.5);
     position: relative;
     overflow: hidden;
 }
@@ -134,4 +138,17 @@ blockquote:before {
  
 blockquote > p:first-child {
     display: inline;
+}
+
+.mixes_section {
+    min-height: 500px;
+    padding: 10px;
+}
+
+.mixes_image {
+    border: none;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border-spacing: 0;
+    width: 100%;
 }
