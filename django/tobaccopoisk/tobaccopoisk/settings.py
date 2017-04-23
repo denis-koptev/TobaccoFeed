@@ -130,8 +130,10 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.normcase(os.path.join(BASE_DIR, "static")) # untrusted definition
+#STATIC_ROOT = os.path.normcase(os.path.join(BASE_DIR, "static")) # untrusted definition
 
 STATICFILES_DIRS = (
-    os.path.normcase(os.path.join(BASE_DIR, "main_page/static")), # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "main_page/static")),   # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "tobacco/static")),     # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "static")),             # untrusted definition
 )

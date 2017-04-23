@@ -1,0 +1,161 @@
+{% load static %}
+
+<html>
+<head>
+<title>{{brand}} {{name}} - TobaccoFeed</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static "/nav_bar_style.css" %}"></link>
+
+    <link type="text/css" rel="stylesheet" href="{% static "tobacco/tobacco_page_style.css" %}"></link>
+
+    <link type="text/css" rel="stylesheet" href="{% static "/footer_style.css" %}"></link>
+
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+
+</head>
+
+<body>
+
+<!-- NAV BAR --> 
+
+<!-- Should make it in separate file, cuz it's motherfucking copypaste -->
+
+<nav class="fixed_nav_bar">
+    <div class="topnav">
+
+        <a href="/">
+            <div class="logo_div">
+                <img src="{% static "/logo2.png" %}" class="logo_icon">
+                <div class="logo_text">
+                    TobaccoFeed
+                </div>
+            </div>
+        </a>
+
+        <div class="search_div">
+            <input class="search_bar" placeholder="Search tobacco">
+            <img src="{% static "/search_icon.png" %}" class="search_icon">
+        </div>
+
+        <div class="user_div">
+            <div class="dropdown">
+
+                <div onclick="userClicked()" class="dropbtn">       
+                    <img src="{% static "/user_icon.png" %}" class="user_icon">    
+                    <div class="user_text">
+                        Username
+                    </div>
+                </div>
+
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#profile">
+                        <div class="user_link">
+                            Profile
+                        </div>
+                    </a>
+                    <a href="#settings">
+                        <div class="user_link">
+                            Settings
+                        </div>
+                    </a>
+                    <a href="#logout">
+                        <div class="user_link">
+                            Log Out
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+</nav>
+
+
+<!-- 
+     Don't know how to make stylish empty spaces on sides!?
+     Make a fucking table!
+-->
+
+<table width="100%" height="100%" class="table_content" \>
+
+   <tr>
+       <td class="side_bar"></td>
+
+       <td class="main_content" valign="top">
+
+            <table width="100%">
+                <tr>
+                    <hr>
+                    <td width="27%" valign="top" class="column_content">
+                        <div class="headerlogo">
+                            <p align=center> Photo  </p>
+                        </div>
+                        <img src={{image}} width="100%" class="main_image">
+
+                    </td>
+                    <td valign="top" class="column_content">
+                            <div class="headerlogo">
+                                <p align=center>  {{brand}}  </p>
+                            </div>
+
+                        <div class="inf">
+                            <p align=center> <font size="5"> {{name}} </font></p>
+                        </div>
+
+
+                        <div class="headerlogo">
+                            <p align=center>  Description  </p>
+                        </div>
+
+                        <div class="inf"> 
+                            <p align=center> {{tobacco.description}} </p>
+                        </div>
+
+
+                        <div class="headerlogo">
+                            <p align=center> System requirements </p>
+                        </div>
+                        <div class="inf">
+                            <p class="reqs">КРЕПОСТЬ: <b><font size="4">{{tobacco.strength}}</font></b></p>
+                        </div>
+                        <div class="inf">
+                            <p class="reqs">ЖАРОСТОЙКОСТЬ: <b><font size="4">{{tobacco.heat}}</font></b></p>
+                        </div>
+                        <div class="inf">
+                            <p class="reqs">ДЫМНОСТЬ: <b><font size="4">{{tobacco.smoke}}</font></b></p>
+                        </div>
+                        <div class="inf">
+                            <p class="reqs">ВКУСОПЕРЕДАЧА: <b><font size="4">{{tobacco.taste}}</font></b></p>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+
+
+       </td>
+
+       <td class="side_bar"></td>
+   </tr>
+
+</table>
+
+
+<!-- This damn footer must be unique for all pages, too -->
+
+<section class="footer">
+    <div class="copyright_init">© 235Room, 2017</div>
+    <img src="{% static "/kda_logo.png" %}" class="copyright"> 
+    <img src="{% static "/j_logo.png" %}" class="copyright"> 
+
+    <p>Contact us:</b> <u>koptevda@ya.ru</u> | <u>procenkoeg@mail.ru</u></p>
+</section>
+
+<!-- SCRIPTS -->
+
+<script src="{% static "/dropdown.js" %}"></script>
+
+
+</body>
+
+</html>

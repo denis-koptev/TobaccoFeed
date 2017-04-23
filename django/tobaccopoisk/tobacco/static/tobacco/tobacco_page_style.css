@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    background: url(bg2.jpg) no-repeat;
+    background-attachment: fixed;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+    background-color: #AAAAAA;
+    min-width: 1000px;
+    width: 100%;
+}
+
+.table_content {    
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.side_bar {
+    width: 20%;
+}
+
+.main_content {
+    padding: 10px;
+    margin:0;
+    height: 100%;
+    background-color: rgba(256,256,256,0.1);
+}
+
+
+.headercss {
+    width: auto;
+    height: 40px;
+    background-color: #333333;
+    position: relative;
+}
+
+.headerlogo {
+
+    margin-bottom: 10px;
+    padding: 0;
+    width: auto;
+    height: 30px;
+    background-color: #333333;
+    position: relative;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', Arial;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    line-height: 0.0;
+
+    border: 1px solid gray;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-spacing: 0;
+}
+
+.nav {
+    width: auto;
+    height: auto;
+    background-color: #444444;
+    position: relative;
+    overflow: hidden;
+}
+
+.inf {
+    width: auto;
+    background-color: rgba(255,255,255,0.8);
+    position: relative;
+    overflow: hidden;
+    font-size: 18px;
+        margin-bottom: 10px;
+
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-spacing: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float:left;
+    width:100%;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    width:100%;
+    /*min-width: 243px;*/
+    overflow: hidden;
+}
+
+.reqs {
+    display: block;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', Arial;
+    font-weight: bold;
+    letter-spacing: 2pt;
+    line-height: 200%;
+    overflow: hidden;
+}
+
+.column_content {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.main_image {
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-spacing: 0;
+}
