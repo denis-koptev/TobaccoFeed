@@ -2,9 +2,9 @@ body {
     margin: 0;
     background: url(bg9.jpg);
     background-attachment: fixed;
-    background-size: cover;
+    background-size: auto;
     background-color: #AAAAAA;
-    min-width: 1000px;
+    min-width: 800px;
     width: 100%;
 }
 
@@ -116,7 +116,6 @@ body {
 }
 
 blockquote {
-    border-left: 1px solid #bbb;
     font-style: italic;
 }
  
