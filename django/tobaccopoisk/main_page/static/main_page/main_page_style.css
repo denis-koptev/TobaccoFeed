@@ -1,7 +1,7 @@
 
 body {
     margin: 0;
-    background-color: #AAAAAA;
+    background-color: #555555;
     min-width: 1000px;
     width: 100%;
 }
@@ -52,15 +52,9 @@ body {
 }
 
 .description {
-    padding-top: 50px;
-    min-height: 300px;
+   /* padding-top: 40px;*/
+    /*min-height: 300px;*/
     text-align: center;
-}
-
-.summary {
-    color: #d9dee2;
-    margin-top: 40px;
-    margin-bottom: 60px;
 }
 
 .button, .button:visited, .button-dark {
@@ -86,4 +80,11 @@ a:link, a:visited, a:hover, a:active {
     font-size: 70px;
     margin-top: 150px;
     color: #DDDDDD;
+}
+
+.td_main {
+    background-color: rgba(255,255,255,0.1);
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }

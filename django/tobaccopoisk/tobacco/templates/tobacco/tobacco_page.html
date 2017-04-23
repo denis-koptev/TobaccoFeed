@@ -101,31 +101,58 @@
                         <div class="inf">
                             <p align=center> <font size="5"> {{name}} </font></p>
                         </div>
-
+                        <p></p>    
 
                         <div class="headerlogo">
                             <p align=center>  Description  </p>
                         </div>
 
                         <div class="inf"> 
-                            <p align=center> {{tobacco.description}} </p>
+                        <blockquote> 
+                           {{tobacco.description}} 
+                        </blockquote>
                         </div>
-
+                        <p></p> 
 
                         <div class="headerlogo">
                             <p align=center> System requirements </p>
                         </div>
+
                         <div class="inf">
-                            <p class="reqs">КРЕПОСТЬ: <b><font size="4">{{tobacco.strength}}</font></b></p>
+                            <div class="votes">
+                                КРЕПОСТЬ: {{tobacco.strength}}
+                            </div>
+                            <div class="votes">
+                                <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
+                                {{tobacco.strength_votes}}
+                            </div>
                         </div>
                         <div class="inf">
-                            <p class="reqs">ЖАРОСТОЙКОСТЬ: <b><font size="4">{{tobacco.heat}}</font></b></p>
+                            <div class="votes">
+                                ЖАРОСТОЙКОСТЬ: {{tobacco.heat}}
+                            </div>
+                            <div class="votes">
+                                <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
+                                {{tobacco.heat_votes}}
+                            </div>
                         </div>
                         <div class="inf">
-                            <p class="reqs">ДЫМНОСТЬ: <b><font size="4">{{tobacco.smoke}}</font></b></p>
+                            <div class="votes">
+                                ДЫМНОСТЬ: {{tobacco.smoke}}
+                            </div>
+                            <div class="votes">
+                                <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
+                                {{tobacco.smoke_votes}}
+                            </div>
                         </div>
                         <div class="inf">
-                            <p class="reqs">ВКУСОПЕРЕДАЧА: <b><font size="4">{{tobacco.taste}}</font></b></p>
+                            <div class="votes">
+                                ВКУСОПЕРЕДАЧА: {{tobacco.taste}}
+                            </div>
+                            <div class="votes">
+                                <img src="{% static "/tobacco/vote_icon.png" %}" class="vote_icon"> 
+                                {{tobacco.taste_votes}}
+                            </div>
                         </div>
 
                     </td>

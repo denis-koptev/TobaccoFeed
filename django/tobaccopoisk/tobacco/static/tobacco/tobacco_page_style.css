@@ -1,11 +1,8 @@
 body {
     margin: 0;
-    background: url(bg2.jpg) no-repeat;
+    background: url(bg2.jpg);
     background-attachment: fixed;
-    -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-    -o-background-size: 100%; /* Opera 9.6+ */
-    background-size: 100%; /* Современные браузеры */
+    background-size: cover;
     background-color: #AAAAAA;
     min-width: 1000px;
     width: 100%;
@@ -23,7 +20,6 @@ body {
 .main_content {
     padding: 10px;
     margin:0;
-    height: 100%;
     background-color: rgba(256,256,256,0.1);
 }
 
@@ -72,42 +68,36 @@ body {
     position: relative;
     overflow: hidden;
     font-size: 18px;
-        margin-bottom: 10px;
-
+    margin-bottom: 10px;
+    text-align: center;
     border: none;
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
-}
 
-ul {
-    list-style-type: none;
-    margin: 0;
     padding: 0;
-    float:left;
-    width:100%;
-    overflow: hidden;
 }
 
-li {
-    float: left;
-    width:100%;
-    /*min-width: 243px;*/
-    overflow: hidden;
-}
-
-.reqs {
-    display: block;
-    font-size: 14px;
-    color: #000000;
+.votes {
+    display: inline-block;
+    height: 100%;
     text-align: center;
     text-decoration: none;
+    font-size: 16px;
     font-family: 'Raleway', Arial;
     font-weight: bold;
     letter-spacing: 2pt;
-    line-height: 200%;
-    overflow: hidden;
+    line-height: 3;
 }
+
+.vote_icon {
+    margin-left: 10px;
+    display: inline-block;
+    height: 25px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
+
 
 .column_content {
     padding-right: 10px;
@@ -122,4 +112,23 @@ li {
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
+}
+
+
+blockquote {
+    border-left: 1px solid #bbb;
+    font-style: italic;
+}
+ 
+blockquote:before {
+    color: #AAAAAA;
+    content: "\201C";
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.2em;
+    vertical-align: -.4em;
+}
+ 
+blockquote > p:first-child {
+    display: inline;
 }
