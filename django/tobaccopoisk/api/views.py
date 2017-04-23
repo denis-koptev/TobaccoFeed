@@ -14,7 +14,7 @@ def tobacco(request, brand, name):
 	try:
 		tobacco = Tobacco.objects.get(brand=brand, name=name)
 	except Tobacco.DoesNotExist:
-		data = { 'restult': 'false' }
+		data = { 'result': 'false' }
 	else:
 		data = 	{	
 				'result': 'true',
