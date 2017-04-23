@@ -146,7 +146,7 @@ class TobaccoTobacco(models.Model):
     rating = models.FloatField(null=True, blank=True)
     rating_votes = models.IntegerField(null=True, default=0)
     # create image name according to object brand and model
-    image = models.ImageField(null=True, blank=True, upload_to=path_and_rename)
+    image = models.ImageField(null=True, upload_to=path_and_rename, default="empty_tobacco")
 
     class Meta:
         managed = False
