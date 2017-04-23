@@ -20,6 +20,7 @@ import main_page.views as main_view
 urlpatterns = [
 	url(r'^$', main_view.index, name="main_page"),
     url(r'^admin[/]?', admin.site.urls),
+    url(r'^api/', include('api.urls')),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
