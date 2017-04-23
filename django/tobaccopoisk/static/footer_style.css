@@ -5,6 +5,9 @@
     padding: 15px 5px 1px 5px;
     vertical-align: middle;
     text-align: center;
+    font-family: DrugsThin, serif;
+    font-size: 12px;
+    font-weight: bold;
     z-index: 9999;
 
 }
@@ -12,7 +15,8 @@
 .copyright_init {
     display: inline-block;
     vertical-align: middle;
-    font-family: serif;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
     font-size: 15px;
 }
 
