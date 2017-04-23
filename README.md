@@ -88,3 +88,4 @@ Install with PATH and name limit deactivation
 * Сделать рейтинг не циферным
 * Начать заполнять БД табаками
 * Перегрузка ImageField для подгрузки в одну папку *(tobacco/static/tobacco/<image_name>)*, а сохранением в БД с другим адресом *(static/tobacco/<image_name>)*
+* Кластеризация данных
