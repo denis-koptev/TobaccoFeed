@@ -40,7 +40,7 @@
         <div class="user_div">
             <div class="dropdown">
 
-                <div onclick="userClicked()" class="dropbtn">       
+                <div onclick="clickUser()" class="dropbtn">       
                     <img src="{% static "/user_icon.png" %}" class="user_icon">    
                     <div class="user_text">
                         Username
@@ -127,6 +127,7 @@
                                 {{tobacco.strength_votes}}
                             </div>
                         </div>
+
                         <div class="inf">
                             <div class="votes">
                                 ЖАРОСТОЙКОСТЬ: {{tobacco.heat}}
@@ -136,6 +137,7 @@
                                 {{tobacco.heat_votes}}
                             </div>
                         </div>
+
                         <div class="inf">
                             <div class="votes">
                                 ДЫМНОСТЬ: {{tobacco.smoke}}
@@ -145,6 +147,7 @@
                                 {{tobacco.smoke_votes}}
                             </div>
                         </div>
+
                         <div class="inf">
                             <div class="votes">
                                 ВКУСОПЕРЕДАЧА: {{tobacco.taste}}
@@ -154,6 +157,9 @@
                                 {{tobacco.taste_votes}}
                             </div>
                         </div>
+
+
+                        
 
                     </td>
                 </tr>
@@ -181,7 +187,6 @@
 <!-- SCRIPTS -->
 
 <script src="{% static "/dropdown.js" %}"></script>
-
 
 </body>
 
