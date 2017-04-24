@@ -1,4 +1,34 @@
 from django.db import models
+from django.conf import settings
+
+# ------------------------
+# Create storage to change url path
+# 	and delete old file before uploading new one
+# ------------------------ 
+
+from django.core.files.storage import FileSystemStorage
+import os, re
+
+class TobaccoStorage(FileSystemStorage):
+
+	def get_available_name(self, name, max_length=None):
+
+		# get dir and name_root
+		dir_name, file_name = os.path.split(name)
+		file_root, file_ext = os.path.splitext(file_name)
+
+		absolute_dir_path = os.path.join(settings.BASE_DIR, dir_name)
+		# create pattern like "name_root.*" for all ext
+		pattern = file_root + '.*'
+
+		# delete file with name_root recursively
+		for f in os.listdir(absolute_dir_path):
+			if re.search(pattern, f):
+				os.remove(os.path.join(absolute_dir_path, f))
+
+		# return unchanged name
+		return name
+
 
 # ----------------
 # Start of routine
@@ -44,7 +74,7 @@ class Tobacco(models.Model):
 	rating = models.FloatField(null=True, blank=True)
 	rating_votes = models.IntegerField(null=True, default=0)
 	# create image name according to object brand and model
-	image = models.ImageField(null=True, upload_to=path_and_rename, default="tobacco/static/tobacco/empty_tobacco.png")
+	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default="tobacco/static/tobacco/empty_tobacco.png")
 
 	def __str__(self):
 		return self.brand.title() + ' ' +self.name.title()
