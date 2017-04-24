@@ -11,18 +11,10 @@ body {
 .table_content {    
     margin-top: 40px;
     margin-bottom: 0;
-    border-spacing: 0;
-}
-
-
-@media screen {
-    .table_content {
-        width: @media screen device-width;
-    }
 }
 
 .side_bar {
-    width: 25%;
+    width: 20%;
 }
 
 .main_content {
@@ -40,6 +32,7 @@ body {
 }
 
 .headerlogo {
+
     margin-bottom: 10px;
     padding: 0;
     width: auto;
