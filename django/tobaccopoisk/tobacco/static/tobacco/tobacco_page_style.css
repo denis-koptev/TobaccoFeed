@@ -2,10 +2,11 @@ body {
     margin: 0;
     background: url(bg14.jpg);
     background-attachment: fixed;
-    background-size: auto;
-    background-color: #21262B;
+    /*background-size: auto;*/
+   /* background-color: #21262B;*/
     min-width: 800px;
     width: 100%;
+    /*height: 100%;*/
 }
 
 .table_content {    
@@ -132,6 +133,8 @@ body {
 blockquote {
     font-style: italic;
     font-family: ClinicaRegular, serif;
+    text-align: left;
+    font-size: 16px;
 }
  
 blockquote:before {
