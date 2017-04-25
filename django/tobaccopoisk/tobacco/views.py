@@ -35,18 +35,20 @@ import json
 
 def tobacco_search(request):
 	
-	def to_dict(obj):
-		return {
-			'brand': obj[0],
-			'name': obj[1],
-		}
+	def to_dict(inst):
+		return 	{
+				'brand': inst[0],
+				'name': inst[1],
+				'image': image_url_handler(inst[2]),
+				}
 
 	try:
-		instance = Tobacco.objects.values_list('brand', 'name')
+		insts = Tobacco.objects.values_list('brand', 'name', 'image')
 	except Tobacco.DoesNotExist:
-		return render(request, 'error_404.html', {})
+		return HttpResponse("{}".format(json.dumps({"data": []}, ensure_ascii=False)))
 
-	print(str(type(instance[0])))
-	data = [to_dict(inst) for inst in instance]
+
+	q = request.GET.get('q')
+	data = [to_dict(inst) for inst in insts]
 
 	return HttpResponse("{}".format(json.dumps({"data": data}, ensure_ascii=False)))
