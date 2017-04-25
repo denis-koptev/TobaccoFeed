@@ -52,7 +52,7 @@ class PathAndRename(object):
 		# return os.path.join(self.path, filename)
 		return self.path + filename
 
-path_and_rename = PathAndRename("tobacco/static/tobacco/")
+path_and_rename = PathAndRename("tobacco/static/tobacco/tobaccos/")
 
 # --------------
 # End of routine
@@ -74,7 +74,7 @@ class Tobacco(models.Model):
 	rating = models.FloatField(null=True, blank=True)
 	rating_votes = models.IntegerField(null=True, default=0)
 	# create image name according to object brand and model
-	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default="tobacco/static/tobacco/empty_tobacco.png")
+	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default="tobacco/static/tobacco/tobaccos/empty_tobacco.png")
 
 	def __str__(self):
 		return self.brand.title() + ' ' +self.name.title()
