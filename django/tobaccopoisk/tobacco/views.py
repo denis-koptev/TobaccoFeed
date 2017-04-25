@@ -25,8 +25,28 @@ def tobacco_view(request, brand, name):
 		return render(request, 'error_404.html', {})
 
 	context = {'brand': underscore_to_space(brand.title()), 
-	           'name': underscore_to_space(name.title()), 
-	           'tobacco': tobacco, 
-	           'image': image_url_handler(tobacco.image.name)}
+			   'name': underscore_to_space(name.title()), 
+			   'tobacco': tobacco, 
+			   'image': image_url_handler(tobacco.image.name)}
 
 	return render(request, 'tobacco/tobacco_page.html', context)
+
+import json
+
+def tobacco_search(request):
+	
+	def to_dict(obj):
+		return {
+			'brand': obj[0],
+			'name': obj[1],
+		}
+
+	try:
+		instance = Tobacco.objects.values_list('brand', 'name')
+	except Tobacco.DoesNotExist:
+		return render(request, 'error_404.html', {})
+
+	print(str(type(instance[0])))
+	data = [to_dict(inst) for inst in instance]
+
+	return HttpResponse("{}".format(json.dumps({"data": data}, ensure_ascii=False)))
