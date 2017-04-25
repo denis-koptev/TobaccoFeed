@@ -86,6 +86,6 @@ Install with PATH and name limit deactivation
 - [ ] RESTfull API для поиска
 - [ ] Сделать кнопку поиска активной, чтобы перекидывала на адрес /search?q=afzal%20watermellon, например, *(%20 – пробел в HTML-коде)*
 - [ ] [Перегрузка ImageField](http://stackoverflow.com/questions/9522759/imagefield-overwrite-image-file-with-same-name) для подгрузки в одну папку *(tobacco/static/tobacco/<image_name>)*, а сохранением в БД с другим адресом *(static/tobacco/<image_name>)* :star:
-- [ ] [Перегрузка ImageField](http://stackoverflow.com/questions/9522759/imagefield-overwrite-image-file-with-same-name) для удаления старого фото из папки статики и загрузки нового :star:
+- [x] [Перегрузка ImageField](http://stackoverflow.com/questions/9522759/imagefield-overwrite-image-file-with-same-name) для удаления старого фото из папки статики и загрузки нового :star:
 - [ ] Начать заполнять БД табаками
 - [ ] Кластеризация данных
