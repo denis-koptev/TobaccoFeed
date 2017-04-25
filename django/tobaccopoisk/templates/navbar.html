@@ -1,14 +1,14 @@
 {% load static %}
 
-<link type="text/css" rel="stylesheet" href="{% static "/nav_bar_style.css" %}"></link>
-<script src="{% static "/dropdown.js" %}"></script>
+<link type="text/css" rel="stylesheet" href="{% static "/navbar/nav_bar_style.css" %}"></link>
+<script src="{% static "/navbar/dropdown.js" %}"></script>
 
 <nav class="fixed_nav_bar">
     <div class="topnav">
 
         <a href="/">
             <div class="logo_div">
-                <img src="{% static "/logo2.png" %}" class="logo_icon">
+                <img src="{% static "/navbar/logo2.png" %}" class="logo_icon">
                 <div class="logo_text">
                     TobaccoFeed
                 </div>
@@ -16,15 +16,21 @@
         </a>
 
         <div class="search_div">
-            <input class="search_bar" placeholder="Search tobacco">
-            <img src="{% static "/search_icon.png" %}" class="search_icon">
+            <form action="search" method="get">
+                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required>
+
+                <!--<img src="{% static "/navbar/search_icon.png" %}" class="search_icon" type="submit">-->
+
+                <!-- Must read how to deal with search button -->
+                <!-- Have some problems on click when searchbar resizing... -->
+
+            </form>
         </div>
 
         <div class="user_div">
             <div class="dropdown">
-
                 <div onclick="userClicked()" class="dropbtn">       
-                    <img src="{% static "/user_icon.png" %}" class="user_icon">    
+                    <img src="{% static "/navbar/user_icon.png" %}" class="user_icon">    
                     <div class="user_text">
                         Username
                     </div>

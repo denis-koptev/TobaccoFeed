@@ -5,15 +5,10 @@
 <title>{{brand}} {{name}} - TobaccoFeed</title>
 
     <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
-    
-    <link type="text/css" rel="stylesheet" href="{% static "/nav_bar_style.css" %}"></link>
-
+    <link type="text/css" rel="stylesheet" href="{% static "/navbar/nav_bar_style.css" %}"></link>
     <link type="text/css" rel="stylesheet" href="{% static "tobacco/css/tobacco_page_style.css" %}"></link>
-
-    <link type="text/css" rel="stylesheet" href="{% static "/footer_style.css" %}"></link>
-
-    <link type="text/css" rel="stylesheet" href="{% static "/ratebar_style.css" %}"></link>
-
+    <link type="text/css" rel="stylesheet" href="{% static "/footer/footer_style.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "/ratebar/ratebar_style.css" %}"></link>
     <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
@@ -51,7 +46,7 @@
                             <p align=center> Related </p>
                         </div>
                         
-                        <img src="{% static "/tobacco/tobaccos/afzal_watermelon.png" %}" class="main_image" width="99%"> 
+                        <img src="{% static "/tobacco/tobaccos/empty_tobacco.png" %}" class="main_image" width="99%"> 
 
 
                     </td>
@@ -91,26 +86,12 @@
 
                             <form id="ratingsForm">
                                 <div class="stars">
-                                    <input type="radio" name="star" class="star-1" id="strength1" />
-                                    <label class="star-1" for="strength1">1</label>
-                                    <input type="radio" name="star" class="star-2" id="strength2" />
-                                    <label class="star-2" for="strength2">2</label>
-                                    <input type="radio" name="star" class="star-3" id="strength3" />
-                                    <label class="star-3" for="strength3">3</label>
-                                    <input type="radio" name="star" class="star-4" id="strength4" />
-                                    <label class="star-4" for="strength4">4</label>
-                                    <input type="radio" name="star" class="star-5" id="strength5" />
-                                    <label class="star-5" for="strength5">5</label>
-                                    <input type="radio" name="star" class="star-6" id="strength6" />
-                                    <label class="star-6" for="strength6">1</label>
-                                    <input type="radio" name="star" class="star-7" id="strength7" />
-                                    <label class="star-7" for="strength7">2</label>
-                                    <input type="radio" name="star" class="star-8" id="strength8" />
-                                    <label class="star-8" for="strength8">3</label>
-                                    <input type="radio" name="star" class="star-9" id="strength9" />
-                                    <label class="star-9" for="strength9">4</label>
-                                    <input type="radio" name="star" class="star-10" id="strength10" />
-                                    <label class="star-10" for="strength10">5</label>
+
+                                    {% for star_idx in "0123456789" %}
+                                        <input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
+                                        <label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+                                    {% endfor %}
+
                                     <span></span>
                                 </div>
                             </form>
@@ -128,26 +109,12 @@
 
                             <form id="ratingsForm">
                                 <div class="stars">
-                                    <input type="radio" name="star" class="star-1" id="heat1" />
-                                    <label class="star-1" for="heat1">1</label>
-                                    <input type="radio" name="star" class="star-2" id="heat2" />
-                                    <label class="star-2" for="heat2">2</label>
-                                    <input type="radio" name="star" class="star-3" id="heat3" />
-                                    <label class="star-3" for="heat3">3</label>
-                                    <input type="radio" name="star" class="star-4" id="heat4" />
-                                    <label class="star-4" for="heat4">4</label>
-                                    <input type="radio" name="star" class="star-5" id="heat5" />
-                                    <label class="star-5" for="heat5">5</label>
-                                    <input type="radio" name="star" class="star-6" id="heat6" />
-                                    <label class="star-6" for="heat6">1</label>
-                                    <input type="radio" name="star" class="star-7" id="heat7" />
-                                    <label class="star-7" for="heat7">2</label>
-                                    <input type="radio" name="star" class="star-8" id="heat8" />
-                                    <label class="star-8" for="heat8">3</label>
-                                    <input type="radio" name="star" class="star-9" id="heat9" />
-                                    <label class="star-9" for="heat9">4</label>
-                                    <input type="radio" name="star" class="star-10" id="heat10" />
-                                    <label class="star-10" for="heat10">5</label>
+
+                                    {% for star_idx in "0123456789" %}
+                                        <input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
+                                        <label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+                                    {% endfor %}
+
                                     <span></span>
                                 </div>
                             </form>
@@ -165,26 +132,12 @@
 
                             <form id="ratingsForm">
                                 <div class="stars">
-                                    <input type="radio" name="star" class="star-1" id="smoke1" />
-                                    <label class="star-1" for="smoke1">1</label>
-                                    <input type="radio" name="star" class="star-2" id="smoke2" />
-                                    <label class="star-2" for="smoke2">2</label>
-                                    <input type="radio" name="star" class="star-3" id="smoke3" />
-                                    <label class="star-3" for="smoke3">3</label>
-                                    <input type="radio" name="star" class="star-4" id="smoke4" />
-                                    <label class="star-4" for="smoke4">4</label>
-                                    <input type="radio" name="star" class="star-5" id="smoke5" />
-                                    <label class="star-5" for="smoke5">5</label>
-                                    <input type="radio" name="star" class="star-6" id="smoke6" />
-                                    <label class="star-6" for="smoke6">1</label>
-                                    <input type="radio" name="star" class="star-7" id="smoke7" />
-                                    <label class="star-7" for="smoke7">2</label>
-                                    <input type="radio" name="star" class="star-8" id="smoke8" />
-                                    <label class="star-8" for="smoke8">3</label>
-                                    <input type="radio" name="star" class="star-9" id="smoke9" />
-                                    <label class="star-9" for="ssmoke9">4</label>
-                                    <input type="radio" name="star" class="star-10" id="smoke10" />
-                                    <label class="star-10" for="smoke10">5</label>                                    
+
+                                    {% for star_idx in "0123456789" %}
+                                        <input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" />
+                                        <label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
+                                    {% endfor %}     
+
                                     <span></span>
                                 </div>
                             </form>
@@ -202,26 +155,12 @@
 
                             <form id="ratingsForm">
                                 <div class="stars">
-                                    <input type="radio" name="star" class="star-1" id="taste1" />
-                                    <label class="star-1" for="taste1">1</label>
-                                    <input type="radio" name="star" class="star-2" id="taste2" />
-                                    <label class="star-2" for="taste2">2</label>
-                                    <input type="radio" name="star" class="star-3" id="taste3" />
-                                    <label class="star-3" for="taste3">3</label>
-                                    <input type="radio" name="star" class="star-4" id="taste4" />
-                                    <label class="star-4" for="taste4">4</label>
-                                    <input type="radio" name="star" class="star-5" id="taste5" />
-                                    <label class="star-5" for="taste5">5</label>
-                                    <input type="radio" name="star" class="star-6" id="taste6" />
-                                    <label class="star-6" for="taste6">1</label>
-                                    <input type="radio" name="star" class="star-7" id="taste7" />
-                                    <label class="star-7" for="taste7">2</label>
-                                    <input type="radio" name="star" class="star-8" id="taste8" />
-                                    <label class="star-8" for="taste8">3</label>
-                                    <input type="radio" name="star" class="star-9" id="taste9" />
-                                    <label class="star-9" for="taste9">4</label>
-                                    <input type="radio" name="star" class="star-10" id="taste10" />
-                                    <label class="star-10" for="taste10">5</label>                                    
+
+                                    {% for star_idx in "0123456789" %}
+                                        <input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
+                                        <label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+                                    {% endfor %}    
+
                                     <span></span>
                                 </div>
                             </form>
@@ -240,26 +179,12 @@
 
                             <form id="ratingsForm">
                                 <div class="stars">
-                                    <input type="radio" name="star" class="star-1" id="rate1" />
-                                    <label class="star-1" for="rate1">1</label>
-                                    <input type="radio" name="star" class="star-2" id="rate2" />
-                                    <label class="star-2" for="rate2">2</label>
-                                    <input type="radio" name="star" class="star-3" id="rate3" />
-                                    <label class="star-3" for="rate3">3</label>
-                                    <input type="radio" name="star" class="star-4" id="rate4" />
-                                    <label class="star-4" for="rate4">4</label>
-                                    <input type="radio" name="star" class="star-5" id="rate5" />
-                                    <label class="star-5" for="rate5">5</label>
-                                    <input type="radio" name="star" class="star-6" id="rate6" />
-                                    <label class="star-6" for="rate6">1</label>
-                                    <input type="radio" name="star" class="star-7" id="rate7" />
-                                    <label class="star-7" for="rate7">2</label>
-                                    <input type="radio" name="star" class="star-8" id="rate8" />
-                                    <label class="star-8" for="rate8">3</label>
-                                    <input type="radio" name="star" class="star-9" id="rate9" />
-                                    <label class="star-9" for="rate9">4</label>
-                                    <input type="radio" name="star" class="star-10" id="rate10" />
-                                    <label class="star-10" for="rate10">5</label>                                    
+
+                                    {% for star_idx in "0123456789" %}
+                                        <input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
+                                        <label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
+                                    {% endfor %}   
+
                                     <span></span>
                                 </div>
                             </form>
@@ -282,7 +207,7 @@
 
 
                             <section class="mixes_section">
-                                <img src="{% static "/tobacco_mixes.jpg" %}" class="mixes_image">
+                                <img src="{% static "/tobacco/elements/tobacco_mixes.jpg" %}" class="mixes_image">
                             </section>
 
 

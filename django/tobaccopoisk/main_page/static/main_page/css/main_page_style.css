@@ -19,7 +19,7 @@ body {
     font: normal 18px/22px "Varela Round", sans-serif;
     color: #2e2e2e;
     position: relative;
-    background: #464646 url("bg_bar.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/main_page/backgrounds/bg_bar.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -28,7 +28,7 @@ body {
     font: normal 18px/22px "Varela Round", sans-serif;
     color: #2e2e2e;
     position: relative;
-    background: #464646 url("bg_content.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/main_page/backgrounds/bg_content.jpg") no-repeat center center fixed;
     background-size: cover;
     margin-bottom: 2px;
 }
@@ -38,7 +38,7 @@ body {
     font: normal 18px/22px "Varela Round", sans-serif;
     color: #2e2e2e;
     position: relative;
-    background: #464646 url("bg_content1.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/main_page/backgrounds/bg_content1.jpg") no-repeat center center fixed;
     background-size: cover;
     margin-bottom: 2px;
 }
@@ -47,13 +47,11 @@ body {
     font: normal 18px/22px "Varela Round", sans-serif;
     color: #2e2e2e;
     position: relative;
-    background: #464646 url("bg_content2.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/main_page/backgrounds/bg_content2.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
 .description {
-   /* padding-top: 40px;*/
-    /*min-height: 300px;*/
     text-align: center;
 }
 

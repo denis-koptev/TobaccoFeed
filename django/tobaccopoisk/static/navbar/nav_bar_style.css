@@ -53,6 +53,12 @@
     height: 25px;
     margin-top: 3px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+.search_button {
+    background: url(/static/navbar/search_icon.png) no-repeat;
+    cursor: pointer;
 }
 
 .search_bar {

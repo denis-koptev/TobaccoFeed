@@ -9,34 +9,34 @@ form .stars input[type="radio"] {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-form .stars input[type="radio"].star-10:checked ~ span {
+form .stars input[type="radio"].star-9:checked ~ span {
   width: 100%;
 }
-form .stars input[type="radio"].star-9:checked ~ span {
+form .stars input[type="radio"].star-8:checked ~ span {
   width: 90%;
 }
-form .stars input[type="radio"].star-8:checked ~ span {
+form .stars input[type="radio"].star-7:checked ~ span {
   width: 80%;
 }
-form .stars input[type="radio"].star-7:checked ~ span {
+form .stars input[type="radio"].star-6:checked ~ span {
   width: 70%;
 }
-form .stars input[type="radio"].star-6:checked ~ span {
+form .stars input[type="radio"].star-5:checked ~ span {
   width: 60%;
 }
-form .stars input[type="radio"].star-5:checked ~ span {
+form .stars input[type="radio"].star-4:checked ~ span {
   width: 50%;
 }
-form .stars input[type="radio"].star-4:checked ~ span {
+form .stars input[type="radio"].star-3:checked ~ span {
   width: 40%;
 }
-form .stars input[type="radio"].star-3:checked ~ span {
+form .stars input[type="radio"].star-2:checked ~ span {
   width: 30%;
 }
-form .stars input[type="radio"].star-2:checked ~ span {
+form .stars input[type="radio"].star-1:checked ~ span {
   width: 20%;
 }
-form .stars input[type="radio"].star-1:checked ~ span {
+form .stars input[type="radio"].star-0:checked ~ span {
   width: 10%;
 }
 form .stars label {
@@ -56,34 +56,34 @@ form .stars label:hover ~ span {
   background-position: 0 -30px;
 }
 
-form .stars label.star-10:hover ~ span {
+form .stars label.star-9:hover ~ span {
   width: 100% !important;
 }
-form .stars label.star-9:hover ~ span {
+form .stars label.star-8:hover ~ span {
   width: 90% !important;
 }
-form .stars label.star-8:hover ~ span {
+form .stars label.star-7:hover ~ span {
   width: 80% !important;
 }
-form .stars label.star-7:hover ~ span {
+form .stars label.star-6:hover ~ span {
   width: 70% !important;
 }
-form .stars label.star-6:hover ~ span {
+form .stars label.star-5:hover ~ span {
   width: 60% !important;
 }
-form .stars label.star-5:hover ~ span {
+form .stars label.star-4:hover ~ span {
   width: 50% !important;
 }
-form .stars label.star-4:hover ~ span {
+form .stars label.star-3:hover ~ span {
   width: 40% !important;
 }
-form .stars label.star-3:hover ~ span {
+form .stars label.star-2:hover ~ span {
   width: 30% !important;
 }
-form .stars label.star-2:hover ~ span {
+form .stars label.star-1:hover ~ span {
   width: 20% !important;
 }
-form .stars label.star-1:hover ~ span {
+form .stars label.star-0:hover ~ span {
   width: 10% !important;
 }
 form .stars span {
