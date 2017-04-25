@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import main_page.views as main_view
+import search_page.views as search_views
 
 urlpatterns = [
 	url(r'^$', main_view.index, name="main_page"),
     url(r'^admin[/]?', admin.site.urls),
     url(r'^api/', include('api.urls')),
+    url(r'^search$', search_views.search, name='search'),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH

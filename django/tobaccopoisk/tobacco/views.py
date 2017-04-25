@@ -30,25 +30,3 @@ def tobacco_view(request, brand, name):
 			   'image': image_url_handler(tobacco.image.name)}
 
 	return render(request, 'tobacco/tobacco_page.html', context)
-
-import json
-
-def tobacco_search(request):
-	
-	def to_dict(inst):
-		return 	{
-				'brand': inst[0],
-				'name': inst[1],
-				'image': image_url_handler(inst[2]),
-				}
-
-	try:
-		insts = Tobacco.objects.values_list('brand', 'name', 'image')
-	except Tobacco.DoesNotExist:
-		return HttpResponse("{}".format(json.dumps({"data": []}, ensure_ascii=False)))
-
-
-	q = request.GET.get('q')
-	data = [to_dict(inst) for inst in insts]
-
-	return HttpResponse("{}".format(json.dumps({"data": data}, ensure_ascii=False)))
