@@ -1,7 +1,7 @@
 {% load static %}
 
 <link type="text/css" rel="stylesheet" href="{% static "/navbar/nav_bar_style.css" %}"></link>
-<script src="{% static "/navbar/dropdown.js" %}"></script>
+<script src="{% static "/navbar/animations.js" %}"></script>
 
 <nav class="fixed_nav_bar">
     <div class="topnav">
@@ -15,15 +15,10 @@
             </div>
         </a>
 
-        <div class="search_div">
-            <form action="/search" method="get">
-                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required>
-
-                <!--<img src="{% static "/navbar/search_icon.png" %}" class="search_icon" type="submit">-->
-
-                <!-- Must read how to deal with search button -->
-                <!-- Have some problems on click when searchbar resizing... -->
-
+        <div class="search_div" id="search_div">
+            <form action="/search" method="get" id="search_form">
+                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()">
+                <input type=image src="{% static "/navbar/search_icon.png" %}" class="search_button" id="search_button">   
             </form>
         </div>
 
