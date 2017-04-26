@@ -8,6 +8,16 @@ def image_url_handler(url):
 	idx = url.find('/static/')
 	return url[idx:]
 
+def max_substr(a, b):
+	lengths = [[0 for j in range(len(b)+1)] for i in range(len(a)+1)]
+	for i, x in enumerate(a):
+	    for j, y in enumerate(b):
+	        if x == y:
+	            lengths[i+1][j+1] = lengths[i][j] + 1
+	        else:
+	            lengths[i+1][j+1] = max(lengths[i+1][j], lengths[i][j+1])
+	return lengths[len(a)][len(b)]
+
 def search(request):
 	
 	def to_dict(inst):
@@ -27,7 +37,7 @@ def search(request):
 
 	data = [to_dict(inst) for inst in insts]
 
-	# PIZDATIY CODE STARTED
+	# SEARCH CODE STARTED
 
 	filtered = []
 
@@ -37,29 +47,18 @@ def search(request):
 		ident = ident.replace(' ', '').replace('-', '').replace('_', '')
 		len_ident = len(ident)
 
-		loc_q = q
+		coeff = max_substr(q, ident)
 
-		eqs = 0
-		for letter in loc_q:
-			idx = ident.find(letter)
-			if idx != -1:
-				ident = ident[:idx] + ident[idx+1:]
-				q_idx = loc_q.find(letter)
-				loc_q = loc_q[:q_idx] + loc_q[q_idx+1:]
-				eqs = eqs + 1
-
-		# SUKAAAA ETO TAKOOOY PIZDATYI REDIRECT!!!! YA KON4IL!!!
-		if eqs / len_ident == 1:
+		if coeff / len_ident == 1:
 			return redirect("/" + item["brand"].lower().replace(' ', '_') + "/" + item["name"].lower().replace(' ', '_'))
-			#return redirect("/afzal/pan-raas")
 
-		# Else make filtration using coefficient calculated with user string
-		if eqs / len(q) >= 0.7:
-			item["coeff"] = eqs / len(q)
+		if coeff / len(q) >=0.9:
+			item["coeff"] = coeff
 			filtered.append(item)
 
-			print(item["brand"] + ' ' + item["name"] + ' ' + ident + ' ' + str(eqs))
+	filtered = sorted(filtered, key=lambda k: k['coeff'], reverse = True)
 
-		filtered = sorted(filtered, key=lambda k: k['coeff'], reverse = True)
+	if len(filtered) == 1:
+		return redirect("/" + filtered[0]["brand"].lower().replace(' ', '_') + "/" + filtered[0]["name"].lower().replace(' ', '_'))
 
 	return HttpResponse("{}".format(json.dumps({"data": filtered}, ensure_ascii=False)))
