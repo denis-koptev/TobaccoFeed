@@ -27,7 +27,7 @@ def search(q):
 	except Tobacco.DoesNotExist:
 		return []
 
-	q = q.replace(' ', '').replace('-', '').replace('_', '')
+	q = q.replace(' ', '').replace('-', '').replace('_', '').lower()
 
 	data = [to_dict(inst) for inst in insts]
 

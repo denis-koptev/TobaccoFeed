@@ -82,7 +82,7 @@ Install with PATH and name limit deactivation
 
 ## TO DO LIST
 
-- [ ] Вынести алгоритм поиска в engine
+- [ ] Добавить механизм обработки тегов
 - [ ] RESTfull API для поиска
 - [ ] Создать механизм для хранения глобальных путей к статике
 - [ ] [Перегрузка ImageField](http://stackoverflow.com/questions/9522759/imagefield-overwrite-image-file-with-same-name) для подгрузки в одну папку *(tobacco/static/tobacco/<image_name>)*, а сохранением в БД с другим адресом *(static/tobacco/<image_name>)* :star:
@@ -98,3 +98,4 @@ Install with PATH and name limit deactivation
 - [ ] Проверить, что при замене фото к табаку через админку, старое фото удаляется
 - [ ] Проверить, что поле поиска работает корректно (не алгоритм поиска, а сама кнопка)
 - [ ] Проверить, движок поиска. Поиском ошибок 1 рода - очень важно. Поиск ошибок 2 рода - не критичны :rocket:
+- [ ] Вынести алгоритм поиска в engine :rocket:
