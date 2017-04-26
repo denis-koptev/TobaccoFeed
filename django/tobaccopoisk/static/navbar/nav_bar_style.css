@@ -48,6 +48,10 @@
     text-align: center;
 }
 
+.expand_div {
+    width: 35%;
+}
+
 .search_icon {
     position: absolute;
     height: 25px;
@@ -57,8 +61,14 @@
 }
 
 .search_button {
-    background: url(/static/navbar/search_icon.png) no-repeat;
-    cursor: pointer;
+    position: absolute;
+    height: 25px;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.search_button:focus {
+    outline: none;
 }
 
 .search_bar {
@@ -78,7 +88,13 @@
     color: #888888;
 }
 
+/*-*/
+
 .search_bar:focus {
+    outline: none;
+}
+
+.search_bar_focus {
     width: 80%;
     background-color: #DDDDDD;
     color: #333333;
