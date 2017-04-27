@@ -24,6 +24,7 @@ body {
 .nav_arrow {
     width: 70px;
     margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 /* HEADER */
@@ -75,6 +76,7 @@ body {
     font-weight: bold;
     vertical-align: middle;
     margin-bottom: 40px;
+    margin-top: 40px;
     text-shadow: black 2px 2px 4px;
 }
 
@@ -90,7 +92,8 @@ body {
     margin: 40px;
     font-family: DrugsThin, Calibri, serif;
     font-weight: bold;
-    font-size: 40px;
+    /*font-size: 40px;*/
+    font-size: 1.3rem;
     color: #EEEEEE;
     background-color: rgba(1,1,1,0.5);
     text-shadow: black 2px 2px 4px;
@@ -115,6 +118,7 @@ body {
     font-weight: bold;
     vertical-align: middle;
     margin-bottom: 40px;
+    margin-top: 40px;
     text-shadow: black 2px 2px 4px;
 }
 
@@ -130,7 +134,8 @@ body {
     padding: 30px;
     margin: 40px;
     font-family: DrugsThin, Calibri, serif;
-    font-size: 40px;
+    /*font-size: 40px;*/
+    font-size: 1.3rem;
     color: #EEEEEE;
     font-weight: bold;
     background-color: rgba(1,1,1,0.5);
