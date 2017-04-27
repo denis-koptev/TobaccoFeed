@@ -25,6 +25,16 @@ body {
     width: 70px;
     margin-top: 30px;
     margin-bottom: 40px;
+    border-radius: 15px;
+    opacity: 0.5;
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.nav_arrow:hover {
+    opacity: 1;
 }
 
 /* HEADER */

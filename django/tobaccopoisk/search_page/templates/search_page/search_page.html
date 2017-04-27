@@ -30,6 +30,14 @@
 				Search results:
 			</div>
 
+			{% if found|length == 0 %}
+				<div class="main_header">
+					<font size="5">
+						nothing found
+					</font>
+				</div>
+			{% endif %}
+
 			{% for rec in found %}
 				<a href="/{{rec.brand}}/{{rec.name}}">
 			    <table class="search_element">
