@@ -58,6 +58,8 @@ path_and_rename = PathAndRename("tobacco/static/tobacco/tobaccos/")
 # End of routine
 # --------------
 
+EMPTY_TOBACCO = "tobacco/static/tobacco/tobaccos/empty_tobacco.png"
+
 class Tobacco(models.Model):
 	brand = models.CharField(max_length=20)
 	name = models.CharField(max_length=30)
@@ -74,7 +76,7 @@ class Tobacco(models.Model):
 	rating = models.FloatField(null=True, blank=True)
 	rating_votes = models.IntegerField(null=True, default=0)
 	# create image name according to object brand and model
-	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default="tobacco/static/tobacco/tobaccos/empty_tobacco.png")
+	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default=EMPTY_TOBACCO)
 
 	def __str__(self):
 		return self.brand.title() + ' ' +self.name.title()
@@ -90,7 +92,9 @@ from tobaccopoisk import utils
 
 @receiver(pre_delete, sender=Tobacco)
 def tobacco_delete(sender, instance, **kwargs):
-	instance.file.delete(False)
+	# dont delete empty_tobacco image
+	if instance.image.name != EMPTY_TOBACCO:
+		instance.image.delete(False)
 
 @receiver(pre_save, sender=Tobacco)
 def tobacco_save(sender, instance, **kwargs):
