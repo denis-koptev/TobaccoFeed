@@ -81,19 +81,23 @@ class Tobacco(models.Model):
 
 # ----------------
 # Start of routine
+# 	for signal receivers
 # ----------------
 
-# Receive the pre_delete signal and delete the file associated with the model instance.
-# http://stackoverflow.com/questions/5372934/how-do-i-get-django-admin-to-delete-files-when-i-remove-an-object-from-the-datab
-
-from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_delete, pre_save
 from django.dispatch.dispatcher import receiver
+from tobaccopoisk import utils
 
 @receiver(pre_delete, sender=Tobacco)
 def tobacco_delete(sender, instance, **kwargs):
-	# Pass false so ImageField doesn't save the model.
 	instance.file.delete(False)
+
+@receiver(pre_save, sender=Tobacco)
+def tobacco_save(sender, instance, **kwargs):
+	instance.brand = utils.to_db_str(instance.brand)
+	instance.name = utils.to_db_str(instance.name)
 
 # --------------
 # End of routine
+#	for signal receivers
 # --------------
