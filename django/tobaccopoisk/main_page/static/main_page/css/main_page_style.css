@@ -4,6 +4,8 @@ body {
     background-color: #555555;
     min-width: 800px;
     width: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 .side_bar {
@@ -49,6 +51,7 @@ body {
     position: relative;
     background: #464646 url("/static/main_page/backgrounds/bg_content2.jpg") no-repeat center center fixed;
     background-size: cover;
+    padding-bottom: 50px;
 }
 
 .description {

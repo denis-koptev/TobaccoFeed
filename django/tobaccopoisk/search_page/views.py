@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from tobacco.models import Tobacco
 from django.shortcuts import redirect
 from .engine import search as do_search
+from django.shortcuts import render
 
 def search(request):
 	q = request.GET.get('q')
@@ -12,4 +13,5 @@ def search(request):
 	if len(filtered) == 1:
 		return redirect("/" + filtered[0]["brand"].lower().replace(' ', '_') + "/" + filtered[0]["name"].lower().replace(' ', '_'))
 
-	return HttpResponse("{}".format(json.dumps({"data": filtered}, ensure_ascii=False)))
+	context = {'found': filtered}
+	return render(request, 'search_page/search_page.html', context)

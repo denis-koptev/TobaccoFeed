@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'tobacco',
     'main_page',
+    'search_page',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,5 +136,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.normcase(os.path.join(BASE_DIR, "main_page/static")),   # untrusted definition
     os.path.normcase(os.path.join(BASE_DIR, "tobacco/static")),     # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "search_page/static")),     # untrusted definition
     os.path.normcase(os.path.join(BASE_DIR, "static")),             # untrusted definition
 )

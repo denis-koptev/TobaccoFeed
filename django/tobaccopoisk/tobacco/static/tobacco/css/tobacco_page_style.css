@@ -10,6 +10,7 @@ body {
     margin-top: 40px;
     margin-bottom: 0;
     border-spacing: 0;
+    height: 100%;
 }
 
 
@@ -27,6 +28,7 @@ body {
     padding: 10px;
     margin:0;
     background-color: rgba(256,256,256,0.1);
+    height: 100%;
 }
 
 

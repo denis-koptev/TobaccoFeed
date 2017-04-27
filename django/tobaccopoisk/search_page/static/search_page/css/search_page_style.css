@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    background: url(/static/tobacco/backgrounds/bg14.jpg);
+    background-attachment: fixed;
+    min-width: 800px;
+    width: 100%;
+}
+
+.table_content {    
+    margin-top: 40px;
+    margin-bottom: 0;
+    border-spacing: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.side_bar {
+    width: 25%;
+}
+
+.main_content {
+    padding: 20px;
+    margin:0;
+    background-color: rgba(256,256,256,0.1);
+    height: 100%;
+}
+
+.main_header {
+	font-size: 36px;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 25px;
+
+	color: white;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+}
+
+.search_element {
+	background-color: rgba(255,255,255,0.7);
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.search_element:hover {
+	background-color: rgba(255,255,255,0.9);
+}
+
+.tobacco_div {
+
+	font-size: 24px;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+
+	line-height: 100px;
+
+	color: black;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+	
+	height: 100px;
+
+	display:inline-block;
+
+	margin: 0;
+}
+
+.tobacco_image {
+	height: 100%;
+	display:block;
+}
+
+.tobacco_brand {
+
+	font-size: 24px;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+	height: 100px;
+	line-height: 100px;
+
+	color: black;
+
+
+	width: 30%;
+
+	display:inline-block;
+	
+	margin: 0;
+}
+
+.tobacco_name {
+
+	font-size: 24px;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+	height: 100px;
+	line-height: 100px;
+
+	color: black;
+
+	width: 20%;
+
+	display:inline-block;
+
+	margin: 0;
+}

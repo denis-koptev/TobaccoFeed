@@ -1,0 +1,62 @@
+{% load static %}
+
+<html>
+<head>
+<title>Search - TobaccoFeed</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "/navbar/nav_bar_style.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "search_page/css/search_page_style.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "/footer/footer_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+
+</head>
+
+<body>
+
+<!-- NAV BAR --> 
+
+{% include "navbar.html" %}
+
+
+<table class="table_content">
+
+	<tr>
+		<td class="side_bar"></td>
+
+		<td class="main_content" valign="top">
+
+			<div class="main_header">
+				Search results:
+			</div>
+
+			{% for rec in found %}
+				<a href="/{{rec.brand}}/{{rec.name}}">
+			    <table class="search_element">
+			    	<tr>
+			    		<td class="tobacco_div">
+			    			<img src="{{rec.image}}" class="tobacco_image">
+			    		</td>
+			    		<td class="tobacco_brand">
+			    			{{rec.brand}}
+			    		</td>
+			    		<td class="tobacco_name">
+			    			{{rec.name}}
+			    		</td>
+			    	</tr>
+			    </table>
+			    </a>
+			{% endfor %}
+
+		</td>
+
+		<td class="side_bar"></td>
+	</tr>
+
+</table>
+
+{% include "footer.html" %}
+
+</body>
+
+</html>
