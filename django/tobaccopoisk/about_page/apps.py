@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class MainPageConfig(AppConfig):
-    name = 'main_page'
+    name = 'about_page'

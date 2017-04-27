@@ -1,0 +1,148 @@
+{% load static %}
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>
+        About Us - TobaccoFeed
+    </title>
+
+    <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
+
+    <link type="text/css" rel="stylesheet" href="{% static "about_page/css/about_page_style.css" %}"></link>
+
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+
+<!-- NAV BAR -->
+
+{% include "navbar.html" %}
+
+<!-- CONTENT -->
+
+<div class="all_content" id="sections">
+
+    <section class="header_content" id="header">
+        <!--<img src="{% static "/logo.png" %}" class="header_icon">-->
+        <table class="cell_table"><tr><td class="cell_td">
+        <span class="header_text">
+                TobaccoFeed
+        </span>
+        <p></p>
+        <a href="#intro"><img src="{% static "/arrow_down.png" %}" class="nav_arrow"></a>
+        </td></tr>
+        </table>
+    </section>
+
+    <section class="intro_content" id="intro">
+        <a name="intro"></a>
+        <table class="cell_table"><tr><td class="cell_td">
+        <div class="intro_text">   
+            Why are we here?
+        </div>
+        <table class="intro_table" width="70%">
+            <tr>
+                <td class="intro_td">
+                    More and more people are starting to smoke hookas. Hookas are the part of our culture
+                </td>
+                <td width="20%"></td>
+                <td class="intro_td">
+                    It will be great to have unified resource with all information about tobaccos
+                </td>
+            </tr>
+            <tr>
+                <td height="40px"></td>
+            </tr>
+            <tr>
+                <td class="intro_td">
+                    We will give you the opportunity to choose products according to your preferences
+                </td>
+                <td width="20%"></td>
+                <td class="intro_td">
+                    You'll be able to communicate and share, to add tobaccos and find the best prices
+                </td>
+            </tr>
+        </table>
+        <p></p>
+        <a href="#work"><img src="{% static "/arrow_down.png" %}" class="nav_arrow"></a>
+        <a href="#header"><img src="{% static "/arrow_up.png" %}" class="nav_arrow"></a>
+        </td></tr></table>
+    </section>
+
+    <section class="work_content" id="work">
+        <a name="work"></a>
+        <table class="cell_table"><tr><td class="cell_td">    
+        <div class="work_text">   
+            TobaccoFeed is in progress
+        </div>
+        <table class="work_table" width="70%">
+            <tr>
+                <td class="work_td">
+                    We started in April 17
+                </td>
+                <td width="20%"></td>
+                <td class="work_td">
+                    Now we have list of tobaccos which you can search
+                </td>
+            </tr>
+            <tr>
+                <td height="40px"></td>
+            </tr>
+            <tr>
+                <td class="work_td">
+                    Our project is growing rapidly, but we still need financing, advertising and human resources
+                </td>
+                <td width="20%"></td>
+                <td class="work_td">
+                    Soon, you'll be able to register, find and add tobaccos and mixes into your profile
+                </td>
+            </tr>
+        </table>
+        <p></p>
+        <a href="#release"><img src="{% static "/arrow_down.png" %}" class="nav_arrow"></a>
+        <a href="#intro"><img src="{% static "/arrow_up.png" %}" class="nav_arrow"></a>
+        </td></tr></table>
+    </section>
+
+    <section class="release_content" id="release">
+        <table class="cell_table"><tr><td class="cell_td">
+        <div class="release_text">
+                TobaccoFeed
+        </div>
+        <div class="release_text">
+                Coming Soon
+        </div>
+        <p></p>
+        <a href="#work"><img src="{% static "/arrow_up.png" %}" class="nav_arrow"></a>
+        </td></tr></table>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+
+{% include "footer.html" %}
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $("#sections").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1000);
+    });
+});
+</script>
+
+</body>
+
+</html>
