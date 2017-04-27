@@ -1,7 +1,13 @@
-## tobacco_project
+## TobaccoFeed
 
 From potential creators of porn-social network
 
+## Description
+
+More and more people are starting to smoke hookas. Hookas are the part of our culture.
+It will be great to have unified resource with all information about tobaccos.
+We will give people the opportunity to choose products according to their preferences.
+Users will be able to communicate and share, to add tobaccos and find the best prices.
 
 ## How to start
 
