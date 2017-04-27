@@ -1,9 +1,6 @@
-import json
-from django.http import HttpResponse
-from tobacco.models import Tobacco
-from django.shortcuts import redirect
 from .engine import search as do_search
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from tobaccopoisk import utils
 
 def search(request):
 	q = request.GET.get('q')
@@ -11,7 +8,7 @@ def search(request):
 	filtered = do_search(q)
 
 	if len(filtered) == 1:
-		return redirect("/" + filtered[0]["brand"].lower().replace(' ', '_') + "/" + filtered[0]["name"].lower().replace(' ', '_'))
+		return redirect("/" + utils.to_db_str(filtered[0]["brand"]) + "/" + utils.to_db_str(filtered[0]["name"]))
 
 	context = {'found': filtered}
 	return render(request, 'search_page/search_page.html', context)
