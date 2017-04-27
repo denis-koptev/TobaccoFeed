@@ -1,33 +1,49 @@
 from tobacco.models import Tobacco
-
-def image_url_handler(url):
-	idx = url.find('/static/')
-	return url[idx:]
+from tobaccopoisk import utils
 
 def to_dict(inst):
 	return 	{
 			'brand': inst[0],
 			'name': inst[1],
-			'image': image_url_handler(inst[2]),
+			'image': utils.image_url_handler(inst[2]),
 			}
 
+
 def max_substr(a, b):
-	lengths = [[0 for j in range(len(b)+1)] for i in range(len(a)+1)]
-	for i, x in enumerate(a):
-	    for j, y in enumerate(b):
-	        if x == y:
-	            lengths[i+1][j+1] = lengths[i][j] + 1
-	        else:
-	            lengths[i+1][j+1] = max(lengths[i+1][j], lengths[i][j+1])
-	return lengths[len(a)][len(b)]
+	if (a == b):
+		return a
+
+	if (len(a) == 0 or len(b) == 0):
+		return ""
+
+	matrix = [[0 for x in b] for y in a]
+
+	max_length = 0
+	max_idx = 0
+
+	for i in range(len(a)) :
+		for j in range(len(b)) :
+			if a[i] == b[j] :
+				if i != 0 and j != 0 :
+					matrix[i][j] = matrix[i-1][j-1] + 1
+				else:
+					matrix[i][j] = 1
+				if matrix[i][j] > max_length :
+					max_length = matrix[i][j]
+					max_idx = i
+	return a[max_idx - max_length + 1 : max_idx + 1]
+
 
 def search(q):
+
 	try:
 		insts = Tobacco.objects.values_list('brand', 'name', 'image')
 	except Tobacco.DoesNotExist:
 		return []
 
 	q = q.replace(' ', '').replace('-', '').replace('_', '').lower()
+	if len(q) == 0:
+		return []
 
 	data = [to_dict(inst) for inst in insts]
 
@@ -41,7 +57,13 @@ def search(q):
 		ident = ident.replace(' ', '').replace('-', '').replace('_', '')
 		len_ident = len(ident)
 
-		coeff = max_substr(q, ident)
+		loc_q = q
+		max_sub = max_substr(loc_q, ident)
+		coeff = 0
+		while len(max_sub) != 0:
+			loc_q = loc_q.replace(max_sub, "")
+			coeff = coeff + len(max_sub)
+			max_sub = max_substr(loc_q, ident)
 
 		if coeff / len_ident == 1:
 			return [item]

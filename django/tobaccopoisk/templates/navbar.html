@@ -17,7 +17,7 @@
 
         <div class="search_div" id="search_div">
             <form action="/search" method="get" id="search_form">
-                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()">
+                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()" maxlength="50">
                 <input type=image src="{% static "/navbar/search_icon.png" %}" class="search_button" id="search_button">   
             </form>
         </div>
