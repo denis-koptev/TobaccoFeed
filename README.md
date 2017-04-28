@@ -15,78 +15,72 @@ Download python3 https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe
 
 Install with PATH and name limit deactivation
 
-Клоним проект
+Clone project
 `git clone https://github.com/denis-koptev/tobacco_project`
 
-После установки питона нужно поставить виртуальное окружение
+Setup virtual environment after python installation
 
-Можно это сделать из любой папки, но лучше в папке django рядом с папкой tobaccopoisk
+It can be done from every folder, but `/django` is better
 * `cmd > pip install virtualenv`
 * `cmd > virtualenv env`
 
-Это создаст папку env в текущей директории
+It will create `env` folder in current dir
 
-Для активации 	
-* `env\Scripts\activate.bat`
+For activation: `env\Scripts\activate.bat`
 
-Для деактивации 
-* `env\Scripts\deactivate.bat`
+For deactivation: `env\Scripts\deactivate.bat`
 
-### Далее все действия внутри окружения:
+### Continuous actions are done inside `env`:
 
-Все зависимости лежат в файле requirements.txt
+All  dependencies are in `requirements.txt`
 
-Для скачивания необходимых зависимостей:
-* `pip install -r requirements.txt`
+For dependency installation: `pip install -r requirements.txt`
 	
-Чтобы сделать такой файлик, допустим, при скачивании новых модулей через pip, нужно исполнить следующую команду:
-* `pip freeze > requirements.txt`
+To create this file (or update) when there are new modules installed with `pip`: `pip freeze > requirements.txt`
 
-Если возникнут какие-то ошибки можно попробовать:
-* `pip install Django`
-* `pip install Pillow`
+If there are errors try: `pip install Django` or/and `pip install Pillow`
 
-В будующем этого может стать недостаточно, т.е могут появить еще модули!!!
+*Note: it won't be enough in the future as far as new modules will be installed*
 
-## Запуск сервера
+## Server launching
 
-* Перейти в папку проекта tobacco_project/django/tobaccopoisk
-* Выполнить: `manage.py runserver`
-* Опционально: после вызова можно указать ip:port
-* По дефолту: 127.0.0.1:8000
+* Move into directory `tobacco_project/django/tobaccopoisk`
+* Run: `manage.py runserver`
+* Optionally we can specify port: ip:port
+* Default: 127.0.0.1:8000
 
-## Создание юзера в админке
+## User creation in admin panel
 
 * `manage.py createsuperuser`
-* Чтобы войти, к адресу сайта приписываем /admin
+* To enter admin panel go to `<site_domain>/admin`
 
-## Связь html и питона (шаблоны)
+## html & python interconnection (templates)
 
-* Соответсвующие html коды помещены в папку
-(*<app_name>/templates/<app_name>*) для каждого приложения (tobacco, main и т.д.)
+* html files placed in
+(*<app_name>/templates/<app_name>*) for each application (tobacco, main, etc)
 
-## Работа со статикой
-Внутри каждого приложения нужно созавать папку со статикой. Внутри нее файл с именем, совпадающим с названием приложения.
+## Work with static content
+Create folder for static for each application
 
-Т.е это будет выглядеть: **/tobaccopoisk/main_page/static/main_page/** 
+E.g.: **/tobaccopoisk/main_page/static/main_page/** 
 (*/<project_name>/<app_name>/static/<app_name>/*)
 
-Путь к файлам будет иметь вид: **/tobaccopoisk/main_page/static/main_page/image.jpg** 
+Path (to static file) example: **/tobaccopoisk/main_page/static/main_page/image.jpg** 
 (*/<project_name>/<app_name>/static/<app_name>/file*)
 
-### Настройка статики
+### Setting up static
 
-В settings.py в STATICFILES_DIRS нужно указывать каждое приложение со статикой
+In settings.py code `STATICFILES_DIRS` object must include every application
 
-Пример для приложения main_page : `os.path.join(BASE_DIR, "main_page/static")`
-### Использование в шаблонах
+Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
+### Template usage
 * `{% load static %}`
 * `<img src="{% static "main_page/hookah.jpg" %}" alt="My Hookah"/>`
 
-*Больше примеров на сайте Джанго*
+*More examples: https://www.djangoproject.com/*
 
 
-## TO DO LIST
+## TO DO LIST (in russian)
 
 - [ ] Добавить механизм обработки тегов
 - [ ] Создать механизм для хранения глобальных путей к статике
@@ -95,7 +89,7 @@ Install with PATH and name limit deactivation
 - [ ] Начать заполнять БД табаками
 - [ ] Кластеризация данных
 
-## TO TEST LIST
+## TO TEST LIST (in russian)
 
 - [ ] Проверить, что при замене фото к табаку через админку, старое фото удаляется
 - [ ] Проверить, что поле поиска работает корректно (не алгоритм поиска, а сама кнопка)
