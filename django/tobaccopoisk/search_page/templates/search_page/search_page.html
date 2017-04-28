@@ -39,16 +39,14 @@
 			{% endif %}
 
 			{% for rec in found %}
-				<a href="/{{rec.brand}}/{{rec.name}}">
-			    <table class="search_element">
+				<a href="{{rec.url}}">
+			    <table class="search_element" >
 			    	<tr>
 			    		<td class="tobacco_div">
 			    			<img src="{{rec.image}}" class="tobacco_image">
 			    		</td>
-			    		<td class="tobacco_brand">
+			    		<td class="tobacco_brand" valign="middle">
 			    			{{rec.brand}}
-			    		</td>
-			    		<td class="tobacco_name">
 			    			{{rec.name}}
 			    		</td>
 			    	</tr>

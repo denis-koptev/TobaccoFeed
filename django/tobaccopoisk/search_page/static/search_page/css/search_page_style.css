@@ -37,10 +37,14 @@ body {
 }
 
 .search_element {
+	float: left;
 	background-color: rgba(255,255,255,0.7);
 	border-radius: 10px;
 	padding: 5px;
-	width: 100%;
+	/*width: 44%;*/ /* for two recs in one row */
+	width: 94%;
+	margin-left: 3%;
+	margin-right: 3%;
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -50,60 +54,18 @@ body {
 }
 
 .tobacco_div {
-
-	font-size: 24px;
-	font-family: DrugsThin, serif;
-	font-weight: bold;
-
-	line-height: 100px;
-
-	color: black;
-	font-family: DrugsThin, serif;
-	font-weight: bold;
-	
-	height: 100px;
-
-	display:inline-block;
-
-	margin: 0;
+	width: 25%;
 }
 
 .tobacco_image {
-	height: 100%;
-	display:block;
+	width: 100%;
 }
 
 .tobacco_brand {
-
 	font-size: 24px;
 	font-family: DrugsThin, serif;
 	font-weight: bold;
-	height: 100px;
-	line-height: 100px;
-
 	color: black;
-
-
-	width: 30%;
-
-	display:inline-block;
-	
 	margin: 0;
-}
-
-.tobacco_name {
-
-	font-size: 24px;
-	font-family: DrugsThin, serif;
-	font-weight: bold;
-	height: 100px;
-	line-height: 100px;
-
-	color: black;
-
-	width: 20%;
-
-	display:inline-block;
-
-	margin: 0;
+	vertical-align: center;
 }

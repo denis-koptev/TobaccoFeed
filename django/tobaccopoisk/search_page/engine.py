@@ -3,8 +3,9 @@ from tobaccopoisk import utils
 
 def to_dict(inst):
 	return 	{
-			'brand': inst[0],
-			'name': inst[1],
+			'brand': utils.to_view_str(inst[0]),
+			'name': utils.to_view_str(inst[1]),
+			'url': "/" + inst[0] + "/" + inst[1],
 			'image': utils.image_url_handler(inst[2]),
 			}
 
