@@ -48,6 +48,9 @@ def search(q):
 
 	data = [to_dict(inst) for inst in insts]
 
+	if q == "<all>":
+		return data
+
 	# SEARCH CODE STARTED
 
 	filtered = []

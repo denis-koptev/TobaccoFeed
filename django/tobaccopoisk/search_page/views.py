@@ -10,5 +10,6 @@ def search(request):
 	if len(filtered) == 1:
 		return redirect("/" + utils.to_db_str(filtered[0]["brand"]) + "/" + utils.to_db_str(filtered[0]["name"]))
 
-	context = {'found': filtered}
+	context = {'found': filtered,
+			   'search_string': q}
 	return render(request, 'search_page/search_page.html', context)
