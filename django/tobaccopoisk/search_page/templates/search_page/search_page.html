@@ -38,6 +38,12 @@
 				</div>
 			{% endif %}
 
+			<div class="main_header">
+				<font size="5">
+					{{found|length}} tobaccos found
+				</font>
+			</div>
+
 			{% for rec in found %}
 				<a href="{{rec.url}}">
 			    <table class="search_element" >

@@ -55,13 +55,13 @@ def search(q):
 	for item in data:
 
 		ident = item["brand"] + item["name"]
-		ident = ident.replace(' ', '').replace('-', '').replace('_', '')
+		ident = ident.replace(' ', '').replace('-', '').replace('_', '').lower()
 		len_ident = len(ident)
 
 		loc_q = q
 		max_sub = max_substr(loc_q, ident)
 		coeff = 0
-		while len(max_sub) != 0:
+		while len(max_sub) > 1:
 			loc_q = loc_q.replace(max_sub, "")
 			coeff = coeff + len(max_sub)
 			max_sub = max_substr(loc_q, ident)
