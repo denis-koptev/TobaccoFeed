@@ -16,7 +16,9 @@
 
     <link rel="icon" href="{% static "/favicon.ico" %}">
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "/js/jquery-3.1.1.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "about_page/js/scroll_to_label.js" %}"></script>
 
 </head>
 
@@ -131,17 +133,6 @@
 <!-- FOOTER -->
 
 {% include "footer.html" %}
-
-<script type="text/javascript">
- $(document).ready(function(){
-    $("#sections").on("click","a", function (event) {
-        event.preventDefault();
-        var id  = $(this).attr('href'),
-            top = $(id).offset().top;
-        $('body,html').animate({scrollTop: top}, 1000);
-    });
-});
-</script>
 
 </body>
 

@@ -126,7 +126,7 @@
 }
 
 .dropbtn {
-    background-color: #494949;
+    background-color: #393939;
     color: white;
     font-size: 16px;
     border: none;
@@ -142,7 +142,7 @@
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #333333;
+    background-color: #303030;
     transition: all .2s ease-out;
 }
 

@@ -62,14 +62,15 @@ def search(q):
 		max_sub = max_substr(loc_q, ident)
 		coeff = 0
 		while len(max_sub) > 1:
-			loc_q = loc_q.replace(max_sub, "")
-			coeff = coeff + len(max_sub)
+			loc_q = loc_q.replace(max_sub, " ")
+			coeff = coeff + len(max_sub)#*len(max_sub)
 			max_sub = max_substr(loc_q, ident)
+
 
 		if coeff / len_ident == 1:
 			return [item]
 
-		if coeff / len(q) >= 0.9:
+		if coeff / len(q) >= 0.83:
 			item["coeff"] = coeff
 			filtered.append(item)
 
