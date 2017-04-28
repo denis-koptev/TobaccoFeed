@@ -11,7 +11,7 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## How to start
 
-Download python3 https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe
+Download *[Python3](https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe)*
 
 Install with PATH and name limit deactivation
 
@@ -80,14 +80,13 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 *More examples: https://www.djangoproject.com/*
 
 
-## TO DO LIST (in russian)
+## TO DO LIST
 
-- [ ] Добавить механизм обработки тегов
-- [ ] Создать механизм для хранения глобальных путей к статике
-- [ ] [Перегрузка ImageField](http://stackoverflow.com/questions/9522759/imagefield-overwrite-image-file-with-same-name) для подгрузки в одну папку *(tobacco/static/tobacco/<image_name>)*, а сохранением в БД с другим адресом *(static/tobacco/<image_name>)* :star:
-- [ ] Перейти на MySQL :star:
-- [ ] Начать заполнять БД табаками
-- [ ] Кластеризация данных
+- [ ] Create tag handling engine
+- [ ] Create engine for static paths
+- [ ] Move on MySQL :star:
+- [x] Start filling DB with tobaccos
+- [ ] Clustering of data, Statistics, Machine Learning
 
 ## TO TEST LIST (in russian)
 
