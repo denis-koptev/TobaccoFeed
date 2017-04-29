@@ -17,12 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 import about_page.views as main_view
 import search_page.views as search_views
+import main_page.views as main_views
 
 urlpatterns = [
 	url(r'^$', main_view.index, name="about_page"),
     url(r'^admin[/]?', admin.site.urls),
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search'),
+    url(r'^main$', main_views.main, name='main'),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH

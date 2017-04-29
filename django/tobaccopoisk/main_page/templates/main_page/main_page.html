@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main - TobaccoFeed</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "main_page/css/main_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+
+</head>
+<body>
+
+{% include "navbar.html" %}
+
+<table class="table_content">
+
+	<tr>
+		<td class="side_bar"></td>
+
+		<td class="main_content" valign="top">
+
+		<div class="main_header">
+			Main Page 
+		</div>
+		<div class="main_header">
+			<font size=6>We are just starting</font>
+		</div>
+
+		</td>
+
+		<td class="side_bar"></td>
+	</tr>
+
+</table>
+
+{% include "footer.html" %}
+
+</body>
+</html>

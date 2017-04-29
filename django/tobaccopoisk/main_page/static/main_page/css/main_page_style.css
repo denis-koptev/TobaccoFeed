@@ -1,0 +1,41 @@
+html, body{
+height:100%;
+margin:0px;
+padding:0px;
+}
+
+body {
+    margin: 0;
+    background: url(/static/backgrounds/bg14.jpg);
+    background-attachment: fixed;
+    min-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.table_content {    
+    margin-top: 40px;
+    margin-bottom: 0;
+    border-spacing: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.side_bar {
+    width: 25%;
+}
+
+.main_content {
+    padding: 20px;
+    margin:0;
+    background-color: rgba(256,256,256,0.1);
+    height: 100%;
+}
+
+.main_header {
+	text-align: center;
+	color: #DDDDDD;
+	font-size: 70px;
+	font-family: DrugsThin, serif;
+	font-weight: bold;
+}

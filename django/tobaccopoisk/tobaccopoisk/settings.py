@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'tobacco',
     'about_page',
     'search_page',
+    'main_page',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
