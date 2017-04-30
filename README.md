@@ -49,6 +49,18 @@ If there are errors try: `pip install Django` or/and `pip install Pillow`
 * Optionally we can specify port: ip:port
 * Default: 127.0.0.1:8000
 
+## Running on Ubuntu
+
+* Python3 should be installed by delault
+* `apt-get install git`
+* `git clone https://github.com/denis-koptev/tobacco_project`
+* `apt-get install python3-pip`
+* `pip3 install virtualenv`
+* `virtualenv env`
+* `source env/bin/activate`
+* `pip3 install -r requirements.txt`
+* `python3 manage.py runserver`
+
 ## User creation in admin panel
 
 * `manage.py createsuperuser`

@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-import about_page.views as main_view
+import about_page.views as about_views
 import search_page.views as search_views
 import main_page.views as main_views
 
 urlpatterns = [
-	url(r'^$', main_view.index, name="about_page"),
+	url(r'^$', about_views.index, name="about_page"),
     url(r'^admin[/]?', admin.site.urls),
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search'),
@@ -30,5 +30,5 @@ urlpatterns = [
     # DO NOT CHANGE ITS DESTINATION, BITCH
 	url(r'^', include('tobacco.urls')),
 
-    url(r'^', main_view.error_404, name='error_404'),
+    url(r'^', about_views.error_404, name='error_404'),
 ]
