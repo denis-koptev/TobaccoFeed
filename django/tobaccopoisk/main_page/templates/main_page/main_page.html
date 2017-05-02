@@ -22,10 +22,41 @@
 		<td class="main_content" valign="top">
 
 		<div class="main_header">
-			Main Page 
+			News 
 		</div>
+
+		<table class="news_table">
+			<tr>
+				<td class="slider_area">
+					
+				</td>
+				<td class="text_news_area">
+					<ul>
+						{% for rec in latest %}
+							<li class="news_rec">
+								<a href="{{rec.url}}">
+					    			{{rec.brand}}
+					    			{{rec.name}}
+							    </a>
+							    added
+						    </li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+		</table>
+
+
 		<div class="main_header">
-			<font size=6>We are just starting</font>
+			Popular mixes 
+		</div>
+
+		<div class="main_header">
+			Where to buy 
+		</div>
+
+		<div class="main_header">
+			Statistics 
 		</div>
 
 		</td>
