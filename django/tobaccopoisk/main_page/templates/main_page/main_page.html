@@ -25,6 +25,12 @@
 
 		<td class="main_content" valign="top">
 
+		<div class="about_div">
+			<form action="/">
+				<button class="about_button" type="submit">About us</button>
+			</form>
+		</div>
+
 		<div class="main_header">
 			News 
 		</div>
@@ -61,17 +67,17 @@
 				<!-- Text news -->
 
 				<td class="text_news_area">
-					<ul>
-						{% for rec in latest %}
-							<li class="news_rec">
+					{% for rec in latest %}
+						<div class="news_rec">
+							<li>
 								<a href="{{rec.url}}">
 					    			{{rec.brand}}
 					    			{{rec.name}}
 							    </a>
 							    added
 						    </li>
-						{% endfor %}
-					</ul>
+					    </div>
+					{% endfor %}
 				</td>
 			</tr>
 		</table>
@@ -80,13 +86,19 @@
 			Popular mixes 
 		</div>
 
+		<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
+
 		<div class="main_header">
 			Where to buy 
 		</div>
 
+		<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
+
 		<div class="main_header">
 			Statistics 
 		</div>
+
+		<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
 
 		</td>
 

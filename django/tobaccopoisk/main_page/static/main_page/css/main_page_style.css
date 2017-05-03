@@ -46,8 +46,8 @@ body {
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
-    margin-bottom: 10px;
-    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .news_table {
@@ -77,7 +77,12 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
-    transition: all 0.6s ease;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-shadow: black 2px 2px 4px;
+    padding: 3px;
+    padding-left: 10px;
 }
 
 .news_rec a {
@@ -91,6 +96,30 @@ body {
 }
 
 .rec_active {
-    color: #99FF99;
-    text-decoration: underline;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.about_div {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about_button {
+    font-size: 26px;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
+    color: #DDDDDD;
+    background-color: rgba(1,1,1,0.3);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    /*border: none;*/
+}
+
+.about_button:hover {
+    font-size: 28px;
+}
+
+.lock_image {
+    width: 100%;
 }

@@ -67,6 +67,30 @@ body {
     background-color: rgba(1,1,1,0.5);
 }
 
+.header_link {
+    font-size: 50px;
+    color: #ffff55;
+    font-family: DrugsThin, Calibri, serif;
+    font-weight: bold;
+    border: 3px solid #EEEEEE;
+    border-radius: 15px;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: black 2px 2px 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: rgba(1,1,1,0.5); 
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out  
+}
+
+.header_link:hover {
+    font-size: 60px;
+}
+
 /* INTRO */
 
 .intro_content {

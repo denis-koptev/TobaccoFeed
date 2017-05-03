@@ -40,6 +40,10 @@
                 TobaccoFeed
         </span>
         <p></p>
+        <form action="/main" method="post">{% csrf_token %} 
+            <button class="header_link" type="submit">Explore</button>
+        </form>
+        <p></p>
         <a href="#intro"><img src="{% static "/arrow_down.png" %}" class="nav_arrow"></a>
         </td></tr>
         </table>
