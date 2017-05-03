@@ -7,7 +7,11 @@
 
     <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
     <link type="text/css" rel="stylesheet" href="{% static "main_page/css/main_page_style.css" %}"></link>
+
     <link rel="icon" href="{% static "/favicon.ico" %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static "/slider/slider_style.css" %}"></link>
+	<!--<script src="{% static "/slider/slider_actions.js" %}"></script>-->
 
 </head>
 <body>
@@ -28,8 +32,34 @@
 		<table class="news_table">
 			<tr>
 				<td class="slider_area">
-					
+				
+					<div class="slideshow-container">
+
+					  {% for rec in latest %}
+						  <div class="mySlides fade">
+						  	<a href="{{rec.url}}">
+						    	<img src="{{rec.image}}" class="slider_image">
+						    </a>
+						    <!--<div class="text">Caption Two</div>-->
+						  </div>
+					  {% endfor %}
+
+					  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+					</div>
+
+					<div class="slider_switches">
+					  <span class="dot" onclick="currentSlide(1)"></span> 
+					  <span class="dot" onclick="currentSlide(2)"></span> 
+					  <span class="dot" onclick="currentSlide(3)"></span> 
+					  <span class="dot" onclick="currentSlide(4)"></span> 
+					  <span class="dot" onclick="currentSlide(5)"></span> 
+					</div>
+
 				</td>
+
+				<!-- Text news -->
+
 				<td class="text_news_area">
 					<ul>
 						{% for rec in latest %}
@@ -45,7 +75,6 @@
 				</td>
 			</tr>
 		</table>
-
 
 		<div class="main_header">
 			Popular mixes 
@@ -67,6 +96,59 @@
 </table>
 
 {% include "footer.html" %}
+
+<script type="text/javascript">
+	var slideIndex = 0;
+	switchSlides();
+
+	function plusSlides(n) {
+	  switchSlides((n > 0), false);
+	}
+
+	function currentSlide(n) {
+	  switchSlides((n > 0), false);
+	}
+
+	function switchSlides(switchNext = true, isAuto = true) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		var text_recs = document.getElementsByClassName("news_rec");
+
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none"; 
+		}
+
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+
+		for (i = 0; i < text_recs.length; ++i) {
+			text_recs[i].className = text_recs[i].className.replace(" rec_active", "");
+		}
+
+		if (switchNext) {
+			slideIndex++;
+		} else {
+			slideIndex--;
+		}
+
+		if (slideIndex > slides.length) {
+			slideIndex = 1
+		} else if (slideIndex < 1) {
+			slideIndex = slides.length;
+		}
+
+		slides[slideIndex-1].style.display = "block"; 
+		dots[slideIndex-1].className += " active";
+		text_recs[slideIndex-1].className += " rec_active";
+
+		if (isAuto) {
+			setTimeout(switchSlides, 4000);
+		}
+	}
+
+</script>
 
 </body>
 </html>

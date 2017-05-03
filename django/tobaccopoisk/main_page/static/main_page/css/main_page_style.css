@@ -14,7 +14,7 @@ body {
 }
 
 .table_content {    
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     margin-bottom: 0;
     border-spacing: 0;
     height: 100%;
@@ -47,6 +47,7 @@ body {
     border-radius: 5px;
     border-spacing: 0;
     margin-bottom: 10px;
+    margin-top: 40px;
 }
 
 .news_table {
@@ -55,12 +56,13 @@ body {
 }
 
 .slider_area {
-    width: 60%;
+    width: 50%;
+    background-color: rgba(1,1,1,0.5);
+    border-radius: 5px;
 }
 
 .text_news_area {
-    width: 40%;
-    border: 1px solid gray;
+    width: 50%;
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
@@ -70,11 +72,25 @@ body {
 .news_rec {
     color: #DDDDDD;
     text-decoration: none;
+    font-size: 16px;
     font-family: DrugsThin, serif;
     font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: all 0.6s ease;
 }
 
 .news_rec a {
     color: #FFBBBB;
     text-decoration: none;
+}
+
+.news_rec:hover {
+    font-size: 17px; 
+    transition: all 0.6s ease;
+}
+
+.rec_active {
+    color: #99FF99;
+    text-decoration: underline;
 }
