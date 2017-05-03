@@ -66,15 +66,15 @@ class Tobacco(models.Model):
 	release_date = models.DateField(auto_now_add=True, null=True, blank=True)
 	description = models.TextField(null=True, blank=True)
 	strength = models.FloatField(null=True, blank=True)
-	strength_votes = models.IntegerField(null=True, default=0)
+	strength_votes = models.IntegerField(default=0)
 	smoke = models.FloatField(null=True, blank=True)
-	smoke_votes = models.IntegerField(null=True, default=0)
+	smoke_votes = models.IntegerField(default=0)
 	taste = models.FloatField(null=True, blank=True)
-	taste_votes = models.IntegerField(null=True, default=0)
+	taste_votes = models.IntegerField(default=0)
 	heat = models.FloatField(null=True, blank=True)
-	heat_votes = models.IntegerField(null=True, default=0)
+	heat_votes = models.IntegerField(default=0)
 	rating = models.FloatField(null=True, blank=True)
-	rating_votes = models.IntegerField(null=True, default=0)
+	rating_votes = models.IntegerField(default=0)
 	# create image name according to object brand and model
 	image = models.ImageField(null=True, storage=TobaccoStorage(), upload_to=path_and_rename, default=EMPTY_TOBACCO)
 
@@ -105,3 +105,29 @@ def tobacco_save(sender, instance, **kwargs):
 # End of routine
 #	for signal receivers
 # --------------
+
+
+# --------
+# Start of
+# 	Mixes
+# --------
+
+from tobaccopoisk.utils import to_view_str
+
+class Mix(models.Model):
+	description = models.TextField(null=True, blank=True)
+	rating = models.FloatField(null=True, blank=True)
+	rating_votes = models.IntegerField(null=True, default=0)
+	pub_date = models.DateField(auto_now_add=True, null=True, blank=True)
+	tobaccos = models.ManyToManyField(Tobacco, related_name='mixes')
+
+	def __str__(self):
+		return " + ".join(to_view_str(t.brand) + ' ' + to_view_str(t.name) for t in self.tobaccos.all())
+
+	class Meta:
+		# The default ordering for the object, 
+		# 	for use when obtaining lists of objects:
+		ordering = ('-pub_date',)
+
+		# Custom multiple name
+		verbose_name_plural = 'Mixes'
