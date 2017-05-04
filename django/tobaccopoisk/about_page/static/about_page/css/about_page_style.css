@@ -40,7 +40,7 @@ body {
 /* HEADER */
 
 .header_content {
-    background: #464646 url("/static/about_page/backgrounds/header_bg.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/about_page/image/header_bg.jpg") no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     margin-bottom: 5px;
@@ -94,7 +94,7 @@ body {
 /* INTRO */
 
 .intro_content {
-    background: #464646 url("/static/about_page/backgrounds/intro_bg.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/about_page/image/intro_bg.jpg") no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     margin-bottom: 5px;
@@ -136,7 +136,7 @@ body {
 /* WORK */
 
 .work_content {
-    background: #464646 url("/static/about_page/backgrounds/work_bg.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/about_page/image/work_bg.jpg") no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     margin-bottom: 5px;
@@ -179,7 +179,7 @@ body {
 /* COMING SOON */
 
 .release_content {
-    background: #464646 url("/static/about_page/backgrounds/release_bg.jpg") no-repeat center center fixed;
+    background: #464646 url("/static/about_page/image/release_bg.jpg") no-repeat center center fixed;
     background-size: cover;
     text-align: center;
 

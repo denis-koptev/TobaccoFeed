@@ -1,55 +1,60 @@
 {% load static %}
 
-<link type="text/css" rel="stylesheet" href="{% static "/navbar/nav_bar_style.css" %}"></link>
-<script src="{% static "/navbar/animations.js" %}"></script>
+<link type="text/css" rel="stylesheet" href="{% static "/navbar/css/navbar_style.css" %}"></link>
+<link type="text/css" rel="stylesheet" href="{% static "/fonts/fonts.css" %}"></link>
+<link rel="icon" href="{% static "/favicon.ico" %}">
+<script src="{% static "/navbar/js/navbar_actions.js" %}"></script>
+<script src="{% static "/js/click_handler.js" %}"></script>
 
 <nav class="fixed_nav_bar">
     <div class="topnav">
 
-        <a href="/">
-            <div class="logo_div">
-                <img src="{% static "/navbar/logo2.png" %}" class="logo_icon">
-                <div class="logo_text">
-                    TobaccoFeed
-                </div>
-            </div>
-        </a>
-
-        <div class="search_div" id="search_div">
-            <form action="/search" method="get" id="search_form">
-                <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()" maxlength="50">
-                <input type=image src="{% static "/navbar/search_icon.png" %}" class="search_button" id="search_button">   
-            </form>
-        </div>
-
-        <div class="user_div">
-            <div class="dropdown">
-                <div onclick="userClicked()" class="dropbtn">       
-                    <img src="{% static "/navbar/user_icon.png" %}" class="user_icon">    
-                    <div class="user_text">
-                        Username
+            <a href="/">
+                <div class="logo_div">
+                    <img src="{% static "/navbar/image/logo2.png" %}" class="logo_icon" />
+                    <div class="logo_text">
+                        TobaccoFeed
                     </div>
                 </div>
+            </a>
 
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#profile">
-                        <div class="user_link">
-                            Profile
-                        </div>
-                    </a>
-                    <a href="#settings">
-                        <div class="user_link">
-                            Settings
-                        </div>
-                    </a>
-                    <a href="#logout">
-                        <div class="user_link">
-                            Log Out
-                        </div>
-                    </a>
-                </div>
-
+            <div class="search_div" id="search_div">
+                <form action="/search" method="get" id="search_form">
+                    <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()" maxlength="50" />
+                    <input type=image src="{% static "/navbar/image/search_icon.png" %}" class="search_button" id="search_button" />   
+                </form>
             </div>
-        </div>
 
+            <div class="user_div">
+                <div class="dropdown">
+
+                    <div onclick="userClicked()" class="dropbtn">       
+                        <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                        <div class="user_text">
+                            Username
+                        </div>
+                    </div>
+
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#profile">
+                            <div class="user_link">
+                                Profile
+                            </div>
+                        </a>
+                        <a href="#settings">
+                            <div class="user_link">
+                                Settings
+                            </div>
+                        </a>
+                        <a href="#logout">
+                            <div class="user_link">
+                                Log Out
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 </nav>

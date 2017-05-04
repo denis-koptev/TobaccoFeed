@@ -1,0 +1,63 @@
+
+/* Kaffee */
+
+@font-face {
+    font-family: KaffeeBold;
+    src: url(KaffeeBold.otf);
+}
+
+@font-face {
+    font-family: KaffeeRegular;
+    src: url(KaffeeRegular.otf);
+}
+
+@font-face {
+    font-family: KaffeeLight;
+    src: url(KaffeeLight.otf);
+}
+
+@font-face {
+    font-family: KaffeeThin;
+    src: url(KaffeeThin.otf);
+}
+
+/* Nord */
+
+@font-face {
+    font-family: NordBold;
+    src: url(NordBold.ttf);
+}
+
+@font-face {
+    font-family: NordRegular;
+    src: url(NordRegular.ttf);
+}
+
+@font-face {
+    font-family: NordLight;
+    src: url(NordLight.ttf);
+}
+
+@font-face {
+    font-family: NordThin;
+    src: url(NordThin.ttf);
+}
+
+ /* Drugs */
+
+@font-face {
+    font-family: DrugsThin;
+    src: url(DrugsThin.otf);
+ }
+
+ /* Clinica */
+
+@font-face {
+    font-family: ClinicaItalic;
+    src: url(ClinicaItalic.otf);
+}
+
+@font-face {
+    font-family: ClinicaRegular;
+    src: url(ClinicaRegular.otf);
+}

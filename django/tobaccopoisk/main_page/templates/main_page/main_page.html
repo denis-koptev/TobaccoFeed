@@ -5,12 +5,8 @@
 <head>
 	<title>Main - TobaccoFeed</title>
 
-    <link type="text/css" rel="stylesheet" href="{% static "/fonts.css" %}"></link>
-    <link type="text/css" rel="stylesheet" href="{% static "main_page/css/main_page_style.css" %}"></link>
-
-    <link rel="icon" href="{% static "/favicon.ico" %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static "/slider/slider_style.css" %}"></link>
+	<link type="text/css" rel="stylesheet" href="{% static "main_page/css/main_page_style.css" %}"></link>
+	<link rel="stylesheet" type="text/css" href="{% static "/slider/css/slider_style.css" %}"></link>
 	<link rel="stylesheet" type="text/css" href="{% static "/modal/css/modal_style.css" %}"></link>
 
 </head>
@@ -19,158 +15,163 @@
 {% include "navbar.html" %}
 
 <table class="table_content">
-
 	<tr>
 		<td class="side_bar"></td>
-
 		<td class="main_content" valign="top">
 
-		<div class="main_header">
-			News 
-		</div>
+<!-- NEWS -->
 
-		<div class="about_div">
-			<a href="/" class="about_href">About us</a>Read about our project 
-		</div>
+			<div class="main_header">
+				News 
+			</div>
 
-		<table class="news_table">
-			<tr>
-				<td class="slider_area">
-				
-					<div class="slideshow-container">
+			<div class="about_div">
+				<a href="/" class="about_href">About us</a>Read about our project 
+			</div>
 
-					  {% for rec in latest %}
-						  <div class="mySlides fade">
-						  	<a href="{{rec.url}}">
-						    	<img src="{{rec.image}}" class="slider_image">
-						    </a>
-						  </div>
-					  {% endfor %}
+			<table class="news_table">
+				<tr>
 
-					  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-					  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+					<td class="slider_area">
+
+						<div class="slideshow-container">
+
+							{% for rec in latest %}
+								<div class="mySlides fade">
+									<a href="{{rec.url}}">
+									<img src="{{rec.image}}" class="slider_image">
+									</a>
+								</div>
+							{% endfor %}
+
+							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+							<a class="next" onclick="plusSlides(1)">&#10095;</a>
+						</div>
+
+						<div class="slider_switches">
+							<span class="dot" onclick="currentSlide(1)"></span> 
+							<span class="dot" onclick="currentSlide(2)"></span> 
+							<span class="dot" onclick="currentSlide(3)"></span> 
+							<span class="dot" onclick="currentSlide(4)"></span> 
+							<span class="dot" onclick="currentSlide(5)"></span> 
+						</div>
+
+					</td>
+
+					<!-- Text news -->
+
+					<td class="text_news_area">
+						{% for rec in latest %}
+							<div class="news_rec">
+								<li>
+									<a href="{{rec.url}}">
+										{{rec.brand}}
+										{{rec.name}}
+									</a>
+									added
+								</li>
+							</div>
+						{% endfor %}
+					</td>
+
+				</tr>
+			</table>
+
+<!-- MIXES -->
+
+			<div class="main_header">
+				Popular mixes 
+			</div>
+
+			<div class="header_content">
+				<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
+
+				<div id="modal_button1" class="modal_button">Show more...</div>
+
+				<div id="modal1" class="modal">
+
+					<div class="modal_content">
+						<div class="modal_header">
+							<span class="close">&times;</span>
+							<h2>Popular mixes</h2>
+						</div>
+						<div class="modal_body">
+							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+						</div>
 					</div>
 
-					<div class="slider_switches">
-					  <span class="dot" onclick="currentSlide(1)"></span> 
-					  <span class="dot" onclick="currentSlide(2)"></span> 
-					  <span class="dot" onclick="currentSlide(3)"></span> 
-					  <span class="dot" onclick="currentSlide(4)"></span> 
-					  <span class="dot" onclick="currentSlide(5)"></span> 
+				</div>
+
+			</div>
+
+<!-- STORE -->
+
+			<div class="main_header">
+				Where to buy 
+			</div>
+
+			<div class="header_content">
+
+				<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
+
+				<div id="modal_button2" class="modal_button">Show more...</div>
+
+				<div id="modal2" class="modal">
+
+					<div class="modal_content">
+						<div class="modal_header">
+							<span class="close">&times;</span>
+							<h2>TobaccoStore</h2>
+						</div>
+						<div class="modal_body">
+							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+						</div>
 					</div>
 
-				</td>
-
-				<!-- Text news -->
-
-				<td class="text_news_area">
-					{% for rec in latest %}
-						<div class="news_rec">
-							<li>
-								<a href="{{rec.url}}">
-					    			{{rec.brand}}
-					    			{{rec.name}}
-							    </a>
-							    added
-						    </li>
-					    </div>
-					{% endfor %}
-				</td>
-			</tr>
-		</table>
-
-		<div class="main_header">
-			Popular mixes 
-		</div>
-
-		<div class="header_content">
-			<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
-
-			<div id="modal_button1" class="modal_button">Show more...</div>
-
-			<div id="modal1" class="modal">
-
-			  <div class="modal_content">
-			    <div class="modal_header">
-					<span class="close">&times;</span>
-					<h2>Popular mixes</h2>
-			    </div>
-			    <div class="modal_body">
-			    	<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-			      <p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-			    </div>
-			  </div>
+				</div>
 
 			</div>
 
-		</div>
+<!-- STATISTICS -->
 
-		<div class="main_header">
-			Where to buy 
-		</div>
-
-		<div class="header_content">
-			<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
-
-			<div id="modal_button2" class="modal_button">Show more...</div>
-
-			<div id="modal2" class="modal">
-
-			  <div class="modal_content">
-			    <div class="modal_header">
-			      <span class="close">&times;</span>
-			      <h2>TobaccoStore</h2>
-			    </div>
-			    <div class="modal_body">
-			    	<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-			      <p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-			    </div>
-			  </div>
-
+			<div class="main_header">
+				Statistics 
 			</div>
 
-		</div>
+			<div class="header_content">
+				<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
 
-		<div class="main_header">
-			Statistics 
-		</div>
+				<div id="modal_button3" class="modal_button">Show more...</div>
 
-		<div class="header_content">
-			<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
+				<div id="modal3" class="modal">
 
-			<div id="modal_button3" class="modal_button">Show more...</div>
+					<div class="modal_content">
+						<div class="modal_header">
+							<span class="close">&times;</span>
+							<h2>Statistics</h2>
+						</div>
+						<div class="modal_body">
+							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+						</div>
+					</div>
 
-			<div id="modal3" class="modal">
-
-			  <div class="modal_content">
-			    <div class="modal_header">
-			      <span class="close">&times;</span>
-			      <h2>Statistics</h2>
-			    </div>
-			    <div class="modal_body">
-			    	<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-			      <p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-			    </div>
-			  </div>
-
+				</div>
 			</div>
-
-
-		</div>
 
 		</td>
-
 		<td class="side_bar"></td>
 	</tr>
-
 </table>
 
 {% include "footer.html" %}
 
-<script type="text/javascript" src="{% static "/slider/slider_actions.js" %}"></script>
+<!-- SCRIPTS -->
 
+<script type="text/javascript" src="{% static "/slider/js/slider_actions.js" %}"></script>
 <script type="text/javascript" src="{% static "/modal/js/modal_actions.js" %}"></script>
 
 </body>
-
 </html>

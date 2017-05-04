@@ -23,8 +23,8 @@ urlpatterns = [
 	url(r'^$', about_views.index, name="about_page"),
     url(r'^admin[/]?', admin.site.urls),
     url(r'^api/', include('api.urls')),
-    url(r'^search$', search_views.search, name='search'),
-    url(r'^main$', main_views.main, name='main'),
+    url(r'^search$', search_views.search, name='search_page'),
+    url(r'^main$', main_views.main, name='main_page'),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
