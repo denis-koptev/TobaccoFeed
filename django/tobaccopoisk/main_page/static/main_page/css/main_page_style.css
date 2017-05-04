@@ -1,7 +1,7 @@
-html, body{
-height:100%;
-margin:0px;
-padding:0px;
+html, body {
+    height:100%;
+    margin:0px;
+    padding:0px;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 .table_content {    
-    /*margin-top: 40px;*/
+    margin-top: 20px;
     margin-bottom: 0;
     border-spacing: 0;
     height: 100%;
@@ -100,26 +100,41 @@ body {
 }
 
 .about_div {
-    margin-top: 50px;
+    font-size: 20px;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
+    color: #DDDDDD;
+    text-shadow: black 2px 2px 4px;
     text-align: center;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.about_button {
-    font-size: 26px;
+.about_href {
+    font-size: 20px;
     font-family: DrugsThin, serif;
     font-weight: bold;
     color: #DDDDDD;
     background-color: rgba(1,1,1,0.3);
-    transition: all 0.2s ease;
-    cursor: pointer;
+    text-decoration: none;
     border-radius: 5px;
-    /*border: none;*/
+    border: 1px solid;
+    padding: 5px;
+    transition: all 0.2s ease;
+    margin-right: 20px;
 }
 
-.about_button:hover {
-    font-size: 28px;
+.about_href:hover {
+    font-size: 22px;
+    transition: all 0.2s ease;
 }
 
 .lock_image {
     width: 100%;
+}
+
+.header_content {
+    background-color: rgba(1,1,1,0.5);
+    border-radius: 5px;
+    text-align: left;
 }

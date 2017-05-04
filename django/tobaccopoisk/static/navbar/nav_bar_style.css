@@ -10,7 +10,7 @@
 }
 
 .topnav {
-    background-color: #444848;
+    background-color: #333838;
     height: 40px;
     min-width: 800px;
 }
@@ -52,14 +52,6 @@
     width: 35%;
 }
 
-.search_icon {
-    position: absolute;
-    height: 25px;
-    margin-top: 3px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
 .search_button {
     position: absolute;
     height: 25px;
@@ -84,7 +76,7 @@
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
-    background: #333333;
+    background: #222828;
     color: #888888;
 }
 
@@ -126,7 +118,7 @@
 }
 
 .dropbtn {
-    background-color: #393939;
+    background-color: #222828;
     color: white;
     font-size: 16px;
     border: none;
@@ -142,7 +134,7 @@
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #303030;
+    background-color: #444848;
     transition: all .2s ease-out;
 }
 
