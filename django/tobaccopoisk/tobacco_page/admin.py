@@ -12,5 +12,13 @@ class TobaccoAdmin(admin.ModelAdmin):
 		MixTobaccoInline,
 	]
 
+	search_fields = ['brand', 'name', ]
+
+class MixAdmin(admin.ModelAdmin):
+	search_fields = ['tobaccos__brand', 'tobaccos__name', ]
+
+	# item options
+	filter_horizontal = ("tobaccos",)
+
 admin.site.register(Tobacco, TobaccoAdmin)
-admin.site.register(Mix)
+admin.site.register(Mix, MixAdmin)

@@ -42,7 +42,7 @@ def search(q):
 	except Tobacco.DoesNotExist:
 		return []
 
-	q = q.replace(' ', '').replace('-', '').replace('_', '').lower()
+	q = utils.to_search_str(q)
 	if len(q) == 0:
 		return []
 
@@ -58,15 +58,16 @@ def search(q):
 	for item in data:
 
 		ident = item["brand"] + item["name"]
-		ident = ident.replace(' ', '').replace('-', '').replace('_', '').lower()
+		ident = utils.to_search_str(ident)
 		len_ident = len(ident)
 
 		loc_q = q
 		max_sub = max_substr(loc_q, ident)
 		coeff = 0
+
 		while len(max_sub) > 1:
 			loc_q = loc_q.replace(max_sub, " ")
-			coeff = coeff + len(max_sub)#*len(max_sub)
+			coeff = coeff + len(max_sub) #*len(max_sub)
 			max_sub = max_substr(loc_q, ident)
 
 
@@ -80,3 +81,4 @@ def search(q):
 	filtered = sorted(filtered, key=lambda k: k['coeff'], reverse = True)
 
 	return filtered
+	
