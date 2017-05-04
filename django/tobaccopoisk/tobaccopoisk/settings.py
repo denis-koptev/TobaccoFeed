@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'tobacco',
     'tobacco_page',
     'about_page',
     'search_page',

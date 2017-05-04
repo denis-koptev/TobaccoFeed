@@ -13,4 +13,4 @@ def tobacco_view(request, brand, name):
 			   'tobacco': tobacco, 
 			   'image': utils.image_url_handler(tobacco.image.name)}
 
-	return render(request, 'tobacco/tobacco_page.html', context)
+	return render(request, 'tobacco_page/tobacco_page.html', context)

@@ -52,13 +52,13 @@ class PathAndRename(object):
 		# return os.path.join(self.path, filename)
 		return self.path + filename
 
-path_and_rename = PathAndRename("tobacco/static/tobacco/tobaccos/")
+path_and_rename = PathAndRename("tobacco_page/static/tobacco_page/tobaccos/")
 
 # --------------
 # End of routine
 # --------------
 
-EMPTY_TOBACCO = "tobacco/static/tobacco/tobaccos/empty_tobacco.png"
+EMPTY_TOBACCO = "tobacco_page/static/tobacco_page/tobaccos/empty_tobacco.png"
 
 class Tobacco(models.Model):
 	brand = models.CharField(max_length=20)

@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponse
-from tobacco.models import Tobacco
+from tobacco_page.models import Tobacco
 from search_page.engine import search as do_search
 from tobaccopoisk import utils
 # Create your views here.

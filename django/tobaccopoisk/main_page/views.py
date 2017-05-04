@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from tobacco.models import Tobacco
+from tobacco_page.models import Tobacco
 from search_page.engine import to_dict
 
 def get_last(count):
