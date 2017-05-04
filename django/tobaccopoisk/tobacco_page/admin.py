@@ -13,9 +13,11 @@ class TobaccoAdmin(admin.ModelAdmin):
 	]
 
 	search_fields = ['brand', 'name', ]
+	list_filter = ('release_date', 'brand', 'rating', )
 
 class MixAdmin(admin.ModelAdmin):
 	search_fields = ['tobaccos__brand', 'tobaccos__name', ]
+	list_filter = ('pub_date', 'rating', )
 
 	# item options
 	filter_horizontal = ("tobaccos",)
