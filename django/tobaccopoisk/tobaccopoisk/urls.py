@@ -28,7 +28,7 @@ urlpatterns = [
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
-	url(r'^', include('tobacco.urls')),
+	url(r'^', include('tobacco_page.urls')),
 
     url(r'^', about_views.error_404, name='error_404'),
 ]

@@ -1,4 +1,4 @@
-from tobacco.models import Tobacco
+from tobacco_page.models import Tobacco
 from tobaccopoisk import utils
 
 def to_dict(inst):

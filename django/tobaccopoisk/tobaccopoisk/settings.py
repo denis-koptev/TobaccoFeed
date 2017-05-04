@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'tobacco',
+    'tobacco_page',
     'about_page',
     'search_page',
     'main_page',
