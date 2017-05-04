@@ -9,6 +9,8 @@ window.onclick = function(event) {
   var modal2 = document.getElementById('modal2');
   var modal3 = document.getElementById('modal3');
 
+  var modal_rel = document.getElementById('modal_related');
+
   if (event.target == modal1) {
     /*modal1.style.display = "none";*/
     if (modal1.classList.contains("in")) {
@@ -30,6 +32,12 @@ window.onclick = function(event) {
     }
     modal3.classList.add('out');
   } 
+  else if (event.target == modal_rel) {
+    if (modal_rel.classList.contains("in")) {
+      modal_rel.classList.remove("in");
+    }
+    modal_rel.classList.add('out');
+  }
   
   if (!event.target.matches('.search_bar')) {
     search_bar = document.getElementById("search_bar");

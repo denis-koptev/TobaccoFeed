@@ -157,3 +157,41 @@ blockquote > p:first-child {
     border-spacing: 0;
     width: 100%;
 }
+
+.related_div {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%
+}
+
+.related_div a {
+    text-decoration: none;
+    color: #111111;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
+}
+
+.related_table {
+    overflow: hidden;
+    width: 100%;
+}
+
+.more_div {
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: right;
+    color: #CCCCCC;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
+    background-color: rgba(1,1,1,0.5);
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+}
