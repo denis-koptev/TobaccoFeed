@@ -99,7 +99,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [ ] Move on MySQL :star:
 - [x] Start filling DB with tobaccos
 - [ ] Clustering of data, Statistics, Machine Learning
-- [ ] Reactor all our govnocode
+- [ ] Refactor all our govnocode
 
 ## TO TEST LIST (in russian)
 
