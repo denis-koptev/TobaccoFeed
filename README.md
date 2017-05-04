@@ -100,6 +100,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [x] Start filling DB with tobaccos
 - [ ] Clustering of data, Statistics, Machine Learning
 - [ ] Refactor all our govnocode
+- [ ] Customize admin panel for mixes
 
 ## TO TEST LIST (in russian)
 
