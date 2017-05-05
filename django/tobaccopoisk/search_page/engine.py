@@ -1,5 +1,6 @@
 from tobacco_page.models import Tobacco
 from tobaccopoisk import utils
+import math
 
 def to_dict(inst):
 	return 	{
@@ -67,14 +68,16 @@ def search(q):
 
 		while len(max_sub) > 1:
 			loc_q = loc_q.replace(max_sub, " ")
-			coeff = coeff + len(max_sub) #*len(max_sub)
+			#coeff = coeff + len(max_sub) #*len(max_sub)
+			coeff = coeff + (1.4**len(max_sub) / 1.4**len(q))
 			max_sub = max_substr(loc_q, ident)
 
+		print(q + " " + ident + " " + str(coeff))
 
 		if coeff / len_ident == 1:
 			return [item]
 
-		if coeff / len(q) >= 0.83:
+		if coeff >= 0.3:
 			item["coeff"] = coeff
 			filtered.append(item)
 

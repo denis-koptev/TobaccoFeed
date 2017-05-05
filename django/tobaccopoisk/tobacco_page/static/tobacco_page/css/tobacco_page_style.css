@@ -186,6 +186,7 @@ blockquote > p:first-child {
 .related_table {
     overflow: hidden;
     width: 100%;
+    table-layout: fixed;
 }
 
 .more_div {
