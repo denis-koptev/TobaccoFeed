@@ -131,3 +131,25 @@ class Mix(models.Model):
 
 		# Custom multiple name
 		verbose_name_plural = 'Mixes'
+
+# -------
+# End of
+# 	Mixes
+# -------
+
+# --------
+# Start of
+# 	Tags
+# --------
+
+class Tag(models.Model):
+	tobacco = models.ManyToManyField('Tobacco', related_name='tags')
+	tag_name = models.CharField(max_length=20)
+
+	def __str__(self):
+		return '#' + self.tag_name
+
+# -------
+# End of
+# 	Tags
+# -------
