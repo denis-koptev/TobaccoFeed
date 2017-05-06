@@ -1,4 +1,4 @@
-from tobacco_page.models import Tobacco
+from tobacco_page.models import Tobacco, Tag
 from tobaccopoisk import utils
 import math
 
@@ -58,7 +58,17 @@ def search(q):
 
 	for item in data:
 
+		try:
+			tags = Tag.objects.filter(tobacco__brand=utils.to_db_str(item["brand"]), 
+									  tobacco__name=utils.to_db_str(item["name"]))
+		except Tag.DoesNotExist:
+			tags = []
+
 		ident = item["brand"] + item["name"]
+
+		for rec in tags:
+			ident = ident + rec.tag_name
+
 		ident = utils.to_search_str(ident)
 		len_ident = len(ident)
 

@@ -4,6 +4,8 @@
 <head>
 	<title>{{brand}} {{name}} - TobaccoFeed</title>
 
+	<!-- local imports -->
+
 	<link type="text/css" rel="stylesheet" href="{% static "/tobacco_page/css/tobacco_page_style.css" %}"></link>
 	<link type="text/css" rel="stylesheet" href="{% static "/ratebar/css/ratebar_style.css" %}"></link>
 	<link rel="stylesheet" type="text/css" href="{% static "/modal/css/modal_style.css" %}"></link>
@@ -29,16 +31,20 @@
 
 <!-- LEFT COLUMN -->
 
+<!-- main image -->
+
 					<td width="27%" valign="top" class="column_content">
 						<div class="headerlogo">
 							<p align=center></p>
 						</div>
 						<img src={{image}} width="100%" class="main_image">
 
+<!-- related -->
+
 						<p></p>
 
 						<div class="headerlogo">
-							<p align=center> Related </p>
+							Related
 						</div>
 						
 						<table width="100%">
@@ -101,25 +107,45 @@
 
 						</div>
 
+<!-- tags -->
+						<p></p>
+						<div class="collapse_div">
+						<input id="toggle" type="checkbox">
+						<label for="toggle">Tags</label>
+						<div id="expand">
+							<div class="tags">
+								<font color="black">
+									{% for rec in tags %}
+										<a href="/search?q={{rec.tag_name}}" class="tag_href">
+											#{{rec.tag_name}}
+										</a>
+										<br>
+									{% endfor %}
+								</font>
+							</div>
+						</div>
+						</div>
+
 					</td>
+
 
 <!-- RIGHT COLUMN -->
 <!-- brand and name -->
 
-					<td valign="top" class="column_content">
+					<td valign="top" class="column_content" width="73%">
 							<div class="headerlogo">
-								<p align=center>  {{brand}}  </p>
+								{{brand}}
 							</div>
 
 						<div class="inf">
-							<p align=center> <font size="5"> {{name}} </font></p>
+							<font size="5"> {{name}} </font>
 						</div>
 						<p></p>	
 
 <!-- description -->
 						{% if tobacco.description|length > 0 %}
 							<div class="headerlogo">
-								<p align=center>  Description  </p>
+								Description
 							</div>
 							<div class="inf"> 
 								<blockquote> 
@@ -132,7 +158,7 @@
 <!-- rates --> 
 
 						<div class="headerlogo">
-							<p align=center> System requirements </p>
+							System requirements
 						</div>
 
 						<div class="inf">
@@ -264,7 +290,7 @@
 					<td colspan="2" valign="top" class="column_content">
 						
 						<div class="headerlogo">
-							<p align=center>  Popular mixes  </p>
+							Popular mixes
 						</div>
 
 							<section class="mixes_section">

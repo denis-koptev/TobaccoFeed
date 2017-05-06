@@ -41,24 +41,23 @@ body {
 
 .headerlogo {
     margin-bottom: 10px;
-    padding: 0;
-    width: auto;
     height: 30px;
     background-color: #333333;
-    position: relative;
     font-size: 16px;
     color: #FFFFFF;
     text-align: center;
-    text-decoration: none;
     font-family: DrugsThin, serif;
     font-weight: bold;
     letter-spacing: 2pt;
     text-transform: uppercase;
-    line-height: 0.0;
+    line-height: 30px;
     border: 1px solid gray;
     box-sizing: border-box;
     border-radius: 5px;
-    border-spacing: 0;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 .nav {
@@ -81,12 +80,9 @@ body {
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
-
     font-family: DrugsThin, Arial, serif;
     font-weight: bold;
-
     padding: 0;
-
 }
 
 .votes {
@@ -204,4 +200,83 @@ blockquote > p:first-child {
 
 .related_div:hover {
     background-color: rgba(255,255,255,0.7);
+}
+
+
+/* collapse */
+
+.collapse_div {
+}
+
+.collapse_div input {
+  display: none;
+  visibility: hidden;
+}
+
+.collapse_div label {
+    margin-bottom: 10px;
+    height: 30px;
+    background-color: #333333;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: DrugsThin, serif;
+    font-weight: bold;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    line-height: 30px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.collapse_div label:hover {
+  color: #FFFFFF;
+}
+
+.collapse_div label::after {
+  padding-right: 10px;
+  content: "\25bc";
+  font-size: 14px;
+  float: right;
+}
+
+#expand {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+#toggle:checked ~ #expand {
+  height: auto;
+}
+
+#toggle:checked ~ label::after {
+  content: "\25b2";
+}
+
+.tags {
+    background-color: rgba(255,255,255,0.8);
+    overflow: hidden;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-spacing: 0;
+    font-family: ClinicaItalic, Arial, serif;
+    padding: 10px;
+}
+
+.tag_href {
+    text-decoration: none;
+    color: black;
 }
