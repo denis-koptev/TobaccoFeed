@@ -197,6 +197,15 @@ blockquote > p:first-child {
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
+
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out 
+}
+
+.more_div:hover {
+    color: #AAFFDD;
 }
 
 .related_div:hover {
@@ -285,4 +294,8 @@ blockquote > p:first-child {
 .tag_href {
     text-decoration: none;
     color: black;
+}
+
+.tag_href:hover {
+    font-weight: bold;
 }
