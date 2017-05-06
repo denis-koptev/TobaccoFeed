@@ -67,7 +67,7 @@ def search(q):
 		ident = item["brand"] + item["name"]
 
 		for rec in tags:
-			ident = ident + rec.tag_name
+			ident = ident + '#' + rec.tag_name
 
 		ident = utils.to_search_str(ident)
 		len_ident = len(ident)
