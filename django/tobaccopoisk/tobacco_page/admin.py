@@ -5,16 +5,8 @@ from django.contrib import admin
 from .models import Tobacco, Mix, Tag
 from .forms import TobaccoAdminForm
 
-class TobaccoMixInline(admin.StackedInline):
-	model = Mix.tobaccos.through
-
 class TobaccoAdmin(admin.ModelAdmin):
-	form = TobaccoAdminForm
-
-	inlines = [
-		TobaccoMixInline,
-	]
-	
+	form = TobaccoAdminForm	
 	search_fields = ['brand', 'name', ]
 	list_filter = ('release_date', 'brand', 'rating', )
 
@@ -27,7 +19,7 @@ class MixAdmin(admin.ModelAdmin):
 
 class TagAdmin(admin.ModelAdmin):
 	search_fields = ['tag_name', ]
-
+	
 	# item options
 	filter_horizontal = ("tobacco",)
 
