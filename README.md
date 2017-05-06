@@ -94,20 +94,22 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 
 ## TO DO LIST
 
-- [ ] Create tag handling engine
+- [x] Create tag handling engine
 - [ ] Create engine for static paths
 - [ ] Move on MySQL :star:
 - [x] Start filling DB with tobaccos
 - [ ] Clustering of data, Statistics, Machine Learning
-- [ ] Refactor all our govnocode
-- [ ] Customize admin panel for mixes
+- [x] Refactor all our govnocode
+- [x] Customize admin panel for mixes
+- [ ] Think on search algorithm. It works fucking bad...
+- [ ] Create front-end for mixes
 
 ## TO TEST LIST (in russian)
 
-- [ ] Проверить, что при замене фото к табаку через админку, старое фото удаляется
-- [ ] Проверить, что поле поиска работает корректно (не алгоритм поиска, а сама кнопка)
-- [ ] Проверить, движок поиска. Поиском ошибок 1 рода - очень важно. Поиск ошибок 2 рода - не критичны :rocket:
-- [ ] Вынести алгоритм поиска в engine :rocket:
-- [ ] Удаление картинки табака при удалении его из БД
-- [ ] RESTfull API для поиска
-- [ ] Реализовать возможность добавлять в БД имена и бренды с пробелами и заглавными буквами
+- [ ] Check that old tobacco-photo is deleted after loading new one
+- [x] Check search field work (button)
+- [ ] Test search engine :rocket:
+- [x] Transfer search algorithm to engine :rocket:
+- [x] Photo of tobacco must be deleted after tobacco deletion
+- [ ] RESTfull API for everythin - dream big :)
+- [x] Names and brands with uppercases and spaces addition to DB
