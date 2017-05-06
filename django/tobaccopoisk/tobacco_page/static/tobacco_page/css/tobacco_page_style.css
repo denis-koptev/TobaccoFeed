@@ -156,8 +156,6 @@ blockquote > p:first-child {
 }
 
 .related_div {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 5px;
     font-size: 14px;
     text-align: center;
     padding-top: 10px;
@@ -165,12 +163,9 @@ blockquote > p:first-child {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: 100%
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out 
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 .related_div a {
@@ -184,16 +179,31 @@ blockquote > p:first-child {
     overflow: hidden;
     width: 100%;
     table-layout: fixed;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 5px;
+}
+
+.related_td {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    vertical-align: bottom;
+
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out 
+}
+
+.related_td:hover {
+    background-color: rgba(255,255,255,0.7);
 }
 
 .more_div {
-    margin-top: 5px;
     font-size: 14px;
-    text-align: right;
+    text-align: center;
     color: #CCCCCC;
     font-family: DrugsThin, serif;
     font-weight: bold;
-    background-color: rgba(1,1,1,0.5);
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
@@ -206,10 +216,6 @@ blockquote > p:first-child {
 
 .more_div:hover {
     color: #AAFFDD;
-}
-
-.related_div:hover {
-    background-color: rgba(255,255,255,0.7);
 }
 
 /* collapse */

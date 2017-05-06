@@ -49,10 +49,10 @@
 							Related
 						</div>
 						
-						<table width="100%">
+						<table class="related_table" cellspacing="5"> 
 							<tr>
-								<td>
-									<div class="related_div" style="white-space: nowrap;">
+								<td class="related_td">
+									<div class="related_div">
 										<a href="/afzal/pan_raas">
 											<img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
 											<hr>
@@ -60,10 +60,10 @@
 										</a>
 									</div>									
 								</td>
-								<td>
-									<div class="related_div" style="white-space: nowrap;">
+								<td class="related_td">
+									<div class="related_div">
 										<a href="/afzal/watermelon">
-											<img src="{% static "/tobacco_page/tobaccos/afzal_watermelon.png" %}" width="100%">
+											<img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
 											<hr>
 											Watermelon
 										</a> 
@@ -71,8 +71,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>
-									<div class="related_div" style="white-space: nowrap;">
+								<td class="related_td">
+									<div class="related_div">
 										<a href="/afzal/lime-lemon">
 											<img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
 											<hr>
@@ -80,8 +80,8 @@
 										</a>
 									</div>
 								</td>
-								<td>
-									<div class="related_div" style="white-space: nowrap;">
+								<td class="related_td">
+									<div class="related_div">
 										<a href="/afzal/ecstasy">
 											<img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
 											<hr>
@@ -90,24 +90,32 @@
 									</div>
 								</td>
 							</tr>
+							<tr>
+								<td colspan="2">
+
+									<div id="modal_button_related" class="more_div">Show more</div>
+
+									<div id="modal_related" class="modal">
+
+										<div class="modal_content">
+											<div class="modal_header">
+												<span class="close">&times;</span>
+												<h2>Related tobaccos</h2>
+											</div>
+											<div class="modal_body">
+												<img src="{% static "/tobacco_page/image/work_icon.png" %}" width="200px">
+												<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+											</div>
+										</div>
+
+									</div>
+
+								</td>
+							</tr>
 						</table>
 
-						<div id="modal_button_related" class="more_div">| Show more...</div>
 
-						<div id="modal_related" class="modal">
 
-							<div class="modal_content">
-								<div class="modal_header">
-									<span class="close">&times;</span>
-									<h2>Related tobaccos</h2>
-								</div>
-								<div class="modal_body">
-									<img src="{% static "/tobacco_page/image/work_icon.png" %}" width="200px">
-									<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-								</div>
-							</div>
-
-						</div>
 
 <!-- tags -->
 						<p></p>
