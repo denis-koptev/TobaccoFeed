@@ -90,7 +90,7 @@
 							</tr>
 						</table>
 
-						<div id="modal_button_related" class="more_div">Show more...</div>
+						<div id="modal_button_related" class="more_div">| Show more...</div>
 
 						<div id="modal_related" class="modal">
 
@@ -110,20 +110,20 @@
 <!-- tags -->
 						<p></p>
 						<div class="collapse_div">
-						<input id="toggle" type="checkbox">
-						<label for="toggle">Tags</label>
-						<div id="expand">
-							<div class="tags">
-								<font color="black">
-									{% for rec in tags %}
-										<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
-											#{{rec.tag_name}}
-										</a>
-										<br>
-									{% endfor %}
-								</font>
+							<input id="toggle" type="checkbox">
+							<label for="toggle">Tags</label>
+							<div id="expand">
+								<div class="tags">
+									<font color="black">
+										{% for rec in tags %}
+											<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
+												#{{rec.tag_name}}
+											</a>
+											<br>
+										{% endfor %}
+									</font>
+								</div>
 							</div>
-						</div>
 						</div>
 
 					</td>
@@ -174,8 +174,13 @@
 								<div class="stars">
 
 									{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% if star_idx|add:1 == tobacco.strength %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" checked />
+											<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% else %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
+											<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% endif %}
 									{% endfor %}
 
 									<span></span>
@@ -197,8 +202,13 @@
 								<div class="stars">
 
 									{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+										{% if star_idx|add:1 == tobacco.heat %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" checked />
+											<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+										{% else %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
+											<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+										{% endif %}
 									{% endfor %}
 
 									<span></span>
@@ -220,8 +230,13 @@
 								<div class="stars">
 
 									{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
+										{% if star_idx|add:1 == tobacco.smoke %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" checked />
+											<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
+										{% else %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}"/>
+											<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>										
+										{% endif %}
 									{% endfor %}	 
 
 									<span></span>
@@ -243,8 +258,13 @@
 								<div class="stars">
 
 									{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+										{% if star_idx|add:1 == tobacco.taste %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" checked />
+											<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+										{% else %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
+											<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+										{% endif %}
 									{% endfor %}	
 
 									<span></span>
@@ -267,8 +287,13 @@
 								<div class="stars">
 
 									{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
+										{% if star_idx|add:1 == tobacco.rating %}									
+											<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" checked />
+											<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
+										{% else %}
+											<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
+											<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>											
+										{% endif %}
 									{% endfor %}   
 
 									<span></span>

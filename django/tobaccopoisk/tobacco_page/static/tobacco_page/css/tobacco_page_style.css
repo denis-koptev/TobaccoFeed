@@ -136,6 +136,7 @@ blockquote:before {
     margin-right: 0.2em;
     vertical-align: -.4em;
 }
+
  
 blockquote > p:first-child {
     display: inline;
@@ -202,7 +203,6 @@ blockquote > p:first-child {
     background-color: rgba(255,255,255,0.7);
 }
 
-
 /* collapse */
 
 .collapse_div {
@@ -235,10 +235,16 @@ blockquote > p:first-child {
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
+
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out 
 }
 
 .collapse_div label:hover {
-  color: #FFFFFF;
+  color: #AAFFDD;
+  background-color: #222;
 }
 
 .collapse_div label::after {
