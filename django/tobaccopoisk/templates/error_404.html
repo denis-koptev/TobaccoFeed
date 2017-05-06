@@ -3,21 +3,35 @@
 <html>
 
 	<head>
-		<title>NotFound! - TobaccoFeed</title>
+		<title>Not Found! - TobaccoFeed</title>
 
 		<link rel="icon" href="{% static "/image/favicon.ico" %}">
 
 		<style type="text/css">
 			body {
-				margin: 0;
+				background-color: #222828;
+				background: radial-gradient(100% 100%, #222828, #323838);
+				position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			}
+			img {
+				display: inline-block;
+    			vertical-align: middle;
+    			max-height: 100%;
+    			max-width: 100%;
 			}
 		</style>
 
 	</head>
 
 	<body>
-		<img src="{% static "/image/404.jpg" %}" alt="Not Found" 
-			width="100%" height="100%" />
+		<img src="{% static "/image/404.png" %}" alt="Not Found" />
 	</body>
 
 </html>
