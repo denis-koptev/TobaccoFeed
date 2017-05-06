@@ -3,22 +3,18 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import Tobacco, Mix, Tag
+from .forms import TobaccoAdminForm
 
 class TobaccoMixInline(admin.StackedInline):
 	model = Mix.tobaccos.through
 
-class TobaccoTagInline(admin.StackedInline):
-	model = Tag.tobacco.through
-
 class TobaccoAdmin(admin.ModelAdmin):
+	form = TobaccoAdminForm
+
 	inlines = [
 		TobaccoMixInline,
-		TobaccoTagInline,
 	]
 	
-	# for horizontal_filter of StackedInline
-	# http://stackoverflow.com/questions/11657682/django-admin-interface-using-horizontal-filter-with-inline-manytomany-field
-
 	search_fields = ['brand', 'name', ]
 	list_filter = ('release_date', 'brand', 'rating', )
 

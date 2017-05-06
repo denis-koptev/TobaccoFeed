@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from datetime import date
 
 # ------------------------
 # Create storage to change url path
@@ -63,7 +64,7 @@ EMPTY_TOBACCO = "tobacco_page/static/tobacco_page/tobaccos/empty_tobacco.png"
 class Tobacco(models.Model):
 	brand = models.CharField(max_length=20)
 	name = models.CharField(max_length=30)
-	release_date = models.DateField(auto_now_add=True, null=True, blank=True)
+	release_date = models.DateField(null=True, blank=True, default=date.today)
 	description = models.TextField(null=True, blank=True)
 	strength = models.FloatField(null=True, blank=True)
 	strength_votes = models.IntegerField(default=0)
