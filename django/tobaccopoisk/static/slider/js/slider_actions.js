@@ -1,16 +1,17 @@
 
 var slideIndex = 0;
-switchSlides();
+
+autoSwitchSlides();
 
 function plusSlides(n) {
-switchSlides((n > 0), false);
+  switchSlides(slideIndex + n);
 }
 
 function currentSlide(n) {
-switchSlides((n > 0), false);
+  switchSlides(n);
 }
 
-function switchSlides(switchNext = true, isAuto = true) {
+function switchSlides(numSlide) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
@@ -28,11 +29,7 @@ function switchSlides(switchNext = true, isAuto = true) {
     text_recs[i].className = text_recs[i].className.replace(" rec_active", "");
   }
 
-  if (switchNext) {
-    slideIndex++;
-  } else {
-    slideIndex--;
-  }
+  slideIndex = numSlide;
 
   if (slideIndex > slides.length) {
     slideIndex = 1
@@ -43,8 +40,9 @@ function switchSlides(switchNext = true, isAuto = true) {
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
   text_recs[slideIndex-1].className += " rec_active";
+}
 
-  if (isAuto) {
-    setTimeout(switchSlides, 4000);
-  }
+function autoSwitchSlides() {
+  switchSlides(slideIndex + 1)
+  setTimeout(autoSwitchSlides, 4000);
 }

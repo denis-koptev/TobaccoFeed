@@ -4,7 +4,7 @@ from search_page.engine import to_dict
 
 def get_last(count):
 	try:
-		last = Tobacco.objects.all().order_by("-id").values_list('brand', 'name', 'image')[:5]
+		last = Tobacco.objects.all().order_by("-id").values_list('brand', 'name', 'image')[:count]
 
 	except Tobacco.DoesNotExist:
 		return []
