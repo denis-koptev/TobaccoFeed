@@ -102,7 +102,13 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [x] Refactor all our govnocode
 - [x] Customize admin panel for mixes
 - [ ] Think on search algorithm. It works fucking bad...
-- [ ] Create front-end for mixes
+- [ ] Develop mixes-section in tobacco page
+- [ ] Create mixes app and front-end
+- [ ] Create auth app and front-end
+- [ ] Create user app and front-end
+- [ ] Add filter front-end for search page
+- [ ] Sleep and relax after all this shit
+
 
 ## TO TEST LIST (in russian)
 
