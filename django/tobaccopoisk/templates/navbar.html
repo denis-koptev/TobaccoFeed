@@ -2,7 +2,7 @@
 
 <link type="text/css" rel="stylesheet" href="{% static "/navbar/css/navbar_style.css" %}"></link>
 <link type="text/css" rel="stylesheet" href="{% static "/fonts/fonts.css" %}"></link>
-<link rel="icon" href="{% static "/favicon.ico" %}">
+<link rel="icon" href="{% static "/image/favicon.ico" %}">
 <script src="{% static "/navbar/js/navbar_actions.js" %}"></script>
 <script src="{% static "/js/click_handler.js" %}"></script>
 
@@ -25,18 +25,29 @@
                 </form>
             </div>
 
-            <!--<div class="user_div">-->
+            <!-- instead of false here will be info about auth status -->
+            {% if false %}
 
-            <div onclick="userClicked()" class="dropbtn">       
-                <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
-                <div class="user_text">
-                    Username
+                <div onclick="userClicked()" class="dropbtn">       
+                    <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                    <div class="user_text">
+                        Username
+                    </div>
                 </div>
-            </div>
 
-               <!-- <div class="dropdown">-->
+            {% else %}
+
+                <a href="/auth" class="dropbtn">
+                    <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                    <div class="user_text">
+                        Log In
+                    </div>
+                </a>
+
+            {% endif %}
 
             <div id="myDropdown" class="dropdown-content">
+
                 <!-- if logged in -->
                 <!--
                 <a href="#profile">
@@ -56,28 +67,7 @@
                 </a>
                 -->
 
-                <form method="post" action="" class="login">
-                    <p>
-                      <label for="login">Login:</label>
-                      <input type="text" name="login" id="login" value="name@example.com">
-                    </p>
-
-                    <p>
-                      <label for="password">Password:</label>
-                      <input type="password" name="password" id="password" value="4815162342">
-                    </p>
-
-                    <p class="login-submit">
-                      <button type="submit" class="login_button">Log In</button>
-                    </p>
-
-                    <p class="forgot-password"><a href="index.html">Forgot password?</a></p>
-                </form>
-
             </div>
-
-                <!--</div>-->
-           <!-- </div> -->
 
         </div>
 </nav>

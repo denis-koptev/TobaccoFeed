@@ -135,6 +135,8 @@
     height: 40px;
     max-width: 25%;
 
+    border-radius: 5px;
+
     -moz-transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
@@ -171,44 +173,6 @@
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
-}
-
-.login {
-    text-align: right;
-    padding: 14px;
-}
-
-.login label {
-    float: left;
-    margin-bottom: 3px;
-}
-
-.login input {
-    background-color: rgba(255,255,255,0.8);
-    font-family: DrugsThin, serif;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.login_button {
-    border-radius: 5px;
-    padding: 5px;
-    font-family: DrugsThin, serif;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: rgba(255,255,255,0.8);
-    cursor: pointer;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
-}
-
-.login_button:hover {
-    background-color: rgba(200,255,255,0.5);
 }
 
 .show {
