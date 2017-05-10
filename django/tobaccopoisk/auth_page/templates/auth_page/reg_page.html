@@ -4,8 +4,8 @@
 <html>
 
 <head>
+	<title>Sign Up - TobaccoFeed</title>
 
-	<title>Sign In - TobaccoFeed</title>
 	<link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
 	<link rel="icon" href="{% static "/image/favicon.ico" %}">
 
@@ -16,13 +16,13 @@
 {% include "navbar.html" %}
 
 
-<table class="table_content" align="center">
+<table class="table_content">
 
 	<tr>
 
 		<td class="main_content" valign="center">
 
-		<form method="post" action="/auth" class="login_form">
+		<form method="post" action="/reg" class="login_form">
 		{% csrf_token %}
 			Login
 			<br>
@@ -32,12 +32,15 @@
 			<br>
 			<input type="password" name="password" id="password" required id="password" maxlength="64">
 			<br>
-			<button type="submit" class="login_button">Sign In</button>
+			Email
 			<br>
-			<a href="/reg" class="register_button">Sign Up</a>
+			<input type="email" name="email" id="email" required id="email" maxlength="256" placeholder="example@mail.com">
+			<br>
+			<button type="submit" class="login_button">Sign Up</button>
 		</form>
 
 		</td>
+
 	</tr>
 
 </table>

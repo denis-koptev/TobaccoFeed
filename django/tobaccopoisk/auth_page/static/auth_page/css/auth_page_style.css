@@ -18,17 +18,22 @@ body {
 
 .table_content {   
     height: 100%;
-    width: 30%;
+    width: 100%;
     margin: 0 auto;
+    display: inline-table;
 }
 
 .main_content {
     padding: 20px;
     margin: 0;
-    text-align: center;
+}
+
+.side_bar {
+    width: 20%;
 }
 
 .login_form {
+    width: 30%;
     background-color: rgba(1,1,1,0.7);
     border-radius: 15px;
     text-align: center;
@@ -39,6 +44,7 @@ body {
     padding: 15px;
     overflow: hidden;
     border: 1px solid gray;
+    display: inline-block;
 }
 
 .login_form input {
@@ -46,7 +52,7 @@ body {
     margin-bottom: 15px;
     font-size: 20px;
     border-radius: 5px;
-    padding-left: 5px;
+    padding-left: 10px;
     border: none;
 
     background-color: rgba(255,255,255, 0.8);
@@ -74,7 +80,6 @@ body {
 }
 
 .register_button {
-    margin-top: 20px;
     font-family: DrugsThin, serif;
     font-weight: bold;
     font-size: 18px;
@@ -82,8 +87,14 @@ body {
     border-radius: 5px;
     cursor: pointer;
     background: none;
-    margin-bottom: 5px;
     border: none;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-top: 10px;
 
     -moz-transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
