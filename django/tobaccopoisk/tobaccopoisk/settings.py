@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'auth_page',
     'tobacco_page',
     'about_page',
     'search_page',
@@ -135,9 +136,10 @@ STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.normcase(os.path.join(BASE_DIR, "static")) # untrusted definition
 
 STATICFILES_DIRS = (
-    os.path.normcase(os.path.join(BASE_DIR, "about_page/static")),   # untrusted definition
-    os.path.normcase(os.path.join(BASE_DIR, "tobacco_page/static")),     # untrusted definition
-    os.path.normcase(os.path.join(BASE_DIR, "search_page/static")),     # untrusted definition
-    os.path.normcase(os.path.join(BASE_DIR, "main_page/static")),
-    os.path.normcase(os.path.join(BASE_DIR, "static")),             # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "auth_page/static")),       # untrusted definition
+    os.path.normcase(os.path.join(BASE_DIR, "about_page/static")),      # unpizdyasted definition
+    os.path.normcase(os.path.join(BASE_DIR, "tobacco_page/static")),    # unhuyasted definition
+    os.path.normcase(os.path.join(BASE_DIR, "search_page/static")),     # unjebasted definition
+    os.path.normcase(os.path.join(BASE_DIR, "main_page/static")),       # unsisyasted definition
+    os.path.normcase(os.path.join(BASE_DIR, "static")),                 # unzhopasted definition
 )

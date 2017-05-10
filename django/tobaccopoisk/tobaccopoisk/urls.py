@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+import auth_page.views as auth_views
 import about_page.views as about_views
 import search_page.views as search_views
 import main_page.views as main_views
@@ -25,6 +26,8 @@ urlpatterns = [
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search_page'),
     url(r'^main$', main_views.main, name='main_page'),
+    url(r'^auth$', auth_views.auth, name='auth_page'),
+    url(r'^reg$', auth_views.reg, name='reg_page'),
 
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
