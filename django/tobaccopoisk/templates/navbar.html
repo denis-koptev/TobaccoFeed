@@ -25,36 +25,59 @@
                 </form>
             </div>
 
-            <div class="user_div">
-                <div class="dropdown">
+            <!--<div class="user_div">-->
 
-                    <div onclick="userClicked()" class="dropbtn">       
-                        <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
-                        <div class="user_text">
-                            Username
-                        </div>
-                    </div>
-
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#profile">
-                            <div class="user_link">
-                                Profile
-                            </div>
-                        </a>
-                        <a href="#settings">
-                            <div class="user_link">
-                                Settings
-                            </div>
-                        </a>
-                        <a href="#logout">
-                            <div class="user_link">
-                                Log Out
-                            </div>
-                        </a>
-                    </div>
-
+            <div onclick="userClicked()" class="dropbtn">       
+                <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                <div class="user_text">
+                    Username
                 </div>
             </div>
+
+               <!-- <div class="dropdown">-->
+
+            <div id="myDropdown" class="dropdown-content">
+                <!-- if logged in -->
+                <!--
+                <a href="#profile">
+                    <div class="user_link">
+                        Profile
+                    </div>
+                </a>
+                <a href="#settings">
+                    <div class="user_link">
+                        Settings
+                    </div>
+                </a>
+                <a href="#logout">
+                    <div class="user_link">
+                        Log Out
+                    </div>
+                </a>
+                -->
+
+                <form method="post" action="" class="login">
+                    <p>
+                      <label for="login">Login:</label>
+                      <input type="text" name="login" id="login" value="name@example.com">
+                    </p>
+
+                    <p>
+                      <label for="password">Password:</label>
+                      <input type="password" name="password" id="password" value="4815162342">
+                    </p>
+
+                    <p class="login-submit">
+                      <button type="submit" class="login_button">Log In</button>
+                    </p>
+
+                    <p class="forgot-password"><a href="index.html">Forgot password?</a></p>
+                </form>
+
+            </div>
+
+                <!--</div>-->
+           <!-- </div> -->
 
         </div>
 </nav>

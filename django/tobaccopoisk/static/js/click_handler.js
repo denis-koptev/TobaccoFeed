@@ -46,7 +46,12 @@ window.onclick = function(event) {
   
   if (!event.target.matches('.dropbtn') 
     && !event.target.matches('.user_icon')
-    && !event.target.matches('.user_text')) {
+    && !event.target.matches('.user_text')
+    && !event.target.matches('.login')
+    && !event.target.matches('.dropdown_content')
+    && !event.target.matches('.login label')
+    && !event.target.matches('.login input')
+    && !event.target.matches('.login p')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
