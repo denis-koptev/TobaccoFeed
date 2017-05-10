@@ -26,9 +26,9 @@ urlpatterns = [
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search_page'),
     url(r'^main$', main_views.main, name='main_page'),
-    url(r'^auth$', auth_views.auth, name='auth_page'),
-    url(r'^reg$', auth_views.reg, name='reg_page'),
 
+    url(r'^reg$', auth_views.reg, name='reg_page'),
+    url(r'^auth$', auth_views.auth, name='auth_page'),
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
 	url(r'^', include('tobacco_page.urls')),
