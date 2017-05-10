@@ -3,18 +3,14 @@ from auth_page.models import Unuser, User
 from auth_page import engine
 from auth_page import crypto
 from validate_email import validate_email
-
-def xprint(msg):
-	print('[+] ' + str(msg))
+from django.db import IntegrityError
 
 def auth(request):
-	xprint('AUTH')
 
 	if request.method == 'POST':
+
 		ident = request.POST.get('login')
-		xprint(ident)
 		password = request.POST.get('password')
-		xprint(password)
 
 		user = engine.authentication(ident, password)
 
@@ -23,7 +19,6 @@ def auth(request):
 			# RETURN FALSE
 			return render(request, 'auth_page/auth_page.html', {})
 
-		xprint('user_is_ok')
 		session = engine.authorization(user)
 
 		if session is None:
@@ -32,14 +27,11 @@ def auth(request):
 			# RETURN FALSE
 			return render(request, 'auth_page/auth_page.html', {})
 
-		xprint(session.token)
 		# overwrite this
 		response = redirect('/main')
 		# set coockies
 		response.set_cookie('tfuserid', str(user.id))
 		response.set_cookie('tfsession', str(session.token))
-
-		xprint('response')
 		
 		return response
 
@@ -50,12 +42,14 @@ def reg(request):
 	if request.method == 'POST':
 		login = request.POST.get('login')
 		password = request.POST.get('password')
-		mail = request.POST.get('mail')
+		mail = request.POST.get('email')
+
 
 		if not validate_email(mail):
 			# email is not valid
 			# RETURN FALSE
-			pass
+			return render(request, 'auth_page/reg_page.html', {})
+
 
 		# Check that login is free
 		# in Unverified users table
@@ -67,7 +61,7 @@ def reg(request):
 		else:
 			# this login is already in use
 			# RETURN FALSE
-			pass
+			return render(request, 'auth_page/reg_page.html', {})
 
 		# Check that login is free
 		# in Verified users table
@@ -79,7 +73,7 @@ def reg(request):
 		else:
 			# this login is already in use
 			# RETURN FALSE
-			pass
+			return render(request, 'auth_page/reg_page.html', {})
 
 		# Check that mail is free
 		# in Unverified users table
@@ -91,7 +85,7 @@ def reg(request):
 		else:
 			# this mail is already in use
 			# RETURN FALSE
-			pass
+			return render(request, 'auth_page/reg_page.html', {})
 
 		# Check that mail is free
 		# in Verified users table
@@ -103,11 +97,10 @@ def reg(request):
 		else:
 			# this mail is already in use
 			# RETURN FALSE
-			pass
+			return render(request, 'auth_page/reg_page.html', {})
 
 
 		# create new Unuser
-
 		passwd = crypto.hashpw(password)
 
 		i = 5
@@ -123,7 +116,8 @@ def reg(request):
 				engine.send_confirmation_mail(mail, token)
 				break
 
-		response = redirect('/main')
+		# return "now check ur email to confirm registration." 
+		return redirect('/main')
 
 	else:
 		return render(request, 'auth_page/reg_page.html', {})
@@ -134,9 +128,10 @@ def mail_confirmation(request, token):
 		u = Unuser.objects.get(token=token)
 	except Unuser.DoesNotExist:
 		# entry with this token not found
-		# RETURN FALSE
-		pass
+		return render('404.html')
 	else:
 		user = User(login=u.login, password=u.password, mail=u.mail)
 		user.save()
 		u.delete()
+		# mail confirmed message
+		return redirect('/auth')

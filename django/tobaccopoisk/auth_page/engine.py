@@ -29,11 +29,10 @@ def xprint(msg):
 
 def authentication(ident, password):
 
-	try:
-		users = User.objects.filter(Q(login=ident) | Q(mail=ident))
-	except User.DoesNotExist:
-		return None
+	users = User.objects.filter(Q(login=ident) | Q(mail=ident))
 
+	if len(users) == 0:
+		return None
 	# user found
 	# 	need to check password
 
@@ -76,7 +75,7 @@ def send_confirmation_mail(mail, token):
 	msg['To'] = TO
 
 	# Create the body of the message (a plain-text and an HTML version).
-	text = "TobaccoFeed Confirmation!\nClick the link to confirm your account\n{}/auth/validate/{}".format(settings.DOMAIN, token)
+	text = "TobaccoFeed Confirmation!\nClick the link to confirm your account\nhttp://{}/auth/validate/{}".format(settings.DOMAIN, token)
 	html = """\
 	<html>
 	  <head></head>
@@ -86,13 +85,15 @@ def send_confirmation_mail(mail, token):
 		    <h1>Click the link to confirm your account</h1>
 	    </center>
 	    <p style="text-align:center;">
-		    <a href="{}/auth/validate/{}">
+		    <a href="http://{}/auth/validate/{}">
 		    	<img width="50%" src="https://pp.userapi.com/c636520/v636520898/6294d/szRSNDhhjYA.jpg" />
 		    </a>
 	    </p>
 	  </body>
 	</html>
 	""".format(settings.DOMAIN, token)
+	print(text)
+	print(html)
 
 	# Record the MIME types of both parts - text/plain and text/html.
 	part1 = MIMEText(text, 'plain')

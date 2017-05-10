@@ -53,4 +53,4 @@ class Unuser(models.Model):
 # set expire time before saving
 @receiver(pre_save, sender=Unuser)
 def unuser_save(sender, instance, **kwargs):
-	instance.expire = timezone.now() + timezone.timedelta(days=1)
+	instance.expire = datetime.now() + timedelta(days=1)

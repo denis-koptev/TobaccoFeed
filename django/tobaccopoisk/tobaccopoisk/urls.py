@@ -29,6 +29,8 @@ urlpatterns = [
 
     url(r'^reg$', auth_views.reg, name='reg_page'),
     url(r'^auth$', auth_views.auth, name='auth_page'),
+    url(r'^auth/validate/(?P<token>[0-9a-zA-Z-_?.]+)$', auth_views.mail_confirmation, name='confirm'),
+    
     # must be the last, motherfucker!!! 
     # DO NOT CHANGE ITS DESTINATION, BITCH
 	url(r'^', include('tobacco_page.urls')),
