@@ -128,7 +128,7 @@ def mail_confirmation(request, token):
 		u = Unuser.objects.get(token=token)
 	except Unuser.DoesNotExist:
 		# entry with this token not found
-		return render('404.html')
+		return render(request, 'error_404.html', {})
 	else:
 		user = User(login=u.login, password=u.password, mail=u.mail)
 		user.save()
