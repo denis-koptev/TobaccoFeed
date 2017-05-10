@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Tobacco
 from .models import Tag
 from tobaccopoisk import utils
+from auth_page import engine
 
 def tobacco_view(request, brand, name):
 	try:
@@ -14,10 +15,17 @@ def tobacco_view(request, brand, name):
 	except Tag.DoesNotExist:
 		tags = []
 
+	if request.method == 'POST':
+		return engine.unauthorize(request)
+
+	login = engine.getAuthorized(request)
+
+
 	context = {'brand': utils.to_view_str(brand), 
 			   'name': utils.to_view_str(name), 
 			   'tobacco': tobacco, 
 			   'image': utils.image_url_handler(tobacco.image.name),
-			   'tags': tags}
+			   'tags': tags,
+			   'login' : login}
 
 	return render(request, 'tobacco_page/tobacco_page.html', context)

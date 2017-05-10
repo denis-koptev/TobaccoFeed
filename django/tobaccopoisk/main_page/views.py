@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from tobacco_page.models import Tobacco
 from search_page.engine import to_dict
+from auth_page.models import User, Session
+from auth_page import engine
 
 def get_last(count):
 	try:
@@ -11,5 +13,12 @@ def get_last(count):
 	return [to_dict(rec) for rec in last]
 
 def main(request):
-	context = {'latest' : get_last(5)}
+
+	if request.method == 'POST':
+		return engine.unauthorize(request)
+
+	login = engine.getAuthorized(request)
+
+	context = {'latest' : get_last(5),
+			   'login' : login}
 	return render(request, 'main_page/main_page.html', context)

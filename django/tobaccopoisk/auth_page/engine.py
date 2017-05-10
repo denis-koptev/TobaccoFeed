@@ -4,6 +4,7 @@ from auth_page.models import User, Session
 from django.db import IntegrityError
 from django.conf import settings
 from django.db.models import Q
+from django.shortcuts import redirect
 
 # Import smtplib for the actual sending function
 import smtplib
@@ -119,3 +120,31 @@ def send_confirmation_mail(mail, token):
 	# and message to send - here it is sent as one string.
 	s.sendmail(FROM, TO, msg.as_string())
 	s.quit()
+
+def getAuthorized(request):
+	usr_id = request.COOKIES.get('tfuserid')
+
+	try:
+		login = User.objects.get(id=usr_id)
+	except User.DoesNotExist:
+		login = None
+
+	return login
+
+def unauthorize(request):
+		req_id = request.COOKIES.get('tfuserid')
+		req_session = request.COOKIES.get('tfsession')
+
+		try:
+			session = Session.objects.get(user=req_id, token=req_session)
+		except Session.DoesNotExist:
+			session = None
+
+		response = redirect("/main")
+
+		if session != None:
+			response.delete_cookie('tfuserid')
+			response.delete_cookie('tfsession')
+			session.delete()
+
+		return response

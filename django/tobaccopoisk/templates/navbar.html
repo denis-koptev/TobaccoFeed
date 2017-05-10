@@ -26,13 +26,36 @@
             </div>
 
             <!-- instead of false here will be info about auth status -->
-            {% if false %}
+            {% if login != None %}
 
                 <div onclick="userClicked()" class="dropbtn">       
                     <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
                     <div class="user_text">
-                        Username
+                        {{login}}
                     </div>
+                </div>
+
+                <div id="myDropdown" class="dropdown-content">
+
+                <!--
+                    <a href="#profile">
+                        <div class="user_link">
+                            Profile
+                        </div>
+                    </a>
+                    <a href="#settings">
+                        <div class="user_link">
+                            Settings
+                        </div>
+                    </a>
+                -->
+                    <form method="post" action="/main">
+                    {% csrf_token %}
+                        <button type="submit" class="user_link">
+                            Log Out
+                        </div>
+                    </form>
+
                 </div>
 
             {% else %}
@@ -46,28 +69,6 @@
 
             {% endif %}
 
-            <div id="myDropdown" class="dropdown-content">
-
-                <!-- if logged in -->
-                <!--
-                <a href="#profile">
-                    <div class="user_link">
-                        Profile
-                    </div>
-                </a>
-                <a href="#settings">
-                    <div class="user_link">
-                        Settings
-                    </div>
-                </a>
-                <a href="#logout">
-                    <div class="user_link">
-                        Log Out
-                    </div>
-                </a>
-                -->
-
-            </div>
 
         </div>
 </nav>
