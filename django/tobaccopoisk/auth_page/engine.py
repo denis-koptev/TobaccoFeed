@@ -123,11 +123,19 @@ def send_confirmation_mail(mail, token):
 
 def getAuthorized(request):
 	usr_id = request.COOKIES.get('tfuserid')
+	usr_token = request.COOKIES.get('tfsession')
+
+	login = None
 
 	try:
-		login = User.objects.get(id=usr_id)
-	except User.DoesNotExist:
-		login = None
+		session = Session.objects.get(user=usr_id, token=usr_token)
+	except Session.DoesNotExist:
+		session = None
+	else:
+		try:
+			login = User.objects.get(id=usr_id)
+		except User.DoesNotExist:
+			login = None
 
 	return login
 
