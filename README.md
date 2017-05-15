@@ -104,7 +104,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [ ] Think on search algorithm. It works fucking bad...
 - [ ] Develop mixes-section in tobacco page
 - [ ] Create mixes app and front-end
-- [ ] Create auth app and front-end
+- [x] Create auth app and front-end
 - [ ] Create user app and front-end
 - [ ] Add filter front-end for search page
 - [ ] Sleep and relax after all this shit
@@ -117,5 +117,5 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [ ] Test search engine :rocket:
 - [x] Transfer search algorithm to engine :rocket:
 - [x] Photo of tobacco must be deleted after tobacco deletion
-- [ ] RESTfull API for everythin - dream big :)
+- [ ] RESTfull API for everything - dream big :)
 - [x] Names and brands with uppercases and spaces addition to DB
