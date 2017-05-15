@@ -14,7 +14,12 @@
 		dialog.showModal();
 
 		document.querySelector('#close').onclick = function() {
-			dialog.close();
+			dialog.classList.add('hide');
+			    dialog.addEventListener('webkitAnimationEnd', function(){
+			        dialog.classList.remove('hide');
+			        dialog.close();
+			        dialog.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
+			    }, false);
 		};
 	</script>
 

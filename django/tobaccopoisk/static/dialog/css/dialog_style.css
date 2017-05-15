@@ -50,3 +50,29 @@
 .message_button:hover {
     background-color: rgb(280,230,230); 
 }
+
+.message_dialog[open] {
+    -webkit-animation: show .4s ease normal;
+}
+
+.message_dialog.hide {
+    -webkit-animation: hide .4s ease normal;
+}
+
+@-webkit-keyframes show{
+    from {
+        transform: translateY(-110%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes hide{
+    to {
+        transform: translateY(-110%);
+        opacity: 0;
+    }
+}

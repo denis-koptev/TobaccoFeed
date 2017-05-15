@@ -20,6 +20,7 @@ def main(request):
 
 	login = engine.getAuthorized(request)
 
+	message = ""
 	messages = get_messages(request)
 	for curr in messages:
 		message = curr
