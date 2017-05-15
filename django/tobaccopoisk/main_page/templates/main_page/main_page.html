@@ -12,56 +12,56 @@
 </head>
 <body>
 
-{% include "navbar.html" %}
+	{% include "navbar.html" %}
 
-<table class="table_content">
-	<tr>
-		<td class="side_bar"></td>
-		<td class="main_content" valign="top">
+	<table class="table_content">
+		<tr>
+			<td class="side_bar"></td>
+			<td class="main_content" valign="top">
 
-<!-- NEWS -->
+				<!-- NEWS -->
 
-			<div class="main_header">
-				News 
-			</div>
+				<div class="main_header">
+					News 
+				</div>
 
-			<div class="about_div">
-				<a href="/" class="about_href">About us</a>Read about our project 
-			</div>
+				<div class="about_div">
+					<a href="/" class="about_href">About us</a>Read about our project 
+				</div>
 
-			<table class="news_table">
-				<tr>
+				<table class="news_table">
+					<tr>
 
-					<td class="slider_area">
+						<td class="slider_area">
 
-						<div class="slideshow-container">
+							<div class="slideshow-container">
 
-							{% for rec in latest %}
+								{% for rec in latest %}
 								<div class="mySlides fade">
 									<a href="{{rec.url}}">
-									<img src="{{rec.image}}" class="slider_image">
+										<img src="{{rec.image}}" class="slider_image">
 									</a>
 								</div>
-							{% endfor %}
+								{% endfor %}
 
-							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-							<a class="next" onclick="plusSlides(1)">&#10095;</a>
-						</div>
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							</div>
 
-						<div class="slider_switches">
-							<span class="dot" onclick="currentSlide(1)"></span> 
-							<span class="dot" onclick="currentSlide(2)"></span> 
-							<span class="dot" onclick="currentSlide(3)"></span> 
-							<span class="dot" onclick="currentSlide(4)"></span> 
-							<span class="dot" onclick="currentSlide(5)"></span> 
-						</div>
+							<div class="slider_switches">
+								<span class="dot" onclick="currentSlide(1)"></span> 
+								<span class="dot" onclick="currentSlide(2)"></span> 
+								<span class="dot" onclick="currentSlide(3)"></span> 
+								<span class="dot" onclick="currentSlide(4)"></span> 
+								<span class="dot" onclick="currentSlide(5)"></span> 
+							</div>
 
-					</td>
+						</td>
 
-					<!-- Text news -->
+						<!-- Text news -->
 
-					<td class="text_news_area">
-						{% for rec in latest %}
+						<td class="text_news_area">
+							{% for rec in latest %}
 							<div class="news_rec">
 								<li>
 									<a href="{{rec.url}}">
@@ -71,107 +71,109 @@
 									added
 								</li>
 							</div>
-						{% endfor %}
-					</td>
+							{% endfor %}
+						</td>
 
-				</tr>
-			</table>
+					</tr>
+				</table>
 
-<!-- MIXES -->
+				<!-- MIXES -->
 
-			<div class="main_header">
-				Popular mixes 
-			</div>
+				<div class="main_header">
+					Popular mixes 
+				</div>
 
-			<div class="header_content">
-				<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
+				<div class="header_content">
+					<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
 
-				<div id="modal_button1" class="modal_button">Show more...</div>
+					<div id="modal_button1" class="modal_button">Show more...</div>
 
-				<div id="modal1" class="modal">
+					<div id="modal1" class="modal">
 
-					<div class="modal_content">
-						<div class="modal_header">
-							<span class="close">&times;</span>
-							<h2>Popular mixes</h2>
+						<div class="modal_content">
+							<div class="modal_header">
+								<span class="close">&times;</span>
+								<h2>Popular mixes</h2>
+							</div>
+							<div class="modal_body">
+								<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+							</div>
 						</div>
-						<div class="modal_body">
-							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-						</div>
+
 					</div>
 
 				</div>
 
-			</div>
+				<!-- STORE -->
 
-<!-- STORE -->
+				<div class="main_header">
+					Where to buy 
+				</div>
 
-			<div class="main_header">
-				Where to buy 
-			</div>
+				<div class="header_content">
 
-			<div class="header_content">
+					<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
 
-				<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
+					<div id="modal_button2" class="modal_button">Show more...</div>
 
-				<div id="modal_button2" class="modal_button">Show more...</div>
+					<div id="modal2" class="modal">
 
-				<div id="modal2" class="modal">
-
-					<div class="modal_content">
-						<div class="modal_header">
-							<span class="close">&times;</span>
-							<h2>TobaccoStore</h2>
+						<div class="modal_content">
+							<div class="modal_header">
+								<span class="close">&times;</span>
+								<h2>TobaccoStore</h2>
+							</div>
+							<div class="modal_body">
+								<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+							</div>
 						</div>
-						<div class="modal_body">
-							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-						</div>
+
 					</div>
 
 				</div>
 
-			</div>
+				<!-- STATISTICS -->
 
-<!-- STATISTICS -->
-
-			<div class="main_header">
-				Statistics 
-			</div>
-
-			<div class="header_content">
-				<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
-
-				<div id="modal_button3" class="modal_button">Show more...</div>
-
-				<div id="modal3" class="modal">
-
-					<div class="modal_content">
-						<div class="modal_header">
-							<span class="close">&times;</span>
-							<h2>Statistics</h2>
-						</div>
-						<div class="modal_body">
-							<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
-							<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-						</div>
-					</div>
-
+				<div class="main_header">
+					Statistics 
 				</div>
-			</div>
 
-		</td>
-		<td class="side_bar"></td>
-	</tr>
-</table>
+				<div class="header_content">
+					<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
 
-{% include "footer.html" %}
+					<div id="modal_button3" class="modal_button">Show more...</div>
 
-<!-- SCRIPTS -->
+					<div id="modal3" class="modal">
 
-<script type="text/javascript" src="{% static "/slider/js/slider_actions.js" %}"></script>
-<script type="text/javascript" src="{% static "/modal/js/modal_actions.js" %}"></script>
+						<div class="modal_content">
+							<div class="modal_header">
+								<span class="close">&times;</span>
+								<h2>Statistics</h2>
+							</div>
+							<div class="modal_body">
+								<img src="{% static "/main_page/image/work_icon.png" %}" width="200px">
+								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</td>
+			<td class="side_bar"></td>
+		</tr>
+	</table>
+
+	{% include "footer.html" %}
+
+	{% include "dialog.html" %}
+
+	<!-- SCRIPTS -->
+
+	<script type="text/javascript" src="{% static "/slider/js/slider_actions.js" %}"></script>
+	<script type="text/javascript" src="{% static "/modal/js/modal_actions.js" %}"></script>
 
 </body>
 </html>

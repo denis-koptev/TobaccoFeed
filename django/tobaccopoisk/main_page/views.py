@@ -3,6 +3,7 @@ from tobacco_page.models import Tobacco
 from search_page.engine import to_dict
 from auth_page.models import User, Session
 from auth_page import engine
+from django.contrib.messages import get_messages
 
 def get_last(count):
 	try:
@@ -19,6 +20,12 @@ def main(request):
 
 	login = engine.getAuthorized(request)
 
+	messages = get_messages(request)
+	for curr in messages:
+		message = curr
+		break
+
 	context = {'latest' : get_last(5),
-			   'login' : login}
+			   'login' : login,
+			   'message' : str(message)}
 	return render(request, 'main_page/main_page.html', context)

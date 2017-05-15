@@ -4,6 +4,8 @@ from auth_page import engine
 from auth_page import crypto
 from validate_email import validate_email
 from django.db import IntegrityError
+from django.contrib import messages
+
 
 def auth(request):
 
@@ -15,21 +17,17 @@ def auth(request):
 		user = engine.authentication(ident, password)
 
 		if user is None:
-			# user not found
-			# RETURN FALSE
-			return render(request, 'auth_page/auth_page.html', {})
+			return render(request, 'auth_page/auth_page.html', {'message' : 'Login or password is wrong'})
 
 		session = engine.authorization(user)
 
 		if session is None:
-			# cant craete session
-			# 	should never happen
-			# RETURN FALSE
-			return render(request, 'auth_page/auth_page.html', {})
+			return render(request, 'auth_page/auth_page.html', {'message' : 'Session set up failed'})
 
 		# overwrite this
 		response = redirect('/main')
-		# set coockies
+
+		# set cookies
 		response.set_cookie('tfuserid', str(user.id))
 		response.set_cookie('tfsession', str(session.token))
 		
@@ -38,67 +36,23 @@ def auth(request):
 	else:
 		return render(request, 'auth_page/auth_page.html', {})
 
+
 def reg(request):
 	if request.method == 'POST':
 		login = request.POST.get('login')
 		password = request.POST.get('password')
 		mail = request.POST.get('email')
 
+		error_msg = ""
 
-		if not validate_email(mail):
-			# email is not valid
-			# RETURN FALSE
-			return render(request, 'auth_page/reg_page.html', {})
+		if engine.login_exists(login) or engine.waiting_login_exists(login):
+			error_msg += "This login is not free. "
 
+		if engine.email_exists(mail) or engine.waiting_email_exists(mail):
+			error_msg += "This email was used. "
 
-		# Check that login is free
-		# in Unverified users table
-		try:
-			u = Unuser.objects.get(login=login)
-		except Unuser.DoesNotExist:
-			# user login not found. that is good. it is free.
-			pass
-		else:
-			# this login is already in use
-			# RETURN FALSE
-			return render(request, 'auth_page/reg_page.html', {})
-
-		# Check that login is free
-		# in Verified users table
-		try:
-			u = User.objects.get(login=login)
-		except User.DoesNotExist:
-			# user login not found. that is good. it is free.
-			pass
-		else:
-			# this login is already in use
-			# RETURN FALSE
-			return render(request, 'auth_page/reg_page.html', {})
-
-		# Check that mail is free
-		# in Unverified users table
-		try:
-			u = Unuser.objects.get(mail=mail)
-		except Unuser.DoesNotExist:
-			# user mail not found. that is good. it is free.
-			pass
-		else:
-			# this mail is already in use
-			# RETURN FALSE
-			return render(request, 'auth_page/reg_page.html', {})
-
-		# Check that mail is free
-		# in Verified users table
-		try:
-			u = User.objects.get(mail=mail)
-		except User.DoesNotExist:
-			# user mail not found. that is good. it is free.
-			pass
-		else:
-			# this mail is already in use
-			# RETURN FALSE
-			return render(request, 'auth_page/reg_page.html', {})
-
+		if len(error_msg) != 0:
+			return render(request, 'auth_page/reg_page.html', {'message' : error_msg})
 
 		# create new Unuser
 		passwd = crypto.hashpw(password)
@@ -116,8 +70,9 @@ def reg(request):
 				engine.send_confirmation_mail(mail, token)
 				break
 
-		# return "now check ur email to confirm registration." 
+		messages.add_message(request, messages.INFO, "Check your mail for confirmation")
 		return redirect('/main')
+		#return render(request, 'main_page/main_page.html', {'message' : 'Check your mail for confirmation'})
 
 	else:
 		return render(request, 'auth_page/reg_page.html', {})

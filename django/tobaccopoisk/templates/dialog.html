@@ -1,0 +1,21 @@
+{% load static %}
+
+{% if message|length != 0 %}
+
+	<link rel="stylesheet" type="text/css" href="{% static "/dialog/css/dialog_style.css" %}">
+
+	<dialog class="message_dialog">
+		<p>{{ message }}</p>
+		<button id="close" class="message_button">Close</button>
+	</dialog>
+
+	<script>
+		var dialog = document.querySelector('dialog');
+		dialog.showModal();
+
+		document.querySelector('#close').onclick = function() {
+			dialog.close();
+		};
+	</script>
+
+{% endif %}

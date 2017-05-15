@@ -6,6 +6,7 @@
 <head>
 
 	<title>Sign In - TobaccoFeed</title>
+
 	<link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
 	<link rel="icon" href="{% static "/image/favicon.ico" %}">
 
@@ -13,37 +14,39 @@
 
 <body>
 
-{% include "navbar.html" %}
+	{% include "navbar.html" %}
 
 
-<table class="table_content" align="center">
+	<table class="table_content" align="center">
 
-	<tr>
+		<tr>
 
-		<td class="main_content" valign="center">
+			<td class="main_content" valign="center">
 
-		<form method="post" action="/auth" class="login_form">
-		{% csrf_token %}
-			Login
-			<br>
-			<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
-			<br>
-			Password
-			<br>
-			<input type="password" name="password" id="password" required id="password" maxlength="64">
-			<br>
-			<button type="submit" class="login_button">Sign In</button>
-			<br>
-			<a href="/reg" class="register_button">Sign Up</a>
-		</form>
+				<form method="post" action="/auth" class="login_form">
+					{% csrf_token %}
+					Login
+					<br>
+					<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
+					<br>
+					Password
+					<br>
+					<input type="password" name="password" id="password" required id="password" maxlength="64">
+					<br>
+					<button type="submit" class="login_button">Sign In</button>
+					<br>
+					<a href="/reg" class="register_button">Sign Up</a>
+				</form>
 
-		</td>
-	</tr>
+			</td>
+		</tr>
 
-</table>
+	</table>
 
 
-{% include "footer.html" %}
+	{% include "footer.html" %}
+
+	{% include "dialog.html" %}
 
 </body>
 </html>

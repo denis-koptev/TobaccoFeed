@@ -1,6 +1,6 @@
 import bcrypt
 from auth_page import crypto
-from auth_page.models import User, Session
+from auth_page.models import Unuser, User, Session
 from django.db import IntegrityError
 from django.conf import settings
 from django.db.models import Q
@@ -25,9 +25,6 @@ from email.mime.multipart import MIMEMultipart
 # auth functions
 # --------------
 
-def xprint(msg):
-	print('[+] ' + str(msg))
-
 def authentication(ident, password):
 
 	users = User.objects.filter(Q(login=ident) | Q(mail=ident))
@@ -45,6 +42,18 @@ def authentication(ident, password):
 		# passwd is incorrect
 		#	show error to user
 		return None
+
+def waiting_email_exists(mail):
+	return (len(Unuser.objects.filter(mail=mail)) != 0)
+
+def email_exists(mail):
+	return (len(User.objects.filter(mail=mail)) != 0)
+
+def waiting_login_exists(login):
+	return (len(Unuser.objects.filter(login=login)) != 0)
+
+def login_exists(login):
+	return (len(User.objects.filter(login=login)) != 0)
 
 
 def authorization(user):
@@ -93,8 +102,6 @@ def send_confirmation_mail(mail, token):
 	  </body>
 	</html>
 	""".format(settings.DOMAIN, token)
-	print(text)
-	print(html)
 
 	# Record the MIME types of both parts - text/plain and text/html.
 	part1 = MIMEText(text, 'plain')

@@ -4,6 +4,7 @@
 <html>
 
 <head>
+
 	<title>Sign Up - TobaccoFeed</title>
 
 	<link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
@@ -13,40 +14,42 @@
 
 <body>
 
-{% include "navbar.html" %}
+	{% include "navbar.html" %}
+
+	<table class="table_content">
+
+		<tr>
+
+			<td class="main_content" valign="center">
+
+				<form method="post" action="/reg" class="login_form">
+					{% csrf_token %}
+					Login
+					<br>
+					<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
+					<br>
+					Password
+					<br>
+					<input type="password" name="password" id="password" required id="password" maxlength="64">
+					<br>
+					Email
+					<br>
+					<input type="email" name="email" id="email" required id="email" maxlength="256" placeholder="example@mail.com">
+					<br>
+					<button type="submit" class="login_button">Sign Up</button>
+				</form>
+
+			</td>
+
+		</tr>
+
+	</table>
 
 
-<table class="table_content">
+	{% include "footer.html" %}
 
-	<tr>
+	{% include "dialog.html" %}
 
-		<td class="main_content" valign="center">
-
-		<form method="post" action="/reg" class="login_form">
-		{% csrf_token %}
-			Login
-			<br>
-			<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
-			<br>
-			Password
-			<br>
-			<input type="password" name="password" id="password" required id="password" maxlength="64">
-			<br>
-			Email
-			<br>
-			<input type="email" name="email" id="email" required id="email" maxlength="256" placeholder="example@mail.com">
-			<br>
-			<button type="submit" class="login_button">Sign Up</button>
-		</form>
-
-		</td>
-
-	</tr>
-
-</table>
-
-
-{% include "footer.html" %}
 
 </body>
 </html>
