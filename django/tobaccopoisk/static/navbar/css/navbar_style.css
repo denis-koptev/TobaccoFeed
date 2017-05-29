@@ -32,6 +32,7 @@
 
 .logo_text {
     float: left;
+    margin-left: 5px;
     font-size: 24px;
     color: #faf3c0;
     line-height: 40px;
