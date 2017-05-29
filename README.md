@@ -1,9 +1,5 @@
-<p align="center"><b>TobaccoFeed</b>
-<br>
-From potential creators of porn-social network</p>
-
 <p align="center">
-  <img src="https://cs7055.userapi.com/c837634/v837634898/3a465/9iQn4DJ5490.jpg">
+  <img src="https://cs7055.userapi.com/c837634/v837634898/3a479/BwaAU_FeAqU.jpg">
 </p>
 
 ## Description
