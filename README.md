@@ -112,7 +112,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [ ] Sleep and relax after all this shit
 
 
-## TO TEST LIST (in russian)
+## TO TEST LIST
 
 - [ ] Check that old tobacco-photo is deleted after loading new one
 - [x] Check search field work (button)
