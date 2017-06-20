@@ -36,10 +36,11 @@
 .news_rec a {
     color: #FFBBBB;
     text-decoration: none;
+    transition: all 0.6s ease;
 }
 
-.news_rec:hover {
-    font-size: 17px; 
+.news_rec a:hover {
+    color: yellow;
     transition: all 0.6s ease;
 }
 

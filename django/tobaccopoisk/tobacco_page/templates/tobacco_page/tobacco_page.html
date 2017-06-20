@@ -114,6 +114,7 @@
 
 
 							<!-- tags -->
+							<!--
 							<p></p>
 							<div class="collapse_div">
 								<input id="toggle" type="checkbox">
@@ -131,7 +132,7 @@
 									</div>
 								</div>
 							</div>
-
+							-->
 						</td>
 
 
@@ -300,6 +301,23 @@
 							</div>
 
 							<p></p>
+
+							<div class="collapse_div">
+								<input id="toggle" type="checkbox">
+								<label for="toggle">Tags</label>
+								<div id="expand">
+									<div class="tags">
+										<font color="black">
+											{% for rec in tags %}
+											<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
+												#{{rec.tag_name}}
+											</a>
+											
+											{% endfor %}
+										</font>
+									</div>
+								</div>
+							</div>
 
 						</td>
 

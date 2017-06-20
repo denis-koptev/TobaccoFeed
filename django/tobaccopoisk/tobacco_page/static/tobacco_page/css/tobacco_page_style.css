@@ -7,22 +7,21 @@
 }
 
 .votes {
+    padding-top: 10px;
+    padding-bottom: 5px;
     display: inline-block;
-    height: 100%;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
     font-family: ClinicaRegular, Arial, serif;
     letter-spacing: 2pt;
-    line-height: 3;
 }
 
 .vote_icon {
     margin-left: 10px;
     display: inline-block;
-    height: 25px;
-    margin-bottom: 3px;
-    vertical-align: middle;
+    height: 15px;
+    vertical-align: bottom;
 }
 
 .column_content {
@@ -31,12 +30,11 @@
 }
 
 .main_image {
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.5);
     border: none;
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
-    margin-bottom: 10px;
 }
 
 blockquote {
@@ -152,7 +150,7 @@ blockquote > p:first-child {
 .collapse_div label {
     margin-bottom: 10px;
     height: 30px;
-    background-color: #333333;
+    background-color: rgba(1,1,1,0.5);
     font-size: 16px;
     color: #FFFFFF;
     text-align: center;
