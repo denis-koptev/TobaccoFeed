@@ -1,89 +1,9 @@
-body {
-    margin: 0;
-    background: url(/static/image/bg14.jpg);
-    background-attachment: fixed;
-    min-width: 800px;
-    width: 100%;
-    background-size: cover;
-}
-
-.table_content {    
-    margin-top: 40px;
-    margin-bottom: 0;
-    border-spacing: 0;
-    height: 100%;
-}
-
-
-@media screen {
-    .table_content {
-        width: @media screen device-width;
-    }
-}
-
-.side_bar {
-    width: 25%;
-}
-
-.main_content {
-    padding-top: 10px;
-    margin:0;
-    background-color: rgba(256,256,256,0.1);
-    height: 100%;
-}
-
-
-.headercss {
-    width: auto;
-    height: 40px;
-    background-color: #333333;
-    position: relative;
-}
-
-.headerlogo {
-    margin-bottom: 10px;
-    height: 30px;
-    background-color: #333333;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    letter-spacing: 2pt;
-    text-transform: uppercase;
-    line-height: 30px;
-    border: 1px solid gray;
-    box-sizing: border-box;
-    border-radius: 5px;
-
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    user-select: none;
-}
-
 .nav {
     width: auto;
     height: auto;
     background: rgba(1,1,1,0.5);
     position: relative;
     overflow: hidden;
-}
-
-.inf {
-    width: auto;
-    background-color: rgba(255,255,255,0.8);
-    position: relative;
-    overflow: hidden;
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border-spacing: 0;
-    font-family: DrugsThin, Arial, serif;
-    font-weight: bold;
-    padding: 0;
 }
 
 .votes {
@@ -105,10 +25,7 @@ body {
     vertical-align: middle;
 }
 
-
 .column_content {
-    padding-right: 10px;
-    padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
 }

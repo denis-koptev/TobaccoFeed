@@ -23,19 +23,19 @@
 
 		<td class="main_content" valign="top">
 
-			<div class="main_header">
+			<div class="search_header">
 				Search results: <font color="#FFFFCC"><i>{{search_string}}</i></font>
 			</div>
 
 			{% if found|length == 0 %}
-				<div class="main_header">
+				<div class="search_header">
 					<font size="5">
 						nothing found
 					</font>
 				</div>
 			{% endif %}
 
-			<div class="main_header">
+			<div class="search_header">
 				<font size="5">
 					{{found|length}} tobaccos found
 				</font>
@@ -45,10 +45,10 @@
 				<a href="{{rec.url}}">
 			    <table class="search_element" >
 			    	<tr>
-			    		<td class="tobacco_div">
-			    			<img src="{{rec.image}}" class="tobacco_image">
+			    		<td class="search_tobacco_div">
+			    			<img src="{{rec.image}}" class="search_tobacco_image">
 			    		</td>
-			    		<td class="tobacco_brand" valign="middle">
+			    		<td class="search_tobacco_brand" valign="middle">
 			    			{{rec.brand}}
 			    			{{rec.name}}
 			    		</td>

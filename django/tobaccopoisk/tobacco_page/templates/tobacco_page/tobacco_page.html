@@ -26,10 +26,10 @@
 
 			<td class="main_content" valign="top">
 
-				<table >
+				<table>
 					<tr>
-						<hr>
-						<div class="headerlogo">{{brand}} {{name}}</div>
+						
+						<div class="header_label_margined">{{brand}} {{name}}</div>
 						
 
 						<!-- LEFT COLUMN -->
@@ -37,336 +37,322 @@
 						<!-- main image -->
 
 						<td width="27%" valign="top" class="column_content">
-						<!--<div class="headerlogo">
-							<p align=center></p>
-						</div>-->
-						<img src={{image}} width="100%" class="main_image">
+							<img src={{image}} width="100%" class="main_image">
 
-						<!-- related -->
+							<!-- related -->
 
-						<p></p>
+							<p></p>
 
-						<div class="headerlogo">
-							Related
-						</div>
-						
-						<table class="related_table" cellspacing="5"> 
-							<tr>
-								<td class="related_td">
-									<div class="related_div">
-										<a href="/afzal/pan_raas">
-											<img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
-											<hr>
-											Pan Raas
-										</a>
-									</div>									
-								</td>
-								<td class="related_td">
-									<div class="related_div">
-										<a href="/afzal/watermelon">
-											<img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
-											<hr>
-											Watermelon
-										</a> 
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td class="related_td">
-									<div class="related_div">
-										<a href="/afzal/lime-lemon">
-											<img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
-											<hr>
-											Lime-Lemon
-										</a>
-									</div>
-								</td>
-								<td class="related_td">
-									<div class="related_div">
-										<a href="/afzal/ecstasy">
-											<img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
-											<hr>
-											Ecstasy
-										</a>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
+							<div class="header_label">
+								Related
+							</div>
 
-									<div id="modal_button_related" class="more_div">Show more</div>
+							<table class="related_table" cellspacing="5"> 
+								<tr>
+									<td class="related_td">
+										<div class="related_div">
+											<a href="/afzal/pan_raas">
+												<img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
+												<hr>
+												Pan Raas
+											</a>
+										</div>									
+									</td>
+									<td class="related_td">
+										<div class="related_div">
+											<a href="/afzal/watermelon">
+												<img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
+												<hr>
+												Watermelon
+											</a> 
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="related_td">
+										<div class="related_div">
+											<a href="/afzal/lime-lemon">
+												<img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
+												<hr>
+												Lime-Lemon
+											</a>
+										</div>
+									</td>
+									<td class="related_td">
+										<div class="related_div">
+											<a href="/afzal/ecstasy">
+												<img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
+												<hr>
+												Ecstasy
+											</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
 
-									<div id="modal_related" class="modal">
+										<div id="modal_button_related" class="more_div">Show more</div>
 
-										<div class="modal_content">
-											<div class="modal_header">
-												<span class="close">&times;</span>
-												<h2>Related tobaccos</h2>
+										<div id="modal_related" class="modal">
+
+											<div class="modal_content">
+												<div class="modal_header">
+													<span class="close">&times;</span>
+													<h2>Related tobaccos</h2>
+												</div>
+												<div class="modal_body">
+													<img src="{% static "/image/work_icon.svg" %}" width="200px">
+													<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+												</div>
 											</div>
-											<div class="modal_body">
-												<img src="{% static "/image/work_icon.svg" %}" width="200px">
-												<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-											</div>
+
 										</div>
 
+									</td>
+								</tr>
+							</table>
+
+
+							<!-- tags -->
+							<p></p>
+							<div class="collapse_div">
+								<input id="toggle" type="checkbox">
+								<label for="toggle">Tags</label>
+								<div id="expand">
+									<div class="tags">
+										<font color="black">
+											{% for rec in tags %}
+											<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
+												#{{rec.tag_name}}
+											</a>
+											<br>
+											{% endfor %}
+										</font>
 									</div>
+								</div>
+							</div>
 
-								</td>
-							</tr>
-						</table>
-
-
+						</td>
 
 
-						<!-- tags -->
-						<p></p>
-						<div class="collapse_div">
-							<input id="toggle" type="checkbox">
-							<label for="toggle">Tags</label>
-							<div id="expand">
-								<div class="tags">
-									<font color="black">
-										{% for rec in tags %}
-										<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
-											#{{rec.tag_name}}
-										</a>
-										<br>
+						<!-- RIGHT COLUMN -->
+
+						<td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
+
+							<!-- description -->
+							{% if tobacco.description|length > 0 %}
+							<div class="header_label">
+								Description
+							</div>
+							<div class="header_content_light"> 
+								<blockquote> 
+									{{tobacco.description}} 
+								</blockquote>
+							</div>
+							<p></p>
+							{% endif %}
+
+							<!-- rates --> 
+
+							<div class="header_label">
+								System requirements
+							</div>
+
+							<div class="header_content_light">
+								<div class="votes">
+									STRENGTH: {{tobacco.strength}}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco.strength_votes}}
+								</div>
+
+								<form id="ratingsForm">
+									<div class="stars">
+
+										{% for star_idx in "0123456789" %}
+										{% if star_idx|add:1 == tobacco.strength %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" checked />
+										<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% else %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
+										<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% endif %}
 										{% endfor %}
-									</font>
-								</div>
-							</div>
-						</div>
 
-					</td>
-
-
-					<!-- RIGHT COLUMN -->
-					<!-- brand and name -->
-
-					<td valign="top" class="column_content" width="73%">
-							<!--<div class="headerlogo">
-								{{brand}}
-							</div>
-
-						<div class="inf">
-							<font size="5"> {{name}} </font>
-						</div> 
-						<p></p>	-->
-
-						<!-- description -->
-						{% if tobacco.description|length > 0 %}
-						<div class="headerlogo">
-							Description
-						</div>
-						<div class="inf"> 
-							<blockquote> 
-								{{tobacco.description}} 
-							</blockquote>
-						</div>
-						<p></p>
-						{% endif %}
-
-						<!-- rates --> 
-
-						<div class="headerlogo">
-							System requirements
-						</div>
-
-						<div class="inf">
-							<div class="votes">
-								STRENGTH: {{tobacco.strength}}
-							</div>
-							<div class="votes">
-								<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-								{{tobacco.strength_votes}}
-							</div>
-
-							<form id="ratingsForm">
-								<div class="stars">
-
-									{% for star_idx in "0123456789" %}
-									{% if star_idx|add:1 == tobacco.strength %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" checked />
-									<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
-									{% else %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
-									<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
-									{% endif %}
-									{% endfor %}
-
-									<span></span>
-								</div>
-							</form>
-
-						</div>
-
-						<div class="inf">
-							<div class="votes">
-								HEATPROOF: {{tobacco.heat}}
-							</div>
-							<div class="votes">
-								<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-								{{tobacco.heat_votes}}
-							</div>
-
-							<form id="ratingsForm">
-								<div class="stars">
-
-									{% for star_idx in "0123456789" %}
-									{% if star_idx|add:1 == tobacco.heat %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" checked />
-									<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
-									{% else %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
-									<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
-									{% endif %}
-									{% endfor %}
-
-									<span></span>
-								</div>
-							</form>
-
-						</div>
-
-						<div class="inf">
-							<div class="votes">
-								SMOKE: {{tobacco.smoke}}
-							</div>
-							<div class="votes">
-								<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-								{{tobacco.smoke_votes}}
-							</div>
-
-							<form id="ratingsForm">
-								<div class="stars">
-
-									{% for star_idx in "0123456789" %}
-									{% if star_idx|add:1 == tobacco.smoke %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" checked />
-									<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
-									{% else %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}"/>
-									<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>										
-									{% endif %}
-									{% endfor %}	 
-
-									<span></span>
-								</div>
-							</form>
-
-						</div>
-
-						<div class="inf">
-							<div class="votes">
-								TASTINESS: {{tobacco.taste}}
-							</div>
-							<div class="votes">
-								<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-								{{tobacco.taste_votes}}
-							</div>
-
-							<form id="ratingsForm">
-								<div class="stars">
-
-									{% for star_idx in "0123456789" %}
-									{% if star_idx|add:1 == tobacco.taste %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" checked />
-									<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
-									{% else %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
-									<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
-									{% endif %}
-									{% endfor %}	
-
-									<span></span>
-								</div>
-							</form>
-
-						</div>
-
-
-						<div class="inf">
-							<div class="votes">
-								GENERAL MARK: {{tobacco.rating}}
-							</div>
-							<div class="votes">
-								<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-								{{tobacco.rating_votes}}
-							</div>
-
-							<form id="ratingsForm">
-								<div class="stars">
-
-									{% for star_idx in "0123456789" %}
-									{% if star_idx|add:1 == tobacco.rating %}									
-									<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" checked />
-									<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
-									{% else %}
-									<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
-									<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>											
-									{% endif %}
-									{% endfor %}   
-
-									<span></span>
-								</div>
-							</form>
-
-						</div>
-
-						<p></p>
-
-					</td>
-
-				</tr>
-
-				<!-- mixes -->
-
-				<tr>
-					
-					<td colspan="2" valign="top" class="column_content">
-						
-						<div class="headerlogo">
-							Popular mixes
-						</div>
-
-						<section class="mixes_section">
-							<img src="{% static "/tobacco_page/image/tobacco_mixes.png" %}" class="mixes_image">
-
-							<div id="modal_button_mixes" class="more_div">Show more</div>
-
-							<div id="modal_mixes" class="modal">
-
-								<div class="modal_content">
-									<div class="modal_header">
-										<span class="close">&times;</span>
-										<h2>Popular mixes</h2>
+										<span></span>
 									</div>
-									<div class="modal_body">
-										<img src="{% static "/image/work_icon.svg" %}" width="200px">
-										<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
-									</div>
-								</div>
+								</form>
 
 							</div>
 
-						</section>
+							<div class="header_content_light">
+								<div class="votes">
+									HEATPROOF: {{tobacco.heat}}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco.heat_votes}}
+								</div>
 
-					</td>
+								<form id="ratingsForm">
+									<div class="stars">
 
-				</tr>
+										{% for star_idx in "0123456789" %}
+										{% if star_idx|add:1 == tobacco.heat %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" checked />
+										<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+										{% else %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
+										<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
+										{% endif %}
+										{% endfor %}
+
+										<span></span>
+									</div>
+								</form>
+
+							</div>
+
+							<div class="header_content_light">
+								<div class="votes">
+									SMOKE: {{tobacco.smoke}}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco.smoke_votes}}
+								</div>
+
+								<form id="ratingsForm">
+									<div class="stars">
+
+										{% for star_idx in "0123456789" %}
+										{% if star_idx|add:1 == tobacco.smoke %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" checked />
+										<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
+										{% else %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}"/>
+										<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>										
+										{% endif %}
+										{% endfor %}	 
+
+										<span></span>
+									</div>
+								</form>
+
+							</div>
+
+							<div class="header_content_light">
+								<div class="votes">
+									TASTINESS: {{tobacco.taste}}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco.taste_votes}}
+								</div>
+
+								<form id="ratingsForm">
+									<div class="stars">
+
+										{% for star_idx in "0123456789" %}
+										{% if star_idx|add:1 == tobacco.taste %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" checked />
+										<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+										{% else %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
+										<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
+										{% endif %}
+										{% endfor %}	
+
+										<span></span>
+									</div>
+								</form>
+
+							</div>
 
 
-			</table>
+							<div class="header_content_light">
+								<div class="votes">
+									GENERAL MARK: {{tobacco.rating}}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco.rating_votes}}
+								</div>
 
-		</td>
+								<form id="ratingsForm">
+									<div class="stars">
 
-		<td class="side_bar"></td>
-	</tr>
-</table>
+										{% for star_idx in "0123456789" %}
+										{% if star_idx|add:1 == tobacco.rating %}									
+										<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" checked />
+										<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
+										{% else %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
+										<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>											
+										{% endif %}
+										{% endfor %}   
 
-{% include "footer.html" %}
+										<span></span>
+									</div>
+								</form>
 
-<script type="text/javascript" src="{% static "/tobacco_page/js/modal_actions.js" %}"></script>
+							</div>
+
+							<p></p>
+
+						</td>
+
+					</tr>
+
+					<!-- mixes -->
+
+					<tr>
+
+						<td colspan="2" valign="top" class="column_content">
+
+							<div class="header_label">
+								Popular mixes
+							</div>
+
+							<section class="mixes_section">
+								<img src="{% static "/tobacco_page/image/tobacco_mixes.png" %}" class="mixes_image">
+
+								<div id="modal_button_mixes" class="more_div">Show more</div>
+
+								<div id="modal_mixes" class="modal">
+
+									<div class="modal_content">
+										<div class="modal_header">
+											<span class="close">&times;</span>
+											<h2>Popular mixes</h2>
+										</div>
+										<div class="modal_body">
+											<img src="{% static "/image/work_icon.svg" %}" width="200px">
+											<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+										</div>
+									</div>
+
+								</div>
+
+							</section>
+
+						</td>
+
+					</tr>
+
+
+				</table>
+
+			</td>
+
+			<td class="side_bar"></td>
+		</tr>
+	</table>
+
+	{% include "footer.html" %}
+
+	<script type="text/javascript" src="{% static "/tobacco_page/js/modal_actions.js" %}"></script>
 
 <!--
 It's fucking disgusting to import this huge shit on each page
