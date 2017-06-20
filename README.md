@@ -107,6 +107,8 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [x] Create auth app and front-end
 - [ ] Create user app and front-end
 - [ ] Add filter front-end for search page
+- [ ] Finish moving to svg images
+- [ ] Refactor html and css (too many duplicates)
 - [ ] Sleep and relax after all this shit
 
 
