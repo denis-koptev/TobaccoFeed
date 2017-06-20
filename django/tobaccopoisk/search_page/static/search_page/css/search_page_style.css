@@ -4,6 +4,7 @@ body {
     background-attachment: fixed;
     min-width: 800px;
     width: 100%;
+    background-size: cover;
 }
 
 .table_content {    

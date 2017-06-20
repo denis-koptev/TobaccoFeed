@@ -11,7 +11,7 @@
 
             <a href="/">
                 <div class="logo_div">
-                    <img src="{% static "/navbar/image/logo2.png" %}" class="logo_icon" />
+                    <img src="{% static "/navbar/image/logo_circle.svg" %}" class="logo_icon" />
                     <div class="logo_text">
                         TobaccoFeed
                     </div>
@@ -21,7 +21,7 @@
             <div class="search_div" id="search_div">
                 <form action="/search" method="get" id="search_form">
                     <input name="q" class="search_bar" placeholder="Search tobacco" type="search" required id="search_bar" onclick="searchClicked()" maxlength="50" />
-                    <input type=image src="{% static "/navbar/image/search_icon.png" %}" class="search_button" id="search_button" />   
+                    <input type=image src="{% static "/navbar/image/search_icon.svg" %}" class="search_button" id="search_button" />   
                 </form>
             </div>
 
@@ -29,7 +29,7 @@
             {% if login != None %}
 
                 <div onclick="userClicked()" class="dropbtn">       
-                    <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                    <img src="{% static "/navbar/image/user_icon.svg" %}" class="user_icon" />    
                     <div class="user_text">
                         {{login}}
                     </div>
@@ -61,7 +61,7 @@
             {% else %}
 
                 <a href="/auth" class="dropbtn">
-                    <img src="{% static "/navbar/image/user_icon.png" %}" class="user_icon" />    
+                    <img src="{% static "/navbar/image/user_icon.svg" %}" class="user_icon" />    
                     <div class="user_text">
                         Log In
                     </div>

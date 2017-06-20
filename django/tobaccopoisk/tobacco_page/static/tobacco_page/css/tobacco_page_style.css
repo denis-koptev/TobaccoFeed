@@ -4,6 +4,7 @@ body {
     background-attachment: fixed;
     min-width: 800px;
     width: 100%;
+    background-size: cover;
 }
 
 .table_content {    
@@ -25,7 +26,7 @@ body {
 }
 
 .main_content {
-    padding: 10px;
+    padding-top: 10px;
     margin:0;
     background-color: rgba(256,256,256,0.1);
     height: 100%;
@@ -144,13 +145,15 @@ blockquote > p:first-child {
 
 .mixes_section {
     min-height: 500px;
-    padding: 10px;
+    background-color: rgba(1,1,1,0.5);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .mixes_image {
     border: none;
     box-sizing: border-box;
-    border-radius: 15px;
     border-spacing: 0;
     width: 100%;
 }
@@ -207,6 +210,8 @@ blockquote > p:first-child {
     border-radius: 5px;
     padding: 3px;
     cursor: pointer;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 
     -moz-transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;

@@ -11,6 +11,7 @@ body {
     min-width: 800px;
     width: 100%;
     position: relative;
+    background-size: cover;
 }
 
 .table_content {    

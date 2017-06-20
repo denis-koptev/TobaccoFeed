@@ -10,6 +10,7 @@ window.onclick = function(event) {
   var modal3 = document.getElementById('modal3');
 
   var modal_rel = document.getElementById('modal_related');
+  var modal_mix = document.getElementById('modal_mixes');
 
   if (event.target == modal1) {
     /*modal1.style.display = "none";*/
@@ -37,6 +38,11 @@ window.onclick = function(event) {
       modal_rel.classList.remove("in");
     }
     modal_rel.classList.add('out');
+  } else if (event.target == modal_mix) {
+    if (modal_mix.classList.contains("in")) {
+      modal_mix.classList.remove("in");
+    }
+    modal_mix.classList.add('out');
   }
   
   if (!event.target.matches('.search_bar')) {
