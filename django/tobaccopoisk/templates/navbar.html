@@ -37,23 +37,17 @@
 
                 <div id="myDropdown" class="dropdown-content">
 
-                <!--
-                    <a href="#profile">
-                        <div class="user_link">
+                    <button class="user_link">
+                        <a href="/user/{{login}}">
                             Profile
-                        </div>
-                    </a>
-                    <a href="#settings">
-                        <div class="user_link">
-                            Settings
-                        </div>
-                    </a>
-                -->
-                    <form method="post" action="/main">
+                        </a>
+                    </button>
+
+                    <form method="post" action="/main" style="margin-bottom: 0;">
                     {% csrf_token %}
                         <button type="submit" class="user_link">
                             Log Out
-                        </div>
+                        </button>
                     </form>
 
                 </div>

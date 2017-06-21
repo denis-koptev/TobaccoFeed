@@ -4,7 +4,7 @@
 
 <head>
 	<title>
-		User Page - TobaccoFeed
+		{{user.login}} - TobaccoFeed
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -20,6 +20,50 @@
 			<td class="side_bar"></td>
 
 			<td class="main_content" valign="top">
+				
+				<div class="header_label_margined">
+					{{user.login}}
+				</div>
+
+				<table width="100%">
+					<tr>					
+
+						<!-- LEFT COLUMN -->
+
+						<td width="27%" valign="top" class="column_content">
+
+							<div class="header_content_light">
+								<img src="{% static "/user_page/image/default_avatar.svg" %}" width="100%">
+								{% if isHost == True %}
+									It is you
+								{% else %}
+									Other user
+								{% endif %}
+								<br><br>
+							</div>
+
+						</td>
+
+
+						<!-- RIGHT COLUMN -->
+
+						<td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
+
+							<div class="header_label">
+								Bio
+							</div>
+
+							<div class="header_content_light">
+								<br>
+								Email: {{user.mail}}
+								<br><br>
+							</div>
+
+						</td>
+
+					</tr>
+
+				</table>
 
 
 			</td>

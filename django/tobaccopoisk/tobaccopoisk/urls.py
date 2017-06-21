@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search_page'),
     url(r'^main$', main_views.main, name='main_page'),
-    url(r'^user/', user_views.user, name='user_page'),
+    url(r'^user/', include('user_page.urls')),
     url(r'^reg$', auth_views.reg, name='reg_page'),
     url(r'^auth$', auth_views.auth, name='auth_page'),
     url(r'^auth/validate/(?P<token>[0-9a-zA-Z-_?./]+)$', auth_views.mail_confirmation, name='confirm'),
