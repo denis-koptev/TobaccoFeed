@@ -35,9 +35,9 @@
 							<div class="header_content_light">
 								<img src="{% static "/user_page/image/default_avatar.svg" %}" width="100%">
 								{% if isHost == True %}
-									It is you
+									You on TobaccoFeed
 								{% else %}
-									Other user
+									TobaccoFeed user
 								{% endif %}
 								<br><br>
 							</div>
@@ -55,7 +55,28 @@
 
 							<div class="header_content_light">
 								<br>
-								Email: {{user.mail}}
+								<font style="text-align: left; margin-right: 10px;"><u>Email</u></font> 
+								<font style="text-align: right;">{{user.mail}}</font> 
+								<br><br>
+							</div>
+							
+							<div class="header_label">
+								Friends
+							</div>
+
+							<div class="header_content_light">
+								<br>
+								We are working on this section
+								<br><br>
+							</div>
+
+							<div class="header_label">
+								Favourite
+							</div>
+
+							<div class="header_content_light">
+								<br>
+								We are working on this section
 								<br><br>
 							</div>
 
