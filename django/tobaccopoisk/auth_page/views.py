@@ -25,7 +25,7 @@ def auth(request):
 			return render(request, 'auth_page/auth_page.html', {'message' : 'Session set up failed'})
 
 		# overwrite this
-		response = redirect('/main')
+		response = redirect('/')
 
 		# set cookies
 		response.set_cookie('tfuserid', str(user.id))
@@ -71,7 +71,7 @@ def reg(request):
 				break
 
 		messages.add_message(request, messages.INFO, "Check your mail for confirmation")
-		return redirect('/main')
+		return redirect('/')
 		#return render(request, 'main_page/main_page.html', {'message' : 'Check your mail for confirmation'})
 
 	else:
