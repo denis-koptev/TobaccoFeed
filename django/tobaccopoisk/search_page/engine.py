@@ -82,8 +82,6 @@ def search(q):
 			coeff = coeff + (1.4**len(max_sub) / 1.4**len(q))
 			max_sub = max_substr(loc_q, ident)
 
-		print(q + " " + ident + " " + str(coeff))
-
 		if coeff / len_ident == 1:
 			return [item]
 
