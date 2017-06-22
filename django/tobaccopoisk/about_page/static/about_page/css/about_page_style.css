@@ -40,47 +40,24 @@
     min-height: 100%;
 }
 
+.header_div {
+    display: inline-block;
+}
+
 .header_icon {
-    height: 170px;
-    vertical-align: middle;
+    float:left;
+    height: 100px;
 }
 
 .header_text {
-    font-size: 100px;
-    color: #EEEEEE;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    vertical-align: middle;
-    border: 3px solid #EEEEEE;
-    border-radius: 15px;
-    padding: 10px;
-    text-shadow: black 2px 2px 4px;
-
-    background-color: rgba(1,1,1,0.5);
-}
-
-.header_link {
-    font-size: 50px;
-    color: #ffff55;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    border: 3px solid #EEEEEE;
-    border-radius: 15px;
-    padding: 10px;
-    text-decoration: none;
-    text-shadow: black 2px 2px 4px;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 20px;
-    background-color: rgba(1,1,1,0.5); 
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out  
-}
-
-.header_link:hover {
-    font-size: 60px;
+    float:left;
+    margin-left:15px;
+    font-size:100px;
+    color:#fff;
+    line-height:100px;
+    font-family:DrugsThin, Calibri, serif;
+    font-weight: 700;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 /* INTRO */

@@ -22,7 +22,8 @@ import main_page.views as main_views
 import user_page.views as user_views
 
 urlpatterns = [
-	url(r'^$', about_views.index, name="about_page"),
+	url(r'^$', main_views.main, name="main_page"),
+    url(r'^about$', about_views.index, name="about_page"),
     url(r'^admin[/]?', admin.site.urls),
     url(r'^api/', include('api.urls')),
     url(r'^search$', search_views.search, name='search_page'),
