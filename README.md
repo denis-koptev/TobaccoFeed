@@ -94,30 +94,22 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 
 ## TO DO LIST
 
-- [x] Create tag handling engine
-- [ ] Create engine for static paths
-- [ ] Move on MySQL :star:
-- [x] Start filling DB with tobaccos
-- [ ] Clustering of data, Statistics, Machine Learning
-- [x] Refactor all our govnocode
-- [x] Customize admin panel for mixes
-- [ ] Think on search algorithm. It works fucking bad...
+- [ ] Enable editing info for users
+- [ ] Add favourites and marks for users
+- [ ] Move to separate real server
+- [ ] Move to MySQL :star:
 - [ ] Develop mixes-section in tobacco page
 - [ ] Create mixes app and front-end
-- [x] Create auth app and front-end
-- [ ] Create user app and front-end
+- [ ] Think on search algorithm. It works fucking bad...
 - [ ] Add filter front-end for search page
-- [ ] Finish moving to svg images
-- [ ] Refactor html and css (too many duplicates)
+- [x] Refactor html and css (too many duplicates)
+- [ ] Clustering of data, Statistics, Machine Learning
 - [ ] Sleep and relax after all this shit
 
 
 ## TO TEST LIST
 
 - [ ] Check that old tobacco-photo is deleted after loading new one
-- [x] Check search field work (button)
-- [ ] Test search engine :rocket:
-- [x] Transfer search algorithm to engine :rocket:
 - [x] Photo of tobacco must be deleted after tobacco deletion
 - [ ] RESTfull API for everything - dream big :)
 - [x] Names and brands with uppercases and spaces addition to DB
