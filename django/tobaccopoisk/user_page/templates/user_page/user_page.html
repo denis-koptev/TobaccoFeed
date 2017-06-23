@@ -33,7 +33,13 @@
 						<td width="27%" valign="top" class="column_content">
 
 							<div class="header_content_light">
-								<img src="{% static "/user_page/image/default_avatar.svg" %}" width="100%">
+								<br>
+								{% if avatar != None %}
+								<img src={{avatar}} width="90%">
+								{% else %}
+								<img src="/static/navbar/image/user_icon_black.svg" width="90%">
+								{% endif %}
+								<br><br>
 								{% if isHost == True %}
 									You on TobaccoFeed
 								{% else %}
@@ -55,9 +61,50 @@
 
 							<div class="header_content_light">
 								<br>
-								<font style="text-align: left; margin-right: 10px;"><u>Email</u></font> 
-								<font style="text-align: right;">{{user.mail}}</font> 
-								<br><br>
+								<table width="100%" style="font-size: 20px;font-weight: 700;">
+									{% if user_info.name != None %}
+									<tr>
+										<td align="right">
+											<font style="text-align: left; margin-right: 10px;"><u>Name</u></font> 
+										</td>
+										<td align="left">
+											<font style="text-align: right;">{{user_info.name}}</font> 
+										</td>
+									</tr>
+									{% endif %}
+
+									{% if user_info.b_date != None %}
+									<tr>
+										<td align="right">
+											<font style="text-align: left; margin-right: 10px;"><u>Birth</u></font> 
+										</td>
+										<td align="left">
+											<font style="text-align: right;">{{user_info.b_date}}</font> 
+										</td>
+									</tr>
+									{% endif %}
+
+									{% if user_info.place != None %}
+									<tr>
+										<td align="right">
+											<font style="text-align: left; margin-right: 10px;"><u>Location</u></font> 
+										</td>
+										<td align="left">
+											<font style="text-align: right;">{{user_info.place}}</font> 
+										</td>
+									</tr>
+									{% endif %}
+
+									<tr>
+										<td align="right">
+											<font style="text-align: left; margin-right: 10px;"><u>Email</u></font>  
+										</td>
+										<td align="left">
+											<font style="text-align: right;">{{user.mail}}</font> 
+										</td>
+									</tr>
+								</table>
+								<br>
 							</div>
 							
 							<div class="header_label">

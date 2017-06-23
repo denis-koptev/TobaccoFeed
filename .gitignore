@@ -1,4 +1,5 @@
 django/env/
+django/linux_env
 design
 *__pycache__*
 *private.py

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from auth_page.models import Unuser, User
 from auth_page import engine
 from auth_page import crypto
+from user_page.models import User as UserInfo
 from validate_email import validate_email
 from django.db import IntegrityError
 from django.contrib import messages
@@ -88,5 +89,7 @@ def mail_confirmation(request, token):
 		user = User(login=u.login, password=u.password, mail=u.mail)
 		user.save()
 		u.delete()
+		user_info = UserInfo(auth_id=user)
+		user_info.save()
 		# mail confirmed message
 		return redirect('/auth')
