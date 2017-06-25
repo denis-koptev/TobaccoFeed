@@ -5,7 +5,7 @@
 <head>
 
 	<title>
-		Edit bio - TobaccoFeed
+		Edit page - TobaccoFeed
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -25,38 +25,38 @@
 			<td class="main_content" valign="top">
 				
 				<div class="header_label_margined">
-					Edit your bio
+					Edit your page
 				</div>
 
 				<div class="header_content_light">
-					<form method="post" action="/user/{{login}}" class="edit_bio_form">
+					<form method="post" action="/user/edit_bio/{{login}}" class="edit_bio_form">
 						{% csrf_token %}
 						<table class="user_info_table">
 							<tr>
-								<td align="right">
+								<td align="right" width="40%">
 									Name
 								</td>
-								<td align="left">
-									<input type="text" name="name" id="name" required id="name" maxlength="50" value="{{user_info.name}}">
+								<td align="left" width="60%">
+									<input type="text" name="name" id="name" maxlength="50" value="{{user_info.name|default:""}}">
 								</td>
 							</tr>
 
 							<tr>
-								<td align="right">
+								<td align="right" width="40%">
 									Birth
 								</td>
-								<td align="left">
-									<input type="date" name="birth" id="birth" required id="birth"
-									value="{{user_info.b_date.year}}-{{user_info.b_date.month|stringformat:"02d"}}-{{user_info.b_date.day|stringformat:"02d"}}">
+								<td align="left" width="60%">
+									<input type="date" name="birth" id="birth"
+									value="{{user_info.b_date.year|default:""}}-{{user_info.b_date.month|default:""|stringformat:"02d"}}-{{user_info.b_date.day|default:""|stringformat:"02d"}}">
 								</td>
 							</tr>
 
 							<tr>
-								<td align="right">
+								<td align="right" width="40%">
 									Location
 								</td>
-								<td align="left">
-									<input type="text" name="location" id="location" required id="location" maxlength="64" value="{{user_info.place}}">
+								<td align="left" width="60%">
+									<input type="text" name="location" id="location" maxlength="64" value="{{user_info.place|default:""}}">
 								</td>
 							</tr>
 						</table>

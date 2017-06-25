@@ -1,0 +1,56 @@
+{% load static %}
+
+<html>
+
+<head>
+
+	<title>
+		Upload avatar - TobaccoFeed
+	</title>
+
+	<link rel="icon" href="{% static "/favicon.ico" %}">
+	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+
+</head>
+
+<body>
+
+	{% include "navbar.html" %}
+
+	<table class="table_content">
+
+		<tr>
+			<td class="side_bar"></td>
+
+			<td class="main_content" valign="top">
+				
+				<div class="header_label_margined">
+					Upload your avatar photo
+				</div>
+
+				<form action="/user/avatar_upload/{{login}}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<table class="user_info_table">
+						<tr>
+							<td align="center" class="header_content_light">
+								<input id="id_image" type="file" class="edit_bio_form" name="image" accept="image/jpeg,image/png,image/JPG">
+							</td>
+							<td align="center" class="header_content_light">
+								<input type="submit" value="Submit" class="edit_bio_submit" />
+							</td>
+						</tr>
+					</table>
+				</form>
+
+			</td>
+
+			<td class="side_bar"></td>
+		</tr>
+
+	</table>
+
+	{% include "footer.html" %}
+
+</body>
+
+</html>

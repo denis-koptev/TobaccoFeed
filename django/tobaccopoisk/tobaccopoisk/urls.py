@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^main$', main_views.main, name='main_page'),
     url(r'^user/', include('user_page.urls')),
     url(r'^user/edit_bio/(?P<login>[0-9a-zA-Z-_.]+)$', user_views.edit_bio, name='edit_bio'),
+    url(r'^user/avatar_upload/(?P<login>[0-9a-zA-Z-_.]+)$', user_views.avatar_upload, name='avatar_upload'),
     url(r'^reg$', auth_views.reg, name='reg_page'),
     url(r'^auth$', auth_views.auth, name='auth_page'),
     url(r'^auth/validate/(?P<token>[0-9a-zA-Z-_?./]+)$', auth_views.mail_confirmation, name='confirm'),

@@ -35,6 +35,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     border-spacing: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 blockquote {
@@ -191,7 +192,6 @@ blockquote > p:first-child {
 #expand {
   height: 0px;
   overflow: hidden;
-  transition: height 0.5s;
 }
 
 #toggle:checked ~ #expand {

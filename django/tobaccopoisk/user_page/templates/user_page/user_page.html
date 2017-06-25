@@ -37,27 +37,29 @@
 
 							<div class="header_content_light">
 								{% if avatar != None %}
-								<img src={{avatar}} class="avatar_image">
+								<a href="{{avatar}}" target="_blank">
+									<img src={{avatar}} class="avatar_image">
+								</a>
 								{% else %}
 								<img src="/static/navbar/image/user_icon_black.svg" class="avatar_image">
 								{% endif %}
 								{% if isHost == True %}
 								<hr>
-								<a href=#change_photo style="text-decoration:none; color:black;">Change photo</a>
+								<a href=/user/avatar_upload/{{login}} style="text-decoration:none; color:black;">Change photo</a>
 								<hr>
-								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">Edit bio</a>	
+								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">Edit page</a>	
 								<hr>							
 								{% endif %}
 							</div>
 
-							{% if isHost == False %}
-								<div class="header_content_light">
+							{% if isHost == False and login != None %}
+							<div class="header_content_light">
 								{% if isFriend == None or isFriend == False %}
-									<a href=#add_friend class="friends_link">Add to friends</a>
+								<a href=#add_friend class="friends_link">Add to friends</a>
 								{% else %}
-									<a href=#rm_friend class="friends_link">Remove from friends</a>
+								<a href=#rm_friend class="friends_link">Remove from friends</a>
 								{% endif %}
-								</div>
+							</div>
 							{% endif %}
 
 						</td>
@@ -122,9 +124,7 @@
 							</div>
 
 							<div class="header_content_light">
-								<br>
-								We are working on this section
-								<br><br>
+								<p>We are working on this section</p>
 							</div>
 
 							<div class="header_label">
@@ -132,9 +132,7 @@
 							</div>
 
 							<div class="header_content_light">
-								<br>
-								We are working on this section
-								<br><br>
+								<p>We are working on this section</p>
 							</div>
 
 						</td>

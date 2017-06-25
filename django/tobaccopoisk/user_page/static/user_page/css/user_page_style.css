@@ -2,10 +2,10 @@
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
-	border: 1px solid gray;
 	width: 90%;
 	margin-top: 10px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .user_info_table {
@@ -13,7 +13,7 @@
 	z-index: 1;
 	font-size: 18px;
 	font-weight: 700;
-	width: auto;
+	width: 100%;
 }
 
 .friends_link {
@@ -29,14 +29,14 @@
 	width:100%;
 }
 
-.edit_bio_form input {
-	margin: 5px 0;
+.user_info_table input {
+	margin: 5px 10px 5px 10px;
 	font-size: 18px;
 	font-weight: 700;
 	font-family: DrugsThin, serif;
 	color: black;
-	margin-left: 10px;
 	padding: 0 5px;
+	width: 60%;
 }
 
 .edit_bio_submit {

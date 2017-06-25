@@ -12,6 +12,7 @@
 	background-color:#333838;
 	height:40px;
 	min-width:800px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .logo_div {
@@ -242,6 +243,7 @@ body {
 	height:100%;
 	margin:0;
 	padding:25px 15px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .header_label {
@@ -288,6 +290,7 @@ body {
 	background-color:rgba(1,1,1,0.5);
 	border-radius:5px;
 	text-align:left;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .header_content_light {
@@ -305,6 +308,7 @@ body {
 	font-family:DrugsThin, Arial, serif;
 	font-weight:700;
 	padding:0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .logo_icon,.user_icon {
