@@ -3,11 +3,14 @@
 <html>
 
 <head>
+
 	<title>
 		{{user.login}} - TobaccoFeed
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
+	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+
 </head>
 
 <body>
@@ -33,20 +36,29 @@
 						<td width="27%" valign="top" class="column_content" style="text-align: center;">
 
 							<div class="header_content_light">
-								<br>
 								{% if avatar != None %}
-								<img src={{avatar}} width="90%">
+								<img src={{avatar}} class="avatar_image">
 								{% else %}
-								<img src="/static/navbar/image/user_icon_black.svg" width="90%">
+								<img src="/static/navbar/image/user_icon_black.svg" class="avatar_image">
 								{% endif %}
-								<br><br>
 								{% if isHost == True %}
-									You on TobaccoFeed
-								{% else %}
-									TobaccoFeed user
+								<hr>
+								<a href=#change_photo style="text-decoration:none; color:black;">Change photo</a>
+								<hr>
+								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">Edit bio</a>	
+								<hr>							
 								{% endif %}
-								<br><br>
 							</div>
+
+							{% if isHost == False %}
+								<div class="header_content_light">
+								{% if isFriend == None or isFriend == False %}
+									<a href=#add_friend class="friends_link">Add to friends</a>
+								{% else %}
+									<a href=#rm_friend class="friends_link">Remove from friends</a>
+								{% endif %}
+								</div>
+							{% endif %}
 
 						</td>
 
@@ -60,8 +72,7 @@
 							</div>
 
 							<div class="header_content_light">
-								<br>
-								<table width="100%" style="font-size: 20px;font-weight: 700;">
+								<table class="user_info_table">
 									{% if user_info.name != None %}
 									<tr>
 										<td align="right">
@@ -104,7 +115,6 @@
 										</td>
 									</tr>
 								</table>
-								<br>
 							</div>
 							
 							<div class="header_label">

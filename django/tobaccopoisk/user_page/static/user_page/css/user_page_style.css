@@ -1,0 +1,52 @@
+.avatar_image {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	border: 1px solid gray;
+	width: 90%;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.user_info_table {
+	margin: 5 auto;
+	z-index: 1;
+	font-size: 18px;
+	font-weight: 700;
+	width: auto;
+}
+
+.friends_link {
+	text-decoration: none;
+	color: black;
+	display: block;
+	margin: 5px 0;
+}
+
+.edit_bio_form {
+	margin-top: 10px;
+	text-align: center;
+	width:100%;
+}
+
+.edit_bio_form input {
+	margin: 5px 0;
+	font-size: 18px;
+	font-weight: 700;
+	font-family: DrugsThin, serif;
+	color: black;
+	margin-left: 10px;
+	padding: 0 5px;
+}
+
+.edit_bio_submit {
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: 700;
+	font-family: DrugsThin, serif;
+	color: black;
+}
+
+.edit_bio_submit:hover {
+	color: green;
+}

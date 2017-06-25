@@ -5,7 +5,24 @@ from user_page.models import User as UserInfo
 from tobaccopoisk import utils
 
 def user(request, login):
+
 	auth = engine.getAuthorized(request)
+
+	if request.method == 'POST':
+		print("[POST] User update started")
+
+		new_name = request.POST.get("name")
+		new_b_date = request.POST.get("birth")
+		new_place = request.POST.get("location")
+
+		try:
+			user_info = UserInfo.objects.get(auth_id=auth)
+			user_info.name = new_name
+			user_info.place = new_place
+			user_info.b_date = new_b_date
+			user_info.save()
+		except BaseException:
+			print("[ERROR] User update failed")
 	
 	if auth != None:
 		auth_login = auth.login
@@ -34,3 +51,23 @@ def user(request, login):
 			   'avatar' : avatar}
 
 	return render(request, 'user_page/user_page.html', context)
+
+def edit_bio(request, login):
+
+	auth = engine.getAuthorized(request)
+	if auth.login != login:
+		return render(request, 'error_404.html', {})
+
+	users = User.objects.filter(login=login)
+	if len(users) == 0:
+		return render(request, 'error_404.html', {})
+
+	user_info = UserInfo.objects.filter(auth_id=users[0])
+	if len(user_info) == 0:
+		return render(request, 'error_404.html', {})
+
+	context = {'user' : users[0],
+			   'login' : auth.login,
+			   'user_info' : user_info[0]}
+
+	return render(request, 'user_page/edit_bio.html', context)

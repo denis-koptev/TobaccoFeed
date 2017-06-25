@@ -1,0 +1,78 @@
+{% load static %}
+
+<html>
+
+<head>
+
+	<title>
+		Edit bio - TobaccoFeed
+	</title>
+
+	<link rel="icon" href="{% static "/favicon.ico" %}">
+	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+
+</head>
+
+<body>
+
+	{% include "navbar.html" %}
+
+	<table class="table_content">
+
+		<tr>
+			<td class="side_bar"></td>
+
+			<td class="main_content" valign="top">
+				
+				<div class="header_label_margined">
+					Edit your bio
+				</div>
+
+				<div class="header_content_light">
+					<form method="post" action="/user/{{login}}" class="edit_bio_form">
+						{% csrf_token %}
+						<table class="user_info_table">
+							<tr>
+								<td align="right">
+									Name
+								</td>
+								<td align="left">
+									<input type="text" name="name" id="name" required id="name" maxlength="50" value="{{user_info.name}}">
+								</td>
+							</tr>
+
+							<tr>
+								<td align="right">
+									Birth
+								</td>
+								<td align="left">
+									<input type="date" name="birth" id="birth" required id="birth"
+									value="{{user_info.b_date.year}}-{{user_info.b_date.month|stringformat:"02d"}}-{{user_info.b_date.day|stringformat:"02d"}}">
+								</td>
+							</tr>
+
+							<tr>
+								<td align="right">
+									Location
+								</td>
+								<td align="left">
+									<input type="text" name="location" id="location" required id="location" maxlength="64" value="{{user_info.place}}">
+								</td>
+							</tr>
+						</table>
+						<button type="submit" class="edit_bio_submit">Submit</button>
+					</form>
+				</div>
+
+			</td>
+
+			<td class="side_bar"></td>
+		</tr>
+
+	</table>
+
+	{% include "footer.html" %}
+
+</body>
+
+</html>
