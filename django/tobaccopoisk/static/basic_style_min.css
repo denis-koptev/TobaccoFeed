@@ -289,8 +289,17 @@ body {
 .header_content_dark {
 	background-color:rgba(1,1,1,0.5);
 	border-radius:5px;
+	border-spacing:0;
+	border:none;
+	box-sizing:border-box;
 	text-align:left;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	font-family:DrugsThin, Arial, serif;
+	font-weight:700;
+	font-size:18px;
+	color: white;
+	text-align: center;
+	overflow:hidden;
 }
 
 .header_content_light {
