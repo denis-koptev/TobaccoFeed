@@ -1,4 +1,5 @@
 {% load static %}
+{% load tobacco_filters %}
 
 <html>
 <head>
@@ -313,9 +314,27 @@
 							<div class="header_label">
 								Popular mixes
 							</div>
+							
+							<div class="header_content_dark">
+								{% if mixes|length != 0 %}
+								<table class="mixes_table">
+									<tr>
+										{% for tobacco_rec in mixes.0.tobaccos.all %}
+										<td align="center">
+											<a href="/{{tobacco_rec.brand}}/{{tobacco_rec.name}}">
+												<img src="{{tobacco_rec.image.name|real_url}}" width="50%">
+											</a>
+										</td>
+										{% if not forloop.last %}
+										<td align="center">
+											<font color="white" size="20">+</font>
+										</td>
+										{% endif %}
+										{% endfor %}
+									</tr>
+								</table>
 
-							<section class="mixes_section">
-								<img src="{% static "/tobacco_page/image/tobacco_mixes.png" %}" class="mixes_image">
+								{% if mixes|length > 1 %}
 
 								<div id="modal_button_mixes" class="more_div">Show more</div>
 
@@ -334,7 +353,12 @@
 
 								</div>
 
-							</section>
+								{% endif %}
+
+								{% else %}
+								<img src="{% static "/tobacco_page/image/tobacco_mixes.png" %}" class="mixes_image">
+								{% endif %}
+							</div>
 
 						</td>
 

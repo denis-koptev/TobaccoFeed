@@ -73,6 +73,10 @@ blockquote > p:first-child {
     width: 100%;
 }
 
+.mixes_table {
+    padding: 10px 0;
+}
+
 .related_div {
     font-size: 14px;
     text-align: center;
