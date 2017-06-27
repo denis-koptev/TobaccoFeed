@@ -142,3 +142,5 @@ STATICFILES_DIRS = (
     os.path.normcase(os.path.join(BASE_DIR, "user_page/static")),       # unvyobsted definition
     os.path.normcase(os.path.join(BASE_DIR, "static")),                 # unzhopasted definition
 )
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

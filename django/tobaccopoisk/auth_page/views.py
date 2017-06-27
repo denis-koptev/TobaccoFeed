@@ -29,8 +29,8 @@ def auth(request):
 		response = redirect('/')
 
 		# set cookies
-		response.set_cookie('tfuserid', str(user.id))
-		response.set_cookie('tfsession', str(session.token))
+		response.set_cookie('tfuserid', str(user.id), expires=session.expire)
+		response.set_cookie('tfsession', str(session.token), expires=session.expire)
 		
 		return response
 
