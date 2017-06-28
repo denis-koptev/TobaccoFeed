@@ -12,9 +12,6 @@ def search(request):
 	if len(filtered) == 1:
 		return redirect("/" + utils.to_db_str(filtered[0]["brand"]) + "/" + utils.to_db_str(filtered[0]["name"]))
 
-	if request.method == 'POST':
-		return engine.unauthorize(request)
-
 	login = engine.getAuthorized(request)
 
 	context = {'found': filtered,

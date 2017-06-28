@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <html>
 
 <head>
 
 	<title>
-		{{user.login}} - TobaccoFeed
+		{{user.login}} - {% blocktrans %}TobaccoFeed{% endblocktrans %}
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -45,9 +46,9 @@
 								{% endif %}
 								{% if isHost == True %}
 								<hr>
-								<a href=/user/avatar_upload/{{login}} style="text-decoration:none; color:black;">Change photo</a>
+								<a href=/user/avatar_upload/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Change photo{% endblocktrans %}</a>
 								<hr>
-								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">Edit page</a>	
+								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Edit page{% endblocktrans %}</a>	
 								<hr>							
 								{% endif %}
 							</div>
@@ -55,9 +56,9 @@
 							{% if isHost == False and login != None %}
 							<div class="header_content_light">
 								{% if isFriend == None or isFriend == False %}
-								<a href=#add_friend class="friends_link">Add to friends</a>
+								<a href=#add_friend class="friends_link">{% blocktrans %}Add to friends{% endblocktrans %}</a>
 								{% else %}
-								<a href=#rm_friend class="friends_link">Remove from friends</a>
+								<a href=#rm_friend class="friends_link">{% blocktrans %}Remove from friends{% endblocktrans %}</a>
 								{% endif %}
 							</div>
 							{% endif %}
@@ -78,7 +79,7 @@
 									{% if user_info.name != None %}
 									<tr>
 										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>Name</u></font> 
+											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Name{% endblocktrans %}</u></font> 
 										</td>
 										<td align="left">
 											<font style="text-align: right;">{{user_info.name}}</font> 
@@ -89,7 +90,7 @@
 									{% if user_info.b_date != None %}
 									<tr>
 										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>Birth</u></font> 
+											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Birth{% endblocktrans %}</u></font> 
 										</td>
 										<td align="left">
 											<font style="text-align: right;">{{user_info.b_date}}</font> 
@@ -100,7 +101,7 @@
 									{% if user_info.place != None %}
 									<tr>
 										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>Location</u></font> 
+											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Location{% endblocktrans %}</u></font> 
 										</td>
 										<td align="left">
 											<font style="text-align: right;">{{user_info.place}}</font> 
@@ -110,7 +111,7 @@
 
 									<tr>
 										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>Email</u></font>  
+											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Email{% endblocktrans %}</u></font>  
 										</td>
 										<td align="left">
 											<font style="text-align: right;">{{user.mail}}</font> 
@@ -120,19 +121,19 @@
 							</div>
 							
 							<div class="header_label">
-								Friends
+								{% blocktrans %}Friends{% endblocktrans %}
 							</div>
 
 							<div class="header_content_light">
-								<p>We are working on this section</p>
+								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
 							</div>
 
 							<div class="header_label">
-								Favourite
+								{% blocktrans %}Favourite{% endblocktrans %}
 							</div>
 
 							<div class="header_content_light">
-								<p>We are working on this section</p>
+								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
 							</div>
 
 						</td>

@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <html>
 
 <head>
 
 	<title>
-		Upload avatar - TobaccoFeed
+		{% blocktrans %}Upload avatar - TobaccoFeed{% endblocktrans %}
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -25,7 +26,7 @@
 			<td class="main_content" valign="top">
 				
 				<div class="header_label_margined">
-					Upload your avatar photo
+					{% blocktrans %}Upload your new avatar photo{% endblocktrans %}
 				</div>
 
 				<form action="/user/avatar_upload/{{login}}" method="post" enctype="multipart/form-data">

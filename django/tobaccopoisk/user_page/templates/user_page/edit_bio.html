@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <html>
 
 <head>
 
 	<title>
-		Edit page - TobaccoFeed
+		{% blocktrans %}Edit page - TobaccoFeed{% endblocktrans %}
 	</title>
 
 	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -25,7 +26,7 @@
 			<td class="main_content" valign="top">
 				
 				<div class="header_label_margined">
-					Edit your page
+					{% blocktrans %}Edit your page{% endblocktrans %}
 				</div>
 
 				<div class="header_content_light">
@@ -34,7 +35,7 @@
 						<table class="user_info_table">
 							<tr>
 								<td align="right" width="40%">
-									Name
+									{% blocktrans %}Name{% endblocktrans %}
 								</td>
 								<td align="left" width="60%">
 									<input type="text" name="name" id="name" maxlength="50" value="{{user_info.name|default:""}}">
@@ -43,7 +44,7 @@
 
 							<tr>
 								<td align="right" width="40%">
-									Birth
+									{% blocktrans %}Birth{% endblocktrans %}
 								</td>
 								<td align="left" width="60%">
 									<input type="date" name="birth" id="birth"
@@ -53,14 +54,14 @@
 
 							<tr>
 								<td align="right" width="40%">
-									Location
+									{% blocktrans %}Location{% endblocktrans %}
 								</td>
 								<td align="left" width="60%">
 									<input type="text" name="location" id="location" maxlength="64" value="{{user_info.place|default:""}}">
 								</td>
 							</tr>
 						</table>
-						<button type="submit" class="edit_bio_submit">Submit</button>
+						<button type="submit" class="edit_bio_submit">{% blocktrans %}Submit{% endblocktrans %}</button>
 					</form>
 				</div>
 

@@ -1,9 +1,11 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as CURRENT_LOCALE %}
 
 <html>
 <head>
 	<title>
-		Main - TobaccoFeed
+		{% blocktrans %}Main - TobaccoFeed{% endblocktrans %}
 	</title>
 
 	<link type="text/css" rel="stylesheet" href="{% static "main_page/css/main_page_style.css" %}"></link>
@@ -24,11 +26,11 @@
 				<!-- NEWS -->
 
 				<div class="header_label_margined">
-					News 
+					{% blocktrans %} News {% endblocktrans %}
 				</div>
 
 				<div class="about_div">
-					<a href="/about" class="about_href">About us</a>Read about our project 
+					<a href="/about" class="about_href">{% blocktrans %}About us{% endblocktrans %}</a>{% blocktrans %}Read about our project {% endblocktrans %}
 				</div>
 
 				<table class="news_table">
@@ -70,7 +72,7 @@
 										{{rec.brand}}
 										{{rec.name}}
 									</a>
-									added
+									{% blocktrans %}added{% endblocktrans %}
 								</li>
 							</div>
 							{% endfor %}
@@ -82,24 +84,24 @@
 				<!-- MIXES -->
 
 				<div class="header_label_margined">
-					Popular mixes 
+					{% blocktrans %}Popular mixes {% endblocktrans %}
 				</div>
 
 				<div class="header_content_dark">
 					<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
 
-					<div id="modal_button1" class="modal_button">Show more...</div>
+					<div id="modal_button1" class="modal_button">{% blocktrans %}Show more...{% endblocktrans %}</div>
 
 					<div id="modal1" class="modal">
 
 						<div class="modal_content">
 							<div class="modal_header">
 								<span class="close">&times;</span>
-								<h2>Popular mixes</h2>
+								<h2>{% blocktrans %}Popular mixes{% endblocktrans %}</h2>
 							</div>
 							<div class="modal_body">
 								<img src="{% static "/image/work_icon.svg" %}" width="200px">
-								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+								<p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
 							</div>
 						</div>
 
@@ -110,25 +112,25 @@
 				<!-- STORE -->
 
 				<div class="header_label_margined">
-					Where to buy 
+					{% blocktrans %}Where to buy {% endblocktrans %}
 				</div>
 
 				<div class="header_content_dark">
 
 					<img src="{% static "/main_page/image/store_locked.png" %}" class="lock_image" />
 
-					<div id="modal_button2" class="modal_button">Show more...</div>
+					<div id="modal_button2" class="modal_button">{% blocktrans %}Show more...{% endblocktrans %}</div>
 
 					<div id="modal2" class="modal">
 
 						<div class="modal_content">
 							<div class="modal_header">
 								<span class="close">&times;</span>
-								<h2>TobaccoStore</h2>
+								<h2>{% blocktrans %}TobaccoStore{% endblocktrans %}</h2>
 							</div>
 							<div class="modal_body">
 								<img src="{% static "/image/work_icon.svg" %}" width="200px">
-								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+								<p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
 							</div>
 						</div>
 
@@ -139,24 +141,24 @@
 				<!-- STATISTICS -->
 
 				<div class="header_label_margined">
-					Statistics 
+					{% blocktrans %}Statistics{% endblocktrans %} 
 				</div>
 
 				<div class="header_content_dark">
 					<img src="{% static "/main_page/image/stat_locked.png" %}" class="lock_image" />
 
-					<div id="modal_button3" class="modal_button">Show more...</div>
+					<div id="modal_button3" class="modal_button">{% blocktrans %}Show more...{% endblocktrans %}</div>
 
 					<div id="modal3" class="modal">
 
 						<div class="modal_content">
 							<div class="modal_header">
 								<span class="close">&times;</span>
-								<h2>Statistics</h2>
+								<h2>{% blocktrans %}Statistics{% endblocktrans %}</h2>
 							</div>
 							<div class="modal_body">
 								<img src="{% static "/image/work_icon.svg" %}" width="200px">
-								<p>Sorry, we are working on this part of our site, but now it is unavailable...</p>
+								<p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
 							</div>
 						</div>
 

@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <html>
 
 <head>
 
     <title>
-        About Us - TobaccoFeed
+        {% blocktrans %}About Us - TobaccoFeed{% endblocktrans %}
     </title>
 
     <link type="text/css" rel="stylesheet" href="{% static "about_page/css/about_page_style.css" %}"></link>
@@ -36,7 +37,7 @@
                     <div class="header_div">
                         <img src="{% static "/about_page/image/logo_circle.svg" %}" class="header_icon">
                         <div class="header_text">
-                            TobaccoFeed
+                            {% blocktrans %}TobaccoFeed{% endblocktrans %}
                         </div>
                     </div>
                     <br>
@@ -58,17 +59,17 @@
             <tr>
                 <td class="cell_td">
                     <div class="intro_text">   
-                        Why are we here?
+                        {% blocktrans %}Why are we here?{% endblocktrans %}
                     </div>
 
                     <table class="intro_table" width="70%">
                         <tr>
                             <td class="intro_td">
-                                More and more people are starting to smoke hookas. Hookas are the part of our culture
+                                {% blocktrans %}More and more people are starting to smoke hookas. Hookas are the part of our culture{% endblocktrans %}
                             </td>
                             <td width="20%"></td>
                             <td class="intro_td">
-                                It will be great to have unified resource with all information about tobaccos
+                                {% blocktrans %}It will be great to have unified resource with all information about tobaccos{% endblocktrans %}
                             </td>
                         </tr>
                         <tr>
@@ -76,11 +77,11 @@
                         </tr>
                         <tr>
                             <td class="intro_td">
-                                We will give you the opportunity to choose products according to your preferences
+                                {% blocktrans %}We will give you the opportunity to choose products according to your preferences{% endblocktrans %}
                             </td>
                             <td width="20%"></td>
                             <td class="intro_td">
-                                You'll be able to communicate and share, to add tobaccos and find the best prices
+                                {% blocktrans %}You'll be able to communicate and share, to add tobaccos and find the best prices{% endblocktrans %}
                             </td>
                         </tr>
                     </table>
@@ -103,17 +104,17 @@
             <tr>
                 <td class="cell_td">    
                     <div class="work_text">   
-                        TobaccoFeed is in progress
+                        {% blocktrans %}TobaccoFeed is in progress{% endblocktrans %}
                     </div>
 
                     <table class="work_table" width="70%">
                         <tr>
                             <td class="work_td">
-                                We started in April 17
+                                {% blocktrans %}We started in April 17{% endblocktrans %}
                             </td>
                             <td width="20%"></td>
                             <td class="work_td">
-                                Now we have list of tobaccos which you can search
+                                {% blocktrans %}Now we have list of tobaccos which you can search{% endblocktrans %}
                             </td>
                         </tr>
                         <tr>
@@ -121,11 +122,11 @@
                         </tr>
                         <tr>
                             <td class="work_td">
-                                Our project is growing rapidly, but we still need financing, advertising and human resources
+                                {% blocktrans %}Our project is growing rapidly, but we still need financing, advertising and human resources{% endblocktrans %}
                             </td>
                             <td width="20%"></td>
                             <td class="work_td">
-                                Soon, you'll be able to register, find and add tobaccos and mixes into your profile
+                                {% blocktrans %}Soon, you'll be able to register, find and add tobaccos and mixes into your profile{% endblocktrans %}
                             </td>
                         </tr>
                     </table>
@@ -147,11 +148,11 @@
             <tr>
                 <td class="cell_td">
                     <div class="release_text">
-                            TobaccoFeed
+                            {% blocktrans %}TobaccoFeed{% endblocktrans %}
                     </div>
 
                     <div class="release_text">
-                            Coming Soon
+                            {% blocktrans %}Coming Soon{% endblocktrans %}
                     </div>
                     
                     <p></p>

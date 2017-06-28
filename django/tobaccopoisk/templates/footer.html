@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <section class="footer">
 	<!--<div class="copyright_init">© 235Room, 2017</div> -->
@@ -6,7 +7,23 @@
 	<img src="{% static "/footer/image/j_logo.svg" %}" class="copyright">
 
 	<p>
-		<a href="/user/deniskoptev" style="text-decoration:none;color:white;">Denis Koptev</a> | 
-		<a href="/user/japroc" style="text-decoration:none;color:white;">Evgeniy Protsenko</a>
+		<a href="/user/deniskoptev" style="text-decoration:none;color:white;">{% blocktrans %}Denis Koptev{% endblocktrans %}</a> | 
+		<a href="/user/japroc" style="text-decoration:none;color:white;">{% blocktrans %}Evgeniy Protsenko{% endblocktrans %}</a>
 	</p>
+
+	{% if CURRENT_LOCALE == LANGUAGES.0.0 %}
+	<form action="{% url 'set_language' %}" method="post">
+		{% csrf_token %}
+		<input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+		<input name="language" type="hidden" value="en" />
+		<input type="submit" value="English version" style="background: transparent;border: none;color: white;cursor: pointer;margin: 0;padding: 0;" />
+	</form>
+	{% else %}
+	<form action="{% url 'set_language' %}" method="post">
+		{% csrf_token %}
+		<input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+		<input name="language" type="hidden" value="ru" />
+		<input type="submit" value="Русская версия" style="background: transparent;border: none;color: white;cursor: pointer;margin: 0;padding: 0;" />
+	</form>
+	{% endif %}
 </section>

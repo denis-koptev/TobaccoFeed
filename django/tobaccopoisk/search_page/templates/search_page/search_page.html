@@ -1,8 +1,9 @@
 {% load static %}
+{% load i18n %}
 
 <html>
 <head>
-<title>Search - TobaccoFeed</title>
+<title>{% blocktrans %}Search - TobaccoFeed{% endblocktrans %}</title>
 
     <link type="text/css" rel="stylesheet" href="{% static "search_page/css/search_page_style.css" %}"></link>
    	<link rel="icon" href="{% static "/favicon.ico" %}">
@@ -24,20 +25,20 @@
 		<td class="main_content" valign="top">
 
 			<div class="search_header">
-				Search results: <font color="#FFFFCC"><i>{{search_string}}</i></font>
+				{% blocktrans %}Search results:{% endblocktrans %} <font color="#FFFFCC"><i>{{search_string}}</i></font>
 			</div>
 
 			{% if found|length == 0 %}
 				<div class="search_header">
 					<font size="5">
-						nothing found
+						{% blocktrans %}nothing found{% endblocktrans %}
 					</font>
 				</div>
 			{% endif %}
 
 			<div class="search_header">
 				<font size="5">
-					{{found|length}} tobaccos found
+					{% blocktrans %}Tobaccos found: {% endblocktrans %}{{found|length}}
 				</font>
 			</div>
 

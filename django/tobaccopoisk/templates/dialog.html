@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 {% if message|length != 0 %}
 
@@ -6,7 +7,7 @@
 
 	<dialog class="message_dialog">
 		<p>{{ message }}</p>
-		<button id="close" class="message_button">Close</button>
+		<button id="close" class="message_button">{% blocktrans %}Close{% endblocktrans %}</button>
 	</dialog>
 
 	<script>
