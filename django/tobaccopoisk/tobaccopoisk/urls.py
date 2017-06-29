@@ -21,6 +21,7 @@ import search_page.views as search_views
 import main_page.views as main_views
 import user_page.views as user_views
 from django.conf.urls.i18n import i18n_patterns
+import django as django
 
 '''urlpatterns = [
 	url(r'^$', main_views.main, name="main_page"),
@@ -44,7 +45,7 @@ from django.conf.urls.i18n import i18n_patterns
 ]'''
 
 urlpatterns = [
-    url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^i18n/setlang/', django.views.i18n.set_language, name="set_language"),
     url(r'^$', main_views.main, name="main_page"),
     url(r'^about$', about_views.index, name="about_page"),
     url(r'^admin[/]?', admin.site.urls),

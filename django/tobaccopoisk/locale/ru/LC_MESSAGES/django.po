@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 07:24+0300\n"
+"POT-Creation-Date: 2017-06-29 13:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,11 +84,7 @@ msgstr ""
 "ресурсы, а так же реклама"
 
 #: .\about_page\templates\about_page\about_page.html:129
-#, fuzzy
-#| msgid "Soon, you'll be able to add tobaccos and mixes into your profile"
-msgid ""
-"Soon, you'll be able to register, find and add tobaccos and mixes into your "
-"profile"
+msgid "Soon, you'll be able to add tobaccos and mixes into your profile"
 msgstr "Скоро вы сможете добавлять табаки и миксы к себе в профиль"
 
 #: .\about_page\templates\about_page\about_page.html:155
@@ -205,11 +201,11 @@ msgstr "Найдено табаков: "
 msgid "Close"
 msgstr "Закрыть"
 
-#: .\templates\footer.html:10
+#: .\templates\footer.html:11
 msgid "Denis Koptev"
 msgstr "Денис Коптев"
 
-#: .\templates\footer.html:11
+#: .\templates\footer.html:12
 msgid "Evgeniy Protsenko"
 msgstr "Евгений Проценко"
 
@@ -324,6 +320,10 @@ msgstr "Добавить в друзья"
 #: .\user_page\templates\user_page\user_page.html:61
 msgid "Remove from friends"
 msgstr "Удалить из друзей"
+
+#: .\user_page\templates\user_page\user_page.html:74
+msgid "Bio"
+msgstr "Информация"
 
 #: .\user_page\templates\user_page\user_page.html:124
 msgid "Friends"

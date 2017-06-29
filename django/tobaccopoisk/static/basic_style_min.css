@@ -183,7 +183,6 @@
 }
 
 .footer {
-	color:#CCC;
 	background:rgba(1,1,1,0.5);
 	padding-top:10px;
 	padding-bottom:1px;
@@ -193,18 +192,16 @@
 	font-size:12px;
 	font-weight:700;
 	width:100%;
+	color: white;
 }
 
-.copyright_init {
-	display:inline-block;
-	vertical-align:middle;
-	font-family:DrugsThin, serif;
-	font-weight:700;
-	font-size:15px;
+.footer a {
+	text-decoration: none;
+	color: white;
 }
 
 .copyright {
-	margin-left:10px;
+	margin: 0 5px;
 	display:inline-block;
 	vertical-align:middle;
 	height:30px;
@@ -327,4 +324,16 @@ body {
 
 .search_button:focus,.search_bar:focus {
 	outline:none;
+}
+
+.lang_version {
+	background: transparent;
+	font-size: 12px;
+	color: white;
+	font-family: DrugsThin, serif;
+	font-weight: 700;
+	cursor: pointer;
+	border: none;
+	margin-bottom: 5px;
+	padding: 0;
 }
