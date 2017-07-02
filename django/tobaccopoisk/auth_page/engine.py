@@ -4,7 +4,7 @@ from auth_page.models import Unuser, User, Session
 from django.db import IntegrityError
 from django.conf import settings
 from django.db.models import Q
-from django.shortcuts import redirect
+from django.shortcuts import redirect, HttpResponseRedirect
 
 # Import smtplib for the actual sending function
 import smtplib
@@ -155,7 +155,7 @@ def unauthorize(request):
 	except Session.DoesNotExist:
 		session = None
 
-	response = redirect(request.path)
+	response = HttpResponseRedirect(request.path)
 
 	if session != None:
 		response.delete_cookie('tfuserid')
