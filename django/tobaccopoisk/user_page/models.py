@@ -60,3 +60,18 @@ class User(models.Model):
 
 	def __str__(self):
 		return self.auth_id.login
+
+# -----------
+# Followers
+# -----------
+
+class Follow(models.Model):
+	follower = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name='follower')
+	following = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name='following')
+
+	def __str__(self):
+		return self.follower.login + " -> " + self.following.login
+
+	class Meta:
+		unique_together = (("follower", "following"),)
+		

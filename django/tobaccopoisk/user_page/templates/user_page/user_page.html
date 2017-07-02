@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load user_filters %}
 
 <html>
 
@@ -37,9 +38,9 @@
 						<td width="27%" valign="top" class="column_content" style="text-align: center;">
 
 							<div class="header_content_light">
-								{% if avatar != None %}
-								<a href="{{avatar}}" target="_blank">
-									<img src={{avatar}} class="avatar_image">
+								{% if user_info.avatar != None %}
+								<a href="{{user_info.avatar|real_url}}" target="_blank">
+									<img src={{user_info.avatar|real_url}} class="avatar_image">
 								</a>
 								{% else %}
 								<img src="/static/navbar/image/user_icon_black.svg" class="avatar_image">

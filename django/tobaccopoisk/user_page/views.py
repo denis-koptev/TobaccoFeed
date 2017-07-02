@@ -2,8 +2,8 @@ from django.shortcuts import render, HttpResponseRedirect
 from auth_page import engine
 from auth_page.models import User
 from user_page.models import User as UserInfo
+from user_page.models import Follow
 from tobaccopoisk import utils
-from django.db import models
 from django import forms
 
 def user(request, login):
@@ -61,16 +61,43 @@ def user(request, login):
 	if len(user_info) == 0:
 		return render(request, 'error_404.html', {})
 
-	avatar = None
+	# -------------------------
+	# Follow / Unfollow Routine
+	# -------------------------
+	is_follow = None
 
-	if user_info[0].avatar != None and len(user_info[0].avatar.name):
-		avatar = utils.image_url_handler(user_info[0].avatar.name)
+	if request.method == 'POST':
 
+		if request.POST.get("event") == "follow":
+			is_follow = True
+			try:
+				follow = Follow(follower=login, following=users[0])
+				follow.save()
+			except IntegrityError:
+				print("[ERROR] Follow entity already exists")
+
+		elif request.POST.get("event") == "unfollow":
+			is_follow = False
+			try:
+				follow = Follow.objects.filter(follower=login, following=users[0]).delete()
+			except ValueError:
+				print("[ERROR] Follow entity doesn't exist")
+
+	if is_follow is None:
+		flw = Follow.objects.filter(follower=login, following=users[0])
+		if len(flw) == 0:
+			is_follow = False
+		else:
+			is_follow = True
+
+	# --------
+	# Response
+	# --------
 	context = {'user' : users[0],
 			   'isHost' : isHost,
 			   'login' : auth_login,
 			   'user_info' : user_info[0],
-			   'avatar' : avatar}
+			   'is_follow' : is_follow}
 
 	return render(request, 'user_page/user_page.html', context)
 
