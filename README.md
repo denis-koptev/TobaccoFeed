@@ -98,7 +98,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 - [ ] Add favourites and marks for users
 - [ ] Move to separate real server
 - [ ] Move to MySQL :star:
-- [ ] Develop mixes-section in tobacco page
+- [x] Develop mixes-section in tobacco page
 - [ ] Create mixes app and front-end
 - [ ] Think on search algorithm. It works fucking bad...
 - [ ] Add filter front-end for search page
