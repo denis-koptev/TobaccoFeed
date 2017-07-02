@@ -12,6 +12,9 @@ def auth(request):
 
 	if request.method == 'POST':
 
+		if request.POST.get("event") == "log_out":
+			return engine.unauthorize(request)
+
 		ident = request.POST.get('login')
 		password = request.POST.get('password')
 

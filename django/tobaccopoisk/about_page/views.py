@@ -5,8 +5,10 @@ from auth_page import engine
 # Create your views here.
 
 def index(request):
+
 	if request.method == 'POST':
-		return engine.unauthorize(request)
+		if request.POST.get("event") == "log_out":
+			return engine.unauthorize(request)
 
 	login = engine.getAuthorized(request)
 

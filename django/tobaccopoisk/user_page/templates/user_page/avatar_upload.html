@@ -29,8 +29,9 @@
 					{% blocktrans %}Upload your new avatar photo{% endblocktrans %}
 				</div>
 
-				<form action="/user/avatar_upload/{{login}}" method="post" enctype="multipart/form-data">
+				<form action="/user/{{login}}" method="post" enctype="multipart/form-data">
 					{% csrf_token %}
+					<input type="text" name="event" value="avatar_upload" hidden="true">
 					<table class="user_info_table">
 						<tr>
 							<td align="center" class="header_content_light">

@@ -155,7 +155,7 @@ def unauthorize(request):
 	except Session.DoesNotExist:
 		session = None
 
-	response = redirect("/")
+	response = redirect(request.path)
 
 	if session != None:
 		response.delete_cookie('tfuserid')

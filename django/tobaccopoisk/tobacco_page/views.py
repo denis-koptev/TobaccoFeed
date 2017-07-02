@@ -7,6 +7,10 @@ from .models import Mix
 
 def tobacco_view(request, brand, name):
 
+	if request.method == 'POST':
+		if request.POST.get("event") == "log_out":
+			return engine.unauthorize(request)
+
 	try:
 		tobacco = Tobacco.objects.get(brand=brand, name=name)
 	except Tobacco.DoesNotExist:

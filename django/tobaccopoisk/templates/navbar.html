@@ -43,8 +43,9 @@
                         </button>
                     </a>
 
-                    <form method="post" action="/main" style="margin-bottom: 0;">
+                    <form method="post" style="margin-bottom: 0;">
                     {% csrf_token %}
+                        <input type="text" name="event" value="log_out" hidden="true">
                         <button type="submit" class="user_link">
                             {% blocktrans %}Log Out{% endblocktrans %}
                         </button>

@@ -5,6 +5,10 @@ from auth_page import engine
 
 def search(request):
 
+	if request.method == 'POST':
+		if request.POST.get("event") == "log_out":
+			return engine.unauthorize(request)
+
 	q = request.GET.get('q')
 	
 	filtered = do_search(q)

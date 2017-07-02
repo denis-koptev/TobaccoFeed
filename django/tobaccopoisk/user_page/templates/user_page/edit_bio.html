@@ -30,8 +30,9 @@
 				</div>
 
 				<div class="header_content_light">
-					<form method="post" action="/user/edit_bio/{{login}}" class="edit_bio_form">
+					<form method="post" action="/user/{{login}}" class="edit_bio_form">
 						{% csrf_token %}
+						<input type="text" name="event" value="edit_bio" hidden="true">
 						<table class="user_info_table">
 							<tr>
 								<td align="right" width="40%">

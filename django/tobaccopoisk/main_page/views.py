@@ -17,7 +17,8 @@ def get_last(count):
 def main(request):
 
 	if request.method == 'POST':
-		return engine.unauthorize(request)
+		if request.POST.get("event") == "log_out":
+			return engine.unauthorize(request)
 
 	login = engine.getAuthorized(request)
 
