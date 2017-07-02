@@ -1,3 +1,33 @@
+.mix_cell {
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.mix_cell:hover {
+    background: rgba(100,100,100,0.5);
+    transition: all 0.2s ease;
+}
+
+/*hr.style-round {
+    height: 30px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    margin-top: 31px;
+}
+hr.style-round:before { 
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}*/
+
 .news_table {
     width: 100%;
     margin-bottom: 10px;

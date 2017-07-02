@@ -16,7 +16,7 @@
 
 .modal_content {
     position: relative;
-    background-color: #444444;
+    background-color: #444;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
@@ -101,7 +101,18 @@
     font-size: 16px;
     font-family: DrugsThin, serif;
     font-weight: bold;
-    border: none;
     cursor: pointer;
     padding-right: 10px;
+    border-radius: 5px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+
+    -moz-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out 
+}
+
+.modal_button:hover {
+    color: #AAFFDD;
 }

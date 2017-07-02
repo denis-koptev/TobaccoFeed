@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from tobacco_page.models import Tobacco
+from tobacco_page.models import Tobacco, Mix
 from search_page.engine import to_dict
 from auth_page.models import User, Session
 from auth_page import engine
@@ -11,6 +11,7 @@ def get_last(count):
 
 	except Tobacco.DoesNotExist:
 		return []
+
 	return [to_dict(rec) for rec in last]
 
 def main(request):
@@ -26,7 +27,11 @@ def main(request):
 		message = curr
 		break
 
+	mixes = Mix.objects.all().order_by('-rating')[:3]
+
 	context = {'latest' : get_last(5),
 			   'login' : login,
-			   'message' : str(message)}
+			   'message' : str(message),
+			   'mixes' : mixes}
+			   
 	return render(request, 'main_page/main_page.html', context)

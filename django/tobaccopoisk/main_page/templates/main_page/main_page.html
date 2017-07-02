@@ -1,4 +1,5 @@
 {% load static %}
+{% load main_filters %}
 {% load i18n %}
 
 <html>
@@ -87,7 +88,32 @@
 				</div>
 
 				<div class="header_content_dark">
-					<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
+					{% if mixes|length != 0 %}
+					{% for mix_rec in mixes %}
+					<table class="mixes_table" style="border: 1px solid black;border-radius: 15px;background: rgba(255,255,255,0.1);padding: 10px;margin: 10px;">
+						<tr>
+							{% for tobacco_rec in mix_rec.tobaccos.all %}
+							<td class="mix_cell">
+								<a href="/{{tobacco_rec.brand}}/{{tobacco_rec.name}}" style="text-decoration:none;color: white;">
+									<div style="width: 100%;height: 100%;">
+										<img src="{{tobacco_rec.image.name|real_url}}" width="50%" href="/{{tobacco_rec.brand}}/{{tobacco_rec.name}}">
+										<br><br>
+										{{tobacco_rec.brand|view_str}} {{tobacco_rec.name|view_str}}
+									</div>
+								</a>
+							</td>
+							{% if not forloop.last %}
+							<td align="center">
+								<font color="white" size="20">+</font>
+							</td>
+							{% endif %}
+							{% endfor %}
+						</tr>
+					</table>
+					{% endfor %}
+					{% else %}
+						<img src="{% static "/main_page/image/mixes_locked.png" %}" class="lock_image" />
+					{% endif %}
 
 					<div id="modal_button1" class="modal_button">{% blocktrans %}Show more...{% endblocktrans %}</div>
 

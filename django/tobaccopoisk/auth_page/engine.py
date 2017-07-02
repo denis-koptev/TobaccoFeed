@@ -147,19 +147,19 @@ def getAuthorized(request):
 	return login
 
 def unauthorize(request):
-		req_id = request.COOKIES.get('tfuserid')
-		req_session = request.COOKIES.get('tfsession')
+	req_id = request.COOKIES.get('tfuserid')
+	req_session = request.COOKIES.get('tfsession')
 
-		try:
-			session = Session.objects.get(user=req_id, token=req_session)
-		except Session.DoesNotExist:
-			session = None
+	try:
+		session = Session.objects.get(user=req_id, token=req_session)
+	except Session.DoesNotExist:
+		session = None
 
-		response = redirect("/")
+	response = redirect("/")
 
-		if session != None:
-			response.delete_cookie('tfuserid')
-			response.delete_cookie('tfsession')
-			session.delete()
+	if session != None:
+		response.delete_cookie('tfuserid')
+		response.delete_cookie('tfsession')
+		session.delete()
 
-		return response
+	return response
