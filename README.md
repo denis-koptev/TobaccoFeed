@@ -94,7 +94,7 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 
 ## TO DO LIST
 
-- [ ] Enable editing info for users
+- [x] Enable editing info for users
 - [ ] Add favourites and marks for users
 - [ ] Move to separate real server
 - [ ] Move to MySQL :star:
