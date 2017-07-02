@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-29 13:13+0300\n"
+"POT-Creation-Date: 2017-07-02 19:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,65 +119,65 @@ msgid "Sign Up - TobaccoFeed"
 msgstr "Регистрация - ТабакоПоиск"
 
 #: .\auth_page\templates\auth_page\reg_page.html:35
-#: .\user_page\templates\user_page\user_page.html:114
+#: .\user_page\templates\user_page\user_page.html:125
 msgid "Email"
 msgstr "Почта"
 
-#: .\main_page\templates\main_page\main_page.html:7
+#: .\main_page\templates\main_page\main_page.html:8
 msgid "Main - TobaccoFeed"
 msgstr "Главная - ТабакоПоиск"
 
-#: .\main_page\templates\main_page\main_page.html:28
+#: .\main_page\templates\main_page\main_page.html:29
 msgid " News "
 msgstr "Новости"
 
-#: .\main_page\templates\main_page\main_page.html:32
+#: .\main_page\templates\main_page\main_page.html:33
 msgid "About us"
 msgstr "О нас"
 
-#: .\main_page\templates\main_page\main_page.html:32
+#: .\main_page\templates\main_page\main_page.html:33
 msgid "Read about our project "
 msgstr "Узнайте больше о проекте"
 
-#: .\main_page\templates\main_page\main_page.html:74
+#: .\main_page\templates\main_page\main_page.html:75
 msgid "added"
 msgstr "добавлен"
 
-#: .\main_page\templates\main_page\main_page.html:86
+#: .\main_page\templates\main_page\main_page.html:87
 msgid "Popular mixes "
 msgstr "Популярные миксы"
 
-#: .\main_page\templates\main_page\main_page.html:92
-#: .\main_page\templates\main_page\main_page.html:121
-#: .\main_page\templates\main_page\main_page.html:149
+#: .\main_page\templates\main_page\main_page.html:118
+#: .\main_page\templates\main_page\main_page.html:147
+#: .\main_page\templates\main_page\main_page.html:175
 msgid "Show more..."
 msgstr "Больше"
 
-#: .\main_page\templates\main_page\main_page.html:99
+#: .\main_page\templates\main_page\main_page.html:125
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:316
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:347
 msgid "Popular mixes"
 msgstr "Популярные миксы"
 
-#: .\main_page\templates\main_page\main_page.html:103
-#: .\main_page\templates\main_page\main_page.html:132
-#: .\main_page\templates\main_page\main_page.html:160
+#: .\main_page\templates\main_page\main_page.html:129
+#: .\main_page\templates\main_page\main_page.html:158
+#: .\main_page\templates\main_page\main_page.html:186
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:109
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:351
 msgid ""
 "Sorry, we are working on this part of our site, but now it is unavailable..."
 msgstr "К сожалению, страница пока не доступна. Мы работаем над этим."
 
-#: .\main_page\templates\main_page\main_page.html:114
+#: .\main_page\templates\main_page\main_page.html:140
 msgid "Where to buy "
 msgstr "Выгодные предложения"
 
-#: .\main_page\templates\main_page\main_page.html:128
+#: .\main_page\templates\main_page\main_page.html:154
 msgid "TobaccoStore"
 msgstr "Выгодные предложения"
 
-#: .\main_page\templates\main_page\main_page.html:143
-#: .\main_page\templates\main_page\main_page.html:156
+#: .\main_page\templates\main_page\main_page.html:169
+#: .\main_page\templates\main_page\main_page.html:182
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -209,15 +209,15 @@ msgstr "Денис Коптев"
 msgid "Evgeniy Protsenko"
 msgstr "Евгений Проценко"
 
-#: .\templates\navbar.html:43
+#: .\templates\navbar.html:42
 msgid "Profile"
 msgstr "Профиль"
 
-#: .\templates\navbar.html:50
+#: .\templates\navbar.html:49
 msgid "Log Out"
 msgstr "Выйти"
 
-#: .\templates\navbar.html:61
+#: .\templates\navbar.html:60
 msgid "Log In"
 msgstr "Войти"
 
@@ -266,7 +266,7 @@ msgstr "ОБЩАЯ ОЦЕНКА:"
 msgid "Tags"
 msgstr "Теги"
 
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:362
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:361
 msgid "No mixes found"
 msgstr "Миксов не найдено"
 
@@ -287,17 +287,17 @@ msgid "Edit your page"
 msgstr "Отредактируйте вашу страницу"
 
 #: .\user_page\templates\user_page\edit_bio.html:38
-#: .\user_page\templates\user_page\user_page.html:82
+#: .\user_page\templates\user_page\user_page.html:93
 msgid "Name"
 msgstr "Имя"
 
 #: .\user_page\templates\user_page\edit_bio.html:47
-#: .\user_page\templates\user_page\user_page.html:93
+#: .\user_page\templates\user_page\user_page.html:104
 msgid "Birth"
 msgstr "Дата рождения"
 
 #: .\user_page\templates\user_page\edit_bio.html:57
-#: .\user_page\templates\user_page\user_page.html:104
+#: .\user_page\templates\user_page\user_page.html:115
 msgid "Location"
 msgstr "Местоположение"
 
@@ -321,19 +321,33 @@ msgstr "Добавить в друзья"
 msgid "Remove from friends"
 msgstr "Удалить из друзей"
 
+#: .\user_page\templates\user_page\user_page.html:69
+msgid "Recent"
+msgstr "Недавнее"
+
+#: .\user_page\templates\user_page\user_page.html:73
 #: .\user_page\templates\user_page\user_page.html:74
-msgid "Bio"
-msgstr "Информация"
-
-#: .\user_page\templates\user_page\user_page.html:124
-msgid "Friends"
-msgstr "Друзья"
-
-#: .\user_page\templates\user_page\user_page.html:128
-#: .\user_page\templates\user_page\user_page.html:136
+#: .\user_page\templates\user_page\user_page.html:139
+#: .\user_page\templates\user_page\user_page.html:140
+#: .\user_page\templates\user_page\user_page.html:148
+#: .\user_page\templates\user_page\user_page.html:149
+#: .\user_page\templates\user_page\user_page.html:157
+#: .\user_page\templates\user_page\user_page.html:158
 msgid "We are working on this section"
 msgstr "Мы работаем над данным разделом"
 
-#: .\user_page\templates\user_page\user_page.html:132
+#: .\user_page\templates\user_page\user_page.html:85
+msgid "Bio"
+msgstr "Информация"
+
+#: .\user_page\templates\user_page\user_page.html:135
+msgid "Friends"
+msgstr "Друзья"
+
+#: .\user_page\templates\user_page\user_page.html:144
 msgid "Favourite"
 msgstr "Предпочтения"
+
+#: .\user_page\templates\user_page\user_page.html:153
+msgid "Bookmarks"
+msgstr "Закладки"
