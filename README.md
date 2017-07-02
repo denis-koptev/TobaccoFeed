@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://pp.userapi.com/c638919/v638919898/45b22/9_j13jXuCX0.jpg">
+  <img src="https://pp.userapi.com/c638919/v638919898/45b2c/JVUGZQyO1p4.jpg">
 </p>
 
 ## Description
