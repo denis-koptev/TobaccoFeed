@@ -75,6 +75,8 @@ def user(request, login):
 				follow.save()
 			except IntegrityError:
 				print("[ERROR] Follow entity already exists")
+			# must be here to avoid form sending after reload
+			return HttpResponseRedirect('/user/' + login)
 
 		elif request.POST.get("event") == "unfollow":
 			is_follow = False
@@ -82,6 +84,7 @@ def user(request, login):
 				follow = Follow.objects.filter(follower=auth, following=users[0]).delete()
 			except ValueError:
 				print("[ERROR] Follow entity doesn't exist")
+			return HttpResponseRedirect('/user/' + login)
 
 	if is_follow is None:
 		flw = Follow.objects.filter(follower=auth, following=users[0])

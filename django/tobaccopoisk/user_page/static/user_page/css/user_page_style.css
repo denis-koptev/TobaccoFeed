@@ -16,11 +16,16 @@
 	width: 100%;
 }
 
-.friends_link {
+.follow_button {
 	text-decoration: none;
 	color: black;
-	display: block;
-	margin: 5px 0;
+	margin: 10px 0;
+	font-size: 18px;
+	font-weight: 700;
+	font-family: DrugsThin, serif;
+	cursor: pointer;
+	width: 100%;
+	border-radius: 5px;
 }
 
 .edit_bio_form {
