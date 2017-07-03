@@ -2,6 +2,7 @@
     text-align: center;
     border-radius: 15px;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .mix_cell:hover {
@@ -106,7 +107,7 @@ hr.style-round:before {
 }
 
 .about_href:hover {
-    font-size: 22px;
+    color: #AAFFDD;
     transition: all 0.2s ease;
 }
 
