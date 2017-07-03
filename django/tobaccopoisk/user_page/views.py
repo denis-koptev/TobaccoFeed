@@ -13,6 +13,7 @@ def user(request, login):
 	if request.method == 'POST':
 
 		if request.POST.get("event") == "log_out":
+			print("LOGOUT")
 			return engine.unauthorize(request)
 
 		elif request.POST.get("event") == "avatar_upload":
@@ -107,7 +108,7 @@ def user(request, login):
 def template_upload(request, login, path):
 
 	auth = engine.getAuthorized(request)
-	if auth.login != login:
+	if auth == None or auth.login != login:
 		return render(request, 'error_404.html', {})
 
 	users = User.objects.filter(login=login)
@@ -125,19 +126,17 @@ def template_upload(request, login, path):
 	return render(request, path, context)
 
 def edit_bio(request, login):
-	auth = engine.getAuthorized(request)
-
 	if request.method == 'POST':
 		if request.POST.get("event") == "log_out":
+			request.path = '/user/' + login
 			return engine.unauthorize(request)
 
 	return template_upload(request, login, 'user_page/edit_bio.html')
 
 def avatar_upload(request, login):
-	auth = engine.getAuthorized(request)
-
 	if request.method == 'POST':
 		if request.POST.get("event") == "log_out":
+			request.path = '/user/' + login
 			return engine.unauthorize(request)
 
 	return template_upload(request, login, 'user_page/avatar_upload.html')
