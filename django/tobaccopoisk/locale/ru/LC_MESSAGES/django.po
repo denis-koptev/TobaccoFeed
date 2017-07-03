@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 19:10+0300\n"
+"POT-Creation-Date: 2017-07-03 13:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "О нас - ТабакоПоиск"
 #: .\about_page\templates\about_page\about_page.html:151
 #: .\templates\navbar.html:17
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:7
-#: .\user_page\templates\user_page\user_page.html:9
+#: .\user_page\templates\user_page\user_page.html:10
 msgid "TobaccoFeed"
 msgstr "ТабакоПоиск"
 
@@ -119,7 +119,7 @@ msgid "Sign Up - TobaccoFeed"
 msgstr "Регистрация - ТабакоПоиск"
 
 #: .\auth_page\templates\auth_page\reg_page.html:35
-#: .\user_page\templates\user_page\user_page.html:125
+#: .\user_page\templates\user_page\user_page.html:131
 msgid "Email"
 msgstr "Почта"
 
@@ -213,11 +213,11 @@ msgstr "Евгений Проценко"
 msgid "Profile"
 msgstr "Профиль"
 
-#: .\templates\navbar.html:49
+#: .\templates\navbar.html:50
 msgid "Log Out"
 msgstr "Выйти"
 
-#: .\templates\navbar.html:60
+#: .\templates\navbar.html:61
 msgid "Log In"
 msgstr "Войти"
 
@@ -286,68 +286,71 @@ msgstr "Редактировать страницу - ТабакоПоиск"
 msgid "Edit your page"
 msgstr "Отредактируйте вашу страницу"
 
-#: .\user_page\templates\user_page\edit_bio.html:38
-#: .\user_page\templates\user_page\user_page.html:93
+#: .\user_page\templates\user_page\edit_bio.html:39
+#: .\user_page\templates\user_page\user_page.html:99
 msgid "Name"
 msgstr "Имя"
 
-#: .\user_page\templates\user_page\edit_bio.html:47
-#: .\user_page\templates\user_page\user_page.html:104
+#: .\user_page\templates\user_page\edit_bio.html:48
+#: .\user_page\templates\user_page\user_page.html:110
 msgid "Birth"
 msgstr "Дата рождения"
 
-#: .\user_page\templates\user_page\edit_bio.html:57
-#: .\user_page\templates\user_page\user_page.html:115
+#: .\user_page\templates\user_page\edit_bio.html:58
+#: .\user_page\templates\user_page\user_page.html:121
 msgid "Location"
 msgstr "Местоположение"
 
-#: .\user_page\templates\user_page\edit_bio.html:64
+#: .\user_page\templates\user_page\edit_bio.html:65
 msgid "Submit"
 msgstr "Применить"
 
-#: .\user_page\templates\user_page\user_page.html:49
+#: .\user_page\templates\user_page\user_page.html:50
 msgid "Change photo"
 msgstr "Изменить фото"
 
-#: .\user_page\templates\user_page\user_page.html:51
+#: .\user_page\templates\user_page\user_page.html:52
 msgid "Edit page"
 msgstr "Редактировать"
 
-#: .\user_page\templates\user_page\user_page.html:59
-msgid "Add to friends"
-msgstr "Добавить в друзья"
+#: .\user_page\templates\user_page\user_page.html:63
+msgid "Follow"
+msgstr "Подписаться"
 
-#: .\user_page\templates\user_page\user_page.html:61
-msgid "Remove from friends"
-msgstr "Удалить из друзей"
+#: .\user_page\templates\user_page\user_page.html:66
+msgid "Unfollow"
+msgstr "Отписаться"
 
-#: .\user_page\templates\user_page\user_page.html:69
+#: .\user_page\templates\user_page\user_page.html:75
 msgid "Recent"
 msgstr "Недавнее"
 
-#: .\user_page\templates\user_page\user_page.html:73
-#: .\user_page\templates\user_page\user_page.html:74
-#: .\user_page\templates\user_page\user_page.html:139
-#: .\user_page\templates\user_page\user_page.html:140
-#: .\user_page\templates\user_page\user_page.html:148
-#: .\user_page\templates\user_page\user_page.html:149
-#: .\user_page\templates\user_page\user_page.html:157
-#: .\user_page\templates\user_page\user_page.html:158
+#: .\user_page\templates\user_page\user_page.html:79
+#: .\user_page\templates\user_page\user_page.html:80
+#: .\user_page\templates\user_page\user_page.html:145
+#: .\user_page\templates\user_page\user_page.html:153
+#: .\user_page\templates\user_page\user_page.html:161
 msgid "We are working on this section"
 msgstr "Мы работаем над данным разделом"
 
-#: .\user_page\templates\user_page\user_page.html:85
+#: .\user_page\templates\user_page\user_page.html:91
 msgid "Bio"
 msgstr "Информация"
 
-#: .\user_page\templates\user_page\user_page.html:135
+#: .\user_page\templates\user_page\user_page.html:141
 msgid "Friends"
 msgstr "Друзья"
 
-#: .\user_page\templates\user_page\user_page.html:144
+#: .\user_page\templates\user_page\user_page.html:149
 msgid "Favourite"
 msgstr "Предпочтения"
 
-#: .\user_page\templates\user_page\user_page.html:153
+#: .\user_page\templates\user_page\user_page.html:157
 msgid "Bookmarks"
 msgstr "Закладки"
+
+#~ msgid "Add to friends"
+#~ msgstr "Добавить в друзья"
+
+#~ msgid "Remove from friends"
+#~ msgstr "Удалить из друзей"
