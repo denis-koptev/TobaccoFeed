@@ -68,10 +68,10 @@ def user(request, login):
 
 	if request.method == 'POST':
 
-		if request.POST.get("event") == "follow":
+		if request.POST.get("event") == "follow" and isHost is False:
 			is_follow = True
 			try:
-				follow = Follow(follower=login, following=users[0])
+				follow = Follow(follower=auth, following=users[0])
 				follow.save()
 			except IntegrityError:
 				print("[ERROR] Follow entity already exists")
@@ -79,12 +79,12 @@ def user(request, login):
 		elif request.POST.get("event") == "unfollow":
 			is_follow = False
 			try:
-				follow = Follow.objects.filter(follower=login, following=users[0]).delete()
+				follow = Follow.objects.filter(follower=auth, following=users[0]).delete()
 			except ValueError:
 				print("[ERROR] Follow entity doesn't exist")
 
 	if is_follow is None:
-		flw = Follow.objects.filter(follower=login, following=users[0])
+		flw = Follow.objects.filter(follower=auth, following=users[0])
 		if len(flw) == 0:
 			is_follow = False
 		else:
