@@ -9,6 +9,29 @@ It will be great to have unified resource with all information about tobaccos.
 We will give people the opportunity to choose products according to their preferences.
 Users will be able to communicate and share, to add tobaccos and find the best prices.
 
+## TO DO LIST
+
+- [x] Enable editing info for users
+- [ ] Add favourites and marks for users
+- [ ] Move to separate real server
+- [ ] Move to MySQL :star:
+- [x] Develop mixes-section in tobacco page
+- [ ] Create mixes app and front-end
+- [ ] Think on search algorithm. It works fucking bad...
+- [ ] Add filter front-end for search page
+- [x] Refactor html and css (too many duplicates)
+- [ ] Clustering of data, Statistics, Machine Learning
+- [ ] Sleep and relax after all this shit
+
+
+## TO TEST LIST
+
+- [ ] Check that old tobacco-photo is deleted after loading new one
+- [x] Photo of tobacco must be deleted after tobacco deletion
+- [ ] RESTfull API for everything - dream big :)
+- [x] Names and brands with uppercases and spaces addition to DB
+
+
 ## How to start
 
 Download *[Python3](https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe)*
@@ -90,26 +113,3 @@ Example for main_page : `os.path.join(BASE_DIR, "main_page/static")`
 * `<img src="{% static "main_page/hookah.jpg" %}" alt="My Hookah"/>`
 
 *More examples: https://www.djangoproject.com/*
-
-
-## TO DO LIST
-
-- [x] Enable editing info for users
-- [ ] Add favourites and marks for users
-- [ ] Move to separate real server
-- [ ] Move to MySQL :star:
-- [x] Develop mixes-section in tobacco page
-- [ ] Create mixes app and front-end
-- [ ] Think on search algorithm. It works fucking bad...
-- [ ] Add filter front-end for search page
-- [x] Refactor html and css (too many duplicates)
-- [ ] Clustering of data, Statistics, Machine Learning
-- [ ] Sleep and relax after all this shit
-
-
-## TO TEST LIST
-
-- [ ] Check that old tobacco-photo is deleted after loading new one
-- [x] Photo of tobacco must be deleted after tobacco deletion
-- [ ] RESTfull API for everything - dream big :)
-- [x] Names and brands with uppercases and spaces addition to DB
