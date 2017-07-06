@@ -5,6 +5,7 @@ from tobaccopoisk import utils
 from auth_page import engine
 from .models import Mix
 
+
 def tobacco_view(request, brand, name):
 
 	if request.method == 'POST':

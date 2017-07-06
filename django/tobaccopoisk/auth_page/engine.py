@@ -163,3 +163,15 @@ def unauthorize(request):
 		session.delete()
 
 	return response
+
+def get_user_by_token(token):
+	user = None
+
+	try:
+		session = Session.objects.get(token=token)
+	except Session.DoesNotExist:
+		session = None
+	else:
+		user = session.user
+
+	return user

@@ -1,6 +1,7 @@
 from django.db import models
 from auth_page.models import User as AuthUser
 from django.conf import settings
+from tobacco_page.models import Tobacco
 
 
 from django.core.files.storage import FileSystemStorage
@@ -75,3 +76,17 @@ class Follow(models.Model):
 	class Meta:
 		unique_together = (("follower", "following"),)
 		
+
+# ----------------------
+# User-Tobacco Relations
+# ----------------------
+
+class UserTobacco(models.Model):
+	user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
+	tobacco = models.ForeignKey(Tobacco, on_delete=models.CASCADE)
+	strength_vote = models.SmallIntegerField(null=True, blank=True)
+	smoke_vote = models.SmallIntegerField(null=True, blank=True)
+	taste_vote = models.SmallIntegerField(null=True, blank=True)
+	heat_vote = models.SmallIntegerField(null=True, blank=True)
+	rating_vote = models.SmallIntegerField(null=True, blank=True)
+	is_favorite = models.BooleanField(default=False)
