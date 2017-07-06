@@ -90,3 +90,4 @@ class UserTobacco(models.Model):
 	heat_vote = models.SmallIntegerField(null=True, blank=True)
 	rating_vote = models.SmallIntegerField(null=True, blank=True)
 	is_favorite = models.BooleanField(default=False)
+	is_bookmark = models.BooleanField(default=False)
