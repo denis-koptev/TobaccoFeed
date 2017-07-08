@@ -9,10 +9,6 @@ It will be great to have unified resource with all information about tobaccos.
 We will give people the opportunity to choose products according to their preferences.
 Users will be able to communicate and share, to add tobaccos and find the best prices.
 
-## HOT TO TEST LIST
-
-- [ ] API call set_usertobacco_heat
-
 ## TO DO LIST
 
 - [x] Enable editing info for users

@@ -52,6 +52,7 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 	tobac = Tobacco.objects.filter(brand=brand, name=tobacco)
 	if len(tobac) == 0:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Tobacco not found'}, ensure_ascii=False)))
+	tobac = tobac[0]
 
 	uto = UserTobacco.objects.filter(user=usr, tobacco=tobac)
 	if len(uto) == 0:
@@ -67,8 +68,12 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 				'smoke_vote': 		None,
 				'rating_vote': 		None,
 				'is_favorite': 		None,
+				'is_bookmark': 		None,
 				}
 	else:
+		uto = uto[0]
+		print(uto)
+
 		data = 	{	
 				'result': 			'true',
 				'username': 		username, 
@@ -81,6 +86,7 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 				'smoke_vote': 		uto.smoke_vote,
 				'rating_vote': 		uto.rating_vote,
 				'is_favorite': 		uto.is_favorite,
+				'is_bookmark': 		uto.is_bookmark,
 				}
 
 	return HttpResponse("{}".format(json.dumps(data, ensure_ascii=False)))
@@ -89,8 +95,9 @@ def set_usertobacco_heat(request, token, brand, tobacco, vote):
 
 	tobacco = utils.to_db_str(tobacco)
 	brand = utils.to_db_str(brand)
+	vote = int(vote)
 
-	if vote not in range(1, 10):
+	if vote not in range(1, 11):
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
 
 	user = engine.get_user_by_token(token)
@@ -100,11 +107,21 @@ def set_usertobacco_heat(request, token, brand, tobacco, vote):
 	tobac = Tobacco.objects.filter(brand=brand, name=tobacco)
 	if len(tobac) == 0:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Tobacco not found'}, ensure_ascii=False)))
+	tobac = tobac[0]
 
 	uto = UserTobacco.objects.filter(user=user, tobacco=tobac)
 	if len(uto) == 0:
 		uto = UserTobacco(user=user, tobacco=tobac, strength_vote=None, smoke_vote=None,
-							taste_vote=None, heat_vote=None, rating_vote=None, is_favorite=None)
+							taste_vote=None, heat_vote=None, rating_vote=None, 
+							is_favorite=False, is_bookmark=False)
+	else:
+		uto = uto[0]
 
-	uto.heat = vote
-	uto.save()
+	uto.heat_vote = vote
+
+	try:
+		uto.save()
+	except:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Heat vote updated'}, ensure_ascii=False)))

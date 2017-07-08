@@ -8,6 +8,8 @@ urlpatterns = [
 
     url(r'^get_usertobacco_by_names/(?P<username>[0-9a-z-_]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)$', 
     	views.get_usertobacco_by_names, name='api_get_usertobacco_by_names'),
-    url(r'^set_usertobacco_heat/(?P<token>[0-9a-z./]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)$', 
+    url(r'^set_usertobacco_heat/(?P<token>[0-9a-zA-Z./]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)/(?P<vote>[0-9]+)$', 
     	views.set_usertobacco_heat, name='api_set_usertobacco_heat'),
+    #url(r'^set_usertobacco_heat/(?P<token>[0-9a-zA-Z./]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)/(?P<vote>[0-9]+)$', 
+    #	views.set_usertobacco_heat, name='api_set_usertobacco_heat'),
 ]

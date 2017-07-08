@@ -91,3 +91,9 @@ class UserTobacco(models.Model):
 	rating_vote = models.SmallIntegerField(null=True, blank=True)
 	is_favorite = models.BooleanField(default=False)
 	is_bookmark = models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.user.login + " -> " + self.tobacco.brand + ' ' + self.tobacco.name
+
+	class Meta:
+		unique_together = (("user", "tobacco"),)
