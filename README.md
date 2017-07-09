@@ -26,6 +26,7 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## TO TEST LIST
 
+- [ ] UTO
 - [ ] Check that old tobacco-photo is deleted after loading new one
 - [x] Photo of tobacco must be deleted after tobacco deletion
 - [ ] RESTfull API for everything - dream big :)
