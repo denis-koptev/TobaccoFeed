@@ -11,7 +11,6 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## TO DO LIST
 
-- [ ] Create UMO (UserMixObject) and context (or API) for it
 - [ ] Add percent quantities for tobaccos in mixes | `frontend` ; `backend`
 - [x] Enable editing info for users
 - [ ] Add favourites and marks for users | `frontend`
@@ -26,7 +25,8 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## TO TEST LIST
 
-- [ ] UTO
+- [ ] UTO and API
+- [ ] UMO and API
 - [ ] Check that old tobacco-photo is deleted after loading new one
 - [x] Photo of tobacco must be deleted after tobacco deletion
 - [ ] RESTfull API for everything - dream big :)

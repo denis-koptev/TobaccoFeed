@@ -1,7 +1,7 @@
 from django.db import models
 from auth_page.models import User as AuthUser
 from django.conf import settings
-from tobacco_page.models import Tobacco
+from tobacco_page.models import Tobacco, Mix
 
 
 from django.core.files.storage import FileSystemStorage
@@ -62,6 +62,10 @@ class User(models.Model):
 	def __str__(self):
 		return self.auth_id.login
 
+	class Meta:
+		verbose_name = "UserInfo"
+		verbose_name_plural = "UserInfos"
+
 # -----------
 # Followers
 # -----------
@@ -78,7 +82,7 @@ class Follow(models.Model):
 		
 
 # ----------------------
-# User-Tobacco Relations
+# User-Tobacco Object
 # ----------------------
 
 class UserTobacco(models.Model):
@@ -97,3 +101,24 @@ class UserTobacco(models.Model):
 
 	class Meta:
 		unique_together = (("user", "tobacco"),)
+		verbose_name = "UserTobacco"
+		verbose_name_plural = "UserTobaccos"
+
+# ----------------------
+# User-Mix Object
+# ----------------------
+
+class UserMix(models.Model):
+	user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
+	mix = models.ForeignKey(Mix, on_delete=models.CASCADE)
+	rating_vote = models.SmallIntegerField(null=True, blank=True)
+	is_favorite = models.BooleanField(default=False)
+	is_bookmark = models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.user.login + " -> " + str(self.mix.id)
+
+	class Meta:
+		unique_together = (("user", "mix"),)
+		verbose_name = "UserMix"
+		verbose_name_plural = "UserMixes"

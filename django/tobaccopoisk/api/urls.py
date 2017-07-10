@@ -3,8 +3,13 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+
     url(r'^(?P<brand>[0-9a-z-_]+)/(?P<name>[0-9a-z-_]+)([/]?)$', views.tobacco, name='api_tobacco'),
     url(r'^search$', views.search, name='api_search'),
+
+    # ------------------------
+    # UserTobacco Object API
+    #
 
     url(r'^get_usertobacco_by_names/(?P<username>[0-9a-z-_]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)$', 
     	views.get_usertobacco_by_names, name='api_get_usertobacco_by_names'),
@@ -22,4 +27,18 @@ urlpatterns = [
     	views.set_usertobacco_favorite, name='api_set_usertobacco_favorite'),
     url(r'^set_usertobacco_bookmark/(?P<token>[0-9a-zA-Z./]+)/(?P<brand>[0-9a-z-_]+)/(?P<tobacco>[0-9a-z-_]+)/(?P<vote>[0-9]+)$', 
     	views.set_usertobacco_bookmark, name='api_set_usertobacco_bookmark'),
+
+    # --------------------
+    # UserMix Object API
+    #
+
+    url(r'^get_usermix/(?P<username>[0-9a-z-_]+)/(?P<mix_id>[0-9]+)$', views.get_usermix, name='api_get_usermix'),
+    url(r'^set_usermix_rating/(?P<token>[0-9a-zA-Z./]+)/(?P<mix_id>[0-9]+)/(?P<vote>[0-9]+)$', 
+        views.set_usermix_rating, name='api_set_usermix_rating'),
+    url(r'^set_usermix_favorite/(?P<token>[0-9a-zA-Z./]+)/(?P<mix_id>[0-9]+)/(?P<vote>[0-9]+)$', 
+        views.set_usermix_favorite, name='api_set_usermix_favorite'),
+    url(r'^set_usermix_bookmark/(?P<token>[0-9a-zA-Z./]+)/(?P<mix_id>[0-9]+)/(?P<vote>[0-9]+)$', 
+        views.set_usermix_bookmark, name='api_set_usermix_bookmark'),
+
+
 ]

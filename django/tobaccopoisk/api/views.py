@@ -1,11 +1,11 @@
 import json
 from django.http import HttpResponse
-from tobacco_page.models import Tobacco
 from search_page.engine import search as do_search
 from tobaccopoisk import utils
 from auth_page import engine
 from auth_page.models import User
-from user_page.models import UserTobacco
+from user_page.models import UserTobacco, UserMix
+from tobacco_page.models import Tobacco, Mix
 # Create your views here.
 
 def tobacco(request, brand, name):
@@ -40,6 +40,10 @@ def search(request):
 
 	return HttpResponse("{}".format(json.dumps({'data': result}, ensure_ascii=False)))
 
+# -------------------------
+# UserTobacco Object (UTO)
+# -------------------------
+
 def get_usertobacco_by_names(request, username, brand, tobacco):
 
 	tobacco = utils.to_db_str(tobacco)
@@ -48,6 +52,7 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 	usr = User.objects.filter(login=username)
 	if len(usr) == 0:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'User not found'}, ensure_ascii=False)))
+	usr = usr[0]
 
 	tobac = Tobacco.objects.filter(brand=brand, name=tobacco)
 	if len(tobac) == 0:
@@ -72,7 +77,6 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 				}
 	else:
 		uto = uto[0]
-		print(uto)
 
 		data = 	{	
 				'result': 			'true',
@@ -255,6 +259,132 @@ def set_usertobacco_bookmark(request, token, brand, tobacco, vote):
 
 	try:
 		uto.save()
+	except ...:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Bookmark update'}, ensure_ascii=False)))
+
+# ----------------------
+# UserMix Object (UMO)
+# ----------------------
+
+def get_usermix(request, username, mix_id):
+
+	usr = User.objects.filter(login=username)
+	if len(usr) == 0:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'User not found'}, ensure_ascii=False)))
+	usr = usr[0]
+
+	mix = Mix.objects.filter(pk=mix_id)
+	if len(mix) == 0:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Mix with specified id not found'}, ensure_ascii=False)))
+	mix = mix[0]
+
+	umo = UserMix.objects.filter(user=usr, mix=mix)
+	if len(umo) == 0:
+		data = 	{	
+				'result': 			'true',
+				'username': 		username, 
+				'mix_id': 			mix_id,
+
+				'rating_vote': 		None,
+				'is_favorite': 		None,
+				'is_bookmark': 		None,
+				}
+	else:
+		umo = umo[0]
+
+		data = 	{	
+				'result': 			'true',
+				'username': 		username, 
+				'mix_id': 			mix_id,
+
+				'rating_vote': 		umo.rating_vote,
+				'is_favorite': 		umo.is_favorite,
+				'is_bookmark': 		umo.is_bookmark,
+				}
+
+	return HttpResponse("{}".format(json.dumps(data, ensure_ascii=False)))
+
+def get_umo_by_token(token, mix_id):
+
+	user = engine.get_user_by_token(token)
+	if user is None:
+		return 'Session not found'
+
+	mix = Mix.objects.filter(pk=mix_id)
+	if len(mix) == 0:
+		return 'Mix not found'
+	mix = mix[0]
+
+	umo = UserMix.objects.filter(user=user, mix=mix)
+	if len(umo) == 0:
+		umo = UserMix(user=user, mix=mix, rating_vote=None, is_favorite=False, is_bookmark=False)
+	else:
+		umo = umo[0]
+
+	return umo
+
+def set_usermix_rating(request, token, mix_id, vote):
+
+	vote = int(vote)
+
+	if vote not in range(1, 11):
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
+
+	umo = get_umo_by_token(token, mix_id)
+	if type(umo) == str:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
+
+	umo.rating_vote = vote
+
+	try:
+		umo.save()
+	except ...:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Rating vote updated'}, ensure_ascii=False)))
+
+def set_usermix_favorite(request, token, mix_id, vote):
+
+	if vote == '1':
+		vote = True
+	elif vote == '0':
+		vote == False
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
+
+	umo = get_umo_by_token(token, mix_id)
+	if type(umo) == str:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
+
+	umo.is_favorite = vote
+
+	try:
+		umo.save()
+	except ...:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Favorite update'}, ensure_ascii=False)))
+
+
+def set_usermix_bookmark(request, token, mix_id, vote):
+
+	if vote == '1':
+		vote = True
+	elif vote == '0':
+		vote == False
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
+
+	umo = get_umo_by_token(token, mix_id)
+	if type(umo) == str:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
+
+	umo.is_bookmark = vote
+
+	try:
+		umo.save()
 	except ...:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
 	else:
