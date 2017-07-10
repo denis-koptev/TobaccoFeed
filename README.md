@@ -12,14 +12,14 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 ## TO DO LIST
 
 - [ ] Create UMO (UserMixObject) and context (or API) for it
-- [ ] Add percent quantities for tobaccos in mixes | frontend; backend
+- [ ] Add percent quantities for tobaccos in mixes | `frontend` ; `backend`
 - [x] Enable editing info for users
-- [ ] Add favourites and marks for users | frontend
+- [ ] Add favourites and marks for users | `frontend`
 - [ ] Move to separate real server
 - [ ] Move to MySQL :star:
-- [x] Develop mixes-section in tobacco page | frontend; backend
+- [x] Develop mixes-section in tobacco page | `frontend` ; `backend`
 - [ ] Think on search algorithm. It works fucking bad...
-- [ ] Add filters for search page | frontend; backend
+- [ ] Add filters for search page | `frontend` ; `backend`
 - [ ] Clustering of data, Statistics, Machine Learning
 - [ ] Sleep and relax after all this shit
 
