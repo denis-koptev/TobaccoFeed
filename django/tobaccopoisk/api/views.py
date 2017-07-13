@@ -95,18 +95,19 @@ def get_usertobacco_by_names(request, username, brand, tobacco):
 
 	return HttpResponse("{}".format(json.dumps(data, ensure_ascii=False)))
 	
-def get_uto_by_token(token, brand, tobacco):
+def set_uto_param(token, brand, tobacco, raw_vote, param):
 
 	brand = utils.to_db_str(brand)
 	tobacco = utils.to_db_str(tobacco)
+	vote = raw_vote
 
 	user = engine.get_user_by_token(token)
 	if user is None:
-		return 'Session not found'
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Session not found'}, ensure_ascii=False)))
 
 	tobac = Tobacco.objects.filter(brand=brand, name=tobacco)
 	if len(tobac) == 0:
-		return 'Tobacco not found'
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Tobacco not found'}, ensure_ascii=False)))
 	tobac = tobac[0]
 
 	uto = UserTobacco.objects.filter(user=user, tobacco=tobac)
@@ -117,152 +118,74 @@ def get_uto_by_token(token, brand, tobacco):
 	else:
 		uto = uto[0]
 
-	return uto
+	if param == 'rating':
+		uto.rating_vote = vote
+	elif param == 'taste':
+		uto.taste_vote = vote
+	elif param == 'smoke':
+		uto.smoke_vote = vote
+	elif param == 'strength':
+		uto.strength_vote = vote
+	elif param == 'heat':
+		uto.heat_vote = vote
+	elif param == 'favorite':
+		uto.is_favorite = vote
+	elif param == 'bookmark':
+		uto.is_bookmark = vote
 
-def set_usertobacco_heat(request, token, brand, tobacco, vote):
 
-	vote = int(vote)
-
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.heat_vote = vote
-
+	# Save and delete objects
 	try:
-		uto.save()
-	except ...:
+		if uto.is_empty() is True:
+			uto.delete()
+		else:
+			uto.save()
+	except:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
 	else:
 		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Heat vote updated'}, ensure_ascii=False)))
 
-def set_usertobacco_strength(request, token, brand, tobacco, vote):
+def set_uto_vote_param(token, brand, tobacco, vote, param):
 
 	vote = int(vote)
+	if vote not in range(0, 11):
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10 or 0 (None)'}, ensure_ascii=False)))
+	if vote == 0:
+		vote = None
 
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
+	return set_uto_param(token, brand, tobacco, vote, param)
 
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
+def set_usertobacco_heat(request, token, brand, tobacco, vote):
+	return set_uto_vote_param(token, brand, tobacco, vote, 'heat')
 
-	uto.strength_vote = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Strength vote updated'}, ensure_ascii=False)))
+def set_usertobacco_strength(request, token, brand, tobacco, vote):
+	return set_uto_vote_param(token, brand, tobacco, vote, 'strength')
 
 def set_usertobacco_taste(request, token, brand, tobacco, vote):
-
-	vote = int(vote)
-
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.taste_vote = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Taste vote updated'}, ensure_ascii=False)))
+	return set_uto_vote_param(token, brand, tobacco, vote, 'taste')
 
 def set_usertobacco_smoke(request, token, brand, tobacco, vote):
-
-	vote = int(vote)
-
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.smoke_vote = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Smoke vote updated'}, ensure_ascii=False)))
+	return set_uto_vote_param(token, brand, tobacco, vote, 'smoke')
 
 def set_usertobacco_rating(request, token, brand, tobacco, vote):
+	return set_uto_vote_param(token, brand, tobacco, vote, 'rating')
 
-	vote = int(vote)
+def set_uto_bool_param(token, brand, tobacco, vote, param):
 
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.rating_vote = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
+	if vote == '1':
+		vote = True
+	elif vote == '0':
+		vote == False
 	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Rating vote updated'}, ensure_ascii=False)))
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
+
+	return set_uto_param(token, brand, tobacco, vote, param)
 
 def set_usertobacco_favorite(request, token, brand, tobacco, vote):
-
-	if vote == '1':
-		vote = True
-	elif vote == '0':
-		vote == False
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.is_favorite = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Favorite update'}, ensure_ascii=False)))
-
+	return set_uto_bool_param(token, brand, tobacco, vote, 'favorite')
 
 def set_usertobacco_bookmark(request, token, brand, tobacco, vote):
-
-	if vote == '1':
-		vote = True
-	elif vote == '0':
-		vote == False
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
-
-	uto = get_uto_by_token(token, brand, tobacco)
-	if type(uto) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': uto}, ensure_ascii=False)))
-
-	uto.is_bookmark = vote
-
-	try:
-		uto.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Bookmark update'}, ensure_ascii=False)))
+	return set_uto_bool_param(token, brand, tobacco, vote, 'bookmark')
 
 # ----------------------
 # UserMix Object (UMO)
@@ -306,7 +229,9 @@ def get_usermix(request, username, mix_id):
 
 	return HttpResponse("{}".format(json.dumps(data, ensure_ascii=False)))
 
-def get_umo_by_token(token, mix_id):
+def set_umo_param(token, mix_id, raw_vote, param):
+
+	vote = raw_vote
 
 	user = engine.get_user_by_token(token)
 	if user is None:
@@ -323,30 +248,34 @@ def get_umo_by_token(token, mix_id):
 	else:
 		umo = umo[0]
 
-	return umo
-
-def set_usermix_rating(request, token, mix_id, vote):
-
-	vote = int(vote)
-
-	if vote not in range(1, 11):
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
-
-	umo = get_umo_by_token(token, mix_id)
-	if type(umo) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
-
-	umo.rating_vote = vote
+	if param == 'rating':
+		umo.rating_vote = vote
+	elif param == 'favorite':
+		umo.is_favorite = vote
+	elif param == 'bookmark':
+		umo.is_bookmark = vote
 
 	try:
-		umo.save()
-	except ...:
+		if umo.is_empty():
+			umo.delete()
+		else:
+			umo.save()
+
+	except:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
 	else:
 		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Rating vote updated'}, ensure_ascii=False)))
 
-def set_usermix_favorite(request, token, mix_id, vote):
+def set_umo_vote_param(token, mix_id, vote, param):
 
+	vote = int(vote)
+	if vote not in range(1, 11):
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be positive integer not higher than 10'}, ensure_ascii=False)))
+
+	return set_umo_param(token, mix_id, vote, param)
+
+def set_umo_bool_param(token, mix_id, vote, param):
+	
 	if vote == '1':
 		vote = True
 	elif vote == '0':
@@ -354,38 +283,13 @@ def set_usermix_favorite(request, token, mix_id, vote):
 	else:
 		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
 
-	umo = get_umo_by_token(token, mix_id)
-	if type(umo) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
+	return set_umo_param(token, mix_id, vote, param)
 
-	umo.is_favorite = vote
+def set_usermix_rating(request, token, mix_id, vote):
+	return set_umo_vote_param(token, mix_id, vote, 'rating')
 
-	try:
-		umo.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Favorite update'}, ensure_ascii=False)))
-
+def set_usermix_favorite(request, token, mix_id, vote):
+	return set_umo_bool_param(token, mix_id, vote, 'favorite')
 
 def set_usermix_bookmark(request, token, mix_id, vote):
-
-	if vote == '1':
-		vote = True
-	elif vote == '0':
-		vote == False
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
-
-	umo = get_umo_by_token(token, mix_id)
-	if type(umo) == str:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': umo}, ensure_ascii=False)))
-
-	umo.is_bookmark = vote
-
-	try:
-		umo.save()
-	except ...:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Update error'}, ensure_ascii=False)))
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': True, 'desc': 'Bookmark update'}, ensure_ascii=False)))
+	return set_umo_bool_param(token, mix_id, vote, 'bookmark')

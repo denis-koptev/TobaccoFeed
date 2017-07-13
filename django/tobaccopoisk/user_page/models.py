@@ -104,9 +104,16 @@ class UserTobacco(models.Model):
 		verbose_name = "UserTobacco"
 		verbose_name_plural = "UserTobaccos"
 
+	def is_empty(self):
+		return ((self.strength_vote is None) and (self.smoke_vote is None) and 
+			(self.smoke_vote is None) and (self.taste_vote is None) and 
+			(self.heat_vote is None) and (self.rating_vote is None) and 
+			(self.is_favorite is False) and (self.is_bookmark is False))
+
 # ----------------------
 # User-Mix Object
 # ----------------------
+
 
 class UserMix(models.Model):
 	user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
@@ -122,3 +129,7 @@ class UserMix(models.Model):
 		unique_together = (("user", "mix"),)
 		verbose_name = "UserMix"
 		verbose_name_plural = "UserMixes"
+
+	def is_empty(self):
+		return ((self.rating_vote is None) and 
+			(self.is_favorite is False) and (self.is_bookmark is False))
