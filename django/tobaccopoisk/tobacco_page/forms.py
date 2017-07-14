@@ -60,3 +60,11 @@ class TobaccoAdminForm(forms.ModelForm):
 			self.save_m2m()
 
 		return tobacco
+
+class MixAdminForm(forms.ModelForm):
+	class Meta:
+		model = Mix
+		fields = 	[	
+						'description', 'rating', 
+						'rating_votes', 'tobaccos',
+					]

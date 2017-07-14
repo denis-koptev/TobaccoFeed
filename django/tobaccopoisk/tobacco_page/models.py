@@ -120,10 +120,10 @@ class Mix(models.Model):
 	rating = models.FloatField(null=True, blank=True)
 	rating_votes = models.IntegerField(null=True, default=0)
 	pub_date = models.DateField(auto_now_add=True, null=True, blank=True)
-	tobaccos = models.ManyToManyField(Tobacco, related_name='mixes')
+	tobaccos = models.ManyToManyField(Tobacco, related_name='mixes', through='MixTobacco')
 
 	def __str__(self):
-		return " + ".join(to_view_str(t.brand) + ' ' + to_view_str(t.name) for t in self.tobaccos.all())
+		return str(self.id) + ' : ' + " + ".join(to_view_str(t.brand) + ' ' + to_view_str(t.name) for t in self.tobaccos.all())
 
 	class Meta:
 		# The default ordering for the object, 
@@ -132,6 +132,18 @@ class Mix(models.Model):
 
 		# Custom multiple name
 		verbose_name_plural = 'Mixes'
+
+class MixTobacco(models.Model):
+	mix = models.ForeignKey(Mix, on_delete=models.CASCADE)
+	tobacco = models.ForeignKey(Tobacco, on_delete=models.CASCADE)
+	percent = models.PositiveSmallIntegerField(null=True, blank=True)
+
+	def __str__(self):
+		return str(self.mix.id) + ' -> ' + self.tobacco.brand + ' ' + self.tobacco.name 
+
+	class Meta:
+		verbose_name = "MixTobacco"
+		verbose_name_plural = "MixTobaccos"
 
 # -------
 # End of

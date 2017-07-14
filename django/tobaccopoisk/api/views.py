@@ -155,6 +155,17 @@ def set_uto_vote_param(token, brand, tobacco, vote, param):
 
 	return set_uto_param(token, brand, tobacco, vote, param)
 
+def set_uto_bool_param(token, brand, tobacco, vote, param):
+
+	if vote == '1':
+		vote = True
+	elif vote == '0':
+		vote == False
+	else:
+		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
+
+	return set_uto_param(token, brand, tobacco, vote, param)
+	
 def set_usertobacco_heat(request, token, brand, tobacco, vote):
 	return set_uto_vote_param(token, brand, tobacco, vote, 'heat')
 
@@ -169,17 +180,6 @@ def set_usertobacco_smoke(request, token, brand, tobacco, vote):
 
 def set_usertobacco_rating(request, token, brand, tobacco, vote):
 	return set_uto_vote_param(token, brand, tobacco, vote, 'rating')
-
-def set_uto_bool_param(token, brand, tobacco, vote, param):
-
-	if vote == '1':
-		vote = True
-	elif vote == '0':
-		vote == False
-	else:
-		return HttpResponse("{}".format(json.dumps({'result': False, 'desc': 'Vote should be 0 (False) or 1 (True)'}, ensure_ascii=False)))
-
-	return set_uto_param(token, brand, tobacco, vote, param)
 
 def set_usertobacco_favorite(request, token, brand, tobacco, vote):
 	return set_uto_bool_param(token, brand, tobacco, vote, 'favorite')

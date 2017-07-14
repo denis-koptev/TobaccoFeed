@@ -114,7 +114,6 @@ class UserTobacco(models.Model):
 # User-Mix Object
 # ----------------------
 
-
 class UserMix(models.Model):
 	user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
 	mix = models.ForeignKey(Mix, on_delete=models.CASCADE)

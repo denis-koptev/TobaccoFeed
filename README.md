@@ -11,7 +11,8 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## TO DO LIST
 
-- [ ] Add percent quantities for tobaccos in mixes | `frontend` ; `backend`
+- [ ] API
+- [ ] Add percent quantities for tobaccos in mixes | `frontend`
 - [x] Enable editing info for users
 - [ ] Add favourites and marks for users | `frontend`
 - [ ] Move to separate real server
@@ -25,6 +26,7 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 
 ## TO TEST LIST
 
+- [ ] MTO
 - [ ] UTO and API
 - [ ] UMO and API
 - [ ] Check that old tobacco-photo is deleted after loading new one
