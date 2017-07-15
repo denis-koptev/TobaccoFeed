@@ -337,3 +337,17 @@ body {
 	margin-bottom: 5px;
 	padding: 0;
 }
+
+.page_button {
+	border: 1px solid white;
+	border-radius: 5px;
+	background: rgba(1,1,1,0.3);
+	color: white;
+	font-weight: 700;
+	font-size: 16px;
+	font-family: DrugsThin, serif;
+	padding: 5px;
+	margin: auto;
+	display: inline-block;
+	cursor: pointer;
+}

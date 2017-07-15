@@ -4,6 +4,7 @@ from .models import Tag
 from tobaccopoisk import utils
 from auth_page import engine
 from .models import Mix
+from user_page.models import UserTobacco as UTO
 
 
 def tobacco_view(request, brand, name):
@@ -26,12 +27,22 @@ def tobacco_view(request, brand, name):
 
 	login = engine.getAuthorized(request)
 
+	utos = None
+	if (login != None):
+		utos = UTO.objects.filter(user=login, tobacco=tobacco)
+		if len(utos) == 0:
+			uto = None
+		else:
+			uto = utos[0]
+
+
 	context = {'brand': utils.to_view_str(brand), 
 			   'name': utils.to_view_str(name), 
 			   'tobacco': tobacco, 
 			   'image': utils.image_url_handler(tobacco.image.name),
 			   'tags': tags,
 			   'login' : login,
-			   'mixes' : mixes}
+			   'mixes' : mixes,
+			   'uto' : uto}
 
 	return render(request, 'tobacco_page/tobacco_page.html', context)

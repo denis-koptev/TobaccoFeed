@@ -38,7 +38,7 @@
 
 			<div class="search_header">
 				<font size="5">
-					{% blocktrans %}Tobaccos found: {% endblocktrans %}{{found|length}}
+					{% blocktrans %}Tobaccos found: {% endblocktrans %}{{total_count}}
 				</font>
 			</div>
 
@@ -57,6 +57,21 @@
 			    </table>
 			    </a>
 			{% endfor %}
+
+			<table width="100%;">
+				<tr>
+					{% if page_num > 1 %}
+					<td align="center">
+						<button class="page_button">Prev</button>
+					</td>
+					{% endif %}
+					{% if pages_remained > 0 %}
+					<td align="center">
+						<button class="page_button">Next</button>
+					</td>
+					{% endif %}
+				</tr>
+			</table>
 
 		</td>
 

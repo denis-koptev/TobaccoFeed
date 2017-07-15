@@ -55,7 +55,7 @@
 								<tr>
 									<td class="related_td">
 										<div class="related_div">
-											<a href="/afzal/pan_raas">
+											<a href="/afzal/pan_raas" style="text-decoration: none; color: black;">
 												<img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
 												<hr>
 												Pan Raas
@@ -64,7 +64,7 @@
 									</td>
 									<td class="related_td">
 										<div class="related_div">
-											<a href="/afzal/watermelon">
+											<a href="/afzal/watermelon" style="text-decoration: none; color: black;">
 												<img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
 												<hr>
 												Watermelon
@@ -75,7 +75,7 @@
 								<tr>
 									<td class="related_td">
 										<div class="related_div">
-											<a href="/afzal/lime-lemon">
+											<a href="/afzal/lime-lemon" style="text-decoration: none; color: black;">
 												<img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
 												<hr>
 												Lime-Lemon
@@ -84,7 +84,7 @@
 									</td>
 									<td class="related_td">
 										<div class="related_div">
-											<a href="/afzal/ecstasy">
+											<a href="/afzal/ecstasy" style="text-decoration: none; color: black;">
 												<img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
 												<hr>
 												Ecstasy
@@ -142,146 +142,41 @@
 								{% blocktrans %}Characteristics{% endblocktrans %}
 							</div>
 
-							<div class="header_content_light">
-								<div class="votes">
-									{% blocktrans %}STRENGTH:{% endblocktrans %} {{tobacco.strength}}
-								</div>
-								<div class="votes">
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco.strength_votes}}
-								</div>
+							{% with 'strength heat smoke taste rating' as param_list %}
+							    {% for param in param_list.split %}
 
-								<form id="ratingsForm">
-									<div class="stars">
+									<div class="header_content_light">
+										<div class="votes">
+											{% blocktrans %}{{param}}:{% endblocktrans %} {{ tobacco|realParam:param }}
+										</div>
+										<div class="votes">
+											<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+											{{tobacco.heat_votes}}
+										</div>
 
-										{% for star_idx in "0123456789" %}
-										{% if star_idx|add:1 == tobacco.strength %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" checked />
-										<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
-										{% else %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="strength{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="strength{{star_idx}}">1</label>
+										{% if login != None %}
+
+										<form id="ratingsForm">
+											<div class="stars">
+
+												{% for star_idx in "0123456789" %}
+												<input type="radio" name="star" class="star-{{star_idx}}" id="{{param}}{{star_idx}}" onclick="starClicked('{{param}}', {{star_idx|add:1}})" {% if star_idx|add:1 == uto|realVote:param %} checked {% endif %}/>
+												<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}">1</label>
+												{% endfor %}
+												
+												<span></span>
+
+											</div>
+											{{uto|realVote:param}}
+										</form>
+										
 										{% endif %}
-										{% endfor %}
 
-										<span></span>
 									</div>
-								</form>
-
-							</div>
-
-							<div class="header_content_light">
-								<div class="votes">
-									{% blocktrans %}HEATPROOF:{% endblocktrans %} {{tobacco.heat}}
-								</div>
-								<div class="votes">
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco.heat_votes}}
-								</div>
-
-								<form id="ratingsForm">
-									<div class="stars">
-
-										{% for star_idx in "0123456789" %}
-										{% if star_idx|add:1 == tobacco.heat %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" checked />
-										<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
-										{% else %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="heat{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="heat{{star_idx}}">1</label>
-										{% endif %}
-										{% endfor %}
-
-										<span></span>
-									</div>
-								</form>
-
-							</div>
-
-							<div class="header_content_light">
-								<div class="votes">
-									{% blocktrans %}SMOKE:{% endblocktrans %} {{tobacco.smoke}}
-								</div>
-								<div class="votes">
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco.smoke_votes}}
-								</div>
-
-								<form id="ratingsForm">
-									<div class="stars">
-
-										{% for star_idx in "0123456789" %}
-										{% if star_idx|add:1 == tobacco.smoke %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}" checked />
-										<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>
-										{% else %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="smoke{{star_idx}}"/>
-										<label class="star-{{star_idx}}" for="smoke{{star_idx}}">1</label>										
-										{% endif %}
-										{% endfor %}	 
-
-										<span></span>
-									</div>
-								</form>
-
-							</div>
-
-							<div class="header_content_light">
-								<div class="votes">
-									{% blocktrans %}TASTINESS:{% endblocktrans %} {{tobacco.taste}}
-								</div>
-								<div class="votes">
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco.taste_votes}}
-								</div>
-
-								<form id="ratingsForm">
-									<div class="stars">
-
-										{% for star_idx in "0123456789" %}
-										{% if star_idx|add:1 == tobacco.taste %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" checked />
-										<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
-										{% else %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="taste{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="taste{{star_idx}}">1</label>
-										{% endif %}
-										{% endfor %}	
-
-										<span></span>
-									</div>
-								</form>
-
-							</div>
 
 
-							<div class="header_content_light">
-								<div class="votes">
-									{% blocktrans %}GENERAL MARK:{% endblocktrans %} {{tobacco.rating}}
-								</div>
-								<div class="votes">
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco.rating_votes}}
-								</div>
-
-								<form id="ratingsForm">
-									<div class="stars">
-
-										{% for star_idx in "0123456789" %}
-										{% if star_idx|add:1 == tobacco.rating %}									
-										<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" checked />
-										<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>
-										{% else %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="general{{star_idx}}" />
-										<label class="star-{{star_idx}}" for="general{{star_idx}}">1</label>											
-										{% endif %}
-										{% endfor %}   
-
-										<span></span>
-									</div>
-								</form>
-
-							</div>
+							    {% endfor %}
+							{% endwith %}
 
 							<p></p>
 
@@ -386,6 +281,17 @@ Maybe we can make individual window.click handler and modal handler for each pag
 But not fucking import it in navbar
 It's so stupid, im gonna die
 -->
+
+<script type="text/javascript">
+	starClicked = function(param, mark) {
+		session = document.cookie.split('tfsession=')[1].split(';')[0];
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "/api/set_usertobacco_" + param + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + mark, false);
+		xhr.send();
+	}
+
+</script>
 
 </body>
 
