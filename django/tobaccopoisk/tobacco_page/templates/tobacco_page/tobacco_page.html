@@ -151,7 +151,7 @@
 										</div>
 										<div class="votes">
 											<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-											{{tobacco.heat_votes}}
+											{{tobacco|realParamAmount:param}}
 										</div>
 
 										{% if login != None %}

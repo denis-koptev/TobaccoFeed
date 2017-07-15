@@ -47,3 +47,20 @@ def realParam(tobacco, param):
 		return tobacco.rating
 	else:
 		return 0
+
+@register.filter(name='realParamAmount')
+def realParamAmount(tobacco, param):
+	if tobacco == None:
+		return 0
+	if param == 'heat':
+		return tobacco.heat_votes
+	elif param == 'taste':
+		return tobacco.taste_votes
+	elif param == 'smoke':
+		return tobacco.smoke_votes
+	elif param == 'strength':
+		return tobacco.strength_votes
+	elif param == 'rating':
+		return tobacco.rating_votes
+	else:
+		return 0
