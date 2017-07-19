@@ -27,14 +27,11 @@ def tobacco_view(request, brand, name):
 
 	login = engine.getAuthorized(request)
 
-	utos = None
+	utos = uto = None
 	if (login != None):
 		utos = UTO.objects.filter(user=login, tobacco=tobacco)
-		if len(utos) == 0:
-			uto = None
-		else:
+		if len(utos) != 0:
 			uto = utos[0]
-
 
 	context = {'brand': utils.to_view_str(brand), 
 			   'name': utils.to_view_str(name), 
