@@ -40,5 +40,10 @@ urlpatterns = [
     url(r'^set_usermix_bookmark/(?P<token>[0-9a-zA-Z./]+)/(?P<mix_id>[0-9]+)/(?P<vote>[0-9]+)$', 
         views.set_usermix_bookmark, name='api_set_usermix_bookmark'),
 
+    # ----------
+    # User API
+    #
 
+    url(r'^user_api/follow/(?P<token>[0-9a-zA-Z./]+)/(?P<username>[0-9a-z-_]+)$', views.userapi_follow, name='api_userapi_follow'),
+    url(r'^user_api/is_follow/(?P<follower>[0-9a-z-_]+)/(?P<following>[0-9a-z-_]+)$', views.userapi_is_follow, name='api_userapi_is_follow'),
 ]

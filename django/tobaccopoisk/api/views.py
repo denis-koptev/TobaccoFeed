@@ -1,11 +1,12 @@
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from search_page.engine import search as do_search
 from tobaccopoisk import utils
 from auth_page import engine
 from auth_page.models import User
 from user_page.models import UserTobacco, UserMix
 from tobacco_page.models import Tobacco, Mix
+from user_page import api as user_api
 # Create your views here.
 
 def tobacco(request, brand, name):
@@ -293,3 +294,16 @@ def set_usermix_favorite(request, token, mix_id, vote):
 
 def set_usermix_bookmark(request, token, mix_id, vote):
 	return set_umo_bool_param(token, mix_id, vote, 'bookmark')
+
+# ----------------------
+# User Object (UO)
+# ----------------------
+
+def userapi_follow(request, token, username):
+	result = user_api.follow_user(token, username)
+	return HttpResponse("{}".format(json.dumps(result, ensure_ascii=False)))
+
+
+def userapi_is_follow(request, follower, following):
+	result = user_api.is_follow(follower, following)
+	return HttpResponse("{}".format(json.dumps(result, ensure_ascii=False)))

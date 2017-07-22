@@ -164,6 +164,8 @@ def unauthorize(request):
 
 	return response
 
+# Return UserObject on success
+# Return None on failure
 def get_user_by_token(token):
 	user = None
 
