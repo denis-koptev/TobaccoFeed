@@ -46,4 +46,5 @@ urlpatterns = [
 
     url(r'^user_api/follow/(?P<token>[0-9a-zA-Z./]+)/(?P<username>[0-9a-z-_]+)$', views.userapi_follow, name='api_userapi_follow'),
     url(r'^user_api/is_follow/(?P<follower>[0-9a-z-_]+)/(?P<following>[0-9a-z-_]+)$', views.userapi_is_follow, name='api_userapi_is_follow'),
+    url(r'^user_api/unfollow/(?P<token>[0-9a-zA-Z./]+)/(?P<username>[0-9a-z-_]+)$', views.userapi_unfollow, name='api_userapi_unfollow'),
 ]

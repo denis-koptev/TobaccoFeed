@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from search_page.engine import search as do_search
 from tobaccopoisk import utils
 from auth_page import engine
@@ -306,4 +306,8 @@ def userapi_follow(request, token, username):
 
 def userapi_is_follow(request, follower, following):
 	result = user_api.is_follow(follower, following)
+	return HttpResponse("{}".format(json.dumps(result, ensure_ascii=False)))
+
+def userapi_unfollow(request, token, username):
+	result = user_api.unfollow_user(token, username)
 	return HttpResponse("{}".format(json.dumps(result, ensure_ascii=False)))
