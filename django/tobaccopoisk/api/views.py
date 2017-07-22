@@ -6,10 +6,19 @@ from auth_page.models import User
 from user_page.models import UserTobacco, UserMix
 from tobacco_page.models import Tobacco, Mix
 from user_page import api as user_api
+from tobacco_page import api as tobacco_api
 # Create your views here.
 
 def JSONResponse(data):
 	return HttpResponse("{}".format(json.dumps(data, ensure_ascii=False)))
+
+def recalc_tobacco_votes(request):
+	tobacco_api.recalc_tobacco_votes()
+	return JSONResponse({'result': True})
+
+def recalc_mix_votes(request):
+	tobacco_api.recalc_mix_votes()
+	return JSONResponse({'result': True})
 
 def tobacco(request, brand, name):
 	try:
