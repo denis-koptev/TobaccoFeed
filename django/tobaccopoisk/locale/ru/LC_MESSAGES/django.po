@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 13:47+0300\n"
+"POT-Creation-Date: 2017-07-20 00:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,8 +154,8 @@ msgid "Show more..."
 msgstr "Больше"
 
 #: .\main_page\templates\main_page\main_page.html:125
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:316
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:347
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:211
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:242
 msgid "Popular mixes"
 msgstr "Популярные миксы"
 
@@ -163,7 +163,7 @@ msgstr "Популярные миксы"
 #: .\main_page\templates\main_page\main_page.html:158
 #: .\main_page\templates\main_page\main_page.html:186
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:109
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:351
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:246
 msgid ""
 "Sorry, we are working on this part of our site, but now it is unavailable..."
 msgstr "К сожалению, страница пока не доступна. Мы работаем над этим."
@@ -226,7 +226,7 @@ msgid "Related"
 msgstr "Схожее"
 
 #: .\tobacco_page\templates\tobacco_page\tobacco_page.html:98
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:340
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:235
 msgid "Show more"
 msgstr "Больше"
 
@@ -242,31 +242,16 @@ msgstr "Описание"
 msgid "Characteristics"
 msgstr "Характеристики"
 
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:147
-msgid "STRENGTH:"
-msgstr "КРЕПОСТЬ:"
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:150
+#, python-format
+msgid " %(param|upper)s "
+msgstr ""
 
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:175
-msgid "HEATPROOF:"
-msgstr "ЖАРОСТОЙКОСТЬ:"
-
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:203
-msgid "SMOKE:"
-msgstr "ДЫМНОСТЬ:"
-
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:231
-msgid "TASTINESS:"
-msgstr "ВКУСОПЕРЕДАЧА:"
-
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:260
-msgid "GENERAL MARK:"
-msgstr "ОБЩАЯ ОЦЕНКА:"
-
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:290
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:185
 msgid "Tags"
 msgstr "Теги"
 
-#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:361
+#: .\tobacco_page\templates\tobacco_page\tobacco_page.html:256
 msgid "No mixes found"
 msgstr "Миксов не найдено"
 
@@ -348,6 +333,21 @@ msgstr "Предпочтения"
 #: .\user_page\templates\user_page\user_page.html:157
 msgid "Bookmarks"
 msgstr "Закладки"
+
+#~ msgid "STRENGTH:"
+#~ msgstr "КРЕПОСТЬ:"
+
+#~ msgid "HEATPROOF:"
+#~ msgstr "ЖАРОСТОЙКОСТЬ:"
+
+#~ msgid "SMOKE:"
+#~ msgstr "ДЫМНОСТЬ:"
+
+#~ msgid "TASTINESS:"
+#~ msgstr "ВКУСОПЕРЕДАЧА:"
+
+#~ msgid "GENERAL MARK:"
+#~ msgstr "ОБЩАЯ ОЦЕНКА:"
 
 #~ msgid "Add to friends"
 #~ msgstr "Добавить в друзья"

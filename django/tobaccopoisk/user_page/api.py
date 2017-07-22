@@ -10,12 +10,15 @@ from tobaccopoisk import utils
 # --------------
 
 def follow_user(token, username):
+
 	# get follower by token
+
 	follower = get_user_by_token(token)
 	if follower is None:
 		return {'result': False, 'desc': 'Session not found'}
 
 	# find and get following user
+
 	try:
 		following = AuthUser.objects.get(login=username)
 	except AuthUser.DoesNotExist:
@@ -25,57 +28,42 @@ def follow_user(token, username):
 		new_follow = Follow(follower=follower, following=following)
 		new_follow.save()
 	except IntegrityError:
-		return {'result': False, 'desc': 'Follow already exists'}
+		return {'result': False, 'desc': 'Following relation already exists'}
 	except DatabaseError:
-		return {'result': False, 'desc': 'Cant create follow'}
-	else:
-		return {'result': True, 'desc': 'Follow created'}
+		return {'result': False, 'desc': 'Can not create following relation'}
+
+	return {'result': True, 'desc': 'Following relation created'}
+
 
 def is_follow(follower_username, following_username):
-	# find and get follower user
-	try:
-		follower = AuthUser.objects.get(login=follower_username)
-	except AuthUser.DoesNotExist:
-		return {'result': False, 'desc': 'Follower user with specified username not found'}
 
-
-	# find and get following user
 	try:
-		following = AuthUser.objects.get(login=following_username)
-	except AuthUser.DoesNotExist:
-		return {'result': False, 'desc': 'Following user with specified username not found'}
-
-	# get Follow object
-	try:
-		Follow.objects.get(follower=follower, following=following)
+		Follow.objects.get(follower__login=follower_username, following__login=following_username)
+		return {'result': True, 'desc': 'Following relation exists'}
 	except Follow.DoesNotExist:
-		return {'result': False, 'desc': 'Follow does not exist'}
-	else:
-		return {'result': True, 'desc': 'Follow exists'}
+		return {'result': False, 'desc': 'Following relation was not found'}
+
 
 def unfollow_user(token, username):
+
 	# get follower by token
+
 	follower = get_user_by_token(token)
 	if follower is None:
 		return {'result': False, 'desc': 'Session not found'}
 
-	# find and get following user
 	try:
-		following = AuthUser.objects.get(login=username)
-	except AuthUser.DoesNotExist:
-		return {'result': False, 'desc': 'User with specified username not found'}	
-
-	try:
-		follow = Follow.objects.get(follower=follower, following=following)
+		follow = Follow.objects.get(follower=follower, following__login=username)
 	except Follow.DoesNotExist:
-		return {'result': False, 'desc': 'Follow to specified user does not exist'}
+		return {'result': False, 'desc': 'Following relation with specified user does not exist'}
 
 	try:
 		follow.delete()
 	except DatabaseError:
-		return {'result': False, 'desc': 'Cant remove follow'}
+		return {'result': False, 'desc': 'Can not remove following relation'}
 
-	return {'result': True, 'desc': 'Follow removed'}
+	return {'result': True, 'desc': 'Following relation removed'}
+
 
 # ------
 # UTO
@@ -87,21 +75,27 @@ def get_uto_by_names(username, brand, tobacco):
 	brand = utils.to_db_str(brand)
 
 	# get user
+
 	try:
 		usr = AuthUser.objects.get(login=username)
 	except AuthUser.DoesNotExist:
 		return {'result': False, 'desc': 'User not found'}
 
 	# get tobacco
+
 	try:
 		tobac = Tobacco.objects.get(brand=brand, name=tobacco)
 	except Tobacco.DoesNotExist:
 		return {'result': False, 'desc': 'Tobacco not found'}
 
 	# get UTO
+
 	try:
+
 		uto = UserTobacco.objects.get(user=usr, tobacco=tobac)
+
 	except UserTobacco.DoesNotExist:
+
 		data = 	{	
 				'result': 			True,
 				'username': 		username, 
@@ -116,7 +110,9 @@ def get_uto_by_names(username, brand, tobacco):
 				'is_favorite': 		None,
 				'is_bookmark': 		None,
 				}
+
 	else:
+
 		data = 	{	
 				'result': 			True,
 				'username': 		username, 
@@ -132,8 +128,8 @@ def get_uto_by_names(username, brand, tobacco):
 				'is_bookmark': 		uto.is_bookmark,
 				}
 
-	# result
 	return data
+
 
 def set_uto_param(token, brand, tobacco, raw_vote, param):
 
@@ -146,6 +142,7 @@ def set_uto_param(token, brand, tobacco, raw_vote, param):
 		return {'result': False, 'desc': 'Session not found'}
 
 	# get tobacco
+
 	try:
 		tobac = Tobacco.objects.get(brand=brand, name=tobacco)
 	except Tobacco.DoesNotExist:
@@ -176,15 +173,19 @@ def set_uto_param(token, brand, tobacco, raw_vote, param):
 
 
 	# Save or delete objects
+
 	try:
+
 		if uto.is_empty() is True:
 			uto.delete()
 		else:
 			uto.save()
+
 	except DatabaseError:
 		return {'result': False, 'desc': 'Update error'}
-	else:
-		return {'result': True, 'desc': 'Heat vote updated'}
+
+	return {'result': True, 'desc': 'Heat vote updated'}
+
 
 def set_uto_int_param(token, brand, tobacco, vote, param):
 
@@ -198,6 +199,7 @@ def set_uto_int_param(token, brand, tobacco, vote, param):
 
 	return set_uto_param(token, brand, tobacco, vote, param)
 
+
 def set_uto_bool_param(token, brand, tobacco, vote, param):
 
 	if vote == '1':
@@ -209,6 +211,7 @@ def set_uto_bool_param(token, brand, tobacco, vote, param):
 
 	return set_uto_param(token, brand, tobacco, vote, param)
 
+
 # ------
 # UMO
 # ------
@@ -216,21 +219,27 @@ def set_uto_bool_param(token, brand, tobacco, vote, param):
 def get_umo(username, mix_id):
 
 	# get user
+
 	try:
 		usr = AuthUser.objects.get(login=username)
 	except AuthUser.DoesNotExist:
 		return {'result': False, 'desc': 'User not found'}
 
 	# get mix by id
+
 	try:
 		mix = Mix.objects.get(id=mix_id)
 	except Mix.DoesNotExist:
 		return {'result': False, 'desc': 'Mix with specified id not found'}
 
 	# get umo
+
 	try:
+
 		umo = UserMix.objects.get(user=usr, mix=mix)
+
 	except UserMix.DoesNotExist:
+
 		data = 	{	
 				'result': 			True,
 				'username': 		username, 
@@ -240,7 +249,9 @@ def get_umo(username, mix_id):
 				'is_favorite': 		None,
 				'is_bookmark': 		None,
 				}
+
 	else:
+
 		data = 	{	
 				'result': 			True,
 				'username': 		username, 
@@ -252,6 +263,7 @@ def get_umo(username, mix_id):
 				}
 
 	return data
+
 
 def set_umo_param(token, mix_id, raw_vote, param):
 
@@ -282,14 +294,17 @@ def set_umo_param(token, mix_id, raw_vote, param):
 		umo.is_bookmark = vote
 
 	try:
+
 		if umo.is_empty():
 			umo.delete()
 		else:
 			umo.save()
+
 	except DatabaseError:
 		return {'result': False, 'desc': 'Update error'}
-	else:
-		return {'result': True, 'desc': 'Rating vote updated'}
+	
+	return {'result': True, 'desc': 'Rating vote updated'}
+
 
 def set_umo_int_param(token, mix_id, vote, param):
 
@@ -298,6 +313,7 @@ def set_umo_int_param(token, mix_id, vote, param):
 		return {'result': False, 'desc': 'Vote should be positive integer not higher than 10'}
 
 	return set_umo_param(token, mix_id, vote, param)
+
 
 def set_umo_bool_param(token, mix_id, vote, param):
 	

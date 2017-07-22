@@ -143,39 +143,39 @@
 							</div>
 
 							{% with 'strength heat smoke taste rating' as param_list %}
-							    {% for param in param_list.split %}
+							{% for param in param_list.split %}
 
-									<div class="header_content_light">
-										<div class="votes">
-											{% blocktrans %}{{param}}:{% endblocktrans %} {{ tobacco|realParam:param }}
-										</div>
-										<div class="votes">
-											<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-											{{tobacco|realParamAmount:param}}
-										</div>
+							<div class="header_content_light">
+								<div class="votes">
+									{{param|upper}}: {{ tobacco|realParam:param }}
+								</div>
+								<div class="votes">
+									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+									{{tobacco|realParamAmount:param}}
+								</div>
 
-										{% if login != None %}
+								{% if login != None %}
 
-										<form id="ratingsForm">
-											<div class="stars">
+								<form id="ratingsForm">
+									<div class="stars">
 
-												{% for star_idx in "0123456789" %}
-												<input type="radio" name="star" class="star-{{star_idx}}" id="{{param}}{{star_idx}}" onclick="starClicked('{{param}}', {{star_idx|add:1}})" {% if star_idx|add:1 == uto|realVote:param %} checked {% endif %}/>
-												<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}">1</label>
-												{% endfor %}
-												
-												<span></span>
+										{% for star_idx in "0123456789" %}
+										<input type="radio" name="star" class="star-{{star_idx}}" id="{{param}}{{star_idx}}" onclick="starClicked('{{param}}', {{star_idx|add:1}})" {% if star_idx|add:1 == uto|realVote:param %} checked {% endif %}/>
+										<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}">1</label>
+										{% endfor %}
 
-											</div>
-											{{uto|realVote:param}}
-										</form>
-										
-										{% endif %}
+										<span></span>
 
 									</div>
+									<!--{{uto|realVote:param}}-->
+								</form>
+
+								{% endif %}
+
+							</div>
 
 
-							    {% endfor %}
+							{% endfor %}
 							{% endwith %}
 
 							<p></p>
@@ -252,9 +252,9 @@
 								{% endif %}
 
 								{% else %}
-									<p>
-										{% blocktrans %}No mixes found{% endblocktrans %}
-									</p>
+								<p>
+									{% blocktrans %}No mixes found{% endblocktrans %}
+								</p>
 								{% endif %}
 							</div>
 
@@ -283,6 +283,7 @@ It's so stupid, im gonna die
 -->
 
 <script type="text/javascript">
+
 	starClicked = function(param, mark) {
 		session = document.cookie.split('tfsession=')[1].split(';')[0];
 		var xhr = new XMLHttpRequest();
