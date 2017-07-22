@@ -228,3 +228,12 @@ blockquote > p:first-child {
 .tag_href:hover {
     font-weight: bold;
 }
+
+.vote_span {
+    background: #DDD;
+    border: 1px solid black;
+    padding: 2px 5px;
+    border-radius: 2px;
+    margin-left: 10px;
+    font-family: sans-serif;
+}

@@ -12,6 +12,7 @@
 	<link type="text/css" rel="stylesheet" href="{% static "/ratebar/css/ratebar_style.css" %}"></link>
 	<link rel="stylesheet" type="text/css" href="{% static "/modal/css/modal_style.css" %}"></link>
 	<link rel="icon" href="{% static "/favicon.ico" %}">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 
@@ -156,12 +157,17 @@
 
 								{% if login != None %}
 
+								<div class="votes">								
+									<span id="{{param}}_span_init" class="vote_span">{{uto|realVote:param}}</span>
+									<span id="{{param}}_span_hover" class="vote_span" style="display: none;"></span>
+								</div>
+
 								<form id="ratingsForm">
 									<div class="stars">
 
 										{% for star_idx in "0123456789" %}
 										<input type="radio" name="star" class="star-{{star_idx}}" id="{{param}}{{star_idx}}" onclick="starClicked('{{param}}', {{star_idx|add:1}})" {% if star_idx|add:1 == uto|realVote:param %} checked {% endif %}/>
-										<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}">1</label>
+										<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}" onmouseover="starHover('{{param}}_span', {{star_idx|add:1}})" onmouseout="starUnhover('{{param}}_span')">1</label>
 										{% endfor %}
 
 										<span></span>
@@ -275,24 +281,31 @@
 
 	<script type="text/javascript" src="{% static "/tobacco_page/js/modal_actions.js" %}"></script>
 
-<!--
-It's fucking disgusting to import this huge shit on each page
-Maybe we can make individual window.click handler and modal handler for each page
-But not fucking import it in navbar
-It's so stupid, im gonna die
--->
+	<script type="text/javascript">
 
-<script type="text/javascript">
+		starClicked = function(param, mark) {
+			session = document.cookie.split('tfsession=')[1].split(';')[0];
+			var xhr = new XMLHttpRequest();
 
-	starClicked = function(param, mark) {
-		session = document.cookie.split('tfsession=')[1].split(';')[0];
-		var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/api/user_api/set_uto_" + param + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + mark, false);
+			xhr.send();
 
-		xhr.open("GET", "/api/set_usertobacco_" + param + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + mark, false);
-		xhr.send();
-	}
+			document.getElementById(param + "_span_init").innerHTML = mark;
+		}
 
-</script>
+		starHover = function(voteSpan, value) {
+			document.getElementById(voteSpan + "_init").style.display = "none";
+			document.getElementById(voteSpan + "_hover").style.display = "inline";
+			document.getElementById(voteSpan + "_hover").innerHTML = value;
+		}
+
+		starUnhover = function(voteSpan) {
+			document.getElementById(voteSpan + "_init").style.display = "inline";
+			document.getElementById(voteSpan + "_hover").style.display = "none";
+			document.getElementById(voteSpan + "_hover").innerHTML = "";
+		}
+
+	</script>
 
 </body>
 

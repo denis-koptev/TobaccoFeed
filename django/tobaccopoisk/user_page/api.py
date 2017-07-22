@@ -39,9 +39,10 @@ def is_follow(follower_username, following_username):
 
 	try:
 		Follow.objects.get(follower__login=follower_username, following__login=following_username)
-		return {'result': True, 'desc': 'Following relation exists'}
 	except Follow.DoesNotExist:
 		return {'result': False, 'desc': 'Following relation was not found'}
+
+	return {'result': True, 'desc': 'Following relation exists'}
 
 
 def unfollow_user(token, username):
