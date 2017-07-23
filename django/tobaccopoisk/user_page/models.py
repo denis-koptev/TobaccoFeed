@@ -53,7 +53,7 @@ path_and_rename = PathAndRename("user_page/static/user_page/avatars/")
 DEFAULT_AVATAR = "user_page/static/user_page/avatars/default_avatar.svg"
 
 class User(models.Model):
-	auth_id = models.OneToOneField(AuthUser, on_delete=models.CASCADE, primary_key=True)
+	auth_id = models.OneToOneField(AuthUser, on_delete=models.CASCADE, primary_key=True, related_name='info')
 	name = models.CharField(null=True, blank=True, max_length=50)
 	b_date = models.DateField(null=True, blank=True)
 	place = models.CharField(null=True, blank=True, max_length=50)

@@ -1,8 +1,10 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 
 urlpatterns = [
+
+    url(r'^v2/', include('api.urls_v2')),
 
     url(r'^search$', views.search, name='api_search'),
 
