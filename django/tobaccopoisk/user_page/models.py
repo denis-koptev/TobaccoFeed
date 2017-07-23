@@ -87,7 +87,7 @@ class Follow(models.Model):
 
 class UserTobacco(models.Model):
 	user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
-	tobacco = models.ForeignKey(Tobacco, on_delete=models.CASCADE)
+	tobacco = models.ForeignKey(Tobacco, on_delete=models.CASCADE)#, related_name='uto')
 	strength_vote = models.SmallIntegerField(null=True, blank=True)
 	smoke_vote = models.SmallIntegerField(null=True, blank=True)
 	taste_vote = models.SmallIntegerField(null=True, blank=True)

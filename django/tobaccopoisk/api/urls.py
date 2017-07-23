@@ -4,8 +4,17 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^(?P<brand>[0-9a-z-_]+)/(?P<name>[0-9a-z-_]+)([/]?)$', views.tobacco, name='api_tobacco'),
     url(r'^search$', views.search, name='api_search'),
+
+    # ----------
+    # Tobacco API
+    # ----------
+
+    url(r'^tobacco_api/get_tobacco/(?P<brand>[0-9a-z-_]+)/(?P<name>[0-9a-z-_]+)([/]?)$', views.tobacco, name='api_tobacco'),
+    url(r'^tobacco_api/recalc_tobacco_votes$',
+        views.recalc_tobacco_votes, name='tobacco_api_recalc_tobacco_votes'),
+    url(r'^tobacco_api/recalc_mix_votes$',
+        views.recalc_mix_votes, name='tobacco_api_recalc_mix_votes'),
 
     # ----------
     # User API
