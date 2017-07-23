@@ -5,49 +5,48 @@
 
 <head>
 
-	<title>{% blocktrans %}Sign In - TobaccoFeed{% endblocktrans %}</title>
+    <title>{% blocktrans %}Sign In - TobaccoFeed{% endblocktrans %}</title>
 
-	<link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
-	<link rel="icon" href="{% static "/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
 
 <body>
 
-	{% include "navbar.html" %}
+    {% include "navbar.html" %}
+
+    <table class="table_content" align="center">
+
+        <tr>
+
+            <td valign="center" align="center">
+
+                <form method="post" action="/auth" class="login_form">
+                    {% csrf_token %}
+                    {% blocktrans %}Login{% endblocktrans %}
+                    <br>
+                    <input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
+                    <br>
+                    {% blocktrans %}Password{% endblocktrans %}
+                    <br>
+                    <input type="password" name="password" id="password" required id="password" maxlength="64">
+                    <br>
+                    <button type="submit" class="login_button">{% blocktrans %}Sign In{% endblocktrans %}</button>
+                    <br>
+                    <a href="/reg" class="register_button">{% blocktrans %}Sign Up{% endblocktrans %}</a>
+                </form>
+
+            </td>
+
+        </tr>
+
+    </table>
 
 
-	<table class="table_content" align="center">
+    {% include "footer.html" %}
 
-		<tr>
-
-			<td valign="center" align="center">
-
-				<form method="post" action="/auth" class="login_form">
-					{% csrf_token %}
-					{% blocktrans %}Login{% endblocktrans %}
-					<br>
-					<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
-					<br>
-					{% blocktrans %}Password{% endblocktrans %}
-					<br>
-					<input type="password" name="password" id="password" required id="password" maxlength="64">
-					<br>
-					<button type="submit" class="login_button">{% blocktrans %}Sign In{% endblocktrans %}</button>
-					<br>
-					<a href="/reg" class="register_button">{% blocktrans %}Sign Up{% endblocktrans %}</a>
-				</form>
-
-			</td>
-
-		</tr>
-
-	</table>
-
-
-	{% include "footer.html" %}
-
-	{% include "dialog.html" %}
+    {% include "dialog.html" %}
 
 </body>
 </html>

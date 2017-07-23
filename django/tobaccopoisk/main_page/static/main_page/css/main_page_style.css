@@ -1,116 +1,94 @@
 .mix_cell {
-    text-align: center;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    text-align:center;
+    border-radius:15px;
+    cursor:pointer;
+    transition:all .2s ease
 }
 
 .mix_cell:hover {
-    background: rgba(100,100,100,0.5);
-    transition: all 0.2s ease;
+    background:rgba(100,100,100,0.5);
+    transition:all .2s ease
 }
-
-/*hr.style-round {
-    height: 30px;
-    border-style: solid;
-    border-color: gray;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
-    margin-top: 31px;
-}
-hr.style-round:before { 
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: gray;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-}*/
 
 .news_table {
-    width: 100%;
-    margin-bottom: 10px;
+    width:100%;
+    margin-bottom:10px
 }
 
 .slider_area {
-    width: 40%;
-    background-color: rgba(1,1,1,0.5);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width:40%;
+    background-color:rgba(1,1,1,0.5);
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.5)
 }
 
 .text_news_area {
-    width: 60%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border-spacing: 0;
-    background-color: rgba(1,1,1,0.5);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width:60%;
+    box-sizing:border-box;
+    border-radius:5px;
+    border-spacing:0;
+    background-color:rgba(1,1,1,0.5);
+    box-shadow:0 0 10px rgba(0,0,0,0.5)
 }
 
 .news_rec {
-    color: #DDDDDD;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    transition: all 0.2s ease;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-shadow: black 2px 2px 4px;
-    padding: 3px;
-    padding-left: 10px;
+    color:#DDD;
+    text-decoration:none;
+    font-size:16px;
+    font-family:DrugsThin,serif;
+    font-weight:700;
+    transition:all .2s ease;
+    text-shadow:#000 2px 2px 4px;
+    padding:3px;
+    padding-left:10px;
+    margin:10px
 }
 
 .news_rec a {
-    color: #FFBBBB;
-    text-decoration: none;
-    transition: all 0.6s ease;
+    color:#FBB;
+    text-decoration:none;
+    transition:all .6s ease
 }
 
 .news_rec a:hover {
-    color: yellow;
-    transition: all 0.6s ease;
+    color:#ff0;
+    transition:all .6s ease
 }
 
 .rec_active {
-    background-color: rgba(255,255,255,0.2);
+    background-color:rgba(255,255,255,0.2)
 }
 
 .about_div {
-    font-size: 20px;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    color: #DDDDDD;
-    text-shadow: black 2px 2px 4px;
-    text-align: center;
-    display: block;
-    margin-bottom: 15px;
+    font-size:20px;
+    font-family:DrugsThin,serif;
+    font-weight:700;
+    color:#DDD;
+    text-shadow:#000 2px 2px 4px;
+    text-align:center;
+    display:block;
+    margin-bottom:15px
 }
 
 .about_href {
-    font-size: 20px;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    color: #DDDDDD;
-    background-color: rgba(1,1,1,0.3);
-    text-decoration: none;
-    border-radius: 5px;
-    border: 1px solid;
-    padding: 5px;
-    transition: all 0.2s ease;
-    margin-right: 20px;
+    font-size:20px;
+    font-family:DrugsThin,serif;
+    font-weight:700;
+    color:#DDD;
+    background-color:rgba(1,1,1,0.3);
+    text-decoration:none;
+    border-radius:5px;
+    border:1px solid;
+    padding:5px;
+    transition:all .2s ease;
+    margin-right:20px
 }
 
 .about_href:hover {
-    color: #AAFFDD;
-    transition: all 0.2s ease;
+    color:#AFD;
+    transition:all .2s ease
 }
 
 .lock_image {
-    width: 100%;
+    width:100%
 }

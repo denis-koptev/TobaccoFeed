@@ -6,7 +6,7 @@
 <title>{% blocktrans %}Search - TobaccoFeed{% endblocktrans %}</title>
 
     <link type="text/css" rel="stylesheet" href="{% static "search_page/css/search_page_style.css" %}"></link>
-   	<link rel="icon" href="{% static "/favicon.ico" %}">
+    <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
 
@@ -19,64 +19,64 @@
 
 <table class="table_content">
 
-	<tr>
-		<td class="side_bar"></td>
+    <tr>
+        <td class="side_bar"></td>
 
-		<td class="main_content" valign="top">
+        <td class="main_content" valign="top">
 
-			<div class="search_header">
-				{% blocktrans %}Search results:{% endblocktrans %} <font color="#FFFFCC"><i>{{search_string}}</i></font>
-			</div>
+            <div class="search_header">
+                {% blocktrans %}Search results:{% endblocktrans %} <font color="#FFFFCC"><i>{{search_string}}</i></font>
+            </div>
 
-			{% if found|length == 0 %}
-				<div class="search_header">
-					<font size="5">
-						{% blocktrans %}nothing found{% endblocktrans %}
-					</font>
-				</div>
-			{% endif %}
+            {% if found|length == 0 %}
+                <div class="search_header">
+                    <font size="5">
+                        {% blocktrans %}nothing found{% endblocktrans %}
+                    </font>
+                </div>
+            {% endif %}
 
-			<div class="search_header">
-				<font size="5">
-					{% blocktrans %}Tobaccos found: {% endblocktrans %}{{total_count}}
-				</font>
-			</div>
+            <div class="search_header">
+                <font size="5">
+                    {% blocktrans %}Tobaccos found: {% endblocktrans %}{{total_count}}
+                </font>
+            </div>
 
-			{% for rec in found %}
-				<a href="{{rec.url}}">
-			    <table class="search_element" >
-			    	<tr>
-			    		<td class="search_tobacco_div">
-			    			<img src="{{rec.image}}" class="search_tobacco_image">
-			    		</td>
-			    		<td class="search_tobacco_brand" valign="middle">
-			    			{{rec.brand}}
-			    			{{rec.name}}
-			    		</td>
-			    	</tr>
-			    </table>
-			    </a>
-			{% endfor %}
+            {% for rec in found %}
+                <a href="{{rec.url}}">
+                <table class="search_element" >
+                    <tr>
+                        <td class="search_tobacco_div">
+                            <img src="{{rec.image}}" class="search_tobacco_image">
+                        </td>
+                        <td class="search_tobacco_brand" valign="middle">
+                            {{rec.brand}}
+                            {{rec.name}}
+                        </td>
+                    </tr>
+                </table>
+                </a>
+            {% endfor %}
 
-			<table width="100%;">
-				<tr>
-					{% if page_num > 1 %}
-					<td align="center">
-						<button class="page_button">Prev</button>
-					</td>
-					{% endif %}
-					{% if pages_remained > 0 %}
-					<td align="center">
-						<button class="page_button">Next</button>
-					</td>
-					{% endif %}
-				</tr>
-			</table>
+            <table width="100%;">
+                <tr>
+                    {% if page_num > 1 %}
+                    <td align="center">
+                        <button class="page_button">Prev</button>
+                    </td>
+                    {% endif %}
+                    {% if pages_remained > 0 %}
+                    <td align="center">
+                        <button class="page_button">Next</button>
+                    </td>
+                    {% endif %}
+                </tr>
+            </table>
 
-		</td>
+        </td>
 
-		<td class="side_bar"></td>
-	</tr>
+        <td class="side_bar"></td>
+    </tr>
 
 </table>
 

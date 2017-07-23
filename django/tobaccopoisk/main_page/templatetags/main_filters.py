@@ -13,5 +13,3 @@ def real_url(s):
 @stringfilter
 def view_str(s):
     return utils.to_view_str(s)
-
-

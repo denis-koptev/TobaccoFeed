@@ -1,50 +1,42 @@
 .search_header {
-	font-size: 36px;
-	margin-top: 10px;
-	margin-left: 15px;
-	margin-bottom: 25px;
-
-	color: white;
-	font-family: DrugsThin, serif;
-	font-weight: bold;
+    margin-top:10px;
+    margin-left:15px;
+    margin-bottom:25px;
+    color:#fff;
+    font:700 36px DrugsThin,serif
 }
 
 .search_element {
-	float: left;
-	background-color: rgba(255,255,255,0.7);
-	border-radius: 10px;
-	padding: 5px;
-	/*width: 44%;*/ /* for two recs in one row */
-	width: 94%;
-	margin-left: 3%;
-	margin-right: 3%;
-	text-align: center;
-	margin-bottom: 20px;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out 
+    float:left;
+    background-color:rgba(255,255,255,0.7);
+    border-radius:10px;
+    padding:5px;
+    width:94%;
+    margin-left:3%;
+    margin-right:3%;
+    text-align:center;
+    margin-bottom:20px;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out
 }
 
 .search_element:hover {
-	background-color: rgba(255,255,255,0.9);
+    background-color:rgba(255,255,255,0.9)
 }
 
 .search_tobacco_div {
-	width: 25%;
+    width:25%
 }
 
 .search_tobacco_image {
-	/*width: 100%;*/
-	height: 150px;
+    height:150px
 }
 
 .search_tobacco_brand {
-	font-size: 24px;
-	font-family: DrugsThin, serif;
-	font-weight: bold;
-	color: black;
-	margin: 0;
-	vertical-align: center;
+    color:#000;
+    margin:0;
+    vertical-align:center;
+    font:700 24px DrugsThin,serif
 }

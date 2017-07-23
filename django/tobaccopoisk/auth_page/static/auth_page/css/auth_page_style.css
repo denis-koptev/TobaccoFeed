@@ -1,73 +1,61 @@
 .login_form {
-    width: 30%;
-    background-color: rgba(1,1,1,0.7);
-    border-radius: 15px;
-    text-align: center;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    font-size: 24px;
-    color: white;
-    padding: 15px;
-    overflow: hidden;
-    border: 1px solid gray;
-    display: inline-block;
+    width:30%;
+    background-color:rgba(1,1,1,0.7);
+    border-radius:15px;
+    text-align:center;
+    color:#fff;
+    padding:15px;
+    overflow:hidden;
+    border:1px solid gray;
+    display:inline-block;
+    font:700 24px DrugsThin,serif
 }
 
 .login_form input {
-    margin-top: 12px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    border-radius: 5px;
-    padding-left: 10px;
-    border: none;
-
-    background-color: rgba(255,255,255, 0.8);
+    margin-top:12px;
+    margin-bottom:15px;
+    font-size:20px;
+    border-radius:5px;
+    padding-left:10px;
+    border:none;
+    background-color:rgba(255,255,255,0.8)
 }
 
 .login_button {
-    margin-top: 10px;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    font-size: 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    background: none;
-    color: #55BB55;
-    border: none;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
+    margin-top:10px;
+    border-radius:5px;
+    cursor:pointer;
+    background:none;
+    color:#5B5;
+    border:none;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out;
+    font:700 24px DrugsThin,serif
 }
 
 .login_button:hover {
-    background-color: rgba(200,255,230,0.2);
+    background-color:rgba(200,255,230,0.2)
 }
 
 .register_button {
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    font-size: 18px;
-    color: #FF5555;
-    border-radius: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    text-decoration: none;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    display: inline-block;
-    margin-top: 10px;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
+    color:#F55;
+    border-radius:5px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:10px;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out;
+    padding:2px 5px;
+    font:700 18px DrugsThin,serif
 }
 
 .register_button:hover {
-    background-color: rgba(230,255,200,0.2); 
+    background-color:rgba(230,255,200,0.2)
 }
