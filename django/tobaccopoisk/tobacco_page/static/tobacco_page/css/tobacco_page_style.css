@@ -7,14 +7,20 @@
 }
 
 .votes {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 300px;
+    display: -moz-inline-stack; /* ← Firefox 2 backwards compatibility */
     display: inline-block;
-    text-align: center;
-    text-decoration: none;
+    vertical-align: top;
+
+    /* ↓ IE6 & IE7 «hasLayout» voodoo */
+    zoom: 1;
+    *display: inline;
+
+    font-family: ClinicaRegular;
+    font-weight: 700;
     font-size: 14px;
-    font-family: ClinicaRegular, Arial, serif;
-    letter-spacing: 2pt;
+
+    padding-top: 5px;
 }
 
 .vote_icon {
@@ -236,4 +242,11 @@ blockquote > p:first-child {
     border-radius: 2px;
     margin-left: 10px;
     font-family: sans-serif;
+}
+
+.rm_vote_span {
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
 }

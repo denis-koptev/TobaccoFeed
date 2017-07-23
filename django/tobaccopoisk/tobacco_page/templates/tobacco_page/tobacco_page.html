@@ -125,6 +125,7 @@
 						<td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
 
 							<!-- description -->
+
 							{% if tobacco.description|length > 0 %}
 							<div class="header_label">
 								{% blocktrans %}Description{% endblocktrans %}
@@ -147,44 +148,44 @@
 							{% for param in param_list.split %}
 
 							<div class="header_content_light">
+
 								<div class="votes">
+									
 									{{param|upper}}: {{ tobacco|realParam:param }}
-								</div>
-								<div class="votes">
+									
 									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
 									{{tobacco|realParamAmount:param}}
-								</div>
+									
+									{% if login != None %}
 
-								{% if login != None %}
-
-								<div class="votes">								
-									<span id="{{param}}_span_init" class="vote_span">{{uto|realVote:param}}</span>
+									<span id="{{param}}_span_init" class="vote_span">{{uto|realVote:param|default_if_none:"0"}}</span>
 									<span id="{{param}}_span_hover" class="vote_span" style="display: none;"></span>
-								</div>
 
-								<form id="ratingsForm">
-									<div class="stars">
+									{% if uto|realVote:param != None %}
+									<button onclick="makeVote('{{param}}', 0)" class="rm_vote_span">✕</button>
+									{% endif %}
+									
+									<form class="tf_rate">
+										{% for star_idx in "9876543210" %}
 
-										{% for star_idx in "0123456789" %}
-										<input type="radio" name="star" class="star-{{star_idx}}" id="{{param}}{{star_idx}}" onclick="starClicked('{{param}}', {{star_idx|add:1}})" {% if star_idx|add:1 == uto|realVote:param %} checked {% endif %}/>
-										<label class="star-{{star_idx}}" for="{{param}}{{star_idx}}" onmouseover="starHover('{{param}}_span', {{star_idx|add:1}})" onmouseout="starUnhover('{{param}}_span')">1</label>
+										<input type="radio" id="{{param}}_star_{{star_idx|add:1}}" value="{{star_idx|add:1}}" name="tf_rate" class="tf_star" {% if uto|realVote:param == star_idx|add:1 %} checked {% endif %}/>
+										<label for="{{param}}_star_{{star_idx|add:1}}" onmouseover="tfStarHover('{{param}}',{{star_idx|add:1}})" onmouseout="tfStarUnhover('{{param}}',{{star_idx|add:1}})"></label>
+
 										{% endfor %}
+									</form>
 
-										<span></span>
+									{% endif %}
 
-									</div>
-									<!--{{uto|realVote:param}}-->
-								</form>
-
-								{% endif %}
+								</div>
 
 							</div>
-
 
 							{% endfor %}
 							{% endwith %}
 
 							<p></p>
+
+							<!-- tags --> 
 
 							<div class="collapse_div">
 								<input id="toggle" type="checkbox">
@@ -283,26 +284,43 @@
 
 	<script type="text/javascript">
 
-		starClicked = function(param, mark) {
+		makeVote = function(type, vote) {
 			session = document.cookie.split('tfsession=')[1].split(';')[0];
 			var xhr = new XMLHttpRequest();
 
-			xhr.open("GET", "/api/user_api/set_uto_" + param + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + mark, false);
+			xhr.open("GET", "/api/user_api/set_uto_" + type + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + vote, false);
 			xhr.send();
 
-			document.getElementById(param + "_span_init").innerHTML = mark;
+			if (vote == 0) {
+				window.location.reload(false);
+			}
+
+			return xhr.status == 200; // OK
 		}
 
-		starHover = function(voteSpan, value) {
-			document.getElementById(voteSpan + "_init").style.display = "none";
-			document.getElementById(voteSpan + "_hover").style.display = "inline";
-			document.getElementById(voteSpan + "_hover").innerHTML = value;
+		tfStarClicked = function() {
+			/* Star id structure: <type>_star_<number> */
+			type = this.id.substring(0, this.id.indexOf('_'));
+			makeVote(type, this.value);
+			document.getElementById(type + "_span_init").innerHTML = this.value;
+
 		}
 
-		starUnhover = function(voteSpan) {
-			document.getElementById(voteSpan + "_init").style.display = "inline";
-			document.getElementById(voteSpan + "_hover").style.display = "none";
-			document.getElementById(voteSpan + "_hover").innerHTML = "";
+		tfStarHover = function(type, vote) {
+			document.getElementById(type + "_span_init").style.display = "none";
+			document.getElementById(type + "_span_hover").style.display = "inline";
+			document.getElementById(type + "_span_hover").innerHTML = vote;
+		}
+
+		tfStarUnhover = function(type, vote) {
+			document.getElementById(type + "_span_init").style.display = "inline";
+			document.getElementById(type + "_span_hover").style.display = "none";
+			document.getElementById(type + "_span_hover").innerHTML = "";
+		}
+
+		var elems = document.querySelectorAll('.tf_star');
+		for (var i=elems.length; i--;) {
+			elems[i].addEventListener('click', tfStarClicked, false);
 		}
 
 	</script>
