@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from datetime import date
+from tobaccopoisk import utils
 
 # ------------------------
 # Create storage to change url path
@@ -81,6 +82,18 @@ class Tobacco(models.Model):
 
 	def __str__(self):
 		return self.brand.title() + ' ' +self.name.title()
+
+	def getDict(self):
+		return {
+		'brand' : self.brand, 'name' : self.name, 
+		'release_date' : str(self.release_date), 'description' : self.description, 
+		'strength' : self.strength, 'strength_votes' : self.strength_votes,
+		'smoke' : self.smoke, 'smoke_votes' : self.smoke_votes,
+		'taste' : self.taste, 'taste_votes' : self.taste_votes,
+		'heat' : self.heat, 'heat_votes' : self.heat_votes,
+		'rating' : self.rating, 'rating_votes' : self.rating_votes,
+		'image' : utils.image_url_handler(str(self.image))
+		}
 
 # ----------------
 # Start of routine
