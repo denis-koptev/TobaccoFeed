@@ -38,10 +38,9 @@ def search(request):
 	login = engine.getAuthorized(request)
 
 	context = {'found': getPage(filtered, page),
-			   'search_string': q,
+			   'q': q,
 			   'login' : login,
 			   'page' : page,
-			   'q' : q,
 			   'page_count' : pageCount,
 			   'total_count' : len(filtered) }
 
@@ -49,6 +48,9 @@ def search(request):
 
 
 def getPage(list, page):
+
+	if len(list) == 0:
+		return []
 
 	tail = pageSize * page
 
