@@ -110,6 +110,15 @@ class UserTobacco(models.Model):
 			(self.heat_vote is None) and (self.rating_vote is None) and 
 			(self.is_favorite is False) and (self.is_bookmark is False))
 
+	def getDict(self):
+		return 	{ 
+				'id': self.id, 'user_id': self.user_id, 'tobacco_id': self.tobacco_id,
+				'strength_vote': self.strength_vote, 'smoke_vote': self.smoke_vote,
+				'taste_vote': self.taste_vote, 'heat_vote': self.heat_vote,
+				'rating_vote': self.rating_vote, 'is_favorite': self.is_favorite,
+				'is_bookmark': self.is_bookmark,
+				}
+
 # ----------------------
 # User-Mix Object
 # ----------------------

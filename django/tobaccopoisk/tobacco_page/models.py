@@ -85,7 +85,7 @@ class Tobacco(models.Model):
 
 	def getDict(self):
 		return {
-		'brand' : self.brand, 'name' : self.name, 
+		'id' : self.id, 'brand' : self.brand, 'name' : self.name, 
 		'release_date' : str(self.release_date), 'description' : self.description, 
 		'strength' : self.strength, 'strength_votes' : self.strength_votes,
 		'smoke' : self.smoke, 'smoke_votes' : self.smoke_votes,

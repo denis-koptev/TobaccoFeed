@@ -5,20 +5,27 @@ from django.db import connection
 from tobaccopoisk import utils, settings
 
 from auth_page.models import User as AuthUser
-from user_page.models import User, Follow
+from user_page.models import User, Follow, UserTobacco
 from tobacco_page.models import Tobacco
 
-def JSONResponse(data, status=200):
+def JSONResponse(data):
 	if settings.DEBUG is True:
 		data['db_queries'] = len(connection.queries)
 
 	json_data = "{}".format(json.dumps(data, ensure_ascii=False))
-	return HttpResponse(json_data, status=status)
+	return HttpResponse(json_data, status=data['status'])
 
 def getIntParam(request, param, default):
 	p = request.GET.get(param)
 	if (p is not None) and (p.isdigit()):
 		return int(p)
+	else:
+		return default
+
+def getParam(request, param, default):
+	p = request.GET.get(param)
+	if p is not None:
+		return p
 	else:
 		return default
 
@@ -56,17 +63,15 @@ def getFollowersDict(user):
 def users(request):
 	"""
 	Params:
-		[int] offset
-		[int] limit
+		[int] offset (default : 0)
+		[int] limit (default : 10)
 	Examples:
 		/api/v2/users
 		/api/v2/users?offset=5&limit=2
 	"""
-	offset = getIntParam(request, 'offset', None)
-	limit = getIntParam(request, 'limit', None)
-
-	if offset is not None and limit is not None:
-		limit += offset
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
 
 	users = AuthUser.objects.select_related('info').all()[offset:limit]
 
@@ -86,7 +91,7 @@ def user(request, username):
 	"""
 	Params:
 	Examples:
-		/api/v2/users/japroc
+		/api/v2/users/<username>
 	"""
 	try:
 		user = AuthUser.objects
@@ -109,28 +114,124 @@ def user(request, username):
 def tobaccos(request):
 	"""
 	Params:
-		[int] offset
-		[int] limit
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+		[str] brand
+		[str] name
 	Examples:
 		/api/v2/tobaccos
 		/api/v2/tobaccos?offset=5&limit=2
 	"""
-	offset = getIntParam(request, 'offset', None)
-	limit = getIntParam(request, 'limit', None)
 
-	if offset is not None and limit is not None:
-		limit += offset
+	brand = getParam(request, 'brand', None)
+	name = getParam(request, 'name', None)
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
 
-	tobaccos = Tobacco.objects.all()[offset:limit]
+	tobaccos = Tobacco.objects
+	if brand is not None:
+		tobaccos = tobaccos.filter(brand=brand)
+	if name is not None:
+		tobaccos = tobaccos.filter(name=name)
+
+	ts = tobaccos.all()[offset:limit]
 
 	tobaccos_array = []
-	for t in tobaccos:
+	for t in ts:
 		tobaccos_array.append(t.getDict())
 
 	data = 	{
 			'tobaccos' : tobaccos_array, 
 			'count' : len(tobaccos_array), 
-			'total' : Tobacco.objects.count(),
+			'total' : tobaccos.count(),
 			}
 	
 	return JSONResponse({'status' : 200, 'data' : data})
+
+def tobacco(request, **kwargs):
+	"""
+	Params:
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+	Examples:
+		/api/v2/tobaccos/<brand>/<name>
+		/api/v2/tobaccos/<tid>
+	"""
+	tid = kwargs.get('tid')
+	brand = kwargs.get('brand')
+	name = kwargs.get('name')
+
+	try:
+		if tid is not None:
+			tobacco = Tobacco.objects.get(pk=tid) 
+		else:
+			tobacco = Tobacco.objects.get(brand=brand, name=name)
+
+		data = {
+			'tobacco' : tobacco.getDict(),
+			}
+
+		return JSONResponse({'status' : 200, 'data' : data})
+
+	except Tobacco.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'Tobacco not found'})
+
+def utos(request, username):
+	"""
+	Params:
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+	Examples:
+		/api/v2/users/<username>/tobaccos
+	"""
+
+	print(request.get_full_path())
+
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
+
+	_utos = UserTobacco.objects.filter(user__login=username)
+	utos = _utos.all()[offset:limit]
+
+	utos_array = []
+	for uto in utos:
+		utos_array.append(uto.getDict())
+
+	data = 	{
+			'utos' : utos_array,
+			'count' : len(utos_array), 
+			'total' : _utos.count(),
+			}
+	
+	return JSONResponse({'status' : 200, 'data' : data})
+
+def uto(request, username, **kwargs):
+	"""
+	Params:
+	Examples:
+		/api/v2/users/<username>/tobaccos/<brand>/<name>
+		/api/v2/users/<username>/tobaccos/<tid>
+	"""
+	tid = kwargs.get('tid')
+	brand = kwargs.get('brand')
+	name = kwargs.get('name')
+
+	try:
+		_uto = UserTobacco.objects.filter(user__login=username)
+
+		if tid is not None:
+			uto = _uto.get(tobacco__id=tid) 
+		else:
+			uto = _uto.get(tobacco__brand=brand, tobacco__name=name)
+
+		data = {
+			'uto' : uto.getDict(),
+			}
+
+		return JSONResponse({'status' : 200, 'data' : data})
+
+	except UserTobacco.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'UTO not found'})
+		
