@@ -23,55 +23,105 @@
         <td class="side_bar"></td>
 
         <td class="main_content" valign="top">
-
-            <div class="search_header">
+            <div class="search_header" style="margin-top: 10px;">
                 {% blocktrans %}Search results:{% endblocktrans %} <font color="#FFFFCC"><i>{{search_string}}</i></font>
             </div>
 
             {% if found|length == 0 %}
-                <div class="search_header">
+
+                <div class="search_header" style="margin: 15px 15px 25px 15px;">
                     <font size="5">
                         {% blocktrans %}nothing found{% endblocktrans %}
                     </font>
                 </div>
-            {% endif %}
 
-            <div class="search_header">
-                <font size="5">
-                    {% blocktrans %}Tobaccos found: {% endblocktrans %}{{total_count}}
-                </font>
-            </div>
+            {% else %}
 
-            {% for rec in found %}
-                <a href="{{rec.url}}">
-                <table class="search_element" >
+                <div class="search_header" style="margin: 15px 15px 25px 15px;">
+                    <font size="5">
+                        {% blocktrans %}Tobaccos found: {% endblocktrans %}{{total_count}}
+                    </font>
+                </div>
+
+                <hr>
+
+                <!-- Pagination -->
+
+                <table width="94%" style="margin: 5px 3% 15px 3%;">
                     <tr>
-                        <td class="search_tobacco_div">
-                            <img src="{{rec.image}}" class="search_tobacco_image">
+                        <td align="left" width="33%">
+                            {% if page > 1 %}
+                            <form>
+                                <input type="text" name="q" value="{{q}}" hidden="true">
+                                <input type="text" name="page" value="{{page|add:-1}}" hidden="true">
+                                <button type="submit" class="page_button">Prev</button>
+                            </form>
+                            {% endif %}
                         </td>
-                        <td class="search_tobacco_brand" valign="middle">
-                            {{rec.brand}}
-                            {{rec.name}}
+                        <td align="center">
+                            <div class="search_header"><font size="5">{{page}}/{{page_count}}</font></div>
+                        </td>
+                        <td align="right" width="33%">
+                            {% if page < page_count %}
+                            <form>
+                                <input type="text" name="q" value="{{q}}" hidden="true">
+                                <input type="text" name="page" value="{{page|add:1}}" hidden="true">
+                                <button type="submit" class="page_button">Next</button>
+                            </form>
+                            {% endif %}
                         </td>
                     </tr>
                 </table>
-                </a>
-            {% endfor %}
 
-            <table width="100%;">
-                <tr>
-                    {% if page_num > 1 %}
-                    <td align="center">
-                        <button class="page_button">Prev</button>
-                    </td>
-                    {% endif %}
-                    {% if pages_remained > 0 %}
-                    <td align="center">
-                        <button class="page_button">Next</button>
-                    </td>
-                    {% endif %}
-                </tr>
-            </table>
+
+                <!-- Results -->
+
+                {% for rec in found %}
+                    <a href="{{rec.url}}">
+                    <table class="search_element" >
+                        <tr>
+                            <td class="search_tobacco_div">
+                                <img src="{{rec.image}}" class="search_tobacco_image">
+                            </td>
+                            <td class="search_tobacco_brand" valign="middle">
+                                {{rec.brand}}
+                                {{rec.name}}
+                            </td>
+                        </tr>
+                    </table>
+                    </a>
+                {% endfor %}
+
+
+                <!-- Pagination -->
+
+                <table width="94%" style="margin: 5px 3% 15px 3%;">
+                    <tr>
+                        <td align="left" width="33%">
+                            {% if page > 1 %}
+                            <form>
+                                <input type="text" name="q" value="{{q}}" hidden="true">
+                                <input type="text" name="page" value="{{page|add:-1}}" hidden="true">
+                                <button type="submit" class="page_button">Prev</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                        <td align="center">
+                            <div class="search_header"><font size="5">{{page}}/{{page_count}}</font></div>
+                        </td>
+                        <td align="right" width="33%">
+                            {% if page < page_count %}
+                            <form>
+                                <input type="text" name="q" value="{{q}}" hidden="true">
+                                <input type="text" name="page" value="{{page|add:1}}" hidden="true">
+                                <button type="submit" class="page_button">Next</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+
+            {% endif %}
 
         </td>
 
