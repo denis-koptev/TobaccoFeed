@@ -1,6 +1,7 @@
 import json
 from django.http import HttpResponse
 
+from django.db import DatabaseError
 from django.db import connection
 from tobaccopoisk import utils, settings
 
@@ -21,6 +22,33 @@ def getIntParam(request, param, default):
 		return int(p)
 	else:
 		return default
+
+def getVoteParam(request, param, default):
+	p = request.GET.get(param)
+
+	if p is None:
+		return default
+
+	if p == 'none':
+		return None
+
+	if p.isdigit():
+		p = int(p)
+		if 1 <= p and p <= 10:
+			return p
+		else:
+			return default
+
+def getBoolParam(request, param, default):
+	p = request.GET.get(param)
+
+	if p == 'true':
+		return True
+
+	if p == 'false':
+		return False
+
+	return default
 
 def getParam(request, param, default):
 	p = request.GET.get(param)
@@ -207,13 +235,18 @@ def utos(request, username):
 	
 	return JSONResponse({'status' : 200, 'data' : data})
 
-def uto(request, username, **kwargs):
+def uto_get(request, username, **kwargs):
 	"""
 	Params:
+		[POST/GET] method
 	Examples:
 		/api/v2/users/<username>/tobaccos/<brand>/<name>
 		/api/v2/users/<username>/tobaccos/<tid>
 	"""
+	method = getParam(request, 'method', 0)
+	if method == 'post':
+		return uto_post(request, username, **kwargs)
+
 	tid = kwargs.get('tid')
 	brand = kwargs.get('brand')
 	name = kwargs.get('name')
@@ -234,4 +267,86 @@ def uto(request, username, **kwargs):
 
 	except UserTobacco.DoesNotExist:
 		return JSONResponse({'status' : 400, 'message' : 'UTO not found'})
+
+def uto_post(request, username, **kwargs):
+	"""
+	Params:
+		[1...10/none] strength_vote
+		[1...10/none] smoke_vote
+		[1...10/none] heat_vote
+		[1...10/none] taste_vote
+		[1...10/none] rating_vote
+		[true/false] is_favorite
+		[true/false] is_bookmark
+
+	Examples:
+		/api/v2/users/<username>/tobaccos/<brand>/<name>
+		/api/v2/users/<username>/tobaccos/<tid>
+	"""
+	
+	tid = kwargs.get('tid')
+	brand = kwargs.get('brand')
+	name = kwargs.get('name')
+
+	# get uto from db
+	try:
+		_uto = UserTobacco.objects.filter(user__login=username)
+
+		if tid is not None:
+			uto = _uto.get(tobacco__id=tid) 
+		else:
+			uto = _uto.get(tobacco__brand=brand, tobacco__name=name)
+
+
+	except UserTobacco.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'UTO not found'})
+
+	# get params
+
+	strength_vote = getVoteParam(request, 'strength_vote', 0)
+	smoke_vote = getVoteParam(request, 'smoke_vote', 0)
+	heat_vote = getVoteParam(request, 'heat_vote', 0)
+	taste_vote = getVoteParam(request, 'taste_vote', 0)
+	rating_vote = getVoteParam(request, 'rating_vote', 0)
+	is_favorite = getBoolParam(request, 'is_favorite', None)
+	is_bookmark = getBoolParam(request, 'is_bookmark', None)
+
+	# update params
+
+	if strength_vote != 0:
+		uto.strength_vote = strength_vote
+
+	if smoke_vote != 0:
+		uto.smoke_vote = smoke_vote
 		
+	if heat_vote != 0:
+		uto.heat_vote = heat_vote
+		
+	if taste_vote != 0:
+		uto.taste_vote = taste_vote
+		
+	if rating_vote != 0:
+		uto.rating_vote = rating_vote
+
+	if is_favorite is not None:
+		uto.is_favorite = is_favorite
+
+	if is_bookmark is not None:
+		uto.is_bookmark = is_bookmark
+
+	# save
+
+	try:
+		uto.save()
+		return JSONResponse({'status' : 200})
+	except DatabaseError:
+		return JSONResponse({'status' : 400, 'message' : 'Data update error'})
+
+def uto(request, username, **kwargs):
+
+	if request.method == 'GET':
+		return uto_get(request, username, **kwargs)
+	elif request.method == 'POST':
+		return uto_post(request, username, **kwargs)
+	else:
+		return JSONResponse({'status' : 400, 'message' : 'Unknown request method'})
