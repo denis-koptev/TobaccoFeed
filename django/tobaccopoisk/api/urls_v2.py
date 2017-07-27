@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^users/(?P<username>[0-9a-z-_]+)/tobaccos/(?P<tid>[0-9]+)$', api.uto, name='api_v2_uto'),
     url(r'^users/(?P<username>[0-9a-z-_]+)/tobaccos/(?P<brand>[0-9a-z-_]+)/(?P<name>[0-9a-z-_]+)$', api.uto, name='api_v2_uto'),
 
+	# url(r'^users/(?P<username>[0-9a-z-_]+)/follows$', api.ufos, name='api_v2_ufos'),
+    
+    
 ]

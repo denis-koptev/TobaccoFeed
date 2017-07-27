@@ -13,8 +13,10 @@ def JSONResponse(data):
 	if settings.DEBUG is True:
 		data['db_queries'] = len(connection.queries)
 
+	status = data.get('status', 200)
+
 	json_data = "{}".format(json.dumps(data, ensure_ascii=False))
-	return HttpResponse(json_data, status=data['status'])
+	return HttpResponse(json_data, status=status)
 
 def getIntParam(request, param, default):
 	p = request.GET.get(param)
@@ -90,6 +92,8 @@ def getFollowersDict(user):
 
 def users(request):
 	"""
+	Descriptions:
+		Get list users from all users pool
 	Params:
 		[int] offset (default : 0)
 		[int] limit (default : 10)
@@ -117,6 +121,8 @@ def users(request):
 
 def user(request, username):
 	"""
+	Description:
+		Get info about specified user
 	Params:
 	Examples:
 		/api/v2/users/<username>
@@ -141,6 +147,9 @@ def user(request, username):
 
 def tobaccos(request):
 	"""
+	Description:
+		Get list of tobaccos from all tobaccos pool
+		Able to filter by brand and name
 	Params:
 		[int] offset (default : 0)
 		[int] limit (default : 10)
@@ -179,9 +188,9 @@ def tobaccos(request):
 
 def tobacco(request, **kwargs):
 	"""
+	Description:
+		Get info about specified tobacco
 	Params:
-		[int] offset (default : 0)
-		[int] limit (default : 10)
 	Examples:
 		/api/v2/tobaccos/<brand>/<name>
 		/api/v2/tobaccos/<tid>
@@ -207,14 +216,14 @@ def tobacco(request, **kwargs):
 
 def utos(request, username):
 	"""
+	Description:
+		Get all UTOs of specified user
 	Params:
 		[int] offset (default : 0)
 		[int] limit (default : 10)
 	Examples:
 		/api/v2/users/<username>/tobaccos
 	"""
-
-	print(request.get_full_path())
 
 	offset = getIntParam(request, 'offset', 0)
 	limit = getIntParam(request, 'limit', 10)
@@ -235,17 +244,17 @@ def utos(request, username):
 	
 	return JSONResponse({'status' : 200, 'data' : data})
 
-def uto_get(request, username, **kwargs):
+def uto_get_explicit(request, username, **kwargs):
 	"""
+	Description:
+		Get UTO info about specified tobacco
 	Params:
 		[POST/GET] method
+		[true/false] explicit
 	Examples:
-		/api/v2/users/<username>/tobaccos/<brand>/<name>
-		/api/v2/users/<username>/tobaccos/<tid>
+		/api/v2/users/<username>/tobaccos/<brand>/<name>?explicit=true
+		/api/v2/users/<username>/tobaccos/<tid>?explicit=true
 	"""
-	method = getParam(request, 'method', 0)
-	if method == 'post':
-		return uto_post(request, username, **kwargs)
 
 	tid = kwargs.get('tid')
 	brand = kwargs.get('brand')
@@ -268,8 +277,55 @@ def uto_get(request, username, **kwargs):
 	except UserTobacco.DoesNotExist:
 		return JSONResponse({'status' : 400, 'message' : 'UTO not found'})
 
+def uto_get(request, username, **kwargs):
+	"""
+	Description:
+		Get UTO info about specified tobacco
+	Params:
+		[true/false] explicit
+	Examples:
+		/api/v2/users/<username>/tobaccos/<brand>/<name>
+		/api/v2/users/<username>/tobaccos/<tid>
+	"""
+
+	explicit = getBoolParam(request, 'explicit', False)
+	if explicit == True:
+		return uto_get_explicit(request, username, **kwargs)
+
+	tid = kwargs.get('tid')
+	brand = kwargs.get('brand')
+	name = kwargs.get('name')
+
+	try:
+		_tobacco = Tobacco.objects
+
+		if tid is not None:
+			tobacco = _tobacco.get(pk=tid) 
+		else:
+			tobacco = _tobacco.get(brand=brand, name=name)
+
+	except Tobacco.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'Specified tobacco not found'})
+
+	try:
+		user = AuthUser.objects.get(login=username)
+	except AuthUser.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'Specified user not found'})
+
+	try:
+		uto = UserTobacco.objects.get(user=user, tobacco=tobacco)
+
+		data = { 'uto' : uto.getDict() }
+
+		return JSONResponse({'status' : 200, 'data' : data})
+
+	except UserTobacco.DoesNotExist:
+		return JSONResponse({'status' : 200, 'data' : UserTobacco.getEmptyDict(user.id, tobacco.id)})
+
 def uto_post(request, username, **kwargs):
 	"""
+	Description:
+		Update UTO for specified tobacco
 	Params:
 		[1...10/none] strength_vote
 		[1...10/none] smoke_vote
@@ -280,8 +336,8 @@ def uto_post(request, username, **kwargs):
 		[true/false] is_bookmark
 
 	Examples:
-		/api/v2/users/<username>/tobaccos/<brand>/<name>
-		/api/v2/users/<username>/tobaccos/<tid>
+		/api/v2/users/<username>/tobaccos/<brand>/<name>?<param>=<value>
+		/api/v2/users/<username>/tobaccos/<tid>?<param>=<value>
 	"""
 	
 	tid = kwargs.get('tid')
@@ -343,10 +399,26 @@ def uto_post(request, username, **kwargs):
 		return JSONResponse({'status' : 400, 'message' : 'Data update error'})
 
 def uto(request, username, **kwargs):
+	"""
+	Description:
+		Read and Write UTO methods
+	Params:
+		[post/get] method
+	Examples:
+		/api/v2/users/<username>/tobaccos/<brand>/<name>
+		/api/v2/users/<username>/tobaccos/<tid>?method=get
+	"""
 
-	if request.method == 'GET':
-		return uto_get(request, username, **kwargs)
-	elif request.method == 'POST':
+	method = getParam(request, 'method', None)
+	if method is None:
+		if request.method == 'GET':
+			return uto_get(request, username, **kwargs)
+		elif request.method == 'POST':
+			return uto_post(request, username, **kwargs)
+
+	elif method == 'post':
 		return uto_post(request, username, **kwargs)
-	else:
-		return JSONResponse({'status' : 400, 'message' : 'Unknown request method'})
+	elif method == 'get':
+		return uto_get(request, username, **kwargs)
+
+	return JSONResponse({'status' : 400, 'message' : 'Unknown request method'})

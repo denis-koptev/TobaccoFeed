@@ -6,7 +6,7 @@ from tobacco_page.models import Tobacco, Mix
 
 from django.core.files.storage import FileSystemStorage
 import os, re
-
+from tobaccopoisk import utils
 
 class AvatarStorage(FileSystemStorage):
 
@@ -66,6 +66,11 @@ class User(models.Model):
 		verbose_name = "UserInfo"
 		verbose_name_plural = "UserInfos"
 
+	def getDict(self):
+		return {'auth_id' : self.auth_id_id, 
+				'name' : self.name, 'b_date' : str(self.b_date), 
+				'place' : self.place, 'avatar' : utils.image_url_handler(self.avatar.name)}
+
 # -----------
 # Followers
 # -----------
@@ -117,6 +122,15 @@ class UserTobacco(models.Model):
 				'taste_vote': self.taste_vote, 'heat_vote': self.heat_vote,
 				'rating_vote': self.rating_vote, 'is_favorite': self.is_favorite,
 				'is_bookmark': self.is_bookmark,
+				}
+
+	def getEmptyDict(uid, tid):
+		return 	{
+				'user_id': uid, 'tobacco_id': tid,
+				'strength_vote': None, 'smoke_vote': None,
+				'taste_vote': None, 'heat_vote': None,
+				'rating_vote': None, 'is_favorite': False,
+				'is_bookmark': False,
 				}
 
 # ----------------------
