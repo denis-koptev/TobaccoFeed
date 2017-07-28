@@ -84,6 +84,10 @@ class Follow(models.Model):
 
 	class Meta:
 		unique_together = (("follower", "following"),)
+
+	def getDict(self):
+		return {'id' : self.id, 'follower_id' : self.follower_id,
+				'following_id' : self.following_id,}
 		
 
 # ----------------------

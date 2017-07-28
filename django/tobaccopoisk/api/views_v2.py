@@ -1,9 +1,10 @@
 import json
 from django.http import HttpResponse
 
-from django.db import DatabaseError
+from django.db import DatabaseError, IntegrityError
 from django.db import connection
 from tobaccopoisk import utils, settings
+from auth_page import engine as auth_engine
 
 from auth_page.models import User as AuthUser
 from user_page.models import User, Follow, UserTobacco
@@ -214,7 +215,7 @@ def tobacco(request, **kwargs):
 	except Tobacco.DoesNotExist:
 		return JSONResponse({'status' : 400, 'message' : 'Tobacco not found'})
 
-def utos(request, username):
+def spec_utos(request, username):
 	"""
 	Description:
 		Get all UTOs of specified user
@@ -421,4 +422,187 @@ def uto(request, username, **kwargs):
 	elif method == 'get':
 		return uto_get(request, username, **kwargs)
 
-	return JSONResponse({'status' : 400, 'message' : 'Unknown request method'})
+	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
+def utos(request):
+	"""
+	Description:
+		Get all UTOs in pool
+		Or filter by some params
+	Params:
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+		[str] username
+		[str] brand
+		[str] tobacconame
+		[int] tid			- tobacco id
+	Examples:
+		/api/v2/uto
+		/api/v2/uto?username=<username>&brand=<brand>
+	"""
+
+	tid = getIntParam(request, 'tid', None)
+	brand = getParam(request, 'brand', None)
+	tobacconame = getParam(request, 'tobacconame', None)
+	username = getParam(request, 'username', None)
+
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
+
+	_utos = UserTobacco.objects
+
+	if username is not None:
+		_utos = _utos.filter(user__login=username)
+	if brand is not None:
+		_utos = _utos.filter(tobacco__brand=brand)
+	if tobacconame is not None:
+		_utos = _utos.filter(tobacco__name=tobacconame)
+	if tid is not None:
+		_utos = _utos.filter(tobacco_id=tid)
+
+	utos = _utos.all()[offset:limit]
+
+	utos_array = []
+	for uto in utos:
+		utos_array.append(uto.getDict())
+
+	data = 	{
+			'utos' : utos_array,
+			'count' : len(utos_array), 
+			'total' : _utos.count(),
+			}
+	
+	return JSONResponse({'status' : 200, 'data' : data})
+
+def ufos_get(request):
+	"""
+	Description:
+		Get UFOs in pool
+		Or foltered by param
+	Params:
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+		[str] follower_name
+		[str] following_name
+		[str] follower_id
+		[str] following_id
+	Examples:
+		[GET] /api/v2/ufos
+		[GET] /api/v2/ufos?follower_name=<japroc>
+		[GET] /api/v2/ufos?follower_name=<japroc>&following_id=1
+	"""
+
+	follower_name = getParam(request, 'follower_name', None)
+	following_name = getParam(request, 'following_name', None)
+	follower_id = getIntParam(request, 'follower_id', None)
+	following_id = getIntParam(request, 'following_id', None)
+
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
+
+	_ufos = Follow.objects
+
+	if follower_name is not None:
+		_ufos = _ufos.filter(follower__login=follower_name)
+	if following_name is not None:
+		_ufos = _ufos.filter(following__login=following_name)
+	if follower_id is not None:
+		_ufos = _ufos.filter(follower_id=follower_id)
+	if following_id is not None:
+		_ufos = _ufos.filter(following_id=following_id)
+
+	ufos = _ufos.all()[offset:limit]
+
+	ufos_array = []
+	for ufo in ufos:
+		ufos_array.append(ufo.getDict())
+
+	data = 	{
+			'utos' : ufos_array,
+			'count' : len(ufos_array), 
+			'total' : _ufos.count(),
+			}
+	
+	return JSONResponse({'status' : 200, 'data' : data})
+
+def ufos_post(request):
+	"""
+	Description:
+		Follow specified user by name or param
+		using token
+	Params:
+		[str] token
+		[str] username
+		[int] userid
+	Examples:
+		[POST] /api/v2/ufo?token=<str>&username=<str>
+		[POST] /api/v2/ufo?token=<str>&userid=<int>
+	"""
+
+	# get params
+	token = getParam(request, 'token', None)
+	username = getParam(request, 'username', None)
+	userid = getIntParam(request, 'userid', None)
+
+	# check params
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if (username is None) and (userid is None):
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if (username is not None) and (userid is not None):
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	# get follower by token
+	follower = auth_engine.get_user_by_token(token)
+	if follower is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect token'})
+
+	# get following by id or name
+	try:
+		_following = AuthUser.objects
+		if username is not None:
+			following = _following.get(login=username)
+		else:
+			following = _following.get(pk=userid)
+	except AuthUser.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'Specified user not found'})
+
+	# save and return response
+	try:
+		ufo = Follow(follower=follower, following=following)
+		ufo.save()
+		return JSONResponse({'status' : 200, 'message' : 'Follow relation created'})
+	except IntegrityError:
+		return JSONResponse({'status' : 200, 'message' : 'Follow relation already exist'})
+	except DatabaseError:
+		return JSONResponse({'status' : 500, 'message' : 'Create follow error'})
+	else:
+		return JSONResponse({'status' : 500, 'message' : 'Unknown internal error'})
+
+def ufos(request):
+	"""
+	Description:
+		Read and Write UFO methods
+	Params:
+		[get] method
+	Examples:
+		/api/v2/ufo?method=get
+		/api/v2/ufo?method=post
+	"""
+
+	method = getParam(request, 'method', None)
+	if method is None:
+		if request.method == 'GET':
+			return ufos_get(request)
+		if request.method == 'POST':
+			return ufos_post(request)
+
+	elif method == 'get':
+		return ufos_get(request)
+	elif method == 'post':
+		return ufos_post(request)
+
+	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
