@@ -581,6 +581,50 @@ def ufos_post(request):
 	else:
 		return JSONResponse({'status' : 500, 'message' : 'Unknown internal error'})
 
+def ufos_delete(request):
+	"""
+	Description:
+		Delete follow relation from user specifiedd by token
+		to user specified by name or id
+	Params:
+		[str] token
+		[str] username
+		[int] userid
+	Examples:
+		[POST]   /api/v2/ufo?token=<str>&username=<str>&method=<delete>
+		[DELETE] /api/v2/ufo?token=<str>&userid=<int>
+	"""
+
+	# get params
+	token = getParam(request, 'token', None)
+	username = getParam(request, 'username', None)
+	userid = getIntParam(request, 'userid', None)
+
+	# check params
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if (username is None) and (userid is None):
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if (username is not None) and (userid is not None):
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	# get follower by token
+	follower = auth_engine.get_user_by_token(token)
+	if follower is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect token'})
+
+	# get and delete follow relation
+	try:
+		_follow = Follow.objects.filter(follower=follower)
+		if username is not None:
+			follow = _follow.filter(following__login=username).delete()
+		else:
+			follow = _follow.filter(following__pk=userid).delete()
+
+		return JSONResponse({'status' : 200})
+	except DatabaseError:
+		return JSONResponse({'status' : 500, 'message' : 'Unknown internal error'})
+
 def ufos(request):
 	"""
 	Description:
@@ -598,11 +642,15 @@ def ufos(request):
 			return ufos_get(request)
 		if request.method == 'POST':
 			return ufos_post(request)
+		if request.method == 'DELETE':
+			return ufos_delete(request)
 
 	elif method == 'get':
 		return ufos_get(request)
 	elif method == 'post':
 		return ufos_post(request)
+	elif method == 'delete':
+		return ufos_delete(request)
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
 
