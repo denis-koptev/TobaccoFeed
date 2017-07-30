@@ -8,7 +8,7 @@ from auth_page import engine as auth_engine
 
 from auth_page.models import User as AuthUser
 from user_page.models import User, Follow, UserTobacco, UserMix
-from tobacco_page.models import Tobacco
+from tobacco_page.models import Tobacco, Mix
 
 def JSONResponse(data):
 	if settings.DEBUG is True:
@@ -440,8 +440,8 @@ def utos(request):
 		[str] tobacconame
 		[int] tid			- tobacco id
 	Examples:
-		/api/v2/uto
-		/api/v2/uto?username=<username>&brand=<brand>
+		/api/v2/utos
+		/api/v2/utos?username=<username>&brand=<brand>
 	"""
 
 	tid = getIntParam(request, 'tid', None)
@@ -540,8 +540,8 @@ def ufos_post(request):
 		[str] username
 		[int] userid
 	Examples:
-		[POST] /api/v2/ufo?token=<str>&username=<str>
-		[POST] /api/v2/ufo?token=<str>&userid=<int>
+		[POST] /api/v2/ufos?token=<str>&username=<str>
+		[POST] /api/v2/ufos?token=<str>&userid=<int>
 	"""
 
 	# get params
@@ -594,8 +594,8 @@ def ufos_delete(request):
 		[str] username
 		[int] userid
 	Examples:
-		[POST]   /api/v2/ufo?token=<str>&username=<str>&method=<delete>
-		[DELETE] /api/v2/ufo?token=<str>&userid=<int>
+		[POST]   /api/v2/ufos?token=<str>&username=<str>&method=<delete>
+		[DELETE] /api/v2/ufos?token=<str>&userid=<int>
 	"""
 
 	# get params
@@ -635,8 +635,8 @@ def ufos(request):
 	Params:
 		[get/post/delete] method
 	Examples:
-		/api/v2/ufo?method=get
-		/api/v2/ufo?method=post
+		/api/v2/ufos?method=get
+		/api/v2/ufos?method=post
 	"""
 
 	method = getParam(request, 'method', None)
@@ -667,7 +667,7 @@ def umos_get(request):
 		[int] limit (default : 10)
 		[str] user
 	Examples:
-		[GET] /api/v2/ufo?user=<japroc>
+		[GET] /api/v2/umos?user=<japroc>
 	"""
 
 	# get params
@@ -707,10 +707,72 @@ def umos_post(request):
 		[true/false] is_favorite
 		[true/false] is_bookmark
 	Examples:
-		[POST] /api/v2/ufo?token=<str>&mix_id=<int>&rating_vote=<5>
-		[POST] /api/v2/ufo?token=<str>&mix_id=<int>&rating_vote=<none>&is_bookmark=<true>
+		[POST] /api/v2/umos?token=<str>&mix_id=<int>&rating_vote=<5>
+		[POST] /api/v2/umos?token=<str>&mix_id=<int>&rating_vote=<none>&is_bookmark=<true>
 	"""
-	return JSONResponse({'status' : 500, 'message' : 'This call is not yet supported'})
+
+	existed_before = True
+
+	# get params
+	token = getParam(request, 'token', None)
+	mix_id = getIntParam(request, 'mix_id', None)
+
+	# check params
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if mix_id is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	# get follower by token
+	user = auth_engine.get_user_by_token(token)
+	if user is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect token'})
+
+	# get or create UMO
+	try:
+		umo = UserMix.objects.get(user=user, mix_id=mix_id)
+	except UserMix.DoesNotExist:
+
+		existed_before = False
+
+		try:
+			mix = Mix.objects.get(pk=mix_id)
+		except Mix.DoesNotExist:
+			return JSONResponse({'status' : 400, 'message' : 'Incorrect token'})
+
+		umo = UserMix(user=user, mix=mix)
+
+	# get params
+	rating_vote = getVoteParam(request, 'rating_vote', 0)
+	is_favorite = getBoolParam(request, 'is_favorite', None)
+	is_bookmark = getBoolParam(request, 'is_bookmark', None)
+
+	# update params
+	if rating_vote != 0:
+		umo.rating_vote = rating_vote
+
+	if is_favorite is not None:
+		umo.is_favorite = is_favorite
+
+	if is_bookmark is not None:
+		umo.is_bookmark = is_bookmark
+
+
+	# SAVE
+	try:
+		if existed_before is True:
+			if umo.is_empty():
+				umo.delete()
+			else:
+				umo.save()
+		else:
+			if umo.is_empty() is False:
+				umo.save()
+
+		return JSONResponse({'status' : 200})
+
+	except DatabaseError:
+		return JSONResponse({'status' : 500, 'message' : 'Unknown internal error'})
 
 def umos_delete(request):	
 	"""
@@ -721,9 +783,31 @@ def umos_delete(request):
 		[str] brands
 		[str] names
 	Examples:
-		[DELETE] /api/v2/ufo?token=<str>&mix_id=<int>
+		[DELETE] /api/v2/umos?token=<str>&mix_id=<int>
 	"""
-	return JSONResponse({'status' : 500, 'message' : 'This call is not yet supported'})
+	# get params
+	token = getParam(request, 'token', None)
+	mix_id = getIntParam(request, 'mix_id', None)
+
+	# check params
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	if mix_id is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	# get follower by token
+	user = auth_engine.get_user_by_token(token)
+	if user is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect token'})
+
+	# get and delete
+	try:
+		umo = UserMix.objects.get(user=user, mix_id=mix_id)
+		umo.delete()
+		return JSONResponse({'status' : 200})
+
+	except UserMix.DoesNotExist:
+		return JSONResponse({'status' : 200, 'message' : 'Specified UMO relation is empty'})
 
 def umos(request):
 	"""
@@ -735,9 +819,9 @@ def umos(request):
 	Params:
 		[get] method
 	Examples:
-		/api/v2/ufo?method=get
-		/api/v2/ufo?method=post
-		/api/v2/ufo?method=delete
+		/api/v2/umos?method=get
+		/api/v2/umos?method=post
+		/api/v2/umos?method=delete
 	"""
 
 	method = getParam(request, 'method', None)
@@ -758,3 +842,4 @@ def umos(request):
 		return umos_delete(request)
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
