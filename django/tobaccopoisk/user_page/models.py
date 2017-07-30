@@ -159,3 +159,8 @@ class UserMix(models.Model):
 	def is_empty(self):
 		return ((self.rating_vote is None) and 
 			(self.is_favorite is False) and (self.is_bookmark is False))
+
+	def getDict(self):
+		return {'id' : self.id, 'user_id' : self.user_id, 
+			'mix_id' : self.mix_id, 'rating_vote' : self.rating_vote, 
+			'is_favorite' : self.is_favorite, 'is_bookmark' : self.is_bookmark}

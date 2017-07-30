@@ -7,7 +7,7 @@ from tobaccopoisk import utils, settings
 from auth_page import engine as auth_engine
 
 from auth_page.models import User as AuthUser
-from user_page.models import User, Follow, UserTobacco
+from user_page.models import User, Follow, UserTobacco, UserMix
 from tobacco_page.models import Tobacco
 
 def JSONResponse(data):
@@ -394,7 +394,10 @@ def uto_post(request, username, **kwargs):
 	# save
 
 	try:
-		uto.save()
+		if uto.isEmpty() is True:
+			uti.delete()
+		else:
+			uto.save()
 		return JSONResponse({'status' : 200})
 	except DatabaseError:
 		return JSONResponse({'status' : 400, 'message' : 'Data update error'})
@@ -630,7 +633,7 @@ def ufos(request):
 	Description:
 		Read and Write UFO methods
 	Params:
-		[get] method
+		[get/post/delete] method
 	Examples:
 		/api/v2/ufo?method=get
 		/api/v2/ufo?method=post
@@ -654,3 +657,104 @@ def ufos(request):
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
 
+def umos_get(request):	
+	"""
+	Description:
+		Get all UMOs or filtered
+		by some params
+	Params:
+		[int] offset (default : 0)
+		[int] limit (default : 10)
+		[str] user
+	Examples:
+		[GET] /api/v2/ufo?user=<japroc>
+	"""
+
+	# get params
+	user = getParam(request, 'user', None)
+
+	offset = getIntParam(request, 'offset', 0)
+	limit = getIntParam(request, 'limit', 10)
+	limit += offset
+
+	# umos
+	_umos = UserMix.objects
+	if user is not None:
+		_umos = _umos.filter(user__login=user)
+	umos = _umos.all()[offset:limit]
+
+	umos_array = []
+	for umo in umos:
+		umos_array.append(umo.getDict())
+
+	data = 	{
+			'utos' : umos_array,
+			'count' : len(umos_array), 
+			'total' : _umos.count(),
+			}
+	
+	return JSONResponse({'status' : 200, 'data' : data})
+
+def umos_post(request):	
+	"""
+	Description:
+		update UMO relation 
+		by token and mix_id
+	Params:
+		[str] token
+		[int] mix_id
+		[1...10/none] rating_vote
+		[true/false] is_favorite
+		[true/false] is_bookmark
+	Examples:
+		[POST] /api/v2/ufo?token=<str>&mix_id=<int>&rating_vote=<5>
+		[POST] /api/v2/ufo?token=<str>&mix_id=<int>&rating_vote=<none>&is_bookmark=<true>
+	"""
+	return JSONResponse({'status' : 500, 'message' : 'This call is not yet supported'})
+
+def umos_delete(request):	
+	"""
+	Description:
+		delete UMO relation by token and mix_id
+	Params:
+		[str] user
+		[str] brands
+		[str] names
+	Examples:
+		[DELETE] /api/v2/ufo?token=<str>&mix_id=<int>
+	"""
+	return JSONResponse({'status' : 500, 'message' : 'This call is not yet supported'})
+
+def umos(request):
+	"""
+	Description:
+		Read and Write UFO methods
+		GET - get filtered list of UMOs
+		POST - update UMO relation by token and mix_id
+		DELETE - delete UMO relation by token and mix_id
+	Params:
+		[get] method
+	Examples:
+		/api/v2/ufo?method=get
+		/api/v2/ufo?method=post
+		/api/v2/ufo?method=delete
+	"""
+
+	method = getParam(request, 'method', None)
+
+	if method is None:
+		if request.method == 'GET':
+			return umos_get(request)
+		if request.method == 'POST':
+			return umos_post(request)
+		if request.method == 'DELETE':
+			return umos_delete(request)
+
+	elif method == 'get':
+		return umos_get(request)
+	elif method == 'post':
+		return umos_post(request)
+	elif method == 'delete':
+		return umos_delete(request)
+
+	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})

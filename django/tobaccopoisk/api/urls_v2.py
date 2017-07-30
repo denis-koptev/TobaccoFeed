@@ -16,8 +16,15 @@ urlpatterns = [
     url(r'^users/(?P<username>[0-9a-z-_]+)/tobaccos/(?P<brand>[0-9a-z-_]+)/(?P<name>[0-9a-z-_]+)$', api.uto, name='api_v2_uto'),
 
     url(r'^utos$', api.utos, name='api_v2_utos'),
+    url(r'^umos$', api.umos, name='api_v2_umos'),
 
 	url(r'^ufos$', api.ufos, name='api_v2_ufos'),
     
     
 ]
+
+'''
+    [GET]    umo?user=<str>&brands=<str,...>&tobacconame=<str,...>
+    [POST]   umo?token=<str>&mix_id=<int>   
+    [DELETE] umo?token=<str>&mix_id=<int>
+'''
