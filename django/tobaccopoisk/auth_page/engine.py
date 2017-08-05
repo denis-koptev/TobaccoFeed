@@ -25,6 +25,8 @@ from email.mime.multipart import MIMEMultipart
 # auth functions
 # --------------
 
+# return User Object on success
+# return None otherwise
 def authentication(ident, password):
 
 	users = User.objects.filter(Q(login=ident) | Q(mail=ident))
@@ -55,8 +57,10 @@ def waiting_login_exists(login):
 def login_exists(login):
 	return (len(User.objects.filter(login=login)) != 0)
 
-
+# return Session Object on success
+# return None otherwise
 def authorization(user):
+	session = None
 
 	i = 5
 	while i > 0:
@@ -71,7 +75,6 @@ def authorization(user):
 			break
 
 	return session
-
 
 def send_confirmation_mail(mail, token):
 
@@ -164,7 +167,7 @@ def unauthorize(request):
 
 	return response
 
-# Return UserObject on success
+# Return User Object on success
 # Return None on failure
 def get_user_by_token(token):
 	user = None
@@ -180,3 +183,16 @@ def get_user_by_token(token):
 
 def getUserByToken(token):
 	return get_user_by_token(token)
+
+# return True if session successfully deleted
+# return False otherwise
+def logout(token):
+
+	try:
+		session = Session.objects.get(token=token)
+	except Session.DoesNotExist:
+		return False
+
+	session.delete()
+	return True
+	

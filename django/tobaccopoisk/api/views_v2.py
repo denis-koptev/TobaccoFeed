@@ -1007,3 +1007,57 @@ def umos(request):
 		return umos_delete(request)
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
+
+# ------
+# Auth
+# ------
+
+def login(request):
+	"""
+	Description:
+		Authanticate and get access token
+	Params:
+		[str] uname
+		[str] upass
+	Examples:
+		/api/v2/auth/login?uname=<my_name>&upass=<my_password>
+	"""
+
+	uname = getParam(request, 'uname', None)
+	upass = getParam(request, 'upass', None)
+	if uname is None or upass is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	user = auth_engine.authentication(uname, upass)
+	if user is None:
+		return JSONResponse({'status' : 400, 'message' : 'Credentials are incorrect'})
+
+	session = auth_engine.authorization(user)
+	if session is None:
+		return JSONResponse({'status' : 500, 'message' : 'Unable to authorize'})
+
+	token = session.token
+	return JSONResponse({'status' : 200, 'token' : token})
+
+def logout(request):
+	"""
+	Description:
+		Logout by access token
+	Params:
+		[str] token
+	Examples:
+		/api/v2/auth/logout?token=<.xKDqNGIAnAryoiUUDfzIMk9pi9CsRaa>
+	"""
+
+	token = getParam(request, 'token', None)
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+	res = auth_engine.logout(token)
+
+	if res is False:
+		return JSONResponse({'status' : 500, 'message' : 'Unknown internal error'})
+	else:
+		return JSONResponse({'status' : 200})
+		
