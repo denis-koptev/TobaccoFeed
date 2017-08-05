@@ -177,3 +177,6 @@ def get_user_by_token(token):
 		user = session.user
 
 	return user
+
+def getUserByToken(token):
+	return get_user_by_token(token)

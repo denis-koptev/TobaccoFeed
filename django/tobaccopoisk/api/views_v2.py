@@ -10,6 +10,10 @@ from auth_page.models import User as AuthUser
 from user_page.models import User, Follow, UserTobacco, UserMix
 from tobacco_page.models import Tobacco, Mix
 
+# -------
+# Urils
+# -------
+
 def JSONResponse(data):
 	if settings.DEBUG is True:
 		data['db_queries'] = len(connection.queries)
@@ -59,6 +63,10 @@ def getParam(request, param, default):
 		return p
 	else:
 		return default
+
+# ------
+# Users
+# ------
 
 def getUserDict(user):
 	user_dict = {}
@@ -146,6 +154,10 @@ def user(request, username):
 	except AuthUser.DoesNotExist:
 		return JSONResponse({'status' : 400, 'message' : 'User with specified name not found'})
 
+# ----------
+# Tobaccos
+# ----------
+
 def tobaccos(request):
 	"""
 	Description:
@@ -214,6 +226,10 @@ def tobacco(request, **kwargs):
 
 	except Tobacco.DoesNotExist:
 		return JSONResponse({'status' : 400, 'message' : 'Tobacco not found'})
+
+# --------
+# UTO
+# --------
 
 def spec_utos(request, username):
 	"""
@@ -323,6 +339,7 @@ def uto_get(request, username, **kwargs):
 	except UserTobacco.DoesNotExist:
 		return JSONResponse({'status' : 200, 'data' : UserTobacco.getEmptyDict(user.id, tobacco.id)})
 
+# dont work currently
 def uto_post(request, username, **kwargs):
 	"""
 	Description:
@@ -402,6 +419,7 @@ def uto_post(request, username, **kwargs):
 	except DatabaseError:
 		return JSONResponse({'status' : 400, 'message' : 'Data update error'})
 
+# dont work currently
 def uto(request, username, **kwargs):
 	"""
 	Description:
@@ -427,7 +445,121 @@ def uto(request, username, **kwargs):
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
 
-def utos(request):
+# --------
+# UTOS
+# --------
+
+
+def utos_post(request):
+	"""
+	Description:
+		Update UTO for specified tobacco
+	Params:
+		[int] tid
+		[str] tbrand
+		[str] tname
+		[str] token
+		[1...10/none] strength_vote
+		[1...10/none] smoke_vote
+		[1...10/none] heat_vote
+		[1...10/none] taste_vote
+		[1...10/none] rating_vote
+		[true/false] is_favorite
+		[true/false] is_bookmark
+
+	Examples:
+		/api/v2/users/<username>/tobaccos/<brand>/<name>?<param>=<value>
+		/api/v2/users/<username>/tobaccos/<tid>?<param>=<value>
+	"""
+
+	# get specified token and related user
+	token = getParam(request, 'token', None)
+	if token is None:
+		return JSONResponse({'status' : 400, 'message' : 'Token not specified'})
+
+	user = auth_engine.getUserByToken(token)
+	if user is None:
+		return JSONResponse({'status' : 400, 'message' : 'Specified token is incorrect'})
+
+	# get tobacco identifiers
+	tid = getIntParam(request, 'tid', None)
+	brand = getParam(request, 'tbrand', None)
+	name = getParam(request, 'tname', None)
+
+	if tid is None:
+		if (brand is None) or (name is None):
+			return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+	else:
+		if (brand is not None) or (name is not None):
+			return JSONResponse({'status' : 400, 'message' : 'Incorrect request'})
+
+
+	# check if tobacco exist
+	try:
+		_tobacco = Tobacco.objects
+		if tid is not None:
+			tobacco = _tobacco.get(pk=tid) 
+		else:
+			tobacco = _tobacco.get(brand=brand, name=name)
+
+	except Tobacco.DoesNotExist:
+		return JSONResponse({'status' : 400, 'message' : 'Specified tobacco does not exist'})
+
+	# get or create uto
+	try:
+		uto = UserTobacco.objects.get(user=user, tobacco=tobacco)
+	except UserTobacco.DoesNotExist:
+		uto = UserTobacco.getEmptyOne(user, tobacco)
+
+	# get params
+
+	strength_vote = getVoteParam(request, 'strength_vote', 0)
+	smoke_vote = getVoteParam(request, 'smoke_vote', 0)
+	heat_vote = getVoteParam(request, 'heat_vote', 0)
+	taste_vote = getVoteParam(request, 'taste_vote', 0)
+	rating_vote = getVoteParam(request, 'rating_vote', 0)
+	is_favorite = getBoolParam(request, 'is_favorite', None)
+	is_bookmark = getBoolParam(request, 'is_bookmark', None)
+
+	# update params
+
+	if strength_vote != 0:
+		uto.strength_vote = strength_vote
+
+	if smoke_vote != 0:
+		uto.smoke_vote = smoke_vote
+		
+	if heat_vote != 0:
+		uto.heat_vote = heat_vote
+		
+	if taste_vote != 0:
+		uto.taste_vote = taste_vote
+		
+	if rating_vote != 0:
+		uto.rating_vote = rating_vote
+
+	if is_favorite is not None:
+		uto.is_favorite = is_favorite
+
+	if is_bookmark is not None:
+		uto.is_bookmark = is_bookmark
+
+	# save
+
+	try:
+		if uto.isEmpty() is True:
+			if uto.id is not None:
+				uto.delete()
+			else:
+				pass
+		else:
+			uto.save()
+
+		return JSONResponse({'status' : 200})
+	except DatabaseError:
+		return JSONResponse({'status' : 400, 'message' : 'Data update error'})
+
+def utos_get(request):
 	"""
 	Description:
 		Get all UTOs in pool
@@ -477,6 +609,35 @@ def utos(request):
 			}
 	
 	return JSONResponse({'status' : 200, 'data' : data})
+
+def utos(request):
+	"""
+	Description:
+		UTOS
+	Params:
+		[post/get] method
+	Examples:
+		[POST] /api/v2/utos?method=get
+		[GET]  /api/v2/utos
+	"""
+
+	method = getParam(request, 'method', None)
+	if method is None:
+		if request.method == 'GET':
+			return utos_get(request)
+		elif request.method == 'POST':
+			return utos_post(request)
+
+	elif method == 'post':
+		return utos_post(request)
+	elif method == 'get':
+		return utos_get(request)
+
+	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
+# --------
+# UFOS
+# --------
 
 def ufos_get(request):
 	"""
@@ -656,6 +817,10 @@ def ufos(request):
 		return ufos_delete(request)
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
+
+# -------
+# UMOS
+# -------
 
 def umos_get(request):	
 	"""
@@ -842,4 +1007,3 @@ def umos(request):
 		return umos_delete(request)
 
 	return JSONResponse({'status' : 400, 'message' : 'Request method not supported for this call'})
-

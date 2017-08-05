@@ -89,7 +89,6 @@ class Follow(models.Model):
 		return {'id' : self.id, 'follower_id' : self.follower_id,
 				'following_id' : self.following_id,}
 		
-
 # ----------------------
 # User-Tobacco Object
 # ----------------------
@@ -119,6 +118,9 @@ class UserTobacco(models.Model):
 			(self.heat_vote is None) and (self.rating_vote is None) and 
 			(self.is_favorite is False) and (self.is_bookmark is False))
 
+	def isEmpty(self):
+		return self.is_empty()
+
 	def getDict(self):
 		return 	{ 
 				'id': self.id, 'user_id': self.user_id, 'tobacco_id': self.tobacco_id,
@@ -136,6 +138,12 @@ class UserTobacco(models.Model):
 				'rating_vote': None, 'is_favorite': False,
 				'is_bookmark': False,
 				}
+
+	def getEmptyOne(user, tobacco):
+		return UserTobacco(	user=user, tobacco=tobacco,
+							strength_vote=None, smoke_vote=None, 
+							taste_vote=None, heat_vote=None, rating_vote=None,
+							is_favorite=False, is_bookmark=False)
 
 # ----------------------
 # User-Mix Object
