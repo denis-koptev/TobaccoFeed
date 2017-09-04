@@ -5,50 +5,50 @@
 
 <head>
 
-	<title>{% blocktrans %}Sign Up - TobaccoFeed{% endblocktrans %}</title>
+    <title>{% blocktrans %}Sign Up - TobaccoFeed{% endblocktrans %}</title>
 
-	<link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
-	<link rel="icon" href="{% static "/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "auth_page/css/auth_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
 
 <body>
 
-	{% include "navbar.html" %}
+    {% include "navbar.html" %}
 
-	<table class="table_content">
+    <table class="table_content">
 
-		<tr>
+        <tr>
 
-			<td valign="center" align="center">
+            <td valign="center" align="center">
 
-				<form method="post" action="/reg" class="login_form">
-					{% csrf_token %}
-					{% blocktrans %}Login{% endblocktrans %}
-					<br>
-					<input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
-					<br>
-					{% blocktrans %}Password{% endblocktrans %}
-					<br>
-					<input type="password" name="password" id="password" required id="password" maxlength="64">
-					<br>
-					{% blocktrans %}Email{% endblocktrans %}
-					<br>
-					<input type="email" name="email" id="email" required id="email" maxlength="256" placeholder="example@mail.com">
-					<br>
-					<button type="submit" class="login_button">{% blocktrans %}Sign Up{% endblocktrans %}</button>
-				</form>
+                <form method="post" action="/reg" class="login_form">
+                    {% csrf_token %}
+                    {% blocktrans %}Login{% endblocktrans %}
+                    <br>
+                    <input type="text" name="login" id="login" required id="login" maxlength="32" placeholder="login">
+                    <br>
+                    {% blocktrans %}Password{% endblocktrans %}
+                    <br>
+                    <input type="password" name="password" id="password" required id="password" maxlength="64">
+                    <br>
+                    {% blocktrans %}Email{% endblocktrans %}
+                    <br>
+                    <input type="email" name="email" id="email" required id="email" maxlength="256" placeholder="example@mail.com">
+                    <br>
+                    <button type="submit" class="login_button">{% blocktrans %}Sign Up{% endblocktrans %}</button>
+                </form>
 
-			</td>
+            </td>
 
-		</tr>
+        </tr>
 
-	</table>
+    </table>
 
 
-	{% include "footer.html" %}
+    {% include "footer.html" %}
 
-	{% include "dialog.html" %}
+    {% include "dialog.html" %}
 
 
 </body>

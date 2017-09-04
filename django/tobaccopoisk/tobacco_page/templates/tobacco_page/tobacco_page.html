@@ -4,326 +4,325 @@
 
 <html>
 <head>
-	<title>{{brand}} {{name}} - {% blocktrans %}TobaccoFeed{% endblocktrans %}</title>
+    <title>{{brand}} {{name}} - {% blocktrans %}TobaccoFeed{% endblocktrans %}</title>
 
-	<!-- local imports -->
+    <!-- local imports -->
 
-	<link type="text/css" rel="stylesheet" href="{% static "/tobacco_page/css/tobacco_page_style.css" %}"></link>
-	<link type="text/css" rel="stylesheet" href="{% static "/ratebar/css/ratebar_style.css" %}"></link>
-	<link rel="stylesheet" type="text/css" href="{% static "/modal/css/modal_style.css" %}"></link>
-	<link rel="icon" href="{% static "/favicon.ico" %}">
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link type="text/css" rel="stylesheet" href="{% static "/tobacco_page/css/tobacco_page_style.css" %}"></link>
+    <link type="text/css" rel="stylesheet" href="{% static "/ratebar/css/ratebar_style.css" %}"></link>
+    <link rel="stylesheet" type="text/css" href="{% static "/modal/css/modal_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
 
 </head>
 
 <body>
 
-	<!-- NAV BAR --> 
-
-	{% include "navbar.html" %}
-
-
-	<table class="table_content">
-		<tr>
-			<td class="side_bar"></td>
-
-			<td class="main_content" valign="top">
-
-				<table>
-					<tr>
-						
-						<div class="header_label_margined">{{brand}} {{name}}</div>
-						
-
-						<!-- LEFT COLUMN -->
-
-						<!-- main image -->
-
-						<td width="27%" valign="top" class="column_content">
-							<a href="{{image}}" target="_blank">
-								<img src={{image}} width="100%" class="main_image">
-							</a>
-
-							<!-- related -->
-
-							<p></p>
-
-							<div class="header_label">
-								{% blocktrans %}Related{% endblocktrans %}
-							</div>
-
-							<table class="related_table" cellspacing="5"> 
-								<tr>
-									<td class="related_td">
-										<div class="related_div">
-											<a href="/afzal/pan_raas" style="text-decoration: none; color: black;">
-												<img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
-												<hr>
-												Pan Raas
-											</a>
-										</div>									
-									</td>
-									<td class="related_td">
-										<div class="related_div">
-											<a href="/afzal/watermelon" style="text-decoration: none; color: black;">
-												<img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
-												<hr>
-												Watermelon
-											</a> 
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="related_td">
-										<div class="related_div">
-											<a href="/afzal/lime-lemon" style="text-decoration: none; color: black;">
-												<img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
-												<hr>
-												Lime-Lemon
-											</a>
-										</div>
-									</td>
-									<td class="related_td">
-										<div class="related_div">
-											<a href="/afzal/ecstasy" style="text-decoration: none; color: black;">
-												<img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
-												<hr>
-												Ecstasy
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-
-										<div id="modal_button_related" class="more_div">{% blocktrans %}Show more{% endblocktrans %}</div>
-
-										<div id="modal_related" class="modal">
-
-											<div class="modal_content">
-												<div class="modal_header">
-													<span class="close">&times;</span>
-													<h2>{% blocktrans %}Related tobaccos{% endblocktrans %}</h2>
-												</div>
-												<div class="modal_body">
-													<img src="{% static "/image/work_icon.svg" %}" width="200px">
-													<p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
-												</div>
-											</div>
-
-										</div>
-
-									</td>
-								</tr>
-							</table>
-
-						</td>
-
+    <!-- NAV BAR --> 
+
+    {% include "navbar.html" %}
+
+
+    <table class="table_content">
+        <tr>
+            <td class="side_bar"></td>
+
+            <td class="main_content" valign="top">
+
+                <table>
+                    <tr>
+                        
+                        <div class="header_label_margined">{{brand}} {{name}}</div>
+                        
+
+                        <!-- LEFT COLUMN -->
+
+                        <!-- main image -->
+
+                        <td width="27%" valign="top" class="column_content">
+                            <a href="{{image}}" target="_blank">
+                                <img src={{image}} width="100%" class="main_image">
+                            </a>
+
+                            <!-- related -->
+
+                            <p></p>
+
+                            <div class="header_label">
+                                {% blocktrans %}Related{% endblocktrans %}
+                            </div>
+
+                            <table class="related_table" cellspacing="5"> 
+                                <tr>
+                                    <td class="related_td">
+                                        <div class="related_div">
+                                            <a href="/afzal/pan_raas" style="text-decoration: none; color: black;">
+                                                <img src="{% static "/tobacco_page/tobaccos/afzal_pan_raas.png" %}" width="100%"> 
+                                                <hr>
+                                                Pan Raas
+                                            </a>
+                                        </div>                                  
+                                    </td>
+                                    <td class="related_td">
+                                        <div class="related_div">
+                                            <a href="/afzal/watermelon" style="text-decoration: none; color: black;">
+                                                <img src="{% static "/tobacco_page/tobaccos/fumari_watermelon.png" %}" width="100%">
+                                                <hr>
+                                                Watermelon
+                                            </a> 
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="related_td">
+                                        <div class="related_div">
+                                            <a href="/afzal/lime-lemon" style="text-decoration: none; color: black;">
+                                                <img src="{% static "/tobacco_page/tobaccos/afzal_lime-lemon.png" %}" width="100%"> 
+                                                <hr>
+                                                Lime-Lemon
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="related_td">
+                                        <div class="related_div">
+                                            <a href="/afzal/ecstasy" style="text-decoration: none; color: black;">
+                                                <img src="{% static "/tobacco_page/tobaccos/afzal_ecstasy.png" %}" width="100%"> 
+                                                <hr>
+                                                Ecstasy
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+
+                                        <div id="modal_button_related" class="more_div">{% blocktrans %}Show more{% endblocktrans %}</div>
+
+                                        <div id="modal_related" class="modal">
+
+                                            <div class="modal_content">
+                                                <div class="modal_header">
+                                                    <span class="close">&times;</span>
+                                                    <h2>{% blocktrans %}Related tobaccos{% endblocktrans %}</h2>
+                                                </div>
+                                                <div class="modal_body">
+                                                    <img src="{% static "/image/work_icon.svg" %}" width="200px">
+                                                    <p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+
 
-						<!-- RIGHT COLUMN -->
+                        <!-- RIGHT COLUMN -->
 
-						<td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
+                        <td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
 
-							<!-- description -->
+                            <!-- description -->
 
-							{% if tobacco.description|length > 0 %}
-							<div class="header_label">
-								{% blocktrans %}Description{% endblocktrans %}
-							</div>
-							<div class="header_content_light"> 
-								<blockquote> 
-									{{tobacco.description|linebreaks}} 
-								</blockquote>
-							</div>
-							<p></p>
-							{% endif %}
-
-							<!-- rates --> 
-
-							<div class="header_label">
-								{% blocktrans %}Characteristics{% endblocktrans %}
-							</div>
-
-							{% with 'strength heat smoke taste rating' as param_list %}
-							{% for param in param_list.split %}
-
-							<div class="header_content_light">
-
-								<div class="votes">
-									
-									{{param|upper}}: {{ tobacco|realParam:param }}
-									
-									<img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
-									{{tobacco|realParamAmount:param}}
-									
-									{% if login != None %}
-
-									<span id="{{param}}_span_init" class="vote_span">{{uto|realVote:param|default_if_none:"0"}}</span>
-									<span id="{{param}}_span_hover" class="vote_span" style="display: none;"></span>
-
-									{% if uto|realVote:param != None %}
-									<button onclick="makeVote('{{param}}', 0)" class="rm_vote_span">✕</button>
-									{% endif %}
-									
-									<form class="tf_rate">
-										{% for star_idx in "9876543210" %}
-
-										<input type="radio" id="{{param}}_star_{{star_idx|add:1}}" value="{{star_idx|add:1}}" name="tf_rate" class="tf_star" {% if uto|realVote:param == star_idx|add:1 %} checked {% endif %}/>
-										<label for="{{param}}_star_{{star_idx|add:1}}" onmouseover="tfStarHover('{{param}}',{{star_idx|add:1}})" onmouseout="tfStarUnhover('{{param}}',{{star_idx|add:1}})"></label>
+                            {% if tobacco.description|length > 0 %}
+                            <div class="header_label">
+                                {% blocktrans %}Description{% endblocktrans %}
+                            </div>
+                            <div class="header_content_light"> 
+                                <blockquote> 
+                                    {{tobacco.description|linebreaks}} 
+                                </blockquote>
+                            </div>
+                            <p></p>
+                            {% endif %}
+
+                            <!-- rates --> 
+
+                            <div class="header_label">
+                                {% blocktrans %}Characteristics{% endblocktrans %}
+                            </div>
+
+                            {% with 'strength heat smoke taste rating' as param_list %}
+                            {% for param in param_list.split %}
+
+                            <div class="header_content_light">
+
+                                <div class="votes">
+                                    
+                                    {{param|upper}}: {{ tobacco|realParam:param }}
+                                    
+                                    <img src="{% static "/tobacco_page/image/vote_icon.png" %}" class="vote_icon"> 
+                                    {{tobacco|realParamAmount:param}}
+                                    
+                                    {% if login != None %}
+
+                                    <span id="{{param}}_span_init" class="vote_span">{{uto|realVote:param|default_if_none:"0"}}</span>
+                                    <span id="{{param}}_span_hover" class="vote_span" style="display: none;"></span>
+
+                                    {% if uto|realVote:param != None %}
+                                    <button onclick="makeVote('{{param}}', 0)" class="rm_vote_span">✕</button>
+                                    {% endif %}
+                                    
+                                    <form class="tf_rate">
+                                        {% for star_idx in "9876543210" %}
+
+                                        <input type="radio" id="{{param}}_star_{{star_idx|add:1}}" value="{{star_idx|add:1}}" name="tf_rate" class="tf_star" {% if uto|realVote:param == star_idx|add:1 %} checked {% endif %}/>
+                                        <label for="{{param}}_star_{{star_idx|add:1}}" onmouseover="tfStarHover('{{param}}',{{star_idx|add:1}})" onmouseout="tfStarUnhover('{{param}}',{{star_idx|add:1}})"></label>
 
-										{% endfor %}
-									</form>
+                                        {% endfor %}
+                                    </form>
 
-									{% endif %}
+                                    {% endif %}
 
-								</div>
+                                </div>
 
-							</div>
+                            </div>
 
-							{% endfor %}
-							{% endwith %}
+                            {% endfor %}
+                            {% endwith %}
 
-							<p></p>
+                            <p></p>
 
-							<!-- tags --> 
+                            <!-- tags --> 
 
-							<div class="collapse_div">
-								<input id="toggle" type="checkbox">
-								<label for="toggle">{% blocktrans %}Tags{% endblocktrans %}</label>
-								<div id="expand">
-									<div class="tags">
-										<font color="black">
-											{% for rec in tags %}
-											<a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
-												#{{rec.tag_name}}
-											</a>
-											
-											{% endfor %}
-										</font>
-									</div>
-								</div>
-							</div>
+                            <div class="collapse_div">
+                                <input id="toggle" type="checkbox">
+                                <label for="toggle">{% blocktrans %}Tags{% endblocktrans %}</label>
+                                <div id="expand">
+                                    <div class="tags">
+                                        <font color="black">
+                                            {% for rec in tags %}
+                                            <a href="/search?q=%23{{rec.tag_name}}" class="tag_href">
+                                                #{{rec.tag_name}}
+                                            </a>
+                                            
+                                            {% endfor %}
+                                        </font>
+                                    </div>
+                                </div>
+                            </div>
 
-						</td>
+                        </td>
 
-					</tr>
+                    </tr>
 
-					<!-- mixes -->
+                    <!-- mixes -->
 
-					<tr>
+                    <tr>
 
-						<td colspan="2" valign="top" class="column_content">
+                        <td colspan="2" valign="top" class="column_content">
 
-							<div class="header_label">
-								{% blocktrans %}Popular mixes{% endblocktrans %}
-							</div>
-							
-							<div class="header_content_dark">
-								{% if mixes|length != 0 %}
-								<table class="mixes_table">
-									<tr>
-										{% for tobacco_rec in mixes.0.tobaccos.all %}
-										<td align="center">
-											<a href="/{{tobacco_rec.brand}}/{{tobacco_rec.name}}">
-												<img src="{{tobacco_rec.image.name|real_url}}" width="50%">
-											</a>
-										</td>
-										{% if not forloop.last %}
-										<td align="center">
-											<font color="white" size="20">+</font>
-										</td>
-										{% endif %}
-										{% endfor %}
-									</tr>
-								</table>
+                            <div class="header_label">
+                                {% blocktrans %}Popular mixes{% endblocktrans %}
+                            </div>
+                            
+                            <div class="header_content_dark">
+                                {% if mixes|length != 0 %}
+                                <table class="mixes_table">
+                                    <tr>
+                                        {% for tobacco_rec in mixes.0.tobaccos.all %}
+                                        <td align="center">
+                                            <a href="/{{tobacco_rec.brand}}/{{tobacco_rec.name}}">
+                                                <img src="{{tobacco_rec.image.name|real_url}}" width="50%">
+                                            </a>
+                                        </td>
+                                        {% if not forloop.last %}
+                                        <td align="center">
+                                            <font color="white" size="20">+</font>
+                                        </td>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </tr>
+                                </table>
 
-								{% if mixes|length > 1 %}
+                                {% if mixes|length > 1 %}
 
-								<div id="modal_button_mixes" class="more_div">{% blocktrans %}Show more{% endblocktrans %}</div>
+                                <div id="modal_button_mixes" class="more_div">{% blocktrans %}Show more{% endblocktrans %}</div>
 
-								<div id="modal_mixes" class="modal">
+                                <div id="modal_mixes" class="modal">
 
-									<div class="modal_content">
-										<div class="modal_header">
-											<span class="close">&times;</span>
-											<h2>{% blocktrans %}Popular mixes{% endblocktrans %}</h2>
-										</div>
-										<div class="modal_body">
-											<img src="{% static "/image/work_icon.svg" %}" width="200px">
-											<p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
-										</div>
-									</div>
+                                    <div class="modal_content">
+                                        <div class="modal_header">
+                                            <span class="close">&times;</span>
+                                            <h2>{% blocktrans %}Popular mixes{% endblocktrans %}</h2>
+                                        </div>
+                                        <div class="modal_body">
+                                            <img src="{% static "/image/work_icon.svg" %}" width="200px">
+                                            <p>{% blocktrans %}Sorry, we are working on this part of our site, but now it is unavailable...{% endblocktrans %}</p>
+                                        </div>
+                                    </div>
 
-								</div>
+                                </div>
 
-								{% endif %}
+                                {% endif %}
 
-								{% else %}
-								<p>
-									{% blocktrans %}No mixes found{% endblocktrans %}
-								</p>
-								{% endif %}
-							</div>
+                                {% else %}
+                                <p>
+                                    {% blocktrans %}No mixes found{% endblocktrans %}
+                                </p>
+                                {% endif %}
+                            </div>
 
-						</td>
+                        </td>
 
-					</tr>
+                    </tr>
 
 
-				</table>
+                </table>
 
-			</td>
+            </td>
 
-			<td class="side_bar"></td>
-		</tr>
-	</table>
+            <td class="side_bar"></td>
+        </tr>
+    </table>
 
-	{% include "footer.html" %}
+    {% include "footer.html" %}
 
-	<script type="text/javascript" src="{% static "/tobacco_page/js/modal_actions.js" %}"></script>
+    <script type="text/javascript" src="{% static "/tobacco_page/js/modal_actions.js" %}"></script>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 
-		makeVote = function(type, vote) {
-			session = document.cookie.split('tfsession=')[1].split(';')[0];
-			var xhr = new XMLHttpRequest();
+        makeVote = function(type, vote) {
+            session = document.cookie.split('tfsession=')[1].split(';')[0];
+            var xhr = new XMLHttpRequest();
 
-			xhr.open("GET", "/api/user_api/set_uto_" + type + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + vote, false);
-			xhr.send();
+            xhr.open("GET", "/api/user_api/set_uto_" + type + "/" + session + '/{{tobacco.brand}}/{{tobacco.name}}/' + vote, false);
+            xhr.send();
 
-			if (vote == 0) {
-				window.location.reload(false);
-			}
+            if (vote == 0) {
+                window.location.reload(false);
+            }
 
-			return xhr.status == 200; // OK
-		}
+            return xhr.status == 200; // OK
+        }
 
-		tfStarClicked = function() {
-			/* Star id structure: <type>_star_<number> */
-			type = this.id.substring(0, this.id.indexOf('_'));
-			makeVote(type, this.value);
-			document.getElementById(type + "_span_init").innerHTML = this.value;
+        tfStarClicked = function() {
+            /* Star id structure: <type>_star_<number> */
+            type = this.id.substring(0, this.id.indexOf('_'));
+            makeVote(type, this.value);
+            document.getElementById(type + "_span_init").innerHTML = this.value;
 
-		}
+        }
 
-		tfStarHover = function(type, vote) {
-			document.getElementById(type + "_span_init").style.display = "none";
-			document.getElementById(type + "_span_hover").style.display = "inline";
-			document.getElementById(type + "_span_hover").innerHTML = vote;
-		}
+        tfStarHover = function(type, vote) {
+            document.getElementById(type + "_span_init").style.display = "none";
+            document.getElementById(type + "_span_hover").style.display = "inline";
+            document.getElementById(type + "_span_hover").innerHTML = vote;
+        }
 
-		tfStarUnhover = function(type, vote) {
-			document.getElementById(type + "_span_init").style.display = "inline";
-			document.getElementById(type + "_span_hover").style.display = "none";
-			document.getElementById(type + "_span_hover").innerHTML = "";
-		}
+        tfStarUnhover = function(type, vote) {
+            document.getElementById(type + "_span_init").style.display = "inline";
+            document.getElementById(type + "_span_hover").style.display = "none";
+            document.getElementById(type + "_span_hover").innerHTML = "";
+        }
 
-		var elems = document.querySelectorAll('.tf_star');
-		for (var i=elems.length; i--;) {
-			elems[i].addEventListener('click', tfStarClicked, false);
-		}
+        var elems = document.querySelectorAll('.tf_star');
+        for (var i=elems.length; i--;) {
+            elems[i].addEventListener('click', tfStarClicked, false);
+        }
 
-	</script>
+    </script>
 
 </body>
 

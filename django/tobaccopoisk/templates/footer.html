@@ -4,28 +4,28 @@
 
 <section class="footer">
 
-	<img src="{% static "/footer/image/kda_logo.svg" %}" class="copyright"> 
-	<img src="{% static "/footer/image/j_logo.svg" %}" class="copyright">
+    <img src="{% static "/footer/image/kda_logo.svg" %}" class="copyright"> 
+    <img src="{% static "/footer/image/j_logo.svg" %}" class="copyright">
 
-	<p style="margin: 10px;padding: 0;">
-		<a href="/user/deniskoptev">{% blocktrans %}Denis Koptev{% endblocktrans %}</a> | 
-		<a href="/user/japroc">{% blocktrans %}Evgeniy Protsenko{% endblocktrans %}</a>
-	</p>
+    <p style="margin: 10px;padding: 0;">
+        <a href="/user/deniskoptev">{% blocktrans %}Denis Koptev{% endblocktrans %}</a> | 
+        <a href="/user/japroc">{% blocktrans %}Evgeniy Protsenko{% endblocktrans %}</a>
+    </p>
 
-	{% if CURRENT_LOCALE == LANGUAGES.0.0 %}
-	<form action="{% url 'set_language' %}" method="post" style="margin: 0;">
-		{% csrf_token %}
-		<input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
-		<input name="language" type="hidden" value="en" />
-		<input type="submit" value="English version" class="lang_version" />
-	</form>
-	{% else %}
-	<form action="{% url 'set_language' %}" method="post" style="margin: 0;">
-		{% csrf_token %}
-		<input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
-		<input name="language" type="hidden" value="ru" />
-		<input type="submit" value="Русская версия" class="lang_version" />
-	</form>
-	{% endif %}
+    {% if CURRENT_LOCALE == LANGUAGES.0.0 %}
+    <form action="{% url 'set_language' %}" method="post" style="margin: 0;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+        <input name="language" type="hidden" value="en" />
+        <input type="submit" value="English version" class="lang_version" />
+    </form>
+    {% else %}
+    <form action="{% url 'set_language' %}" method="post" style="margin: 0;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+        <input name="language" type="hidden" value="ru" />
+        <input type="submit" value="Русская версия" class="lang_version" />
+    </form>
+    {% endif %}
 
 </section>

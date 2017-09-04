@@ -6,175 +6,175 @@
 
 <head>
 
-	<title>
-		{{user.login}} - {% blocktrans %}TobaccoFeed{% endblocktrans %}
-	</title>
+    <title>
+        {{user.login}} - {% blocktrans %}TobaccoFeed{% endblocktrans %}
+    </title>
 
-	<link rel="icon" href="{% static "/favicon.ico" %}">
-	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
 
 </head>
 
 <body>
 
-	{% include "navbar.html" %}
+    {% include "navbar.html" %}
 
-	<table class="table_content">
+    <table class="table_content">
 
-		<tr>
-			<td class="side_bar"></td>
+        <tr>
+            <td class="side_bar"></td>
 
-			<td class="main_content" valign="top">
-				
-				<div class="header_label_margined">
-					{{user.login}}
-				</div>
+            <td class="main_content" valign="top">
+                
+                <div class="header_label_margined">
+                    {{user.login}}
+                </div>
 
-				<table width="100%">
-					<tr>					
+                <table width="100%">
+                    <tr>                    
 
-						<!-- LEFT COLUMN -->
+                        <!-- LEFT COLUMN -->
 
-						<td width="27%" valign="top" class="column_content" style="text-align: center;">
+                        <td width="27%" valign="top" class="column_content" style="text-align: center;">
 
-							<div class="header_content_light">
-								{% if user_info.avatar != None %}
-								<a href="{{user_info.avatar|real_url}}" target="_blank">
-									<img src={{user_info.avatar|real_url}} class="avatar_image">
-								</a>
-								{% else %}
-								<img src="/static/navbar/image/user_icon_black.svg" class="avatar_image">
-								{% endif %}
-								{% if isHost == True %}
-								<hr>
-								<a href=/user/avatar_upload/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Change photo{% endblocktrans %}</a>
-								<hr>
-								<a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Edit page{% endblocktrans %}</a>	
-								<hr>							
-								{% endif %}
-							</div>
+                            <div class="header_content_light">
+                                {% if user_info.avatar != None %}
+                                <a href="{{user_info.avatar|real_url}}" target="_blank">
+                                    <img src={{user_info.avatar|real_url}} class="avatar_image">
+                                </a>
+                                {% else %}
+                                <img src="/static/navbar/image/user_icon_black.svg" class="avatar_image">
+                                {% endif %}
+                                {% if isHost == True %}
+                                <hr>
+                                <a href=/user/avatar_upload/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Change photo{% endblocktrans %}</a>
+                                <hr>
+                                <a href=/user/edit_bio/{{login}} style="text-decoration:none; color:black;">{% blocktrans %}Edit page{% endblocktrans %}</a>    
+                                <hr>                            
+                                {% endif %}
+                            </div>
 
-							{% if isHost == False and login != None %}
-							<!--<div class="header_content_light">-->
-								<form method="post" action="/user/{{user.login}}" style="margin-bottom: 0;">
-									{% csrf_token %}
-									{% if is_follow == False %}
-										<input type="text" name="event" value="follow" hidden="true">
-										<button type="submit" class="follow_button">{% blocktrans %}Follow{% endblocktrans %}</button>
-									{% else %}
-										<input type="text" name="event" value="unfollow" hidden="true">
-										<button type="submit" class="follow_button">{% blocktrans %}Unfollow{% endblocktrans %}</button>
-									{% endif %}
-								</form>
-							<!--</div>-->
-							{% endif %}
+                            {% if isHost == False and login != None %}
+                            <!--<div class="header_content_light">-->
+                                <form method="post" action="/user/{{user.login}}" style="margin-bottom: 0;">
+                                    {% csrf_token %}
+                                    {% if is_follow == False %}
+                                        <input type="text" name="event" value="follow" hidden="true">
+                                        <button type="submit" class="follow_button">{% blocktrans %}Follow{% endblocktrans %}</button>
+                                    {% else %}
+                                        <input type="text" name="event" value="unfollow" hidden="true">
+                                        <button type="submit" class="follow_button">{% blocktrans %}Unfollow{% endblocktrans %}</button>
+                                    {% endif %}
+                                </form>
+                            <!--</div>-->
+                            {% endif %}
 
-							<br>
+                            <br>
 
-							<div class="header_label">
-								{% blocktrans %}Recent{% endblocktrans %}
-							</div>
+                            <div class="header_label">
+                                {% blocktrans %}Recent{% endblocktrans %}
+                            </div>
 
-							<div class="header_content_light">
-								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
-							</div>
+                            <div class="header_content_light">
+                                <p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
+                            </div>
 
-						</td>
-
-
-						<!-- RIGHT COLUMN -->
-
-						<td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
-
-							<div class="header_label">
-								{% blocktrans %}Bio{% endblocktrans %}
-							</div>
-
-							<div class="header_content_light">
-								<table class="user_info_table">
-									{% if user_info.name != None %}
-									<tr>
-										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Name{% endblocktrans %}</u></font> 
-										</td>
-										<td align="left">
-											<font style="text-align: right;">{{user_info.name}}</font> 
-										</td>
-									</tr>
-									{% endif %}
-
-									{% if user_info.b_date != None %}
-									<tr>
-										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Birth{% endblocktrans %}</u></font> 
-										</td>
-										<td align="left">
-											<font style="text-align: right;">{{user_info.b_date}}</font> 
-										</td>
-									</tr>
-									{% endif %}
-
-									{% if user_info.place != None %}
-									<tr>
-										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Location{% endblocktrans %}</u></font> 
-										</td>
-										<td align="left">
-											<font style="text-align: right;">{{user_info.place}}</font> 
-										</td>
-									</tr>
-									{% endif %}
-
-									<tr>
-										<td align="right">
-											<font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Email{% endblocktrans %}</u></font>  
-										</td>
-										<td align="left">
-											<font style="text-align: right;">{{user.mail}}</font> 
-										</td>
-									</tr>
-								</table>
-							</div>
-							
-							<div class="header_label">
-								{% blocktrans %}Friends{% endblocktrans %}
-							</div>
-
-							<div class="header_content_light">
-								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
-							</div>
-
-							<div class="header_label">
-								{% blocktrans %}Favourite{% endblocktrans %}
-							</div>
-
-							<div class="header_content_light">
-								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
-							</div>
-
-							<div class="header_label">
-								{% blocktrans %}Bookmarks{% endblocktrans %}
-							</div>
-
-							<div class="header_content_light">
-								<p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
-							</div>
-
-						</td>
-
-					</tr>
-
-				</table>
+                        </td>
 
 
-			</td>
+                        <!-- RIGHT COLUMN -->
 
-			<td class="side_bar"></td>
-		</tr>
+                        <td valign="top" class="column_content" width="73%" style="padding-left: 10px;">
 
-	</table>
+                            <div class="header_label">
+                                {% blocktrans %}Bio{% endblocktrans %}
+                            </div>
 
-	{% include "footer.html" %}
+                            <div class="header_content_light">
+                                <table class="user_info_table">
+                                    {% if user_info.name != None %}
+                                    <tr>
+                                        <td align="right">
+                                            <font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Name{% endblocktrans %}</u></font> 
+                                        </td>
+                                        <td align="left">
+                                            <font style="text-align: right;">{{user_info.name}}</font> 
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+
+                                    {% if user_info.b_date != None %}
+                                    <tr>
+                                        <td align="right">
+                                            <font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Birth{% endblocktrans %}</u></font> 
+                                        </td>
+                                        <td align="left">
+                                            <font style="text-align: right;">{{user_info.b_date}}</font> 
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+
+                                    {% if user_info.place != None %}
+                                    <tr>
+                                        <td align="right">
+                                            <font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Location{% endblocktrans %}</u></font> 
+                                        </td>
+                                        <td align="left">
+                                            <font style="text-align: right;">{{user_info.place}}</font> 
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+
+                                    <tr>
+                                        <td align="right">
+                                            <font style="text-align: left; margin-right: 10px;"><u>{% blocktrans %}Email{% endblocktrans %}</u></font>  
+                                        </td>
+                                        <td align="left">
+                                            <font style="text-align: right;">{{user.mail}}</font> 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="header_label">
+                                {% blocktrans %}Friends{% endblocktrans %}
+                            </div>
+
+                            <div class="header_content_light">
+                                <p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
+                            </div>
+
+                            <div class="header_label">
+                                {% blocktrans %}Favourite{% endblocktrans %}
+                            </div>
+
+                            <div class="header_content_light">
+                                <p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
+                            </div>
+
+                            <div class="header_label">
+                                {% blocktrans %}Bookmarks{% endblocktrans %}
+                            </div>
+
+                            <div class="header_content_light">
+                                <p>{% blocktrans %}We are working on this section{% endblocktrans %}</p>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+
+            </td>
+
+            <td class="side_bar"></td>
+        </tr>
+
+    </table>
+
+    {% include "footer.html" %}
 
 </body>
 

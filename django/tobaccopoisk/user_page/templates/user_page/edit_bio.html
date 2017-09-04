@@ -5,75 +5,75 @@
 
 <head>
 
-	<title>
-		{% blocktrans %}Edit page - TobaccoFeed{% endblocktrans %}
-	</title>
+    <title>
+        {% blocktrans %}Edit page - TobaccoFeed{% endblocktrans %}
+    </title>
 
-	<link rel="icon" href="{% static "/favicon.ico" %}">
-	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
 
 </head>
 
 <body>
 
-	{% include "navbar.html" %}
+    {% include "navbar.html" %}
 
-	<table class="table_content">
+    <table class="table_content">
 
-		<tr>
-			<td class="side_bar"></td>
+        <tr>
+            <td class="side_bar"></td>
 
-			<td class="main_content" valign="top">
-				
-				<div class="header_label_margined">
-					{% blocktrans %}Edit your page{% endblocktrans %}
-				</div>
+            <td class="main_content" valign="top">
+                
+                <div class="header_label_margined">
+                    {% blocktrans %}Edit your page{% endblocktrans %}
+                </div>
 
-				<div class="header_content_light">
-					<form method="post" action="/user/{{login}}" class="edit_bio_form">
-						{% csrf_token %}
-						<input type="text" name="event" value="edit_bio" hidden="true">
-						<table class="user_info_table">
-							<tr>
-								<td align="right" width="40%">
-									{% blocktrans %}Name{% endblocktrans %}
-								</td>
-								<td align="left" width="60%">
-									<input type="text" name="name" id="name" maxlength="50" value="{{user_info.name|default:""}}">
-								</td>
-							</tr>
+                <div class="header_content_light">
+                    <form method="post" action="/user/{{login}}" class="edit_bio_form">
+                        {% csrf_token %}
+                        <input type="text" name="event" value="edit_bio" hidden="true">
+                        <table class="user_info_table">
+                            <tr>
+                                <td align="right" width="40%">
+                                    {% blocktrans %}Name{% endblocktrans %}
+                                </td>
+                                <td align="left" width="60%">
+                                    <input type="text" name="name" id="name" maxlength="50" value="{{user_info.name|default:""}}">
+                                </td>
+                            </tr>
 
-							<tr>
-								<td align="right" width="40%">
-									{% blocktrans %}Birth{% endblocktrans %}
-								</td>
-								<td align="left" width="60%">
-									<input type="date" name="birth" id="birth"
-									value="{{user_info.b_date.year|default:""}}-{{user_info.b_date.month|default:""|stringformat:"02d"}}-{{user_info.b_date.day|default:""|stringformat:"02d"}}">
-								</td>
-							</tr>
+                            <tr>
+                                <td align="right" width="40%">
+                                    {% blocktrans %}Birth{% endblocktrans %}
+                                </td>
+                                <td align="left" width="60%">
+                                    <input type="date" name="birth" id="birth"
+                                    value="{{user_info.b_date.year|default:""}}-{{user_info.b_date.month|default:""|stringformat:"02d"}}-{{user_info.b_date.day|default:""|stringformat:"02d"}}">
+                                </td>
+                            </tr>
 
-							<tr>
-								<td align="right" width="40%">
-									{% blocktrans %}Location{% endblocktrans %}
-								</td>
-								<td align="left" width="60%">
-									<input type="text" name="location" id="location" maxlength="64" value="{{user_info.place|default:""}}">
-								</td>
-							</tr>
-						</table>
-						<button type="submit" class="edit_bio_submit">{% blocktrans %}Submit{% endblocktrans %}</button>
-					</form>
-				</div>
+                            <tr>
+                                <td align="right" width="40%">
+                                    {% blocktrans %}Location{% endblocktrans %}
+                                </td>
+                                <td align="left" width="60%">
+                                    <input type="text" name="location" id="location" maxlength="64" value="{{user_info.place|default:""}}">
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="edit_bio_submit">{% blocktrans %}Submit{% endblocktrans %}</button>
+                    </form>
+                </div>
 
-			</td>
+            </td>
 
-			<td class="side_bar"></td>
-		</tr>
+            <td class="side_bar"></td>
+        </tr>
 
-	</table>
+    </table>
 
-	{% include "footer.html" %}
+    {% include "footer.html" %}
 
 </body>
 

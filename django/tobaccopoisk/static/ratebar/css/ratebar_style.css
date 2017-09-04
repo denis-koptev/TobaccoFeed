@@ -1,42 +1,39 @@
 .tf_rate {
-  margin: 0 auto;
-  width: auto;
-  height: 46px;
+    margin:0 auto;
+    width:auto;
+    height:46px
 }
 
 .tf_rate:not(:checked) > input {
-  position: absolute;
-  top: -9999px;
+    position:absolute;
+    top:-9999px
 }
 
 .tf_rate:not(:checked) > label {
-  width: 1em;
-  float: right;
-  cursor: pointer;
-  font-size: 30px;
-  color: #777;
+    width:1em;
+    float:right;
+    cursor:pointer;
+    font-size:30px;
+    color:#777
 }
 
-.tf_rate:not(:checked) > label:before { 
-  content: '★ '; 
+.tf_rate:not(:checked) > label:before {
+    content:'★'
 }
 
-.tf_rate > input:checked ~ label { 
-  color: green;
+.tf_rate > input:checked ~ label {
+    color:green
 }
 
-.tf_rate:not(:checked) > label:hover, 
-.tf_rate:not(:checked) > label:hover ~ label { 
-  color: #9f561a;
+.tf_rate:not(:checked) > label:hover,
+.tf_rate:not(:checked) > label:hover ~ label {
+    color:#9f561a
 }
 
-.tf_rate > input:checked + label:hover, 
-.tf_rate > input:checked + label:hover ~ label, 
-.tf_rate > input:checked ~ label:hover, 
-.tf_rate > input:checked ~ label:hover ~ label, 
-.tf_rate > label:hover ~ input:checked ~ label { 
-  color: #799908;
-}
-
-.tf_star {
+.tf_rate > input:checked + label:hover,
+.tf_rate > input:checked + label:hover ~ label,
+.tf_rate > input:checked ~ label:hover,
+.tf_rate > input:checked ~ label:hover ~ label,
+.tf_rate > label:hover ~ input:checked ~ label {
+    color:#799908
 }

@@ -5,53 +5,53 @@
 
 <head>
 
-	<title>
-		{% blocktrans %}Upload avatar - TobaccoFeed{% endblocktrans %}
-	</title>
+    <title>
+        {% blocktrans %}Upload avatar - TobaccoFeed{% endblocktrans %}
+    </title>
 
-	<link rel="icon" href="{% static "/favicon.ico" %}">
-	<link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
+    <link rel="icon" href="{% static "/favicon.ico" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "/user_page/css/user_page_style.css" %}"></link>
 
 </head>
 
 <body>
 
-	{% include "navbar.html" %}
+    {% include "navbar.html" %}
 
-	<table class="table_content">
+    <table class="table_content">
 
-		<tr>
-			<td class="side_bar"></td>
+        <tr>
+            <td class="side_bar"></td>
 
-			<td class="main_content" valign="top">
-				
-				<div class="header_label_margined">
-					{% blocktrans %}Upload your new avatar photo{% endblocktrans %}
-				</div>
+            <td class="main_content" valign="top">
+                
+                <div class="header_label_margined">
+                    {% blocktrans %}Upload your new avatar photo{% endblocktrans %}
+                </div>
 
-				<form action="/user/{{login}}" method="post" enctype="multipart/form-data">
-					{% csrf_token %}
-					<input type="text" name="event" value="avatar_upload" hidden="true">
-					<table class="user_info_table">
-						<tr>
-							<td align="center" class="header_content_light">
-								<input id="id_image" type="file" class="edit_bio_form" name="image" accept="image/jpeg,image/png,image/JPG">
-							</td>
-							<td align="center" class="header_content_light">
-								<input type="submit" value="Submit" class="edit_bio_submit" />
-							</td>
-						</tr>
-					</table>
-				</form>
+                <form action="/user/{{login}}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" name="event" value="avatar_upload" hidden="true">
+                    <table class="user_info_table">
+                        <tr>
+                            <td align="center" class="header_content_light">
+                                <input id="id_image" type="file" class="edit_bio_form" name="image" accept="image/jpeg,image/png,image/JPG">
+                            </td>
+                            <td align="center" class="header_content_light">
+                                <input type="submit" value="Submit" class="edit_bio_submit" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
 
-			</td>
+            </td>
 
-			<td class="side_bar"></td>
-		</tr>
+            <td class="side_bar"></td>
+        </tr>
 
-	</table>
+    </table>
 
-	{% include "footer.html" %}
+    {% include "footer.html" %}
 
 </body>
 

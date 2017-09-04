@@ -1,252 +1,228 @@
 .nav {
-    width: auto;
-    height: auto;
-    background: rgba(1,1,1,0.5);
-    position: relative;
-    overflow: hidden;
+    width:auto;
+    height:auto;
+    background:rgba(1,1,1,0.5);
+    position:relative;
+    overflow:hidden
 }
 
 .votes {
-    width: 300px;
-    display: -moz-inline-stack; /* ← Firefox 2 backwards compatibility */
-    display: inline-block;
-    vertical-align: top;
-
-    /* ↓ IE6 & IE7 «hasLayout» voodoo */
-    zoom: 1;
-    *display: inline;
-
-    font-family: ClinicaRegular;
-    font-weight: 700;
-    font-size: 14px;
-
-    padding-top: 5px;
+    width:300px;
+    display:-moz-inline-stack;
+    display:inline-block;
+    vertical-align:top;
+    zoom:1;
+    *display:inline;
+    padding-top:5px;
+    font:700 14px ClinicaRegular
 }
 
 .vote_icon {
-    margin-left: 10px;
-    display: inline-block;
-    height: 15px;
-    vertical-align: bottom;
+    margin-left:10px;
+    display:inline-block;
+    height:15px;
+    vertical-align:bottom
 }
 
 .column_content {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top:5px;
+    padding-bottom:5px
 }
 
 .main_image {
-    background-color: rgba(255,255,255,0.5);
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border-spacing: 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color:rgba(255,255,255,0.5);
+    border:none;
+    box-sizing:border-box;
+    border-radius:5px;
+    border-spacing:0;
+    box-shadow:0 0 10px rgba(0,0,0,0.5)
 }
 
 blockquote {
-    font-style: italic;
-    font-family: ClinicaRegular, serif;
-    text-align: left;
-    font-size: 16px;
-}
- 
-blockquote:before {
-    color: #AAAAAA;
-    content: "\201C";
-    font-size: 3em;
-    line-height: 0.1em;
-    margin-right: 0.2em;
-    vertical-align: -.4em;
+    text-align:left;
+    font:italic 16px ClinicaRegular,serif
 }
 
- 
+blockquote:before {
+    color:#AAA;
+    content:"\201C";
+    font-size:3em;
+    line-height:.1em;
+    margin-right:.2em;
+    vertical-align:-.4em
+}
+
 blockquote > p:first-child {
-    display: inline;
+    display:inline
 }
 
 .mixes_section {
-    background-color: rgba(1,1,1,0.5);
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
+    background-color:rgba(1,1,1,0.5);
+    border-radius:5px;
+    padding:5px;
+    margin-bottom:10px
 }
 
 .mixes_image {
-    border: none;
-    box-sizing: border-box;
-    border-spacing: 0;
-    width: 100%;
+    border:none;
+    box-sizing:border-box;
+    border-spacing:0;
+    width:100%
 }
 
 .mixes_table {
-    padding: 10px 0;
+    padding:10px 0
 }
 
 .related_div {
-    font-size: 14px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    font-size:14px;
+    text-align:center;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    width:100%;
+    height:100%;
+    margin:0
 }
 
 .related_div a {
-    text-decoration: none;
-    color: #111111;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
+    text-decoration:none;
+    color:#111;
+    font-family:DrugsThin,serif;
+    font-weight:700
 }
 
 .related_table {
-    overflow: hidden;
-    width: 100%;
-    table-layout: fixed;
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 5px;
+    overflow:hidden;
+    width:100%;
+    table-layout:fixed;
+    background-color:rgba(0,0,0,0.4);
+    border-radius:5px
 }
 
 .related_td {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 5px;
-    vertical-align: bottom;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out 
+    background-color:rgba(255,255,255,0.5);
+    border-radius:5px;
+    vertical-align:bottom;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out
 }
 
 .related_td:hover {
-    background-color: rgba(255,255,255,0.7);
+    background-color:rgba(255,255,255,0.7)
 }
 
 .more_div {
-    font-size: 14px;
-    text-align: center;
-    color: #CCCCCC;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 3px;
-    cursor: pointer;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out 
+    text-align:center;
+    color:#CCC;
+    border-radius:5px;
+    padding:3px;
+    cursor:pointer;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out;
+    font:700 14px DrugsThin,serif
 }
 
 .more_div:hover {
-    color: #AAFFDD;
-}
-
-/* collapse */
-
-.collapse_div {
+    color:#AFD
 }
 
 .collapse_div input {
-  display: none;
-  visibility: hidden;
+    display:none;
+    visibility:hidden
 }
 
 .collapse_div label {
-    margin-bottom: 10px;
-    height: 30px;
-    background-color: rgba(1,1,1,0.5);
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: DrugsThin, serif;
-    font-weight: bold;
-    letter-spacing: 2pt;
-    text-transform: uppercase;
-    line-height: 30px;
-    border: 1px solid gray;
-    box-sizing: border-box;
-    border-radius: 5px;
-    display: inline-block;
-    width: 100%;
-    cursor: pointer;
-
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    user-select: none;
-
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out 
+    margin-bottom:10px;
+    height:30px;
+    background-color:rgba(1,1,1,0.5);
+    color:#FFF;
+    text-align:center;
+    letter-spacing:2pt;
+    text-transform:uppercase;
+    border:1px solid gray;
+    box-sizing:border-box;
+    border-radius:5px;
+    display:inline-block;
+    width:100%;
+    cursor:pointer;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    user-select:none;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out;
+    font:700 16px/30px DrugsThin,serif
 }
 
 .collapse_div label:hover {
-  color: #AAFFDD;
-  background-color: #222;
+    color:#AFD;
+    background-color:#222
 }
 
 .collapse_div label::after {
-  padding-right: 10px;
-  content: "\25bc";
-  font-size: 14px;
-  float: right;
+    padding-right:10px;
+    content:"\25bc";
+    font-size:14px;
+    float:right
 }
 
 #expand {
-  height: 0px;
-  overflow: hidden;
+    height:0;
+    overflow:hidden
 }
 
 #toggle:checked ~ #expand {
-  height: auto;
+    height:auto
 }
 
 #toggle:checked ~ label::after {
-  content: "\25b2";
+    content:"\25b2"
 }
 
 .tags {
-    background-color: rgba(255,255,255,0.8);
-    overflow: hidden;
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border-spacing: 0;
-    font-family: ClinicaItalic, Arial, serif;
-    padding: 10px;
+    background-color:rgba(255,255,255,0.8);
+    overflow:hidden;
+    margin-bottom:10px;
+    text-align:center;
+    border:none;
+    box-sizing:border-box;
+    border-radius:5px;
+    border-spacing:0;
+    padding:10px;
+    font:18px ClinicaItalic,Arial,serif
 }
 
 .tag_href {
-    text-decoration: none;
-    color: black;
+    text-decoration:none;
+    color:#000
 }
 
 .tag_href:hover {
-    font-weight: bold;
+    font-weight:700
 }
 
 .vote_span {
-    background: #DDD;
-    border: 1px solid black;
-    padding: 2px 5px;
-    border-radius: 2px;
-    margin-left: 10px;
-    font-family: sans-serif;
+    background:#DDD;
+    border:1px solid #000;
+    padding:2px 5px;
+    border-radius:2px;
+    margin-left:10px;
+    font-family:sans-serif
 }
 
 .rm_vote_span {
-    background: transparent;
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
+    background:transparent;
+    border:none;
+    font-weight:700;
+    cursor:pointer
 }

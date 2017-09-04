@@ -3,25 +3,25 @@
 
 {% if message|length != 0 %}
 
-	<link rel="stylesheet" type="text/css" href="{% static "/dialog/css/dialog_style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/dialog/css/dialog_style.css" %}">
 
-	<dialog class="message_dialog">
-		<p>{{ message }}</p>
-		<button id="close" class="message_button">{% blocktrans %}Close{% endblocktrans %}</button>
-	</dialog>
+    <dialog class="message_dialog">
+        <p>{{ message }}</p>
+        <button id="close" class="message_button">{% blocktrans %}Close{% endblocktrans %}</button>
+    </dialog>
 
-	<script>
-		var dialog = document.querySelector('dialog');
-		dialog.showModal();
+    <script>
+        var dialog = document.querySelector('dialog');
+        dialog.showModal();
 
-		document.querySelector('#close').onclick = function() {
-			dialog.classList.add('hide');
-			    dialog.addEventListener('webkitAnimationEnd', function(){
-			        dialog.classList.remove('hide');
-			        dialog.close();
-			        dialog.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
-			    }, false);
-		};
-	</script>
+        document.querySelector('#close').onclick = function() {
+            dialog.classList.add('hide');
+                dialog.addEventListener('webkitAnimationEnd', function(){
+                    dialog.classList.remove('hide');
+                    dialog.close();
+                    dialog.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
+                }, false);
+        };
+    </script>
 
 {% endif %}

@@ -1,171 +1,140 @@
 .all_content {
-    margin-top: 40px;
+    margin-top:40px
 }
 
 .cell_table {
-    width: 100%;
-    height: 100%;
+    width:100%;
+    height:100%
 }
 
 .cell_td {
-    width: 100%;
-    height: 80%;
-    text-align: center;
+    width:100%;
+    height:80%;
+    text-align:center
 }
 
 .nav_arrow {
-    width: 70px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    border-radius: 15px;
-    opacity: 0.5;
-    -moz-transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out
+    width:70px;
+    margin-top:30px;
+    margin-bottom:40px;
+    border-radius:15px;
+    opacity:.5;
+    -moz-transition:all .2s ease-out;
+    -webkit-transition:all .2s ease-out;
+    -o-transition:all .2s ease-out;
+    transition:all .2s ease-out
 }
 
 .nav_arrow:hover {
-    opacity: 1;
+    opacity:1
 }
 
-/* HEADER */
-
 .header_content {
-    background: #464646 url("/static/about_page/image/header_bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-    margin-bottom: 5px;
-
-    min-height: 100%;
+    background:#464646 url(/static/about_page/image/header_bg.jpg) no-repeat center center fixed;
+    background-size:cover;
+    text-align:center;
+    margin-bottom:5px;
+    min-height:100%
 }
 
 .header_div {
-    display: inline-block;
+    display:inline-block
 }
 
 .header_icon {
     float:left;
-    height: 100px;
+    height:100px
 }
 
 .header_text {
     float:left;
     margin-left:15px;
-    font-size:100px;
     color:#fff;
-    line-height:100px;
-    font-family:DrugsThin, Calibri, serif;
-    font-weight: 700;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-shadow:-2px 0 black,0 2px black,2px 0 black,0 -2px #000;
+    font:700 100px/100px DrugsThin,Calibri,serif
 }
 
-/* INTRO */
-
 .intro_content {
-    background: #464646 url("/static/about_page/image/intro_bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-    margin-bottom: 5px;
-
-    min-height: 100%;
-
+    background:#464646 url(/static/about_page/image/intro_bg.jpg) no-repeat center center fixed;
+    background-size:cover;
+    text-align:center;
+    margin-bottom:5px;
+    min-height:100%
 }
 
 .intro_text {
-    font-size: 50px;
-    color: #EEEEEE;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    vertical-align: middle;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    text-shadow: black 2px 2px 4px;
+    color:#EEE;
+    vertical-align:middle;
+    margin-bottom:40px;
+    margin-top:40px;
+    text-shadow:#000 2px 2px 4px;
+    font:700 50px DrugsThin,Calibri,serif
 }
 
 .intro_table {
-    text-align: center;
-    display: inline-block;
+    text-align:center;
+    display:inline-block
 }
 
 .intro_td {
-    border: 3px solid #EEEEEE;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 40px;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    /*font-size: 40px;*/
-    font-size: 1.3rem;
-    color: #EEEEEE;
-    background-color: rgba(1,1,1,0.5);
-    text-shadow: black 2px 2px 4px;
+    border:3px solid #EEE;
+    border-radius:15px;
+    padding:30px;
+    margin:40px;
+    color:#EEE;
+    background-color:rgba(1,1,1,0.5);
+    text-shadow:#000 2px 2px 4px;
+    font:700 1.3rem DrugsThin,Calibri,serif
 }
 
-/* WORK */
-
 .work_content {
-    background: #464646 url("/static/about_page/image/work_bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-    margin-bottom: 5px;
-
-    min-height: 100%;
-
+    background:#464646 url(/static/about_page/image/work_bg.jpg) no-repeat center center fixed;
+    background-size:cover;
+    text-align:center;
+    margin-bottom:5px;
+    min-height:100%
 }
 
 .work_text {
-    font-size: 50px;
-    color: #EEEEEE;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    vertical-align: middle;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    text-shadow: black 2px 2px 4px;
+    color:#EEE;
+    vertical-align:middle;
+    margin-bottom:40px;
+    margin-top:40px;
+    text-shadow:#000 2px 2px 4px;
+    font:700 50px DrugsThin,Calibri,serif
 }
 
 .work_table {
-    text-align: center;
-    display: inline-block;
+    text-align:center;
+    display:inline-block
 }
-
 
 .work_td {
-    border: 3px solid #EEEEEE;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 40px;
-    font-family: DrugsThin, Calibri, serif;
-    /*font-size: 40px;*/
-    font-size: 1.3rem;
-    color: #EEEEEE;
-    font-weight: bold;
-    background-color: rgba(1,1,1,0.5);
-    text-shadow: black 2px 2px 4px;
+    border:3px solid #EEE;
+    border-radius:15px;
+    padding:30px;
+    margin:40px;
+    color:#EEE;
+    background-color:rgba(1,1,1,0.5);
+    text-shadow:#000 2px 2px 4px;
+    font:700 1.3rem DrugsThin,Calibri,serif
 }
 
-/* COMING SOON */
-
 .release_content {
-    background: #464646 url("/static/about_page/image/release_bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-
-    min-height: 100%;
-
+    background:#464646 url(/static/about_page/image/release_bg.jpg) no-repeat center center fixed;
+    background-size:cover;
+    text-align:center;
+    min-height:100%
 }
 
 .release_text {
-    font-size: 70px;
-    color: #EEEEEE;
-    font-family: DrugsThin, Calibri, serif;
-    font-weight: bold;
-    vertical-align: middle;
-    border: 3px solid #EEEEEE;
-    border-radius: 15px;
-    padding: 10px;
-    background-color: rgba(1,1,1,0.5);
-    display: inline-block;
-    margin: 10px;
+    color:#EEE;
+    vertical-align:middle;
+    border:3px solid #EEE;
+    border-radius:15px;
+    padding:10px;
+    background-color:rgba(1,1,1,0.5);
+    display:inline-block;
+    margin:10px;
+    font:700 70px DrugsThin,Calibri,serif
 }
