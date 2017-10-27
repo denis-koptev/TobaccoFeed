@@ -33,7 +33,7 @@ Users will be able to communicate and share, to add tobaccos and find the best p
 - [x] Photo of tobacco must be deleted after tobacco deletion
 - [ ] RESTfull API for everything - dream big :)
 - [x] Names and brands with uppercases and spaces addition to DB
-- [ ] Docker deployment
+- [x] Docker deployment
 
 
 ## How to start
