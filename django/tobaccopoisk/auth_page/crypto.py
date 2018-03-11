@@ -1,4 +1,6 @@
 import bcrypt
+import string
+import random
 import os
 
 # -----
@@ -36,12 +38,6 @@ def checkpw(password, hashed):
 	else:
 		return False
 
-def gentoken():
-	# gen random seed
-	rand_bytes = os.urandom(16)
-	# hash it
-	bytes_token = bcrypt.hashpw(rand_bytes, bcrypt.gensalt())
-	# decode bytes to str
-	str_token = bytes_to_str(bytes_token)
-	# return last 32 symbols
-	return str_token[-32:]
+def gentoken(): 
+	alpha = string.ascii_uppercase + string.digits + string.ascii_lowercase 
+	return ''.join(random.choice(alpha) for _ in range(32))

@@ -13,7 +13,7 @@ from django.utils import timezone
 class User(models.Model):
 	login = models.CharField(max_length=20, unique=True)
 	password = models.CharField(max_length=60)
-	mail = models.CharField(max_length=256, unique=True)
+	mail = models.CharField(max_length=255, unique=True)
 
 	def __str__(self):
 		return self.login
@@ -42,7 +42,7 @@ def session_save(sender, instance, **kwargs):
 class Unuser(models.Model):
 	login = models.CharField(max_length=20, unique=True)
 	password = models.CharField(max_length=60)
-	mail = models.CharField(max_length=256, unique=True)
+	mail = models.CharField(max_length=255, unique=True)
 	token = models.CharField(max_length=32, unique=True)
 	expire = models.DateTimeField()
 
