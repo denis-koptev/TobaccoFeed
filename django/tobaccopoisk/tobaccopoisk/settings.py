@@ -52,6 +52,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_jenkins',
+]
+
+JENKINS_TASKS = ('django_jenkins.tasks.run_pylint',
+                 'django_jenkins.tasks.run_pep8',
+                 'django_jenkins.tasks.run_pyflakes',)
+
+PROJECT_APPS = [
+    'user_page',
+    'auth_page',
+    'tobacco_page',
+    'about_page',
+    'search_page',
+    'main_page'
 ]
 
 ROOT_URLCONF = 'tobaccopoisk.urls'
