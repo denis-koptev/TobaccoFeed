@@ -6,55 +6,56 @@ from math import ceil
 
 pageSize = 10
 
+
 def search(request):
 
-	if request.method == 'POST':
-		if request.POST.get("event") == "log_out":
-			return engine.unauthorize(request)
+    if request.method == 'POST':
+        if request.POST.get("event") == "log_out":
+            return engine.unauthorize(request)
 
-	q = request.GET.get('q')
+    q = request.GET.get('q')
 
-	try:
-		page = int(request.GET.get('page'))
-	except ValueError:
-		page = 1
+    try:
+        page = int(request.GET.get('page'))
+    except ValueError:
+        page = 1
 
-	if q == None:
-		q = ""
+    if q is None:
+        q = ""
 
-	if page == None or page < 1:
-		page = 1
-	
-	filtered = do_search(q)
+    if page is None or page < 1:
+        page = 1
 
-	if len(filtered) == 1:
-		return redirect("/" + utils.to_db_str(filtered[0]["brand"]) + "/" + utils.to_db_str(filtered[0]["name"]))
+    filtered = do_search(q)
 
-	pageCount = ceil(len(filtered) / pageSize)
+    if len(filtered) == 1:
+        return redirect("/" + utils.to_db_str(filtered[0]["brand"]) + "/" + utils.to_db_str(filtered[0]["name"]))
 
-	if page > pageCount:
-		page = pageCount
+    pageCount = ceil(len(filtered) / pageSize)
 
-	login = engine.getAuthorized(request)
+    if page > pageCount:
+        page = pageCount
 
-	context = {'found': getPage(filtered, page),
-			   'q': q,
-			   'login' : login,
-			   'page' : page,
-			   'page_count' : pageCount,
-			   'total_count' : len(filtered) }
+    login = engine.getAuthorized(request)
 
-	return render(request, 'search_page/search_page.html', context)
+    context = {'found': getPage(filtered, page),
+               'q': q,
+               'login': login,
+               'page': page,
+               'page_count': pageCount,
+               'total_count': len(filtered)}
+
+    return render(request, 'search_page/search_page.html', context)
 
 
 def getPage(list, page):
 
-	if len(list) == 0:
-		return []
+    if len(list) == 0:
+        return []
 
-	tail = pageSize * page
+    tail = pageSize * page
 
-	if tail > len(list):
-		tail = len(list)
+    if tail > len(list):
+        tail = len(list)
 
-	return list[(page-1)*pageSize : page*pageSize]
+    return list[(page - 1) * pageSize: page * pageSize]

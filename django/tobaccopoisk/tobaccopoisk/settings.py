@@ -52,12 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_jenkins',
 ]
-
-JENKINS_TASKS = ('django_jenkins.tasks.run_pylint',
-                 'django_jenkins.tasks.run_pep8',
-                 'django_jenkins.tasks.run_pyflakes',)
 
 PROJECT_APPS = [
     'user_page',
@@ -73,7 +68,7 @@ ROOT_URLCONF = 'tobaccopoisk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'templates') ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,7 +150,7 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.normcase(os.path.join(BASE_DIR, "static")) # untrusted definition
+# STATIC_ROOT = os.path.normcase(os.path.join(BASE_DIR, "static")) # untrusted definition
 
 STATICFILES_DIRS = (
     os.path.normcase(os.path.join(BASE_DIR, "auth_page/static")),       # untrusted definition

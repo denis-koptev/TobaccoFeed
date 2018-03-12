@@ -4,17 +4,19 @@ from auth_page import engine
 
 # Create your views here.
 
+
 def index(request):
 
-	if request.method == 'POST':
-		if request.POST.get("event") == "log_out":
-			return engine.unauthorize(request)
+    if request.method == 'POST':
+        if request.POST.get("event") == "log_out":
+            return engine.unauthorize(request)
 
-	login = engine.getAuthorized(request)
+    login = engine.getAuthorized(request)
 
-	context = {'login' : login}
-	
-	return render(request, 'about_page/about_page.html', context)
+    context = {'login': login}
+
+    return render(request, 'about_page/about_page.html', context)
+
 
 def error_404(request):
-	return render(request, 'error_404.html', {})
+    return render(request, 'error_404.html', {})
